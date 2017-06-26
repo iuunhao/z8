@@ -85,6 +85,33 @@ const Register = {
         return true;
     },
     /**
+     * [checkPass 检测密码]
+     * @return {[Boolean]} [是否通过检测]
+     */
+    checkPass() {
+        var $val = this.pass.val().trim();
+        if ($val == '') {
+            this.showError(this.pass, '请输入密码！');
+            return false;
+        }
+        return true;
+    },
+    /**
+     * [checkPass 检测密码]
+     * @return {[Boolean]} [是否通过检测]
+     */
+    checkRePass() {
+        var $val = this.repass.val().trim();
+        if ($val == '') {
+            this.showError(this.repass, '请确认密码！');
+            return false;
+        } else if($val != this.pass.val().trim()) {
+            this.showError(this.repass, '密码不一致！');
+            return false;
+        }
+        return true;
+    },
+    /**
      * [checkPhone 检测手机号]
      * @return {[Boolean]} [是否通过检测]
      */
@@ -149,7 +176,7 @@ const Register = {
      */
     getCode() {
 
-        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() || !this.checkPhone()) {
+        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() ||!this.checkPass() ||!this.checkRePass() || !this.checkPhone()) {
             return false;
         }
 
@@ -200,8 +227,7 @@ const Register = {
      * [submitFunc 提交表单]
      */
     submitFunc() {
-        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() || !this.checkPhone() || !this.checkCode() || !this.checkIntroduction()) {
-            return false;
+        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() ||!this.checkPass() ||!this.checkRePass() || !this.checkPhone() || !this.checkCode() || !this.checkIntroduction()) {            return false;
         }
 
         if (!this.ready) {
@@ -254,6 +280,8 @@ const Register = {
         this.birthday = $('#birthday');
         this.phone = $('#phone');
         this.passport = $('#passport');
+        this.pass = $('#password');
+        this.repass = $('#repassword');
         this.code = $('#code');
         this.codeBtn = $('#codeBtn');
         this.introduction = $('#introduction');
