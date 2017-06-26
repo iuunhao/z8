@@ -472,10 +472,11 @@ $VAR_C_HEISE_01: #2e3136
     .register__btn--max
         width: 350px
     .register__btn--line
+        background: #fff
         border: 1px solid $VAR_LINE_02
         color: $VAR_C_HUISE_01
         &:hover
-            background: #f7f7f7
+            background: #fff
     .register__textarea
         border: 1px solid $VAR_LINE_02
         min-height: 250px
@@ -727,7 +728,6 @@ $VAR_C_HEISE_01: #2e3136
         font-size: 16px
         color: $VAR_C_HUISE_02
         margin-bottom: 20px
-    .detailBlock__tit
     .detailBlock__all
         color: $VAR_C_HUISE_02
         font-size: 16px
