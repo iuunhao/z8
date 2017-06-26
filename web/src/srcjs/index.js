@@ -1,3 +1,3 @@
 !(function(d, log) {
-    alert('aaa');
+    log('aaaccc')
 })(document, window.console.log);

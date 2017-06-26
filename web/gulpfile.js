@@ -237,7 +237,7 @@ gulp.task("TASK_WATCH", function() {
         .watch([path.join(PATHS.HTML + "/**/*.html")])
         .on("change", reload);
     gulp
-        .watch([path.join(PATHS.SRCJS + "/**/*.js")], ["DEV_WEBPACK", "TASK_COPY_LIBS"])
+        .watch([path.join(PATHS.SRCJS + "/**/*.js")], ["DEV_WEBPACK"])
         .on("change", reload);
     gulp
         .watch([path.join(PATHS.POSTCSS + "/**/*.css")], [USER_CONFIG.MOD])
@@ -333,7 +333,7 @@ gulp.task("TASK_CLEAN", function() {
 // 拷贝libs
 gulp.task("TASK_COPY_LIBS", function() {
     return gulp
-        .src([PATHS.LIBS])
+        .src([path.join(PATHS.LIBS, '/**/*.js')])
         .pipe(gulp.dest(PATHS.JS))
 });
 
@@ -406,7 +406,7 @@ gulp.task("src_zip", function() {
 });
 
 // 默认
-gulp.task("default", [USER_CONFIG.MOD, "TASK_PUG", "DEV_WEBPACK"], function() {
+gulp.task("default", [USER_CONFIG.MOD, "TASK_PUG", "DEV_WEBPACK", "TASK_COPY_LIBS"], function() {
      gulp.start(["TASK_SERVER", "TASK_CLEAN_CSS"]);
 });
 
