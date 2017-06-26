@@ -8,9 +8,9 @@
 node_modules
 npm-debug.log
 dist
-src/js
-src/css
-src/view
+js
+css
+view
 zip
 
 # window
