@@ -5,14 +5,15 @@
 .DS_Store
 
 # node
-node_modules
+node_modules/
 npm-debug.log
-/dist/
-/js/
-/css/
-/view/
-/zip/
+dist/
+js/
+css/
+views/
+zip/
 !/libs/js/
+!/libs/css/
 
 # window
 *.dll
