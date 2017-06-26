@@ -1,0 +1,56 @@
+include common/common.pug
++head({title: '管理方案二级', bgClass: 'bgF7'})
+    .wrap.wrap--bg
+        .top 欢迎，设计师
+            em.top__user-name 轩亦辰
+            | |
+            a(href="").top__btn.top__btn--blue 退出
+        +headBar
+        .content.scheme
+            ul.schemeList
+                - for (var x = 0; x < 6; x++)
+                    li.schemeList__item(class=(x==1) ? 'schemeList__item--active' : '')
+                        .infoSimple
+                            img(src="../images/temp/glfa.png", alt="").infoSimple__img
+                            .infoSimple__txtBox
+                                p.infoSimple__txt.infoSimple__txt--tit 紫金新干线10号楼3单元201
+                                p.infoSimple__txt 3室2厅2卫1厨
+                                    span.m--l30 130平
+                                .pbox
+                                    p.infoSimple__txt 客户：侯小刚
+                                    p.infoSimple__txt 所属小区：紫金新干线
+                            .infoSimple__txtBox--poa
+                                p.infoSimple__txt 方案数：
+                                    em.txtColor--blue 12
+                                a(href="").infoSimple__open
+                        .infoDetail
+                            - for (var a = 0; a < 3; a++)
+                                .infoDetail__item
+                                .infoDetail__head
+                                    h4.infoDetail__tit 方案#{a + 1}：简约第一版
+                                        span.infoDetail__style 风格：简约
+                                    a(href="").infoDetail__btn 漫游
+                                .infoDetail__main
+                                    .detailBlock.detailBlock--photo
+                                        .detailBlock__head
+                                            h5.detailBlock__tit 效果图
+                                            a(href="").detailBlock__all 查看全部
+                                        ul.detailList
+                                            - for (var y = 0; y < 3; y++)
+                                                li.detailList__item
+                                                    a(href="").detailList__link
+                                                        img(src= (y == 2) ? "../images/public/img_default.png" : "../images/temp/glfa.png", alt="").detailList__img
+                                                    p.detailList__txt 暂无图片
+                                    .detailBlock.detailBlock--vedio
+                                        .detailBlock__head
+                                            h5.detailBlock__tit 视频
+                                            a(href="").detailBlock__all 查看全部
+                                        ul.detailList
+                                            - for (var y = 0; y < 3; y++)
+                                                li.detailList__item
+                                                    a(href="").detailList__link.vedioIcon(class=(y==2) ? 'detailList__link--default': '')
+                                                        img(src= (y == 2) ? "../images/public/vedio_default.png" : "../images/temp/glfa.png", alt="").detailList__img
+                                                    p.detailList__txt 暂无视频
+            a(href="").loadMore  点击加载更多
+            a(href="").gotoTop 返回顶部
+    //-+pubPop

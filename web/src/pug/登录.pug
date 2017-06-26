@@ -1,0 +1,19 @@
+include common/common.pug
++head({title: '登录'})
+    .wrap.login.blur
+        video(src="../images/login/bg.mp4", autoplay, loop).loginVideo
+    .loginMain
+        h1.loginLogo 装修设计互动体验平台
+        .loginForm
+            h3.loginTitle 密码登录
+            .loginInp
+                label(for="user_name").loginInp__label.loginInp__label--id
+                    input(type="text", id="user_name", placeholder="手机号/邮箱").loginInp__input
+                label(for="pass_word").loginInp__label.loginInp__label--password
+                    input(type="password", id="pass_word", placeholder="密码").loginInp__input
+            a(href="javascript:;").loginSubmit 登录
+            .loginAuxi
+                a(href="").loginAuxi__item.loginAuxi__item--active 忘记密码
+                a(href="").loginAuxi__item 免费注册
+            a(href="javascript:;").loginEwm
+                .loginEwm__tips 扫码登录更安全

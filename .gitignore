@@ -1,0 +1,18 @@
+*.zip
+*.rar
+
+# mac
+.DS_Store
+
+# node
+node_modules
+npm-debug.log
+dist
+src/js
+src/css
+src/view
+zip
+
+# window
+*.dll
+*.exe
