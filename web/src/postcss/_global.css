@@ -1,14 +1,14 @@
 /******   尺寸类S  *******/
 
-$VAR_MAX_WIDTH: 1600px
-$VAR_MIN_WIDTH: 1100px
-$VAR_MAIN_WIDTH: 1200px
+$VAR_MAX_WIDTH: 1600px;
+$VAR_MIN_WIDTH: 1100px;
+$VAR_MAIN_WIDTH: 1200px;
 
 /******   尺寸类E  *******/
 
 /******  颜色类 S  *******/
 
-$VAR_C_BLUE: blue
+$VAR_C_BLUE: blue;
 
 /******  颜色类 E  *******/
 
