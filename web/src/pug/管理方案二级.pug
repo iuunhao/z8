@@ -9,7 +9,7 @@ include common/common.pug
         .content.scheme
             ul.schemeList#schemeList
                 - for (var x = 0; x < 6; x++)
-                    li.schemeList__item()
+                    li.schemeList__item().schemeList__item--active
                         .infoSimple
                             img(src="../images/temp/glfa.png", alt="").infoSimple__img
                             .infoSimple__txtBox
@@ -38,7 +38,7 @@ include common/common.pug
                                         ul.detailList
                                             - for (var y = 0; y < 3; y++)
                                                 li.detailList__item
-                                                    a(href="javascript:;").detailList__link.img_default
+                                                    a(href="javascript:;", class="y ==2 "? 'img_default': "").detailList__link.
                                                         img(src= (y == 2) ? "../images/public/img_default.png" : "../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
                                                     p.detailList__txt 暂无图片
                                     .detailBlock.detailBlock--vedio
@@ -48,7 +48,7 @@ include common/common.pug
                                         ul.detailList
                                             - for (var y = 0; y < 3; y++)
                                                 li.detailList__item
-                                                    a(href="javascript:;").detailList__link.vedioIcon(class=(y==2) ? 'detailList__link--default': '').vedio_default
+                                                    a(href="javascript:;").detailList__link.vedioIcon(class=(y==2) ? 'detailList__link--default vedio_default': '')
                                                         img(src= (y == 2) ? "../images/public/vedio_default.png" : "../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
                                                     p.detailList__txt 暂无视频
             a(href="javascript:;").loadMore  点击加载更多
