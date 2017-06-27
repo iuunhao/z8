@@ -2,7 +2,7 @@
  * [showDetail 查看详情]
  * @type {Object}
  */
-
+import { showTips } from '../srcjs/_unit.js'
 const showDetail = {
     wrap: $('#schemeList'),
     /**
@@ -13,42 +13,80 @@ const showDetail = {
         var cname = 'schemeList__item--active',
             $parent = $open.parents('li');
         $parent.toggleClass(cname);
-        this.lookPic($parent);
-    },
-    lookPic($parent) {
-        // if (this.viewer) {
-        //     this.viewer = null;
-        // }
-        // var dom = $parent.find('.infoDetail').get(0);
-        // this.viewer = new Viewer(dom, {
-        //     toolbar: false,
-        //     navbar: false
-        // });
     },
     /**
      * [init 初始化]
      */
     init() {
         var that = this;
-        this.viewer = null;
 
-        // $(document).on('click', 'img', function() {
-        //     if(!$(this).data('data-original')) {
-        //         return false;
-        //     }
-        // })
-        // 
+        /**
+         * [navbar 图片预览]
+         * @type {Boolean}
+         */
         $('img[data-original]').viewer({
             navbar: false,
             toolbar: false
         });
 
-        // 阻止一些图片可预览
+        /**
+         * [阻止一些图片可预览]
+         */
         this.wrap.on('click', '.infoSimple__open', function() {
             that.showDetail($(this));
             return false;
         })
-
     }
 };
 showDetail.init();
+
+/**
+ * [LoadMore 加载更多]
+ * @type {Object}
+ */
+const LoadMore = {
+    /**
+     * [url 接口地址]
+     * @type {[String]}
+     */
+    url: $('#loadMoreURI').val(),
+    button: $('#loadMore'),
+    wrapper: $('#schemeList'),
+    loadMoreData() {
+        if (!this.ready) {
+            return false;
+        }
+        this.ready = false;
+
+        // this.wrapper.append(this.wrapper.find('li').eq(0))
+
+        $.ajax({
+                url: this.url,
+                type: 'POST',
+                dataType: 'json'
+            })
+            .done((res) => {
+                if (res == 1) {
+                    this.wrapper.append(res.data);
+                } else {
+                    showTips(res.msg);
+                }
+                this.ready = true;
+            })
+            .fail(() => {
+                this.ready = true;
+                console.log("error");
+            })
+            .always(() => {
+                this.ready = true;
+                console.log("complete");
+            });
+
+    },
+    init() {
+        this.ready = true;
+        this.button.on('click', this.loadMoreData.bind(this));
+    }
+};
+
+LoadMore.init();

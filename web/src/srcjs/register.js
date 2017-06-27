@@ -180,12 +180,10 @@ const Register = {
             return false;
         }
 
-
         if (!this.readyCode) {
-            this.readyCode = false;
             return false;
         }
-
+        this.readyCode = false;
         $.ajax({
                 url: '/Api/Fund/fundmanager',
                 type: 'POST',
@@ -231,10 +229,10 @@ const Register = {
         }
 
         if (!this.ready) {
-            this.ready = false;
             return false;
         }
 
+        this.ready = false;
         $.ajax({
                 url: '/Reg/action',
                 type: 'POST',

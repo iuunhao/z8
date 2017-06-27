@@ -55,9 +55,7 @@ include common/common.pug
                                                     a(href="javascript:;").detailList__link.vedioIcon(class=(y==2) ? 'detailList__link--default vedio_default': '')
                                                         img(src= (y == 2) ? "../images/public/vedio_default.png" : "../images/temp/glfa.png", alt="").detailList__img
                                                     p.detailList__txt 暂无视频
-            a(href="javascript:;").loadMore  点击加载更多
+            a(href="javascript:;").loadMore#loadMore  点击加载更多
             a(href="#").gotoTop 返回顶部
-    <script type="text/template">
-        a(href="#").gotoTop 返回顶部
-    </script>
+    input(type="hidden", id="loadMoreURI", value="/")
     //-+pubPop

@@ -37,10 +37,10 @@ const Login = {
         }
 
         if (!this.ready) {
-            this.ready = false;
             return false;
         }
 
+        this.ready = false;
 
         $.ajax({
                 url: '/Login/action',
