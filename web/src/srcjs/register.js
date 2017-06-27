@@ -11,7 +11,7 @@ const Register = {
         var $siblings = $object.siblings('.input__error');
         // show
         $siblings.removeClass('none').css({ opacity: 0 });
-        $siblings.html(msg).stop(true, true).animate({ opacity: 1 }, () => {
+        $siblings.html(msg).stop(true, true).animate({ opacity: 1 }, function() {
             if ($object.timer) {
                 clearTimeout($object.timer);
                 $object.timer = null;

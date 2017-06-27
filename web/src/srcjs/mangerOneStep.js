@@ -57,7 +57,7 @@ const Edit = {
             type: 'POST',
             dataType: 'json',
             data: { proId: $parents.attr('pro_id') },
-            success(data) {
+            success: function(data) {
                 if (data.res == 1) {
                     $parents.animate({ opacity: 0 }, function() {
                         $(this).remove();
@@ -158,7 +158,7 @@ const showPlayVideo = {
      */
     showVideoHandler: function($video) {
         var $src = $video.attr('src');
-        if(!$src) return false;
+        if (!$src) return false;
         this.pop.find('video').attr('src', $src);
         this.showPop();
     },
@@ -174,6 +174,6 @@ const showPlayVideo = {
             that.showVideoHandler($(this))
         })
         this.close.on('click', this.closePopHandler.bind(this));
-    },
+    }
 };
 showPlayVideo.init();
