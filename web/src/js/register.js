@@ -101,7 +101,7 @@ const Register = {
     /**
      * [showError 显示错误信息]
      */
-    showError($object, msg) {
+    showError: function($object, msg) {
         var $siblings = $object.siblings('.input__error');
         // show
         $siblings.removeClass('none').css({ opacity: 0 });
@@ -123,7 +123,7 @@ const Register = {
      * [checkUser 检测用户名]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkUser() {
+    checkUser: function() {
         var $val = this.user.val().trim();
         if ($val == '') {
             this.showError(this.user, '请输入姓名！');
@@ -136,7 +136,7 @@ const Register = {
      * [checkSexy 检测用户名性别]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkSexy() {
+    checkSexy: function() {
         var $val = this.getSexy().val();
         if (!$val) {
             this.showError(this.sexy.find('label'), '请选择性别！');
@@ -148,14 +148,14 @@ const Register = {
      * [getSexy 获取性别]
      * @return {[Object]} []
      */
-    getSexy() {
+    getSexy: function() {
         return this.sexy.find('input[type=radio]:checked')
     },
     /**
      * [checkBirtyday 检测出生日期]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkBirtyday() {
+    checkBirtyday: function() {
         var $val = this.birthday.val();
         if ($val == '') {
             this.showError(this.birthday, '请输入出生日期！');
@@ -167,7 +167,7 @@ const Register = {
      * [checkPassport 检测身份证]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPassport() {
+    checkPassport: function() {
         var $val = this.passport.val().trim();
         if ($val == '') {
             this.showError(this.passport, '请输入身份证号！');
@@ -182,7 +182,7 @@ const Register = {
      * [checkPass 检测密码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPass() {
+    checkPass: function() {
         var $val = this.pass.val().trim();
         if ($val == '') {
             this.showError(this.pass, '请输入密码！');
@@ -194,12 +194,12 @@ const Register = {
      * [checkPass 检测密码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkRePass() {
+    checkRePass: function() {
         var $val = this.repass.val().trim();
         if ($val == '') {
             this.showError(this.repass, '请确认密码！');
             return false;
-        } else if($val != this.pass.val().trim()) {
+        } else if ($val != this.pass.val().trim()) {
             this.showError(this.repass, '密码不一致！');
             return false;
         }
@@ -209,7 +209,7 @@ const Register = {
      * [checkPhone 检测手机号]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPhone() {
+    checkPhone: function() {
         var $val = this.phone.val().trim();
         if ($val == '') {
             this.showError(this.phone, '请输入手机号！');
@@ -224,7 +224,7 @@ const Register = {
      * [checkCode 检测验证码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkCode() {
+    checkCode: function() {
         var $val = this.code.val().trim();
         if ($val == '') {
             this.showError(this.code, '请输入验证码！');
@@ -236,7 +236,7 @@ const Register = {
      * [checkIntroduction 检测个人简介]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkIntroduction() {
+    checkIntroduction: function() {
         var $val = this.introduction.val().trim();
         if ($val == '') {
             this.showError(this.introduction, '请输入个人简介！');
@@ -268,9 +268,9 @@ const Register = {
     /**
      * [getCode 获取验证码]
      */
-    getCode() {
-
-        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() ||!this.checkPass() ||!this.checkRePass() || !this.checkPhone()) {
+    getCode: function() {
+        var that = this;
+        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() || !this.checkPass() || !this.checkRePass() || !this.checkPhone()) {
             return false;
         }
 
@@ -279,47 +279,41 @@ const Register = {
         }
         this.readyCode = false;
         $.ajax({
-                url: '/Api/Fund/fundmanager',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    phone: this.phone.val()
-                },
-            })
-            .done((data) => {
+            url: '/Api/Fund/fundmanager',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                phone: this.phone.val()
+            },
+            success: function(data) {
                 if (data.res == 1) {
-                    this.codeBtn.addClass('register__btn--line');
-                    this.countDown({
+                    that.codeBtn.addClass('register__btn--line');
+                    that.countDown({
                         counting: function(t) {
-                            this.codeBtn.html(t + 's');
-                        }.bind(this),
+                            that.codeBtn.html(t + 's');
+                        },
                         end: function() {
-                            this.codeBtn.removeClass('register__btn--line');
-                            this.codeBtn.html('重新获取');
-                            this.smsReady = true;
-                        }.bind(this)
+                            that.codeBtn.removeClass('register__btn--line');
+                            that.codeBtn.html('重新获取');
+                            that.smsReady = true;
+                        }
                     });
                     return false;
                 } else {
-                    this.showError(this.codeBtn, data.msg);
+                    that.showError(that.codeBtn, data.msg);
                 }
-                this.readyCode = true;
-            })
-            .fail(function() {
-                console.log("error");
-                this.readyCode = true;
-            })
-            .always(function() {
-                console.log("complete");
-                this.readyCode = true;
-            });
+                that.readyCode = true;
+            }
+        })
 
     },
     /**
      * [submitFunc 提交表单]
      */
-    submitFunc() {
-        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() ||!this.checkPass() ||!this.checkRePass() || !this.checkPhone() || !this.checkCode() || !this.checkIntroduction()) {            return false;
+    submitFunc: function() {
+        var that = this;
+        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() || !this.checkPass() || !this.checkRePass() || !this.checkPhone() || !this.checkCode() || !this.checkIntroduction()) {
+            return false;
         }
 
         if (!this.ready) {
@@ -328,43 +322,35 @@ const Register = {
 
         this.ready = false;
         $.ajax({
-                url: '/Reg/action',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    user_name: this.user.val(),
-                    sex: this.getSexy().val(),
-                    birthday: this.birthday().val(),
-                    phone: this.phone().val(),
-                    passport: this.passport().val(),
-                    code: this.code().val(),
-                    introduction: this.introduction().val()
-                }
-            })
-            .done((res) => {
-                if (res == 1) {
+            url: '/Reg/action',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                user_name: this.user.val(),
+                sex: this.getSexy().val(),
+                birthday: this.birthday.val(),
+                phone: this.phone.val(),
+                passport: this.passport.val(),
+                code: this.code.val(),
+                introduction: this.introduction.val()
+            },
+            success: function(data) {
+                if (data.res == 1) {
                     __WEBPACK_IMPORTED_MODULE_0__unit_js__["a" /* showTips */](res.msg);
-                    if (res.url) {
-                        window.location.href = res.url;
+                    if (data.data.url) {
+                        window.location.href = data.data.url;
                     }
                 } else {
                     __WEBPACK_IMPORTED_MODULE_0__unit_js__["a" /* showTips */](res.msg);
                 }
-            })
-            .fail(() => {
-                console.log("error");
-                this.ready = true;
-            })
-            .always(() => {
-                console.log("complete");
-                console.log("complete");
-                this.ready = true;
-            });
+                that.ready = true;
+            }
+        })
     },
     /**
      * [init 初始化]
      */
-    init() {
+    init: function() {
         this.ready = true;
         this.readyCode = true;
         this.user = $('#user');

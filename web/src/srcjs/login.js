@@ -8,7 +8,7 @@ const Login = {
      * [checkUser 检测用户名]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkUser() {
+    checkUser: function() {
         var $val = this.user.val().trim();
         if ($val == '') {
             showTips('请输入用户名！');
@@ -20,7 +20,7 @@ const Login = {
      * [checkPass 检测密码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPass() {
+    checkPass: function() {
         var $val = this.pass.val().trim();
         if ($val == '') {
             showTips('请输入密码！');
@@ -31,7 +31,8 @@ const Login = {
     /**
      * [submitFunc 提交表单]
      */
-    submitFunc() {
+    submitFunc: function() {
+        var that = this;
         if (!this.checkUser() || !this.checkPass()) {
             return false;
         }
@@ -43,15 +44,14 @@ const Login = {
         this.ready = false;
 
         $.ajax({
-                url: '/Login/action',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    username: this.user.val(),
-                    password: this.pass.val()
-                }
-            })
-            .done((data) => {
+            url: '/Login/action',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                username: this.user.val(),
+                password: this.pass.val()
+            },
+            success: function(data) {
                 if (data.res == 1) {
                     showTips(data.msg);
                     if (data.data.url) {
@@ -60,20 +60,14 @@ const Login = {
                 } else {
                     showTips(data.msg);
                 }
-            })
-            .fail(() => {
-                console.log("error");
-                this.ready = true;
-            })
-            .always(() => {
-                console.log("complete");
-                this.ready = true;
-            });
+                that.ready = true;
+            }
+        })
     },
     /**
      * [init 初始化]
      */
-    init() {
+    init: function() {
         this.ready = true;
         this.wrap = $('#loginForm');
         this.user = $('#user_name');

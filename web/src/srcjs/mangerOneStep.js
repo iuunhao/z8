@@ -15,7 +15,7 @@ const Edit = {
     /**
      * [showEdit 显示编辑按钮内容可编辑]
      */
-    showEdit() {
+    showEdit: function() {
         this.btnEdit.removeClass(this.cname);
         this.btnConfirm.addClass(this.cname);
         this.wrapper.removeClass(this.editName);
@@ -24,7 +24,7 @@ const Edit = {
     /**
      * [showConfirm 显示确定按钮内容可编辑]
      */
-    showConfirm() {
+    showConfirm: function() {
         this.contenteditable = true;
         this.btnConfirm.removeClass(this.cname);
         this.btnEdit.addClass(this.cname);
@@ -34,7 +34,7 @@ const Edit = {
      * [confirmHandler 提交修改]
      * @return {[Boolean]} [阻止默认事件]
      */
-    confirmHandler() {
+    confirmHandler: function() {
         this.showEdit();
         return false;
     },
@@ -42,14 +42,14 @@ const Edit = {
      * [editHandler 编辑]
      * @return {[Boolean]} [阻止默认事件]
      */
-    editHandler() {
+    editHandler: function() {
         this.showConfirm();
         return false;
     },
     /**
      * [removeHandler 删除内容]
      */
-    removeHandler() {
+    removeHandler: function() {
         if (!this.contenteditable) return false;
         var $parents = $(this).parents('li');
         $.ajax({
@@ -72,7 +72,7 @@ const Edit = {
      * [updataNameHandler 修改名称]
      * @param  {[Object]} $name [要修改的对象]
      */
-    updataNameHandler($name) {
+    updataNameHandler: function($name) {
         if (!this.contenteditable) return false;
         $name.attr('contenteditable', true);
         $name.focus();
@@ -81,7 +81,7 @@ const Edit = {
      * [updatedName 修改名称完成]
      * @param  {[Object]} $name [要修改的对象]
      */
-    updatedName($name) {
+    updatedName: function($name) {
         if ($name.text() == '') {
             var text = $name.siblings('input[type=hidden]').val();
             showTips('名字不能为空！');
@@ -97,7 +97,7 @@ const Edit = {
     /**
      * [init 初始化]
      */
-    init() {
+    init: function() {
         var that = this;
         this.contenteditable = false;
         this.btnEdit.on('click', this.editHandler.bind(this))
@@ -135,19 +135,19 @@ const showPlayVideo = {
     /**
      * [showPop 显示视频弹窗]
      */
-    showPop() {
+    showPop: function() {
         this.pop.removeClass('none');
     },
     /**
      * [hidePop 关闭视频弹窗]
      */
-    hidePop() {
+    hidePop: function() {
         this.pop.addClass('none');
     },
     /**
      * [closePopHandler 关闭视频]
      */
-    closePopHandler() {
+    closePopHandler: function() {
         this.hidePop();
         var $video = this.pop.find('video');
         $video.attr('src', '');
@@ -156,7 +156,7 @@ const showPlayVideo = {
      * [showVideoHandler 显示视频]
      * @param  {[Object]} $video [要播放的视频]
      */
-    showVideoHandler($video) {
+    showVideoHandler: function($video) {
         var $src = $video.attr('src');
         if(!$src) return false;
         this.pop.find('video').attr('src', $src);
@@ -166,7 +166,7 @@ const showPlayVideo = {
      * [init 初始化]
      * @return {[type]} [description]
      */
-    init() {
+    init: function() {
         var that = this;
         this.pop = $('#pubPop');
         this.close = this.pop.find('.pubPop__close');

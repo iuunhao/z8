@@ -1,4 +1,3 @@
-var webpack = require("webpack");
 const fs = require('fs');
 const path = require('path');
 const cwd = path.join(process.cwd());
@@ -21,7 +20,7 @@ const webpackOptions = {
             exclude: [
                 path.resolve(__dirname, '../node_modules')
             ],
-            loader: 'babel-loader?presets[]=es2015'
+            loader: 'babel-loader?presets[]=es2015',
         }]
     },
     resolve: {

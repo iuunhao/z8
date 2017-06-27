@@ -9,7 +9,7 @@ const showDetail = {
      * [showDetail 展开详情]
      * @param  {[Object]} $open [点击的哪个按钮]
      */
-    showDetail($open) {
+    showDetail: function($open) {
         var cname = 'schemeList__item--active',
             $parent = $open.parents('li');
         $parent.toggleClass(cname);
@@ -17,7 +17,7 @@ const showDetail = {
     /**
      * [init 初始化]
      */
-    init() {
+    init: function() {
         var that = this;
 
         /**
@@ -53,7 +53,8 @@ const LoadMore = {
     url: $('#loadMoreURI').val(),
     button: $('#loadMore'),
     wrapper: $('#schemeList'),
-    loadMoreData() {
+    loadMoreData: function() {
+        var that = this;
         if (!this.ready) {
             return false;
         }
@@ -62,29 +63,21 @@ const LoadMore = {
         // this.wrapper.append(this.wrapper.find('li').eq(0))
 
         $.ajax({
-                url: this.url,
-                type: 'POST',
-                dataType: 'json'
-            })
-            .done((res) => {
-                if (res == 1) {
-                    this.wrapper.append(res.data);
+            url: this.url,
+            type: 'POST',
+            dataType: 'json',
+            success: function(data) {
+                if (data.res == 1) {
+                    that.wrapper.append(data.data);
                 } else {
                     showTips(res.msg);
                 }
-                this.ready = true;
-            })
-            .fail(() => {
-                this.ready = true;
-                console.log("error");
-            })
-            .always(() => {
-                this.ready = true;
-                console.log("complete");
-            });
+                that.ready = true;
+            }
+        })
 
     },
-    init() {
+    init: function() {
         this.ready = true;
         this.button.on('click', this.loadMoreData.bind(this));
     }
@@ -102,19 +95,19 @@ const showPlayVideo = {
     /**
      * [showPop 显示视频弹窗]
      */
-    showPop() {
+    showPop: function() {
         this.pop.removeClass('none');
     },
     /**
      * [hidePop 关闭视频弹窗]
      */
-    hidePop() {
+    hidePop: function() {
         this.pop.addClass('none');
     },
     /**
      * [closePopHandler 关闭视频]
      */
-    closePopHandler() {
+    closePopHandler: function() {
         this.hidePop();
         var $video = this.pop.find('video');
         $video.attr('src', '');
@@ -123,9 +116,9 @@ const showPlayVideo = {
      * [showVideoHandler 显示视频]
      * @param  {[Object]} $video [要播放的视频]
      */
-    showVideoHandler($video) {
+    showVideoHandler: function($video) {
         var $src = $video.attr('src');
-        if(!$src) return false;
+        if (!$src) return false;
         this.pop.find('video').attr('src', $src);
         this.showPop();
     },
@@ -133,7 +126,7 @@ const showPlayVideo = {
      * [init 初始化]
      * @return {[type]} [description]
      */
-    init() {
+    init: function() {
         var that = this;
         this.pop = $('#pubPop');
         this.close = this.pop.find('.pubPop__close');
@@ -144,4 +137,3 @@ const showPlayVideo = {
     },
 };
 showPlayVideo.init();
-
