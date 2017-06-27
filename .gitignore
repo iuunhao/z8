@@ -7,13 +7,10 @@
 # node
 node_modules/
 npm-debug.log
-dist/
-js/
-css/
-views/
-zip/
-!/libs/js/
-!/libs/css/
+/dist/
+/js/
+/css/
+/zip/
 
 # window
 *.dll

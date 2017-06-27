@@ -1,0 +1,65 @@
+//- 路径
+-var URL = '../';
+-var CSS = '../css/';
+-var IMG = '../images/';
+-var JS = '../js/';
+-var PUG = '../pug/';
+//- 方法
+//- +head({
+//-     title: 'index',
+//-     link: [
+//-         'style.css',
+//-         'index.css'
+//-     ],
+//-     scripts: [
+//-         'index.js'
+//-     ]
+//- })
+mixin head(opts)
+    <!DOCTYPE html>
+    html(lang="zh-cn")
+        head
+            meta(charset="UTF-8")
+            meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no")
+            meta(http-equiv="X-UA-Compatible", content="ie=edge")
+            meta(name="keywords", content="")
+            meta(name="description", content="")
+            title #{opts.title}
+            link(rel="stylesheet", href=CSS + "style.css")
+            if opts.links
+                each link in opts.links
+                    link(rel="stylesheet", href=CSS+ link)
+            script(src=JS+ "px2rem.min.js")
+        body(class=opts.bgClass ? opts.bgClass: '')
+            block
+            script(src= JS + "jquery/1.8.3/jquery.js")
+            script(src= JS + "common.js")
+            if opts.scripts
+                each script in opts.scripts
+                    script(src= JS + script)
+
+
+//- +headBar({
+//-     A: '',
+//-     B: 'active',
+//-     C: 'fail'
+//- })
+mixin topBar()
+    .head
+        img(src="../images/icon-home/logo.png", alt="").head__logo
+        ul.head__nav
+            li.head__nav-glfa.head__nav--active
+                a(href="").head__nav-item 管理方案
+            li.head__nav-glkh
+                a(href="").head__nav-item 管理客户
+            li.head__nav-qb
+                a(href="").head__nav-item 钱包
+            li.head__nav-add
+                a(href="").head__nav-item 添加设计方案
+
+mixin pubPop()
+    .pubPop
+        a(href="javascript:;").pubPop__close  ✕
+        .pubPop__main
+            video(src="../images/login/bg.mp4", autoplay, loop).pubPop__video
+            img(src="../images/temp/glfa.png", alt="").pubPop__img.none

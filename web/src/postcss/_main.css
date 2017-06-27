@@ -5,13 +5,6 @@ $VAR_C_HUISE_02: #2e2e35;
 $VAR_C_LANSE_01: #508aff;
 $VAR_C_HEISE_01: #2e3136;
 
-
-
-
-
-
-
-
 /*公共*/
 
 .txtColor--orange {
@@ -25,13 +18,6 @@ $VAR_C_HEISE_01: #2e3136;
 .m--l30 {
     margin-left: 30px;
 }
-
-
-
-
-
-
-
 
 
 /****** 登录 S  *******/
@@ -209,13 +195,6 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
-
-
-
-
-
-
-
 /****** 登录 E  *******/
 
 
@@ -302,93 +281,104 @@ $VAR_C_HEISE_01: #2e3136;
             flex: 1;
         }
     }
-    .head__nav-glfa,
-    .head__nav-glkh,
-    .head__nav-qb,
-    .head__nav-add,
-    .head__nav-zc {
-        .head__nav-item {
-            &:after {
-                content: "";
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                width: 190px;
-                height: 46px;
-                background-repeat: no-repeat;
-            }
+}
+
+.head__nav-glfa,
+.head__nav-glkh,
+.head__nav-qb,
+.head__nav-add,
+.head__nav-zc {
+    .head__nav-item {
+        &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 190px;
+            height: 46px;
+            background-repeat: no-repeat;
         }
-        .head__nav-glfa {
-            .head__nav-item {
-                &:after {
-                    background-image: url(../images/icon-home/nav_glfa_1.png);
-                }
-            }
-        }
-        .head__nav-glkh {
-            .head__nav-item {
-                &:after {
-                    background-image: url(../images/icon-home/nav_glkh_1.png);
-                }
-            }
-        }
-        .head__nav-qb {
-            .head__nav-item {
-                &:after {
-                    background-image: url(../images/icon-home/nav_qb_1.png);
-                }
-            }
-        }
-        .head__nav-add {
-            .head__nav-item {
-                background: #528AFC;
-                &:after {
-                    background-image: url(../images/icon-home/nav_add_2.png)
-                }
-            }
-        }
-        .head__nav-zc {
-            .head__nav-item {
-                &:after {
-                    background-image: url(../images/icon-home/nav_zc_2.png)
-                }
-            }
-        }
-        .head__nav--active {
-            position: relative;
-            &:before {
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-left: 8px solid transparent;
-                border-right: 8px solid transparent;
-                border-bottom: 8px solid #fff;
-                left: 50%;
-                bottom: 0;
-                transform: translateX(-50%);
-            }
-        }
-        .head__nav--active.head__nav-glfa,
-        .head__nav-glfa:hover {
-            .head__nav-item {
-                &:after {
-                    background-image: url(../images/icon-home/nav_glfa_2.png);
-                }
-            }
-        }
-        .head__nav--active.head__nav-glkh,
-        .head__nav-glkh:hover {
-            .head__nav-item {
-                &:after {
-                    background-image: url(../images/icon-home/nav_glkh_2.png);
-                }
-            }
-        }
-        .head__nav--active.head__nav-qb,
-        .head__nav-qb:hover
     }
+}
+
+.head__nav-glfa {
+    .head__nav-item {
+        &:after {
+            background-image: url(../images/icon-home/nav_glfa_1.png);
+        }
+    }
+}
+
+.head__nav-glkh {
+    .head__nav-item {
+        &:after {
+            background-image: url(../images/icon-home/nav_glkh_1.png);
+        }
+    }
+}
+
+.head__nav-qb {
+    .head__nav-item {
+        &:after {
+            background-image: url(../images/icon-home/nav_qb_1.png);
+        }
+    }
+}
+
+.head__nav-add {
+    .head__nav-item {
+        background: #528AFC;
+        &:after {
+            background-image: url(../images/icon-home/nav_add_2.png)
+        }
+    }
+}
+
+.head__nav-zc {
+    .head__nav-item {
+        &:after {
+            background-image: url(../images/icon-home/nav_zc_2.png)
+        }
+    }
+}
+
+.head__nav--active {
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #fff;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+    }
+}
+
+.head__nav--active.head__nav-glfa,
+.head__nav-glfa:hover {
+    .head__nav-item {
+        &:after {
+            background-image: url(../images/icon-home/nav_glfa_2.png);
+        }
+    }
+}
+
+.head__nav--active.head__nav-glkh,
+.head__nav-glkh:hover {
+    .head__nav-item {
+        &:after {
+            background-image: url(../images/icon-home/nav_glkh_2.png);
+        }
+    }
+}
+
+.head__nav--active.head__nav-qb,
+.head__nav-qb:hover {
     .head__nav-item {
         &:after {
             background-image: url(../images/icon-home/nav_qb_2.png);
@@ -400,8 +390,6 @@ $VAR_C_HEISE_01: #2e3136;
     width: $VAR_MAIN_WIDTH;
     margin: 0 auto;
 }
-
-
 
 
 /****** 前台公共 E  *******/
@@ -427,24 +415,20 @@ $VAR_C_HEISE_01: #2e3136;
             background: $VAR_C_LANSE_01;
         }
     }
-
     .index__title-number {
         color: $VAR_C_LANSE_01;
         padding: 0 10px;
     }
-
     .designList {
         margin-top: 75px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-
     .designList__item {
         flex: 0 0 47%;
         margin-bottom: 70px;
     }
-
     .designList__img {
         width: 100px;
         display: block;
@@ -452,11 +436,9 @@ $VAR_C_HEISE_01: #2e3136;
         z-index: 1;
         box-shadow: 0px 0px 21px 0px rgba(35, 24, 21, 0.13);
     }
-
     .designList__link {
         color: $VAR_C_HEISE_01;
     }
-
     .designList__box {
         margin: 50px 0 0 50px;
         background: #f8f8f8;
@@ -475,16 +457,13 @@ $VAR_C_HEISE_01: #2e3136;
             transform: translateY(-50%) rotate(45deg);
         }
     }
-
     .designList__tit {
         margin-bottom: 10px;
     }
-
     .designList__num {
         color: $VAR_C_LANSE_01;
         padding: 0 10px;
     }
-
     .indexFooer {
         text-align: center;
         font-size: 24px;
@@ -503,13 +482,6 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
-
-
-
-
-
-
-
 
 
 /****** 首页 E  *******/
@@ -694,15 +666,6 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
-
-
-
-
-
-
-
-
-
 /****** 注册 E  *******/
 
 .manage {
@@ -723,7 +686,6 @@ $VAR_C_HEISE_01: #2e3136;
         font-size: 18px;
         color: $VAR_C_HUISE_02;
     }
-
     .manageHead__btn {
         background: #fff;
         color: $VAR_C_HUISE_02;
@@ -749,11 +711,9 @@ $VAR_C_HEISE_01: #2e3136;
         color: $VAR_C_HUISE_02;
         margin-bottom: 20px;
     }
-
     .manageList__link {
         display: block;
     }
-
     .manageList {
         display: flex;
         flex-wrap: wrap;
@@ -807,7 +767,6 @@ $VAR_C_HEISE_01: #2e3136;
         content: "";
         position: absolute;
     }
-
     &:before {
         left: 0;
         right: 0;
@@ -815,7 +774,6 @@ $VAR_C_HEISE_01: #2e3136;
         bottom: 0;
         background: rgba(0, 0, 0, .5);
     }
-
     &:after {
         left: 50%;
         top: 50%;
@@ -835,7 +793,6 @@ $VAR_C_HEISE_01: #2e3136;
             background: #477be3;
         }
     }
-
     .manageList {
         .manageList__close {
             display: block;
@@ -845,13 +802,6 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
-
-
-
-
-
-
-
 
 
 /******  设计方案二级 S  *******/
@@ -884,7 +834,6 @@ $VAR_C_HEISE_01: #2e3136;
         margin-bottom: 40px;
         background: #fff;
     }
-
     .schemeList__item--active {
         height: auto;
         transition: all .3s ease-out;
@@ -907,7 +856,6 @@ $VAR_C_HEISE_01: #2e3136;
         margin-right: 40px;
         background: #f6f6f6;
     }
-
     .pbox {
         display: flex;
         .infoSimple__txt {
@@ -915,18 +863,15 @@ $VAR_C_HEISE_01: #2e3136;
             width: 0;
         }
     }
-
     .infoSimple__txtBox {
         flex: 1;
     }
-
     .infoSimple__txtBox--poa {
         position: absolute;
         top: 40px;
         right: 40px;
         bottom: 40px;
     }
-
     .infoSimple__txt {
         font-size: 16px;
         padding: 10px 0;
@@ -947,7 +892,6 @@ $VAR_C_HEISE_01: #2e3136;
             padding-right: 200px;
         }
     }
-
     .infoSimple__open {
         position: absolute;
         top: 0;
@@ -1000,7 +944,6 @@ $VAR_C_HEISE_01: #2e3136;
             top: 0;
         }
     }
-
     .detailBlock__head {
         display: flex;
         justify-content: space-between;
@@ -1008,7 +951,6 @@ $VAR_C_HEISE_01: #2e3136;
         color: $VAR_C_HUISE_02;
         margin-bottom: 20px;
     }
-
     .detailBlock__all {
         color: $VAR_C_HUISE_02;
         font-size: 16px;
@@ -1028,24 +970,20 @@ $VAR_C_HEISE_01: #2e3136;
             display: inline-block;
         }
     }
-
     .infoDetail__head {
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
     }
-
     .infoDetail__tit {
         font-size: 16px;
         color: $VAR_C_HUISE_02;
         font-weight: bold;
     }
-
     .infoDetail__style {
         font-weight: 400;
         margin-left: 40px;
     }
-
     .infoDetail__btn {
         height: 40px;
         line-height: 40px;
@@ -1069,17 +1007,14 @@ $VAR_C_HEISE_01: #2e3136;
         margin-left: 35px;
         margin-bottom: 20px;
     }
-
     .detailList__link {
         display: block;
     }
-
     .detailList__img {
         display: block;
         width: 150px;
         height: 150px;
     }
-
     .detailList__txt {
         text-align: center;
         font-size: 16px;
@@ -1125,13 +1060,6 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
-
-
-
-
-
-
-
 /******  设计方案二级 E  *******/
 
 .pubPop {
@@ -1151,7 +1079,6 @@ $VAR_C_HEISE_01: #2e3136;
         bottom: 0;
         background: rgba(0, 0, 0, .5);
     }
-
     .pubPop__main {
         position: fixed;
         left: 50%;
@@ -1159,7 +1086,6 @@ $VAR_C_HEISE_01: #2e3136;
         z-index: 200;
         transform: translate(-50%, -50%);
     }
-
     .pubPop__close {
         position: fixed;
         top: 100px;
@@ -1175,23 +1101,14 @@ $VAR_C_HEISE_01: #2e3136;
         font-weight: 200;
         z-index: 200;
     }
-
     .pubPop__video {
         max-width: 100%;
     }
-
     .pubPop__img {
         display: block;
         max-width: 100%;
     }
 }
-
-
-
-
-
-
-
 
 
 /****** 返回顶部 S  *******/
@@ -1214,13 +1131,6 @@ $VAR_C_HEISE_01: #2e3136;
         margin: 0 auto 10px;
     }
 }
-
-
-
-
-
-
-
 
 
 /****** 返回顶部 E  *******/
