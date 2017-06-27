@@ -38,7 +38,7 @@ include common/common.pug
                                         ul.detailList
                                             - for (var y = 0; y < 3; y++)
                                                 li.detailList__item
-                                                    a(href="javascript:;", class="y ==2 "? 'img_default': "").detailList__link.
+                                                    a(href="javascript:;", class= y ==2 ? 'img_default': "").detailList__link
                                                         img(src= (y == 2) ? "../images/public/img_default.png" : "../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
                                                     p.detailList__txt 暂无图片
                                     .detailBlock.detailBlock--vedio
