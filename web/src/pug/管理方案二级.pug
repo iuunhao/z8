@@ -52,10 +52,16 @@ include common/common.pug
                                         ul.detailList
                                             - for (var y = 0; y < 3; y++)
                                                 li.detailList__item
-                                                    a(href="javascript:;").detailList__link.vedioIcon(class=(y==2) ? 'detailList__link--default vedio_default': '')
-                                                        img(src= (y == 2) ? "../images/public/vedio_default.png" : "../images/temp/glfa.png", alt="").detailList__img
-                                                    p.detailList__txt 暂无视频
+                                                    -if(y == 2) {
+                                                        a(href="javascript:;").detailList__link.vedioIcon(class='detailList__link--default vedio_default')
+                                                        img(src="../images/public/vedio_default.png", alt="").detailList__img
+                                                        p.detailList__txt 暂无视频
+                                                    -} else {
+                                                        a(href="javascript:;", src="/images/login/bg.mp4").detailList__link.vedioIcon
+                                                            img(src= "../images/temp/glfa.png", alt="").detailList__img
+                                                        p.detailList__txt 暂无视频
+                                                    -}
             a(href="javascript:;").loadMore#loadMore  点击加载更多
             a(href="#").gotoTop 返回顶部
     input(type="hidden", id="loadMoreURI", value="/")
-    //-+pubPop
+    +pubPop

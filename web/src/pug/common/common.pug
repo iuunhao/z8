@@ -58,8 +58,7 @@ mixin headBar()
                 a(href="").head__nav-item 添加设计方案
 
 mixin pubPop()
-    .pubPop
+    .pubPop.none#pubPop
         a(href="javascript:;").pubPop__close  ✕
         .pubPop__main
             video(src="../images/login/bg.mp4", autoplay, loop).pubPop__video
-            img(src="../images/temp/glfa.png", alt="").pubPop__img.none

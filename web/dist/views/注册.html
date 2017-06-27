@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>注册表单</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+  </head>
+  <body>
+    <div class="wrap wrap--bg">
+      <div class="top"><a class="top__btn" href="">登录</a>|<a class="top__btn" href="">注册</a></div>
+      <div class="head"><img class="head__logo" src="../images/icon-home/logo.png" alt=""/>
+        <ul class="head__nav">
+          <li class="head__nav-zc"><a class="head__nav-item" href="">注册</a></li>
+        </ul>
+      </div>
+      <div class="content register">
+        <ul class="register__list">
+          <li class="register__item">
+            <div class="register__label">姓名：</div>
+            <div class="register__inp">
+              <input class="register__input" type="text" placeholder="请输入姓名" value="jxchen" id="user"/><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">性别：</div>
+            <div class="register__inp" id="sexy">
+              <label class="label__box" for="sex">
+                <input class="input--radio" type="radio" name="sex" checked="checked" value="1"/><i class="label__radio"></i><span class="label__name">男</span>
+              </label>
+              <label class="label__box" for="sex">
+                <input class="input--radio" type="radio" name="sex" value="2"/><i class="label__radio"></i><span class="label__name">女</span>
+              </label><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">出生日期：</div>
+            <div class="register__inp">
+              <input class="register__input" type="date" placeholder="出生日期" id="birthday"/><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">身份证号 ：</div>
+            <div class="register__inp">
+              <input class="register__input register__input--max" type="text" placeholder="身份证号" id="passport"/><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">密码 ：</div>
+            <div class="register__inp">
+              <input class="register__input register__input--max" type="password" placeholder="密码" id="password"/><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">重复密码 ：</div>
+            <div class="register__inp">
+              <input class="register__input register__input--max" type="password" placeholder="重复密码" id="repassword"/><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">手机号码：</div>
+            <div class="register__inp">
+              <input class="register__input" type="text" placeholder="手机号" id="phone"/><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">输入校验码：</div>
+            <div class="register__inp">
+              <input class="register__input" type="text" placeholder="出入校验码" id="code"/><a class="register__btn register__btn--blue m--l30" href="javascript:;" id="codeBtn">获取验证码</a><span class="input__error none">错误提示!</span>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label">个人简介：</div>
+            <div class="register__inp">
+              <textarea class="register__textarea" id="introduction" placeholder="（很短的几行字，来讲述你对装修装饰设计的理解和概念，用于展示给用户）" maxLength="300"></textarea>
+            </div>
+          </li>
+          <li class="register__item">
+            <div class="register__label"></div>
+            <div class="register__submit"><a class="register__btn register__btn--blue register__btn--max" href="javascript:;" id="submitBtn">提  交</a><a class="register__btn register__btn--line m--l30" href="javascript:;">取  消</a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="../js/jquery/1.8.3/jquery.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/register.js"></script>
+  </body>
+</html>

@@ -141,13 +141,13 @@ const Login = {
                 dataType: 'json',
                 data: {
                     username: this.user.val(),
-                    smscode: this.pass.val()
+                    password: this.pass.val()
                 }
             })
             .done((data) => {
                 if (data.res == 1) {
                     __WEBPACK_IMPORTED_MODULE_0__unit_js__["a" /* showTips */](data.msg);
-                    if (data.url) {
+                    if (data.data.url) {
                         window.location.href = data.url;
                     }
                 } else {
@@ -183,3 +183,4 @@ Login.init();
 /***/ })
 /******/ ]);
 });
+//# sourceMappingURL=login.js.map

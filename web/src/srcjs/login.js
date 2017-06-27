@@ -48,13 +48,13 @@ const Login = {
                 dataType: 'json',
                 data: {
                     username: this.user.val(),
-                    smscode: this.pass.val()
+                    password: this.pass.val()
                 }
             })
             .done((data) => {
                 if (data.res == 1) {
                     showTips(data.msg);
-                    if (data.url) {
+                    if (data.data.url) {
                         window.location.href = data.url;
                     }
                 } else {

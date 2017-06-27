@@ -116,15 +116,6 @@ const showDetail = {
         var that = this;
 
         /**
-         * [navbar 图片预览]
-         * @type {Boolean}
-         */
-        $('img[data-original]').viewer({
-            navbar: false,
-            toolbar: false
-        });
-
-        /**
          * [阻止一些图片可预览]
          */
         this.wrap.on('click', '.infoSimple__open', function() {
@@ -134,6 +125,16 @@ const showDetail = {
     }
 };
 showDetail.init();
+
+
+
+/**
+ * [图片预览]
+ */
+$('img[data-original]').viewer({
+    navbar: false,
+    toolbar: false
+});
 
 /**
  * [LoadMore 加载更多]
@@ -187,6 +188,61 @@ const LoadMore = {
 LoadMore.init();
 
 
+
+/**
+ * [showPlayVideo 播放视频]
+ * @type {Object}
+ */
+const showPlayVideo = {
+    /**
+     * [showPop 显示视频弹窗]
+     */
+    showPop() {
+        this.pop.removeClass('none');
+    },
+    /**
+     * [hidePop 关闭视频弹窗]
+     */
+    hidePop() {
+        this.pop.addClass('none');
+    },
+    /**
+     * [closePopHandler 关闭视频]
+     */
+    closePopHandler() {
+        this.hidePop();
+        var $video = this.pop.find('video');
+        $video.attr('src', '');
+    },
+    /**
+     * [showVideoHandler 显示视频]
+     * @param  {[Object]} $video [要播放的视频]
+     */
+    showVideoHandler($video) {
+        var $src = $video.attr('src');
+        if(!$src) return false;
+        this.pop.find('video').attr('src', $src);
+        this.showPop();
+    },
+    /**
+     * [init 初始化]
+     * @return {[type]} [description]
+     */
+    init() {
+        var that = this;
+        this.pop = $('#pubPop');
+        this.close = this.pop.find('.pubPop__close');
+        $(document).on('click', '.vedioIcon', function() {
+            that.showVideoHandler($(this))
+        })
+        this.close.on('click', this.closePopHandler.bind(this));
+    },
+};
+showPlayVideo.init();
+
+
+
 /***/ })
 /******/ ]);
 });
+//# sourceMappingURL=mangerTwoStep.js.map
