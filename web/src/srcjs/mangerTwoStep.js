@@ -38,12 +38,13 @@ const showDetail = {
         //     }
         // })
         // 
-        console.log($('img[data-original]').length)
-
-
+        $('img[data-original]').viewer({
+            navbar: false,
+            toolbar: false
+        });
 
         // 阻止一些图片可预览
-        this.wrap.on('click', '.infoSimple__txtBox--poa', function() {
+        this.wrap.on('click', '.infoSimple__open', function() {
             that.showDetail($(this));
             return false;
         })
@@ -51,5 +52,3 @@ const showDetail = {
     }
 };
 showDetail.init();
-
-$('#schemeList').viewer();
