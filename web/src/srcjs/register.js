@@ -192,8 +192,8 @@ const Register = {
                     phone: this.phone.val()
                 },
             })
-            .done((res) => {
-                if (res == 1) {
+            .done((data) => {
+                if (data.res == 1) {
                     this.codeBtn.addClass('register__btn--line');
                     this.countDown({
                         counting: function(t) {
@@ -207,7 +207,7 @@ const Register = {
                     });
                     return false;
                 } else {
-                    this.showError(this.codeBtn, res.msg);
+                    this.showError(this.codeBtn, data.msg);
                 }
                 this.readyCode = true;
             })

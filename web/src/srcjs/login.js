@@ -49,16 +49,16 @@ const Login = {
                 data: {
                     username: this.user.val(),
                     smscode: this.pass.val()
-                },
+                }
             })
-            .done((res) => {
-                if (res == 1) {
-                    showTips(res.msg);
-                    if (res.url) {
-                        window.location.href = res.url;
+            .done((data) => {
+                if (data.res == 1) {
+                    showTips(data.msg);
+                    if (data.url) {
+                        window.location.href = data.url;
                     }
                 } else {
-                    showTips(res.msg);
+                    showTips(data.msg);
                 }
             })
             .fail(() => {
