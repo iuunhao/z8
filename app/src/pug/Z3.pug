@@ -1,0 +1,24 @@
+include common/common.pug
++head({title: 'Z3'})
+    +topBar({
+        return:{
+            type: 'icon',
+            text: '返回',
+            color:'yellow'
+        },
+        shadow: false
+       })
+    .wrap
+        .z2
+            .z2__title 短信验证码已发送，请填写验证码
+            .z2Form
+                .z2Form__item
+                    .z2Form__address.dim 手机号
+                    .z2Form__txt.dim +86 139 1182 6671
+                .z2Form__item
+                    .z2Form__inpBox.z2Form__inpBox--small.z2Form__inpBox--border
+                        .z2Form__address 验证码
+                    .z2Form__inpBox
+                        input.z2Form__inp(type="tel", placeholder="32756")
+                        .clear clear
+                a(href="javascript:;").btn.btn--yellow.m--t50 下一步

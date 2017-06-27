@@ -1,6 +1,6 @@
 var USER_CONFIG = {
     MOD: "MOBILE_CSS",
-    DESIGN_SIZE: 1400
+    DESIGN_SIZE: 750
 };
 
 var gulp = require("gulp");
@@ -61,10 +61,12 @@ var postcssFunc = {
     calculatesn: function(css) {
         css.walkDecls(function(decl, i) {
             decl.value = decl.value.replace(/(\d*\.?\d+)pm/ig, function(str) {
-                return parseFloat(str) / 2 + "px";
+                // return parseFloat(str) / 2 + "px";
+                return parseFloat((parseFloat(str) / (USER_CONFIG.DESIGN_SIZE / 10)).toFixed(6)) + "rem";
             });
             decl.value = decl.value.replace(/(\d*\.?\d+)rm/ig, function(str) {
-                return parseFloat(str) / (USER_CONFIG.DESIGN_SIZE / 10) + "rem";
+            	var num = (parseFloat(str) / (USER_CONFIG.DESIGN_SIZE / 10)).toFixed(6);
+                return parseFloat((parseFloat(str) / (USER_CONFIG.DESIGN_SIZE / 10)).toFixed(6)) + "rem";
             });
         });
     },
@@ -227,7 +229,7 @@ gulp.task("MOBILE_CSS", function() {
         .pipe(gulp.dest(PATHS.CSS))
         .pipe(reload({ stream: true }));
 });
-    
+
 // 监听
 gulp.task("TASK_WATCH", function() {
     gulp

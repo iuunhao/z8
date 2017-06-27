@@ -1,0 +1,38 @@
+include common/common.pug
++head({title: '我的 - 04账号信息00'})
+    +topBar({
+        return:{
+            type: 'icon'
+        },
+        title: {
+            color:'',
+            text: '我关注的设计师'
+        },
+        shadow: true
+       })
+    .wrap
+        ul.myFocus
+            - for(var a = 0; a< 10; a++)
+                li.focusItem
+                    .focusHead
+                        .focusHead__info
+                            img(src="../images/temp/user_img.jpg").focusHead__photo
+                            .focusHead__txtBox
+                                .focusHead__nameWrap
+                                    span.focusHead__name Anna
+                                    .focusHead__tags
+                                        span.focusHead__tag.focusHead__tag--yellow 资深
+                                        span.focusHead__tag.focusHead__tag--pink 明星
+                                        span.focusHead__tag.focusHead__tag--green 质保
+                                .focusHead_desc 北京/朝阳/6年设计经验
+                        a(href="javascript:;").btn.btn--yellow.btnAbout 约TA
+                    .focusMain
+                        -for(var x = 0; x<3; x++)
+                            a(href="javascript:;").focusMain__link
+                                img(src="../images/temp/temp.jpg").focusMain__img
+                    .focusFoot
+                        span.focusFoot__item.focusFoot__item--view 17225人预览
+                        span.focusFoot__item.focusFoot__item--deal 1225人成交
+        .data--more 暂无数据
+        .data--no 加载更多
+        .data--loading 加载中...

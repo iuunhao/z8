@@ -1,0 +1,30 @@
+include common/common.pug
++head({title: '我的 - 02关注的设计师00', bgClass:'f5f7fa'})
+    +topBar({
+        return:{
+            type: 'icon'
+        },
+        title: {
+            color:'',
+            text: '账户管理'
+        },
+        shadow: true
+       })
+    .wrap
+        .management
+            a(href="").management__item.management--link.management--portrait.management--arrow
+                .labelName  修改头像
+                .userImgBox
+                    img(src="../images/temp/user_img.jpg").userImg
+            a(href="").management__item.management--link.management--arrow
+                .labelName 昵称
+                .textBox 139****6671福珠
+            a(href="").management__item.management--link.management--arrow
+                .labelName  性别
+                .textBox 保密
+            a(href="").management__item.management--link.management--arrow
+                .labelName 所在城市
+                .textBox 北京
+            a(href="").management__item.management--link.management--arrow
+                .labelName 账户绑定
+                .textBox

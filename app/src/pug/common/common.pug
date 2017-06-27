@@ -13,14 +13,15 @@
 //-     ],
 //-     scripts: [
 //-         'index.js'
-//-     ]
+//-     ],
+        //-bgClass: ''
 //- })
 mixin head(opts)
     <!DOCTYPE html>
     html(lang="zh-cn")
         head
             meta(charset="UTF-8")
-            meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no")
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
             meta(http-equiv="X-UA-Compatible", content="ie=edge")
             meta(name="keywords", content="")
             meta(name="description", content="")
@@ -30,36 +31,40 @@ mixin head(opts)
                 each link in opts.links
                     link(rel="stylesheet", href=CSS+ link)
             script(src=JS+ "px2rem.min.js")
-        body(class=opts.bgClass ? opts.bgClass: '')
+        body(class=opts.bgClass ? 'bodyBg--' + opts.bgClass: '')
             block
-            script(src= JS + "jquery/1.8.3/jquery.js")
-            script(src= JS + "common.js")
+            //-script(src= JS + "common.js")
             if opts.scripts
                 each script in opts.scripts
                     script(src= JS + script)
 
 
 //- +headBar({
-//-     A: '',
-//-     B: 'active',
-//-     C: 'fail'
+//-     return: true,
+//-     title: '标题',
+//-     menu: '完成'
 //- })
-mixin topBar()
-    .head
-        img(src="../images/icon-home/logo.png", alt="").head__logo
-        ul.head__nav
-            li.head__nav-glfa.head__nav--active
-                a(href="").head__nav-item 管理方案
-            li.head__nav-glkh
-                a(href="").head__nav-item 管理客户
-            li.head__nav-qb
-                a(href="").head__nav-item 钱包
-            li.head__nav-add
-                a(href="").head__nav-item 添加设计方案
+mixin topBar(opts)
+    .topBar(class= opts.shadow ? 'topBar--shadow': '')
+        if(opts)
+            if(opts.return)
+                if(opts.return.type === 'icon')
+                    a(href="javascript:;", class= opts.return.color ? 'topBarColor--' + opts.return.color : '').topBar__return.topBar__return--icon #{opts.return.text}
+                else
+                    a(href="javascript:;", class= opts.return.color ? 'topBarColor--' + opts.return.color : '').topBar__return #{opts.return.text}
+            else
+                a(href="javascript:;").topBar__return.topBar__hidden
 
-mixin pubPop()
-    .pubPop
-        a(href="javascript:;").pubPop__close  ✕
-        .pubPop__main
-            video(src="../images/login/bg.mp4", autoplay, loop).pubPop__video
-            img(src="../images/temp/glfa.png", alt="").pubPop__img.none
+            if(opts.title)
+                h1.topBar__title(class=opts.title.color ? 'topBarColor--' + opts.title.color : '') #{opts.title.text}
+            else
+                h1.topBar__title.topBar__hidden
+
+            if(opts.menu)
+                if(opts.menu.type === 'icon')
+                    a(href="javascript:;", class=opts.menu.color ? 'topBarColor--' + opts.menu.color : '').topBar__menu #{opts.menu.text}
+                else
+                    a(href="javascript:;", class=opts.menu.color ? 'topBarColor--' + opts.menu.color : '').topBar__menu #{opts.menu.text}
+            else
+                a(href="javascript:;").topBar__menu.topBar__hidden
+

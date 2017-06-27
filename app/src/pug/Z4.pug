@@ -1,0 +1,42 @@
+include common/common.pug
++head({title: 'Z4', bgClass:'f5f7fa'})
+    +topBar({
+        return:{
+            type: 'icon',
+            text: '取消',
+            color:'yellow'
+        },
+        menu: {
+            type: 'text',
+            text: '完成',
+            color: 'yellow'
+        },
+        title: {
+            color:'',
+            text: '设置密码'
+        },
+        shadow: true
+       })
+    .wrap
+        .setPassword
+            .tipsTxt 请设置装8密码，之后您可以使用手机号13911826671+ 密码登录装
+            ul.setPassList
+                li.setPassList__item
+                    label.setPassList__name.setPassList__name--dim(maxlength="11") 手机号
+                    .setPassList__inpBox
+                        input(type="tel", placeholder="13911826671").setPassList__inp
+                li.setPassList__item
+                    label.setPassList__name 性别
+                    .setPassList__sub
+                        label.setPassList__name
+                            span.setPassList__txt 男
+                            input(type="radio", name="sex").setSex
+                        label.setPassList__name
+                            span.setPassList__txt 女
+                            input(type="radio", name="sex").setSex
+                li.setPassList__item
+                    label.setPassList__name 所在城市
+                    .setPassList__inpBox
+                        input(type="所在城市", placeholder="北京").setPassList__inp
+                        .clear clear
+
