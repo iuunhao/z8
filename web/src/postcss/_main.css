@@ -9,6 +9,9 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
+
+
 /*公共*/
 
 .txtColor--orange {
@@ -22,6 +25,9 @@ $VAR_C_HEISE_01: #2e3136;
 .m--l30 {
     margin-left: 30px;
 }
+
+
+
 
 
 
@@ -201,6 +207,9 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
+
+
 
 
 
@@ -392,7 +401,8 @@ $VAR_C_HEISE_01: #2e3136;
     margin: 0 auto;
 }
 
-// ----------------------------
+
+
 
 /****** 前台公共 E  *******/
 
@@ -417,73 +427,85 @@ $VAR_C_HEISE_01: #2e3136;
             background: $VAR_C_LANSE_01;
         }
     }
+
     .index__title-number {
         color: $VAR_C_LANSE_01;
         padding: 0 10px;
-        .designList {
-            margin-top: 75px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .designList__item {
-            flex: 0 0 47%;
-            margin-bottom: 70px;
-        }
-        .designList__img {
-            width: 100px;
-            display: block;
+    }
+
+    .designList {
+        margin-top: 75px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .designList__item {
+        flex: 0 0 47%;
+        margin-bottom: 70px;
+    }
+
+    .designList__img {
+        width: 100px;
+        display: block;
+        position: absolute;
+        z-index: 1;
+        box-shadow: 0px 0px 21px 0px rgba(35, 24, 21, 0.13);
+    }
+
+    .designList__link {
+        color: $VAR_C_HEISE_01;
+    }
+
+    .designList__box {
+        margin: 50px 0 0 50px;
+        background: #f8f8f8;
+        padding: 40px 0 35px 87px;
+        font-size: 26px;
+        position: relative;
+        &:after {
+            content: "";
             position: absolute;
-            z-index: 1;
-            box-shadow: 0px 0px 21px 0px rgba(35, 24, 21, 0.13);
-        }
-        .designList__link {
-            color: $VAR_C_HEISE_01;
-        }
-        .designList__box {
-            margin: 50px 0 0 50px;
-            background: #f8f8f8;
-            padding: 40px 0 35px 87px;
-            font-size: 26px;
-            position: relative;
-            &:after {
-                content: "";
-                position: absolute;
-                width: 30px;
-                height: 30px;
-                top: 50%;
-                right: 50px;
-                border-right: 1px solid $VAR_LINE_02;
-                border-top: 1px solid $VAR_LINE_02;
-                transform: translateY(-50%) rotate(45deg);
-            }
-        }
-        .designList__tit {
-            margin-bottom: 10px;
-        }
-        .designList__num {
-            color: $VAR_C_LANSE_01;
-            padding: 0 10px;
-        }
-        .indexFooer {
-            text-align: center;
-            font-size: 24px;
-            color: $VAR_C_HUISE_02;
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            right: 50px;
+            border-right: 1px solid $VAR_LINE_02;
             border-top: 1px solid $VAR_LINE_02;
-            padding: 60px 0 100px;
-            &:before {
-                content: "";
-                display: inline-block;
-                width: 35px;
-                height: 31px;
-                margin-right: 30px;
-                vertical-align: middle;
-                line-height: 1;
-                background: url(../images/icon-home/foot_i.png) no-repeat;
-            }
+            transform: translateY(-50%) rotate(45deg);
+        }
+    }
+
+    .designList__tit {
+        margin-bottom: 10px;
+    }
+
+    .designList__num {
+        color: $VAR_C_LANSE_01;
+        padding: 0 10px;
+    }
+
+    .indexFooer {
+        text-align: center;
+        font-size: 24px;
+        color: $VAR_C_HUISE_02;
+        border-top: 1px solid $VAR_LINE_02;
+        padding: 60px 0 100px;
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 35px;
+            height: 31px;
+            margin-right: 30px;
+            vertical-align: middle;
+            line-height: 1;
+            background: url(../images/icon-home/foot_i.png) no-repeat;
         }
     }
 }
+
+
+
 
 
 
@@ -678,6 +700,9 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
+
+
 /****** 注册 E  *******/
 
 .manage {
@@ -820,6 +845,9 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
+
+
 
 
 
@@ -1063,38 +1091,41 @@ $VAR_C_HEISE_01: #2e3136;
         white-space: nowrap;
         width: 100%;
     }
-    .img_default{
+    .img_default {
         position: relative;
-        &:after{
-            content:"";
+        &:after {
+            content: "";
             position: absolute;
             z-index: 10;
             left: 0;
-            top:0;
-            bottom:0;
-            right:0;
+            top: 0;
+            bottom: 0;
+            right: 0;
         }
     }
 }
 
 .detailBlock--vedio {
     .detailList__link--default {
-        &:before{
+        &:before {
             display: none;
         }
     }
-    .vedio_default{
+    .vedio_default {
         position: relative;
-        &:after{
-            content:"";
+        &:after {
+            content: "";
             position: absolute;
             z-index: 10;
-            width:150px;
-            height:150px;
+            width: 150px;
+            height: 150px;
             background: none;
         }
     }
 }
+
+
+
 
 
 
@@ -1160,6 +1191,9 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
+
+
 /****** 返回顶部 S  *******/
 
 .gotoTop {
@@ -1180,6 +1214,9 @@ $VAR_C_HEISE_01: #2e3136;
         margin: 0 auto 10px;
     }
 }
+
+
+
 
 
 
