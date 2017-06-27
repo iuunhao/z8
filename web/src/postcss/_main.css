@@ -5,6 +5,10 @@ $VAR_C_HUISE_02: #2e2e35;
 $VAR_C_LANSE_01: #508aff;
 $VAR_C_HEISE_01: #2e3136;
 
+
+
+
+
 /*公共*/
 
 .txtColor--orange {
@@ -18,6 +22,10 @@ $VAR_C_HEISE_01: #2e3136;
 .m--l30 {
     margin-left: 30px;
 }
+
+
+
+
 
 
 /****** 登录 S  *******/
@@ -122,74 +130,81 @@ $VAR_C_HEISE_01: #2e3136;
             height: 32px;
         }
     }
-    .loginSubmit {
-        display: block;
-        padding: 14px 10px;
-        color: #fff;
-        font-size: 24px;
-        background: url(../images/login/submit.jpg) no-repeat center center;
-        background-size: cover;
-        text-align: center;
-        margin-top: 40px;
-        text-shadow: 0 0 10px #fff;
-    }
-    .loginAuxi {
-        text-align: center;
-        margin-top: 20px;
-        .loginAuxi__item {
-            text-decoration: underline;
-            color: $VAR_C_HUISE_01;
-            font-size: 14px;
-            display: inline-block;
-            padding: 20px 10px;
-            .loginAuxi__item--active {
-                color: $VAR_C_LANSE_01
-            }
-        }
-        .loginEwm {
-            background: url(../images/icon-login/erw.png) no-repeat;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 52px;
-            height: 56px;
-            opacity: 0.5;
-            transition: all .3s ease;
-            &:hover {
-                opacity: 1;
-                .loginEwm__tips {
-                    opacity: 1;
-                    transform: translate(0, -30%);
-                }
-            }
-            .loginEwm__tips {
-                position: absolute;
-                top: 50%;
-                left: 80px;
-                background: rgba(255, 255, 255, .85);
-                transform: translate(-30%, -30%);
-                padding: 10px;
-                color: $VAR_C_HEISE_01;
-                white-space: nowrap;
-                opacity: 0;
-                transition: all .3s ease;
-                &:before {
-                    content: "";
-                    width: 0;
-                    height: 0;
-                    border-top: 5px solid transparent;
-                    border-right: 5px solid rgba(255, 255, 255, .85);
-                    border-bottom: 5px solid transparent;
-                    position: absolute;
-                    font-size: 0;
-                    left: -5px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-            }
+}
+
+.loginSubmit {
+    display: block;
+    padding: 14px 10px;
+    color: #fff;
+    font-size: 24px;
+    background: url(../images/login/submit.jpg) no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    margin-top: 40px;
+    text-shadow: 0 0 10px #fff;
+}
+
+.loginAuxi {
+    text-align: center;
+    margin-top: 20px;
+    .loginAuxi__item {
+        text-decoration: underline;
+        color: $VAR_C_HUISE_01;
+        font-size: 14px;
+        display: inline-block;
+        padding: 20px 10px;
+        .loginAuxi__item--active {
+            color: $VAR_C_LANSE_01
         }
     }
 }
+
+.loginEwm {
+    background: url(../images/icon-login/erw.png) no-repeat;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 52px;
+    height: 56px;
+    opacity: 0.5;
+    transition: all .3s ease;
+    &:hover {
+        opacity: 1;
+        .loginEwm__tips {
+            opacity: 1;
+            transform: translate(0, -30%);
+        }
+    }
+    .loginEwm__tips {
+        position: absolute;
+        top: 50%;
+        left: 80px;
+        background: rgba(255, 255, 255, .85);
+        transform: translate(-30%, -30%);
+        padding: 10px;
+        color: $VAR_C_HEISE_01;
+        white-space: nowrap;
+        opacity: 0;
+        transition: all .3s ease;
+        &:before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-right: 5px solid rgba(255, 255, 255, .85);
+            border-bottom: 5px solid transparent;
+            position: absolute;
+            font-size: 0;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+
+
+
 
 
 /****** 登录 E  *******/
@@ -471,6 +486,10 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
+
+
+
 /****** 首页 E  *******/
 
 
@@ -562,7 +581,7 @@ $VAR_C_HEISE_01: #2e3136;
         input[type="radio"]:checked:disabled+i {
             border-color: $VAR_C_LANSE_01;
             background: $VAR_C_LANSE_01;
-             &:after {
+            &:after {
                 border-color: #fff;
             }
         }
@@ -623,34 +642,40 @@ $VAR_C_HEISE_01: #2e3136;
         &::placeholder {
             color: #c5c9d0;
         }
-        .register__submit {
-            margin: 90px 0;
-            display: flex;
-        }
-        .register__examine-bg {
-            display: block;
-            margin: 90px auto 80px;
-        }
-        .register__examine-title {
-            color: $VAR_C_LANSE_01;
-            font-size: 38px;
-            font-weight: bold;
-            text-align: center;
-        }
-        .register__examine-subtitle {
-            color: $VAR_C_HEISE_01;
-            text-align: center;
-            font-size: 26px;
-            margin-top: 34px;
-        }
-        .register__examine {
-            margin-bottom: 200px;
-            .register__btn {
-                margin: 74px auto 0;
-            }
+    }
+    .register__submit {
+        margin: 90px 0;
+        display: flex;
+    }
+    .register__examine-bg {
+        display: block;
+        margin: 90px auto 80px;
+    }
+    .register__examine-title {
+        color: $VAR_C_LANSE_01;
+        font-size: 38px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .register__examine-subtitle {
+        color: $VAR_C_HEISE_01;
+        text-align: center;
+        font-size: 26px;
+        margin-top: 34px;
+    }
+    .register__examine {
+        margin-bottom: 200px;
+        .register__btn {
+            margin: 74px auto 0;
         }
     }
 }
+
+
+
+
+
+
 
 
 /****** 注册 E  *******/
@@ -673,6 +698,7 @@ $VAR_C_HEISE_01: #2e3136;
         font-size: 18px;
         color: $VAR_C_HUISE_02;
     }
+
     .manageHead__btn {
         background: #fff;
         color: $VAR_C_HUISE_02;
@@ -698,9 +724,11 @@ $VAR_C_HEISE_01: #2e3136;
         color: $VAR_C_HUISE_02;
         margin-bottom: 20px;
     }
+
     .manageList__link {
         display: block;
     }
+
     .manageList {
         display: flex;
         flex-wrap: wrap;
@@ -754,6 +782,7 @@ $VAR_C_HEISE_01: #2e3136;
         content: "";
         position: absolute;
     }
+
     &:before {
         left: 0;
         right: 0;
@@ -761,6 +790,7 @@ $VAR_C_HEISE_01: #2e3136;
         bottom: 0;
         background: rgba(0, 0, 0, .5);
     }
+
     &:after {
         left: 50%;
         top: 50%;
@@ -780,6 +810,7 @@ $VAR_C_HEISE_01: #2e3136;
             background: #477be3;
         }
     }
+
     .manageList {
         .manageList__close {
             display: block;
@@ -789,6 +820,10 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
+
+
+
 
 
 /******  设计方案二级 S  *******/
@@ -821,6 +856,7 @@ $VAR_C_HEISE_01: #2e3136;
         margin-bottom: 40px;
         background: #fff;
     }
+
     .schemeList__item--active {
         height: auto;
         transition: all .3s ease-out;
@@ -843,6 +879,7 @@ $VAR_C_HEISE_01: #2e3136;
         margin-right: 40px;
         background: #f6f6f6;
     }
+
     .pbox {
         display: flex;
         .infoSimple__txt {
@@ -850,15 +887,18 @@ $VAR_C_HEISE_01: #2e3136;
             width: 0;
         }
     }
+
     .infoSimple__txtBox {
         flex: 1;
     }
+
     .infoSimple__txtBox--poa {
         position: absolute;
         top: 40px;
         right: 40px;
         bottom: 40px;
     }
+
     .infoSimple__txt {
         font-size: 16px;
         padding: 10px 0;
@@ -878,26 +918,28 @@ $VAR_C_HEISE_01: #2e3136;
             position: relative;
             padding-right: 200px;
         }
-        .infoSimple__open {
+    }
+
+    .infoSimple__open {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        &:after {
+            content: "";
             position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            &:after {
-                content: "";
-                position: absolute;
-                left: 50%;
-                bottom: 5px;
-                width: 15px;
-                height: 15px;
-                border-right: 2px solid #393940;
-                border-bottom: 2px solid #393940;
-                transform: translateX(-50%) rotate(-135deg);
-                z-index: 20;
-                transition: all .3s ease-out;
-                transform-origin: center center;
-            }
+            left: 50%;
+            bottom: 5px;
+            width: 15px;
+            height: 15px;
+            border-right: 2px solid #393940;
+            border-bottom: 2px solid #393940;
+            transform: translateX(-50%) rotate(-135deg);
+            z-index: 20;
+            transition: all .3s ease-out;
+            transform-origin: center center;
         }
     }
 }
@@ -930,6 +972,7 @@ $VAR_C_HEISE_01: #2e3136;
             top: 0;
         }
     }
+
     .detailBlock__head {
         display: flex;
         justify-content: space-between;
@@ -937,6 +980,7 @@ $VAR_C_HEISE_01: #2e3136;
         color: $VAR_C_HUISE_02;
         margin-bottom: 20px;
     }
+
     .detailBlock__all {
         color: $VAR_C_HUISE_02;
         font-size: 16px;
@@ -956,20 +1000,24 @@ $VAR_C_HEISE_01: #2e3136;
             display: inline-block;
         }
     }
+
     .infoDetail__head {
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
     }
+
     .infoDetail__tit {
         font-size: 16px;
         color: $VAR_C_HUISE_02;
         font-weight: bold;
     }
+
     .infoDetail__style {
         font-weight: 400;
         margin-left: 40px;
     }
+
     .infoDetail__btn {
         height: 40px;
         line-height: 40px;
@@ -993,14 +1041,17 @@ $VAR_C_HEISE_01: #2e3136;
         margin-left: 35px;
         margin-bottom: 20px;
     }
+
     .detailList__link {
         display: block;
     }
+
     .detailList__img {
         display: block;
         width: 150px;
         height: 150px;
     }
+
     .detailList__txt {
         text-align: center;
         font-size: 16px;
@@ -1012,6 +1063,19 @@ $VAR_C_HEISE_01: #2e3136;
         white-space: nowrap;
         width: 100%;
     }
+    .vedio_default,
+    .img_default{
+        position: relative;
+        &:after{
+            content:"";
+            position: absolute;
+            z-index: 10;
+            left: 0;
+            top:0;
+            bottom:0;
+            right:0;
+        }
+    }
 }
 
 .detailBlock--vedio {
@@ -1022,6 +1086,10 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
+
+
+
 
 
 /******  设计方案二级 E  *******/
@@ -1043,6 +1111,7 @@ $VAR_C_HEISE_01: #2e3136;
         bottom: 0;
         background: rgba(0, 0, 0, .5);
     }
+
     .pubPop__main {
         position: fixed;
         left: 50%;
@@ -1050,6 +1119,7 @@ $VAR_C_HEISE_01: #2e3136;
         z-index: 200;
         transform: translate(-50%, -50%);
     }
+
     .pubPop__close {
         position: fixed;
         top: 100px;
@@ -1065,14 +1135,20 @@ $VAR_C_HEISE_01: #2e3136;
         font-weight: 200;
         z-index: 200;
     }
+
     .pubPop__video {
         max-width: 100%;
     }
+
     .pubPop__img {
         display: block;
         max-width: 100%;
     }
 }
+
+
+
+
 
 
 /****** 返回顶部 S  *******/
@@ -1094,6 +1170,10 @@ $VAR_C_HEISE_01: #2e3136;
         margin: 0 auto 10px;
     }
 }
+
+
+
+
 
 
 /****** 返回顶部 E  *******/

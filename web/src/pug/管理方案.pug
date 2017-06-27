@@ -19,6 +19,7 @@ include common/common.pug
                             a(href="javascript:;").manageList__link
                                 img(src="../images/temp/glfa.png").manageList__img
                             .manageList__desc | 客厅 / 20平方米 / 美式简 约 / 淡蓝色
+                                input(type="hidden", name='photo__input_' + x)
             .manageMod.manageMod--vedio
                 h4.manageMod__tit 视频
                 ul.manageList
@@ -28,4 +29,5 @@ include common/common.pug
                             a(href="javascript:;").manageList__link.vedioIcon
                                 img(src="../images/temp/glfa.png").manageList__img
                             .manageList__desc | 客厅 / 20平方米 / 美式简 约 / 淡蓝色
+                                input(type="hidden", name='vedio__input_' + x)
     //- +pubPop

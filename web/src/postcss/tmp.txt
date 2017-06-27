@@ -1,0 +1,144 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.051  000.051: --- NVIM STARTING ---
+000.708  000.657: locale set
+001.607  000.899: inits 1
+001.626  000.019: window checked
+002.276  000.650: parsing arguments
+002.283  000.006: expanding arguments
+002.356  000.073: inits 2
+002.555  000.199: init highlight
+004.863  001.977  001.977: sourcing /Users/iuunhao/.config/nvim/autoload/plug.vim
+037.595  000.261  000.261: sourcing /Users/iuunhao/.vim/plugged/ultisnips/ftdetect/snippets.vim
+037.890  000.062  000.062: sourcing /Users/iuunhao/.vim/plugged/vim-javascript-syntax/ftdetect/javascript.vim
+038.087  000.131  000.131: sourcing /Users/iuunhao/.vim/plugged/vim-javascript/ftdetect/javascript.vim
+038.218  000.044  000.044: sourcing /Users/iuunhao/.vim/plugged/vim-es6/ftdetect/es6.vim
+038.410  000.091  000.091: sourcing /Users/iuunhao/.vim/plugged/vim-pug/ftdetect/pug.vim
+038.547  000.075  000.075: sourcing /Users/iuunhao/.vim/plugged/vim-stylus/ftdetect/stylus.vim
+038.685  000.044  000.044: sourcing /Users/iuunhao/.vim/plugged/vim-node/ftdetect/node.vim
+038.896  023.098  022.390: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/filetype.vim
+039.194  000.039  000.039: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/ftplugin.vim
+039.472  000.036  000.036: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/indent.vim
+040.278  000.205  000.205: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/syntax/syncolor.vim
+040.408  000.591  000.386: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/syntax/synload.vim
+040.438  000.866  000.275: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/syntax/syntax.vim
+040.840  000.252  000.252: sourcing /Users/iuunhao/.vim/plugged/vim-repeat/autoload/repeat.vim
+041.146  000.011  000.011: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/filetype.vim
+041.744  000.166  000.166: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/syntax/syncolor.vim
+042.371  000.194  000.194: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/syntax/syncolor.vim
+042.851  000.153  000.153: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/syntax/syncolor.vim
+043.109  000.120  000.120: sourcing /Users/iuunhao/.vim/plugged/palenight.vim/autoload/palenight.vim
+068.792  026.947  026.481: sourcing /Users/iuunhao/.vim/plugged/palenight.vim/colors/palenight.vim
+069.324  066.505  013.114: sourcing /Users/iuunhao/.config/nvim/init.vim
+069.332  000.272: sourcing vimrc file(s)
+069.801  000.291  000.291: sourcing /Users/iuunhao/.vim/plugged/vim-obsession/plugin/obsession.vim
+070.171  000.270  000.270: sourcing /Users/iuunhao/.vim/plugged/vim-prosession/plugin/prosession.vim
+070.477  000.173  000.173: sourcing /Users/iuunhao/.vim/plugged/lightline.vim/plugin/lightline.vim
+072.454  001.879  001.879: sourcing /Users/iuunhao/.vim/plugged/vimwiki/plugin/vimwiki.vim
+073.078  000.498  000.498: sourcing /Users/iuunhao/.vim/plugged/vim-surround/plugin/surround.vim
+073.496  000.317  000.317: sourcing /Users/iuunhao/.vim/plugged/vim-multiple-cursors/plugin/multiple_cursors.vim
+080.541  006.943  006.943: sourcing /Users/iuunhao/.vim/plugged/vim-easymotion/plugin/EasyMotion.vim
+080.961  000.198  000.198: sourcing /Users/iuunhao/.vim/plugged/clever-f.vim/plugin/clever-f.vim
+081.341  000.237  000.237: sourcing /Users/iuunhao/.vim/plugged/vim-autoformat/plugin/autoformat.vim
+082.014  000.640  000.640: sourcing /Users/iuunhao/.vim/plugged/vim-autoformat/plugin/defaults.vim
+082.923  000.121  000.121: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/autoload/provider/pythonx.vim
+129.085  000.747  000.747: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/autoload/remote/host.vim
+129.647  047.214  046.346: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/autoload/provider/python3.vim
+130.577  000.095  000.095: sourcing /Users/iuunhao/.vim/plugged/ultisnips/autoload/UltiSnips/map_keys.vim
+130.697  048.579  001.270: sourcing /Users/iuunhao/.vim/plugged/ultisnips/plugin/UltiSnips.vim
+130.900  000.038  000.038: sourcing /Users/iuunhao/.vim/plugged/vim-snippets/plugin/vimsnippets.vim
+131.269  000.278  000.278: sourcing /Users/iuunhao/.vim/plugged/golden-ratio/plugin/golden_ratio.vim
+131.484  000.118  000.118: sourcing /Users/iuunhao/.vim/plugged/vim-maximizer/plugin/maximizer.vim
+136.231  004.655  004.655: sourcing /Users/iuunhao/.vim/plugged/nerdcommenter/plugin/NERD_commenter.vim
+195.696  059.086  059.086: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/autoload/provider/python.vim
+196.012  059.679  000.593: sourcing /Users/iuunhao/.vim/plugged/dict.vim/plugin/dict.vim
+197.395  000.426  000.426: sourcing /Users/iuunhao/.vim/plugged/delimitMate/autoload/delimitMate.vim
+199.987  003.838  003.411: sourcing /Users/iuunhao/.vim/plugged/delimitMate/plugin/delimitMate.vim
+200.492  000.250  000.250: sourcing /Users/iuunhao/.vim/plugged/vim-expand-region/autoload/expand_region.vim
+200.606  000.507  000.256: sourcing /Users/iuunhao/.vim/plugged/vim-expand-region/plugin/expand_region.vim
+201.404  000.138  000.138: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/autoload/provider/clipboard.vim
+302.914  102.212  102.074: sourcing /Users/iuunhao/.vim/plugged/YankRing.vim/plugin/yankring.vim
+303.288  000.180  000.180: sourcing /Users/iuunhao/.vim/plugged/vim-gtfo/plugin/gtfo.vim
+303.558  000.058  000.058: sourcing /Users/iuunhao/.vim/plugged/rename.vim/plugin/rename.vim
+304.250  000.581  000.581: sourcing /Users/iuunhao/.vim/plugged/vim-signify/plugin/signify.vim
+305.431  001.060  001.060: sourcing /Users/iuunhao/.vim/plugged/supertab/plugin/supertab.vim
+306.096  000.564  000.564: sourcing /Users/iuunhao/.vim/plugged/matchit.zip/plugin/matchit.vim
+306.463  000.070  000.070: sourcing /Users/iuunhao/.vim/plugged/deoplete.nvim/autoload/deoplete.vim
+306.774  000.148  000.148: sourcing /Users/iuunhao/.vim/plugged/deoplete.nvim/autoload/deoplete/init.vim
+307.153  000.063  000.063: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/rplugin.vim
+307.885  000.181  000.181: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/autoload/remote/define.vim
+307.974  000.586  000.405: sourcing /Users/iuunhao/.local/share/nvim/rplugin.vim
+471.093  000.106  000.106: sourcing /Users/iuunhao/.vim/plugged/deoplete.nvim/autoload/deoplete/mapping.vim
+471.513  000.171  000.171: sourcing /Users/iuunhao/.vim/plugged/deoplete.nvim/autoload/deoplete/util.vim
+472.235  000.156  000.156: sourcing /Users/iuunhao/.vim/plugged/deoplete.nvim/autoload/deoplete/handler.vim
+472.616  166.405  165.105: sourcing /Users/iuunhao/.vim/plugged/deoplete.nvim/plugin/deoplete.vim
+472.759  000.028  000.028: sourcing /Users/iuunhao/.vim/plugged/deoplete-ternjs/plugin/deoplete-ternjs.vim
+473.243  000.119  000.119: sourcing /Users/iuunhao/.vim/plugged/ale/autoload/ale.vim
+474.411  001.557  001.437: sourcing /Users/iuunhao/.vim/plugged/ale/plugin/ale.vim
+474.840  000.236  000.236: sourcing /Users/iuunhao/.vim/plugged/tigris.nvim/plugin/../syntax/tigris.vim
+474.865  000.317  000.081: sourcing /Users/iuunhao/.vim/plugged/tigris.nvim/plugin/tigris.vim
+475.096  000.134  000.134: sourcing /Users/iuunhao/.vim/plugged/nvim-completion-manager/plugin/cm.vim
+475.464  000.250  000.250: sourcing /Users/iuunhao/.vim/plugged/vim-node/plugin/node.vim
+476.222  000.138  000.138: sourcing /Users/iuunhao/.vim/plugged/nerdtree/autoload/nerdtree.vim
+477.491  000.485  000.485: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/path.vim
+477.978  000.248  000.248: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/menu_controller.vim
+478.378  000.176  000.176: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/menu_item.vim
+478.756  000.164  000.164: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/key_map.vim
+479.325  000.373  000.373: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/bookmark.vim
+479.935  000.403  000.403: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/tree_file_node.vim
+480.848  000.660  000.660: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/tree_dir_node.vim
+481.386  000.317  000.317: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/opener.vim
+481.881  000.300  000.300: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/creator.vim
+482.122  000.046  000.046: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/flag_set.vim
+482.442  000.127  000.127: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/nerdtree.vim
+482.941  000.317  000.317: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/ui.vim
+483.148  000.020  000.020: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/event.vim
+483.376  000.037  000.037: sourcing /Users/iuunhao/.vim/plugged/nerdtree/lib/nerdtree/notifier.vim
+484.005  000.410  000.410: sourcing /Users/iuunhao/.vim/plugged/nerdtree/autoload/nerdtree/ui_glue.vim
+504.424  000.096  000.096: sourcing /Users/iuunhao/.vim/plugged/nerdtree/nerdtree_plugin/exec_menuitem.vim
+504.976  000.519  000.519: sourcing /Users/iuunhao/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim
+505.195  029.637  024.803: sourcing /Users/iuunhao/.vim/plugged/nerdtree/plugin/NERD_tree.vim
+506.475  001.184  001.184: sourcing /Users/iuunhao/.vim/plugged/fzf.vim/plugin/fzf.vim
+507.035  000.462  000.462: sourcing /Users/iuunhao/.fzf/plugin/fzf.vim
+507.329  000.197  000.197: sourcing /Users/iuunhao/.vim/plugged/fzf-filemru/plugin/fzf-filemru.vim
+507.934  000.196  000.196: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/gzip.vim
+507.977  000.011  000.011: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/health.vim
+508.060  000.059  000.059: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/man.vim
+508.111  000.024  000.024: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/matchit.vim
+508.303  000.166  000.166: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/matchparen.vim
+508.834  000.500  000.500: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/netrwPlugin.vim
+508.889  000.008  000.008: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/rplugin.vim
+508.936  000.013  000.013: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/rrhelper.vim
+509.070  000.098  000.098: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/shada.vim
+509.130  000.022  000.022: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/spellfile.vim
+509.307  000.139  000.139: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/tarPlugin.vim
+509.434  000.088  000.088: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/tohtml.vim
+509.490  000.021  000.021: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/tutor.vim
+509.724  000.201  000.201: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/plugin/zipPlugin.vim
+509.998  000.121  000.121: sourcing /Users/iuunhao/.vim/plugged/ultisnips/after/plugin/UltiSnips_after.vim
+510.155  000.046  000.046: sourcing /Users/iuunhao/.vim/plugged/ale/after/plugin/ale.vim
+510.194  005.183: loading plugins
+510.351  000.157: loading packages
+510.363  000.012: inits 3
+513.907  003.545: reading ShaDa
+515.595  001.688: clearing screen
+521.354  000.523  000.523: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/scripts.vim
+522.885  000.064  000.064: sourcing /usr/local/Cellar/neovim/0.1.7/share/nvim/runtime/ftplugin/text.vim
+525.010  000.477  000.477: sourcing /Users/iuunhao/.vim/plugged/lightline.vim/autoload/lightline.vim
+525.535  000.046  000.046: sourcing /Users/iuunhao/.vim/plugged/lightline.vim/autoload/lightline/tab.vim
+526.000  000.173  000.173: sourcing /Users/iuunhao/.vim/plugged/lightline.vim/autoload/lightline/colorscheme.vim
+526.589  000.914  000.741: sourcing /Users/iuunhao/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/Dracula.vim
+536.859  000.086  000.086: sourcing /Users/iuunhao/.vim/plugged/vim-node/autoload/node.vim
+538.153  020.448: opening buffers
+538.503  000.350: BufEnter autocommands
+538.508  000.006: editing files in windows
+591.626  053.117: VimEnter autocommands
+591.637  000.012: before starting main loop
+592.162  000.180  000.180: sourcing /Users/iuunhao/.vim/plugged/ale/autoload/ale/cursor.vim
+592.480  000.128  000.128: sourcing /Users/iuunhao/.vim/plugged/ale/autoload/ale/util.vim
+597.571  005.625: first screen update
+597.573  000.002: --- NVIM STARTED ---
