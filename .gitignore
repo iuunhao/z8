@@ -8,6 +8,7 @@
 node_modules/
 npm-debug.log
 /dist/
+psd/
 /js/
 /css/
 /zip/

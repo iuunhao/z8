@@ -416,7 +416,7 @@ gulp.task("default", [USER_CONFIG.MOD, "TASK_PUG", "DEV_WEBPACK", "TASK_COPY_LIB
 });
 
 // 编译
-gulp.task( "build", ["TASK_CLEAN", USER_CONFIG.MOD, "TASK_IMG_MIN", "TASK_PUG", "PROD_WEBPACK", "TASK_COPY_LIBS_CSS", "TASK_COPY_LIBS_JS"], function() {
+gulp.task( "build", ["TASK_CLEAN", USER_CONFIG.MOD, "TASK_IMG_MIN", "TASK_PUG", "PROD_WEBPACK"], function() {
         gulp.start("PROD_WEBPACK", "TASK_COPY");
     }
 );
