@@ -20,24 +20,20 @@
           <li class="setPassList__item">
             <label class="setPassList__name setPassList__name--dim" maxlength="11">手机号</label>
             <div class="setPassList__inpBox">
-              <input class="setPassList__inp" type="tel" placeholder="13911826671"/>
+              <input class="setPassList__inp setPassList__inp--dim" type="tel" disabled="disabled" value="13911826671"/>
             </div>
           </li>
           <li class="setPassList__item">
-            <label class="setPassList__name">性别</label>
-            <div class="setPassList__sub">
-              <label class="setPassList__name"><span class="setPassList__txt">男</span>
-                <input class="setSex" type="radio" name="sex"/>
-              </label>
-              <label class="setPassList__name"><span class="setPassList__txt">女</span>
-                <input class="setSex" type="radio" name="sex"/>
-              </label>
-            </div>
-          </li>
-          <li class="setPassList__item">
-            <label class="setPassList__name">所在城市</label>
+            <label class="setPassList__name">密码</label>
             <div class="setPassList__inpBox">
-              <input class="setPassList__inp" type="所在城市" placeholder="北京"/>
+              <input class="setPassList__inp" type="password" placeholder="请输入密码"/>
+              <div class="clear">clear</div>
+            </div>
+          </li>
+          <li class="setPassList__item">
+            <label class="setPassList__name">重复密码</label>
+            <div class="setPassList__inpBox">
+              <input class="setPassList__inp" type="password" placeholder="密码验证"/>
               <div class="clear">clear</div>
             </div>
           </li>

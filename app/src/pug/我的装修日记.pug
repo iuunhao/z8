@@ -1,0 +1,36 @@
+include common/common.pug
++head({title: '我的装修日记', bgClass:"f5f7fa"})
+    +topBar2({shadow: false})
+    .wrap
+        .headBanner
+            a(href="javascript:;").headBanner__link
+                img(src="../images/temp/temp2.jpg").headBanner__img
+            .headBanner__desc.headBanner__desc--photo
+                img(src="../images/temp/user_img.jpg").headBanner__userImg
+                .headBanner__descBox
+                    h3.headBanner__title
+                        | 北北欧-大连海湾城户型3室2厅北欧
+                    p.headBanner__txt
+                        | 北京 | 芳华名苑小区
+        .diary
+            a(href="javascript:;").openMenu
+            ul.diaryList
+                -for(var x = 0; x< 3; x++)
+                    li.diaryList__item
+                        h3.diaryList__title 装修准备
+                        -for(var a = 0; a< 3; a++)
+                            .diaryList__main
+                                .diaryList__data 2015年05月26日
+                                .diaryList__content
+                                    p
+                                        | 好像一直没有上传过去户型图，补一张，很常见的那种三居户型
+                                    p
+                                        | 好好像一直没有上传过去户型图好像一直没有上传过去户型图像一直没有上传过去户型图，补一张，很常见的那种三居户型
+                                    img(src="../images/temp/temp2.jpg")
+                                    img(src="../images/temp/temp2.jpg")
+            .directory.none
+                .directory__links
+                    -for(var j = 0; j < 10; j++)
+                        a(href="javascript:;").directory__item 装修
+                a(href="javascript:;").directory__close ✕
+

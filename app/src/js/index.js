@@ -43,6 +43,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
@@ -75,43 +78,44 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-throw new Error("Cannot find module \"./_unit.js\"");
+
+
+var _unit = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./_unit.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 /**
  * [Register 注册模块]
  * @type {Object}
  */
-const Register = {
+var Register = {
     /**
      * [showError 显示错误信息]
      */
-    showError($object, msg) {
+    showError: function showError($object, msg) {
         var $siblings = $object.siblings('.input__error');
         // show
         $siblings.removeClass('none').css({ opacity: 0 });
-        $siblings.html(msg).stop(true, true).animate({ opacity: 1 }, () => {
+        $siblings.html(msg).stop(true, true).animate({ opacity: 1 }, function () {
             if ($object.timer) {
                 clearTimeout($object.timer);
                 $object.timer = null;
             }
             // hide
-            $object.timer = setTimeout(function() {
-                $siblings.stop(true, true).animate({ opacity: 0 }, function() {
+            $object.timer = setTimeout(function () {
+                $siblings.stop(true, true).animate({ opacity: 0 }, function () {
                     $(this).addClass('none').html('');
-                })
-            }, 2000)
-        })
-
+                });
+            }, 2000);
+        });
     },
+
     /**
      * [checkUser 检测用户名]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkUser() {
+    checkUser: function checkUser() {
         var $val = this.user.val().trim();
         if ($val == '') {
             this.showError(this.user, '请输入姓名！');
@@ -120,11 +124,12 @@ const Register = {
         this.showError(this.user, '');
         return true;
     },
+
     /**
      * [checkSexy 检测用户名性别]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkSexy() {
+    checkSexy: function checkSexy() {
         var $val = this.getSexy().val();
         if (!$val) {
             this.showError(this.sexy.find('label'), '请选择性别！');
@@ -132,18 +137,20 @@ const Register = {
         }
         return true;
     },
+
     /**
      * [getSexy 获取性别]
      * @return {[Object]} []
      */
-    getSexy() {
-        return this.sexy.find('input[type=radio]:checked')
+    getSexy: function getSexy() {
+        return this.sexy.find('input[type=radio]:checked');
     },
+
     /**
      * [checkBirtyday 检测出生日期]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkBirtyday() {
+    checkBirtyday: function checkBirtyday() {
         var $val = this.birthday.val();
         if ($val == '') {
             this.showError(this.birthday, '请输入出生日期！');
@@ -151,11 +158,12 @@ const Register = {
         }
         return true;
     },
+
     /**
      * [checkPassport 检测身份证]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPassport() {
+    checkPassport: function checkPassport() {
         var $val = this.passport.val().trim();
         if ($val == '') {
             this.showError(this.passport, '请输入身份证号！');
@@ -166,11 +174,12 @@ const Register = {
         }
         return true;
     },
+
     /**
      * [checkPass 检测密码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPass() {
+    checkPass: function checkPass() {
         var $val = this.pass.val().trim();
         if ($val == '') {
             this.showError(this.pass, '请输入密码！');
@@ -178,26 +187,28 @@ const Register = {
         }
         return true;
     },
+
     /**
      * [checkPass 检测密码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkRePass() {
+    checkRePass: function checkRePass() {
         var $val = this.repass.val().trim();
         if ($val == '') {
             this.showError(this.repass, '请确认密码！');
             return false;
-        } else if($val != this.pass.val().trim()) {
+        } else if ($val != this.pass.val().trim()) {
             this.showError(this.repass, '密码不一致！');
             return false;
         }
         return true;
     },
+
     /**
      * [checkPhone 检测手机号]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkPhone() {
+    checkPhone: function checkPhone() {
         var $val = this.phone.val().trim();
         if ($val == '') {
             this.showError(this.phone, '请输入手机号！');
@@ -208,11 +219,12 @@ const Register = {
         }
         return true;
     },
+
     /**
      * [checkCode 检测验证码]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkCode() {
+    checkCode: function checkCode() {
         var $val = this.code.val().trim();
         if ($val == '') {
             this.showError(this.code, '请输入验证码！');
@@ -220,11 +232,12 @@ const Register = {
         }
         return true;
     },
+
     /**
      * [checkIntroduction 检测个人简介]
      * @return {[Boolean]} [是否通过检测]
      */
-    checkIntroduction() {
+    checkIntroduction: function checkIntroduction() {
         var $val = this.introduction.val().trim();
         if ($val == '') {
             this.showError(this.introduction, '请输入个人简介！');
@@ -232,14 +245,15 @@ const Register = {
         }
         return true;
     },
+
     /**
      * 倒计时
      */
-    countDown: function(options) {
+    countDown: function countDown(options) {
         options = options || {};
         var time = options.time || 30;
-        var counting = options.counting || function() {};
-        var end = options.end || function() {};
+        var counting = options.counting || function () {};
+        var end = options.end || function () {};
         var timer = null;
         (function next() {
             if (time == 0) {
@@ -251,17 +265,17 @@ const Register = {
                 counting(time);
             }
             time--;
-        }());
+        })();
     },
     /**
      * [getCode 获取验证码]
      */
-    getCode() {
+    getCode: function getCode() {
+        var _this = this;
 
-        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() ||!this.checkPass() ||!this.checkRePass() || !this.checkPhone()) {
+        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() || !this.checkPass() || !this.checkRePass() || !this.checkPhone()) {
             return false;
         }
-
 
         if (!this.readyCode) {
             this.readyCode = false;
@@ -269,47 +283,47 @@ const Register = {
         }
 
         $.ajax({
-                url: '/Api/Fund/fundmanager',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    phone: this.phone.val()
-                },
-            })
-            .done((res) => {
-                if (res == 1) {
-                    this.codeBtn.addClass('register__btn--line');
-                    this.countDown({
-                        counting: function(t) {
-                            this.codeBtn.html(t + 's');
-                        }.bind(this),
-                        end: function() {
-                            this.codeBtn.removeClass('register__btn--line');
-                            this.codeBtn.html('重新获取');
-                            this.smsReady = true;
-                        }.bind(this)
-                    });
-                    return false;
-                } else {
-                    this.showError(this.codeBtn, res.msg);
-                }
-                this.readyCode = true;
-            })
-            .fail(function() {
-                console.log("error");
-                this.readyCode = true;
-            })
-            .always(function() {
-                console.log("complete");
-                this.readyCode = true;
-            });
-
+            url: '/Api/Fund/fundmanager',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                phone: this.phone.val()
+            }
+        }).done(function (res) {
+            if (res == 1) {
+                _this.codeBtn.addClass('register__btn--line');
+                _this.countDown({
+                    counting: function (t) {
+                        this.codeBtn.html(t + 's');
+                    }.bind(_this),
+                    end: function () {
+                        this.codeBtn.removeClass('register__btn--line');
+                        this.codeBtn.html('重新获取');
+                        this.smsReady = true;
+                    }.bind(_this)
+                });
+                return false;
+            } else {
+                _this.showError(_this.codeBtn, res.msg);
+            }
+            _this.readyCode = true;
+        }).fail(function () {
+            console.log("error");
+            this.readyCode = true;
+        }).always(function () {
+            console.log("complete");
+            this.readyCode = true;
+        });
     },
+
     /**
      * [submitFunc 提交表单]
      */
-    submitFunc() {
-        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() ||!this.checkPass() ||!this.checkRePass() || !this.checkPhone() || !this.checkCode() || !this.checkIntroduction()) {            return false;
+    submitFunc: function submitFunc() {
+        var _this2 = this;
+
+        if (!this.checkUser() || !this.checkSexy() || !this.checkBirtyday() || !this.checkPassport() || !this.checkPass() || !this.checkRePass() || !this.checkPhone() || !this.checkCode() || !this.checkIntroduction()) {
+            return false;
         }
 
         if (!this.ready) {
@@ -318,43 +332,41 @@ const Register = {
         }
 
         $.ajax({
-                url: '/Reg/action',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    user_name: this.user.val(),
-                    sex: this.getSexy().val(),
-                    birthday: this.birthday().val(),
-                    phone: this.phone().val(),
-                    passport: this.passport().val(),
-                    code: this.code().val(),
-                    introduction: this.introduction().val()
+            url: '/Reg/action',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                user_name: this.user.val(),
+                sex: this.getSexy().val(),
+                birthday: this.birthday().val(),
+                phone: this.phone().val(),
+                passport: this.passport().val(),
+                code: this.code().val(),
+                introduction: this.introduction().val()
+            }
+        }).done(function (res) {
+            if (res == 1) {
+                (0, _unit.showTips)(res.msg);
+                if (res.url) {
+                    window.location.href = res.url;
                 }
-            })
-            .done((res) => {
-                if (res == 1) {
-                    __WEBPACK_IMPORTED_MODULE_0__unit_js__["showTips"](res.msg);
-                    if (res.url) {
-                        window.location.href = res.url;
-                    }
-                } else {
-                    __WEBPACK_IMPORTED_MODULE_0__unit_js__["showTips"](res.msg);
-                }
-            })
-            .fail(() => {
-                console.log("error");
-                this.ready = true;
-            })
-            .always(() => {
-                console.log("complete");
-                console.log("complete");
-                this.ready = true;
-            });
+            } else {
+                (0, _unit.showTips)(res.msg);
+            }
+        }).fail(function () {
+            console.log("error");
+            _this2.ready = true;
+        }).always(function () {
+            console.log("complete");
+            console.log("complete");
+            _this2.ready = true;
+        });
     },
+
     /**
      * [init 初始化]
      */
-    init() {
+    init: function init() {
         this.ready = true;
         this.readyCode = true;
         this.user = $('#user');
@@ -376,7 +388,6 @@ const Register = {
 };
 
 Register.init();
-
 
 /***/ })
 /******/ ]);

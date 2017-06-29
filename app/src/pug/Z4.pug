@@ -24,19 +24,15 @@ include common/common.pug
                 li.setPassList__item
                     label.setPassList__name.setPassList__name--dim(maxlength="11") 手机号
                     .setPassList__inpBox
-                        input(type="tel", placeholder="13911826671").setPassList__inp
+                        input(type="tel", disabled, value="13911826671").setPassList__inp.setPassList__inp--dim
                 li.setPassList__item
-                    label.setPassList__name 性别
-                    .setPassList__sub
-                        label.setPassList__name
-                            span.setPassList__txt 男
-                            input(type="radio", name="sex").setSex
-                        label.setPassList__name
-                            span.setPassList__txt 女
-                            input(type="radio", name="sex").setSex
-                li.setPassList__item
-                    label.setPassList__name 所在城市
+                    label.setPassList__name 密码
                     .setPassList__inpBox
-                        input(type="所在城市", placeholder="北京").setPassList__inp
+                        input(type="password", placeholder="请输入密码").setPassList__inp
+                        .clear clear
+                li.setPassList__item
+                    label.setPassList__name 重复密码
+                    .setPassList__inpBox
+                        input(type="password", placeholder="密码验证").setPassList__inp
                         .clear clear
 

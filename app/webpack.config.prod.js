@@ -1,4 +1,3 @@
-var webpack = require("webpack");
 const fs = require('fs');
 const path = require('path');
 const cwd = path.join(process.cwd());
@@ -16,17 +15,17 @@ const webpackOptions = {
         rules: [{
             test: /\.js$/,
             include: [
-                path.resolve(__dirname, '/src/srcjs')
+                path.resolve(__dirname, 'src/srcjs')
             ],
             exclude: [
-                path.resolve(__dirname, '../node_modules')
+                path.resolve(__dirname, 'node_modules')
             ],
-            loader: 'babel-loader?presets[]=es2015'
+            loader: 'babel-loader?presets[]=es2015',
         }]
     },
     resolve: {
         modules: [
-            path.join(__dirname, "/src/srcjs"),
+            path.join(__dirname, "src/srcjs"),
             "node_modules"
         ],
         extensions: ['.json', '.js'],
@@ -37,12 +36,12 @@ const webpackOptions = {
     },
     // devtool: 'source-map',
     plugins: [
-        new UglifyJsPlugin({
-            sourceMap: false,
-            compress: {
-                warnings: false
-            }
-        })
+        // new UglifyJsPlugin({
+        //     sourceMap: false,
+        //     compress: {
+        //         warnings: false
+        //     }
+        // })
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: "vendor",
         //     filename: "common/common.js",
@@ -56,7 +55,7 @@ const webpackOptions = {
 
 {
     // 工具函数
-    const dev = path.join(cwd, '/src/srcjs');
+    const dev = path.join(cwd, 'src/srcjs');
     const findfiles = function(ipath, deep = false, json = {}) {
         fs.readdirSync(ipath).forEach(function(sPath) {
             if (/^(_|webpack|grunt|gulp|package)/.test(sPath)) return;

@@ -68,3 +68,15 @@ mixin topBar(opts)
             else
                 a(href="javascript:;").topBar__menu.topBar__hidden
 
+
+mixin topBar2()
+    .topBarNav
+        a(href="javascript:;").topBarNav__return
+        ul.topBarNav__list
+            li.topBarNav__item.topBarNav__item--active
+                a(href="javascript:;").topBarNav__link 我的方案
+            li.topBarNav__item
+                a(href="javascript:;").topBarNav__link 装修日记
+            li.topBarNav__item
+                a(href="javascript:;").topBarNav__link 评价打分
+
