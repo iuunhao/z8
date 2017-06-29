@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -93,13 +93,18 @@ function showTips(str) {
 
 /***/ }),
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var _unit = __webpack_require__(0);
+
+var u = _interopRequireWildcard(_unit);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var Edit = {
     btnEdit: $('#btnEdit'),
@@ -159,7 +164,7 @@ var Edit = {
                         $(this).remove();
                     });
                 } else {
-                    (0, _unit.showTips)(data.msg);
+                    u.showTips(data.msg);
                 }
             }
         });
@@ -180,7 +185,7 @@ var Edit = {
     updatedName: function updatedName($name) {
         if ($name.text() == '') {
             var text = $name.siblings('input[type=hidden]').val();
-            (0, _unit.showTips)('名字不能为空！');
+            u.showTips('名字不能为空！');
             $name.text(text.trim());
             return false;
         } else {

@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -94,13 +94,18 @@ function showTips(str) {
 /***/ }),
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var _unit = __webpack_require__(0);
+
+var u = _interopRequireWildcard(_unit);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var showDetail = {
     wrap: $('#schemeList'),
@@ -134,13 +139,13 @@ var showDetail = {
 
 showDetail.init();
 
-/**
- * [图片预览]
- */
-$('img[data-original]').viewer({
-    navbar: false,
-    toolbar: false
-});
+// /**
+//  * [图片预览]
+//  */
+// $('img[data-original]').viewer({
+//     navbar: false,
+//     toolbar: false
+// });
 
 /**
  * [LoadMore 加载更多]
@@ -171,7 +176,7 @@ var LoadMore = {
                 if (data.res == 1) {
                     that.wrapper.append(data.data);
                 } else {
-                    (0, _unit.showTips)(res.msg);
+                    u.showTips(res.msg);
                 }
                 that.ready = true;
             }

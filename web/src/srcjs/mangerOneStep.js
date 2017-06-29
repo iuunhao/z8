@@ -3,7 +3,7 @@
  * @type {Object}
  */
 // .manage--edit
-import { showTips } from '../srcjs/_unit.js'
+import * as u from './_unit.js';
 
 const Edit = {
     btnEdit: $('#btnEdit'),
@@ -63,7 +63,7 @@ const Edit = {
                         $(this).remove();
                     });
                 } else {
-                    showTips(data.msg);
+                    u.showTips(data.msg);
                 }
             }
         })
@@ -84,7 +84,7 @@ const Edit = {
     updatedName: function($name) {
         if ($name.text() == '') {
             var text = $name.siblings('input[type=hidden]').val();
-            showTips('名字不能为空！');
+            u.showTips('名字不能为空！');
             $name.text(text.trim());
             return false;
         } else {

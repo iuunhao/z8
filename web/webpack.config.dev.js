@@ -38,9 +38,13 @@ const webpackOptions = {
     devtool: 'source-map',
     plugins: [
         // new UglifyJsPlugin({
+        //     minify: false,
+        //     beautify: true,
+        //     mangle: false,
         //     sourceMap: false,
         //     compress: {
-        //         warnings: false
+        //         warnings: false,
+        //         inline_script: false
         //     }
         // }),
         // new webpack.optimize.CommonsChunkPlugin({
@@ -79,7 +83,7 @@ const webpackOptions = {
     }
 
     webpackOptions.entry = files.type('js'); // 配制js入口
-    // webpackOptions.entry['vendor'] = ['axios', 'promise'];
+    // webpackOptions.entry['vendor'] = ['jquery'];
 }
 
 module.exports = webpackOptions;

@@ -2,7 +2,8 @@
  * [showDetail 查看详情]
  * @type {Object}
  */
-import { showTips } from '../srcjs/_unit.js'
+import * as u from '../srcjs/_unit.js'
+
 const showDetail = {
     wrap: $('#schemeList'),
     /**
@@ -33,13 +34,13 @@ showDetail.init();
 
 
 
-/**
- * [图片预览]
- */
-$('img[data-original]').viewer({
-    navbar: false,
-    toolbar: false
-});
+// /**
+//  * [图片预览]
+//  */
+// $('img[data-original]').viewer({
+//     navbar: false,
+//     toolbar: false
+// });
 
 /**
  * [LoadMore 加载更多]
@@ -70,7 +71,7 @@ const LoadMore = {
                 if (data.res == 1) {
                     that.wrapper.append(data.data);
                 } else {
-                    showTips(res.msg);
+                    u.showTips(res.msg);
                 }
                 that.ready = true;
             }

@@ -1,4 +1,5 @@
-import { showTips } from './_unit.js';
+import * as u from './_unit.js';
+
 /**
  * [Login 登录模块]
  * @type {Object}
@@ -11,7 +12,7 @@ const Login = {
     checkUser: function() {
         var $val = this.user.val().trim();
         if ($val == '') {
-            showTips('请输入用户名！');
+            u.showTips('请输入用户名！');
             return false;
         }
         return true;
@@ -23,7 +24,7 @@ const Login = {
     checkPass: function() {
         var $val = this.pass.val().trim();
         if ($val == '') {
-            showTips('请输入密码！');
+            u.showTips('请输入密码！');
             return false;
         }
         return true;
@@ -53,12 +54,12 @@ const Login = {
             },
             success: function(data) {
                 if (data.res == 1) {
-                    showTips(data.msg);
+                    u.showTips(data.msg);
                     if (data.data.url) {
                         window.location.href = data.url;
                     }
                 } else {
-                    showTips(data.msg);
+                    u.showTips(data.msg);
                 }
                 that.ready = true;
             }

@@ -73,11 +73,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91,102 +92,7 @@ function showTips(str) {
     alert(str);
 }
 
-/***/ }),
-/* 1 */,
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _unit = __webpack_require__(0);
-
-var u = _interopRequireWildcard(_unit);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-/**
- * [Login 登录模块]
- * @type {Object}
- */
-var Login = {
-    /**
-     * [checkUser 检测用户名]
-     * @return {[Boolean]} [是否通过检测]
-     */
-    checkUser: function checkUser() {
-        var $val = this.user.val().trim();
-        if ($val == '') {
-            u.showTips('请输入用户名！');
-            return false;
-        }
-        return true;
-    },
-    /**
-     * [checkPass 检测密码]
-     * @return {[Boolean]} [是否通过检测]
-     */
-    checkPass: function checkPass() {
-        var $val = this.pass.val().trim();
-        if ($val == '') {
-            u.showTips('请输入密码！');
-            return false;
-        }
-        return true;
-    },
-    /**
-     * [submitFunc 提交表单]
-     */
-    submitFunc: function submitFunc() {
-        var that = this;
-        if (!this.checkUser() || !this.checkPass()) {
-            return false;
-        }
-
-        if (!this.ready) {
-            return false;
-        }
-
-        this.ready = false;
-
-        $.ajax({
-            url: '/Login/action',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                username: this.user.val(),
-                password: this.pass.val()
-            },
-            success: function success(data) {
-                if (data.res == 1) {
-                    u.showTips(data.msg);
-                    if (data.data.url) {
-                        window.location.href = data.url;
-                    }
-                } else {
-                    u.showTips(data.msg);
-                }
-                that.ready = true;
-            }
-        });
-    },
-    /**
-     * [init 初始化]
-     */
-    init: function init() {
-        this.ready = true;
-        this.wrap = $('#loginForm');
-        this.user = $('#user_name');
-        this.pass = $('#pass_word');
-        this.subm = $('#loginSubmit');
-
-        this.subm.on('click', this.submitFunc.bind(this));
-    }
-};
-
-Login.init();
-
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=common.js.map

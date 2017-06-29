@@ -1,4 +1,4 @@
-import { showTips } from './_unit.js';
+import * as u from './_unit.js';
 /**
  * [Register 注册模块]
  * @type {Object}
@@ -242,12 +242,12 @@ const Register = {
             },
             success: function(data) {
                 if (data.res == 1) {
-                    showTips(res.msg);
+                    u.showTips(res.msg);
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }
                 } else {
-                    showTips(res.msg);
+                    u.showTips(res.msg);
                 }
                 that.ready = true;
             }

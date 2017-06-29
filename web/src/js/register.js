@@ -73,11 +73,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92,16 +93,18 @@ function showTips(str) {
 }
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var _unit = __webpack_require__(0);
+
+var u = _interopRequireWildcard(_unit);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 /**
  * [Register 注册模块]
@@ -344,12 +347,12 @@ var Register = {
             },
             success: function success(data) {
                 if (data.res == 1) {
-                    (0, _unit.showTips)(res.msg);
+                    u.showTips(res.msg);
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }
                 } else {
-                    (0, _unit.showTips)(res.msg);
+                    u.showTips(res.msg);
                 }
                 that.ready = true;
             }
@@ -382,6 +385,7 @@ var Register = {
 Register.init();
 
 /***/ })
-/******/ ]);
+
+/******/ });
 });
 //# sourceMappingURL=register.js.map
