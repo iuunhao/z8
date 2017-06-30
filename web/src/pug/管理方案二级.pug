@@ -68,13 +68,15 @@ include common/common.pug
                                             ul.detailList
                                                 - for (var y = 0; y < 3; y++)
                                                     li.detailList__item
-                                                        a(href="2主页面-方案管理-二级-查看.html", class= y ==2 ? 'img_default': "").detailList__link
                                                             -if(y == 2) {
-                                                                img(src="../images/public/img_default.png", alt="").detailList__img
+                                                                a(href="2主页面-方案管理-二级-查看.html", class= y ==2 ? 'img_default': "").detailList__link
+                                                                    img(src="../images/public/img_default.png", alt="").detailList__img
+                                                                p.detailList__txt 暂无图片
                                                             -} else {
-                                                                img(src="../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
+                                                                a(href="javascript:;", class= y ==2 ? 'img_default': "").detailList__link
+                                                                    img(src="../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
+                                                                p.detailList__txt 客房
                                                             -}
-                                                        p.detailList__txt 暂无图片
                                         .detailBlock.detailBlock--vedio
                                             .detailBlock__head
                                                 h5.detailBlock__tit 视频
@@ -84,12 +86,12 @@ include common/common.pug
                                                     li.detailList__item
                                                         -if(y == 2) {
                                                             a(href="javascript:;", class='detailList__link--default vedio_default').detailList__link.vedioIcon
-                                                            img(src="../images/public/vedio_default.png", alt="").detailList__img
+                                                                img(src="../images/public/vedio_default.png", alt="").detailList__img
                                                             p.detailList__txt 暂无视频
                                                         -} else {
                                                             a(href="javascript:;", src="/images/login/bg.mp4").detailList__link.vedioIcon
                                                                 img(src= "../images/temp/glfa.png", alt="").detailList__img
-                                                            p.detailList__txt 暂无视频
+                                                            p.detailList__txt 厨房
                                                         -}
             a(href="javascript:;").loadMore#loadMore  点击加载更多
             a(href="#").gotoTop 返回顶部
