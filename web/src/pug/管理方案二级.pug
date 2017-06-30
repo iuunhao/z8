@@ -33,7 +33,8 @@ include common/common.pug
                             img(src="../images/temp/glfa.png", alt="").infoSimple__img
                             .infoSimple__txtBox
                                 .pbox
-                                    p.infoSimple__txt.infoSimple__txt--tit 紫金新干线10号楼3单元201
+                                    p.infoSimple__txt.infoSimple__txt--tit 
+                                        span 紫金新干线10号楼3单元20#{x}
                                         a(href="javascript:;").editDoorModel 编辑户型信息
                                 .pbox
                                     p.infoSimple__txt 所属城市：北京-朝阳
@@ -94,7 +95,7 @@ include common/common.pug
             a(href="#").gotoTop 返回顶部
     input(type="hidden", id="loadMoreURI", value="/")
     +pubPop
-    +pubPopLayout({isNone: false, ov: true})
+    +pubPopLayout({isNone: true, ov: true, id:"editPlan"})
         .pubPopHead
             h3.pubPopHead__tit 添加方案
         ul.eidtFamilyInfo(style="width: 458px")
@@ -132,12 +133,12 @@ include common/common.pug
             p.price__tips 当前添加价格(钢镚)
             h3.price__num 1600
         p.curprice 当前余额：2457钢镚
-        a(href="javascript:;").btn.determineBtn 确  定
+        a(href="javascript:;", confirm="true").btn.determineBtn 确  定
         //-a(href="javascript:;").btn.btn--gray.determineBtn 确  定
         //-a(href="javascript:;").btn.determineBtn 余额不足，去充值
         p.error 电话格式错误
 
-    +pubPopLayout({isNone: true})
+    +pubPopLayout({isNone: true, id: "editHouseType"})
         .pubPopHead
             h3.pubPopHead__tit 编辑户型信息
         ul.eidtFamilyInfo
@@ -194,4 +195,4 @@ include common/common.pug
                 .eidtBox
                     input.eidtInput(value="150",type="number")
                     span.eidt__tips ㎡
-        a(href="javascript:;").btn.btn-blue.eidtBtn 确定
+        a(href="javascript:;", confirm="true").btn.btn-blue.eidtBtn 确定

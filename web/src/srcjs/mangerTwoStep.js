@@ -2,7 +2,9 @@
  * [showDetail 查看详情]
  * @type {Object}
  */
+import SYS from './_qySystem.js'
 import * as u from '../srcjs/_unit.js'
+
 
 const showDetail = {
     wrap: $('#schemeList'),
@@ -138,3 +140,66 @@ const showPlayVideo = {
     },
 };
 showPlayVideo.init();
+
+
+/**
+ * [editHousrType 编辑户型图]
+ * @type {Object}
+ */
+const editHousrType = {
+    setEditHousrType($btn) {
+
+    },
+    init() {
+        var that = this;
+        this.wrap = $('#schemeList');
+        this.alert = $('#editHouseType');
+        this.pop = null;
+
+        this.wrap.on('click', '.editDoorModel', function() {
+            that.setEditHousrType($(this));
+            if (that.pop) {
+                that.pop = null;
+            }
+
+            that.pop = new SYS.Alert(that.alert, {
+                confirmCallback() {
+
+                }
+            })
+        })
+    }
+};
+editHousrType.init();
+
+
+/**
+ * [editPlan 编辑方案]
+ * @type {Object}
+ */
+const editPlan = {
+    setEditHousrType($btn) {
+        this.params.title = $btn.siblings('span').text();
+    },
+    init() {
+        var that = this;
+        this.wrap = $('#schemeList');
+        this.alert = $('#editPlan');
+        this.pop = null;
+        this.params = {};
+
+        this.wrap.on('click', '.addPlan', function() {
+            that.setEditHousrType($(this));
+            if (that.pop) {
+                that.pop = null;
+            }
+
+            that.pop = new SYS.Alert(that.alert, {
+                confirmCallback() {
+
+                }
+            })
+        })
+    }
+};
+editPlan.init();

@@ -64,9 +64,9 @@ mixin pubPop()
             video(src="../images/login/bg.mp4", autoplay, loop).pubPop__video
 
 
-mixin pubPopLayout(isNone)
-    .pubPopLayout(class= isNone ? 'none' : '')
+mixin pubPopLayout(opts)
+    .pubPopLayout(class= opts.isNone ? 'none' : '', id = opts.id ? opts.id : '')
         .pubPopMain
-            .pubPopContent
-                a(href="javascript:;").pubPopClose ✕
+            .pubPopContent(class = opts.ov ? '.pubPopMain--ov'  :'')
+                a(href="javascript:;", close="true").pubPopClose ✕
                 block
