@@ -5,6 +5,7 @@ $VAR_C_HUISE_02: #2e2e35;
 $VAR_C_LANSE_01: #508aff;
 $VAR_C_HEISE_01: #2e3136;
 
+
 /*公共*/
 
 .txtColor--orange {
@@ -18,6 +19,7 @@ $VAR_C_HEISE_01: #2e3136;
 .m--l30 {
     margin-left: 30px;
 }
+
 
 
 /****** 登录 S  *******/
@@ -193,6 +195,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 /****** 登录 E  *******/
@@ -392,6 +395,7 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
 /****** 前台公共 E  *******/
 
 
@@ -482,6 +486,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 /****** 首页 E  *******/
@@ -666,6 +671,7 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
 /****** 注册 E  *******/
 
 .manage {
@@ -804,6 +810,7 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
 /******  设计方案二级 S  *******/
 
 .bgF7 {
@@ -843,6 +850,12 @@ $VAR_C_HEISE_01: #2e3136;
             }
         }
     }
+    .editDoorModel {
+        text-decoration: underline;
+        font-size: 14px;
+        color: $VAR_C_HEISE_01;
+        margin-left: 30px;
+    }
 }
 
 .infoSimple {
@@ -859,18 +872,21 @@ $VAR_C_HEISE_01: #2e3136;
     .pbox {
         display: flex;
         .infoSimple__txt {
-            flex: 0 0 50%;
-            width: 0;
+            /*flex: 0 0 50%;*/
+            /*width: 0;*/
+            flex: 1;
         }
     }
     .infoSimple__txtBox {
         flex: 1;
+        padding-right: 200px;
     }
     .infoSimple__txtBox--poa {
         position: absolute;
         top: 40px;
         right: 40px;
         bottom: 40px;
+        width: 200px;
     }
     .infoSimple__txt {
         font-size: 16px;
@@ -894,7 +910,7 @@ $VAR_C_HEISE_01: #2e3136;
     }
     .infoSimple__open {
         position: absolute;
-        top: 0;
+        top: 50%;
         bottom: 0;
         left: 0;
         right: 0;
@@ -902,16 +918,33 @@ $VAR_C_HEISE_01: #2e3136;
         &:after {
             content: "";
             position: absolute;
-            left: 50%;
-            bottom: 5px;
+            right: 40px;
+            bottom: 15px;
             width: 15px;
             height: 15px;
             border-right: 2px solid #393940;
             border-bottom: 2px solid #393940;
-            transform: translateX(-50%) rotate(-135deg);
+            transform: rotate(-135deg);
+            transform-origin: center center;
             z-index: 20;
             transition: all .3s ease-out;
             transform-origin: center center;
+        }
+    }
+    .addPlan {
+        position: absolute;
+        width: 150px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+        font-size: 16px;
+        background: $VAR_C_LANSE_01;
+        top: 0;
+        right: 0;
+        transition: all .3s ease-out;
+        &:hover {
+            background: #477be3;
         }
     }
 }
@@ -987,12 +1020,15 @@ $VAR_C_HEISE_01: #2e3136;
     .infoDetail__btn {
         height: 40px;
         line-height: 40px;
-        color: #fff;
         background: $VAR_C_HUISE_02;
         font-size: 16px;
         padding: 0 50px;
         transition: all .3s ease-out;
+        background: #fff;
+        color: $VAR_C_HUISE_02;
+        border: 1px solid $VAR_C_HUISE_02;
         &:hover {
+            color: #fff;
             background: #4d4d53;
         }
     }
@@ -1060,6 +1096,7 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
 /******  设计方案二级 E  *******/
 
 .pubPop {
@@ -1111,6 +1148,7 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
 /****** 返回顶部 S  *******/
 
 .gotoTop {
@@ -1133,4 +1171,162 @@ $VAR_C_HEISE_01: #2e3136;
 }
 
 
+
 /****** 返回顶部 E  *******/
+
+
+/****** 标记点 S  *******/
+
+.dotWrap {
+    margin-top: 40px;
+    padding-top: 40px;
+    background: #fff;
+    .dot__title {
+        font-size: 16px;
+        color: #2e2e35;
+    }
+    .dot__title {
+        padding-left: 40px;
+    }
+    .btnWrap{
+        padding: 80px 0 120px 0;
+        text-align: center;
+        .btn{
+            margin: 0 20px;
+            width: 250px;
+        }
+    }
+}
+
+.imgWrap {
+    margin: 40px;
+    position: relative;
+    .imgWrap__img {
+        display: block;
+        width: 100%;
+    }
+    .dot {
+        position: absolute;
+        z-index: 2;
+        width: 28px;
+        height: 28px;
+        background: rgba(72, 122, 225, 0.8);
+        border-radius: 100%;
+        margin-left: -14px;
+        margin-top: -14px;
+    }
+    .dot--unread {
+        background: rgba(255, 80, 80, .8);
+    }
+    .dot--active {
+        background: rgba(72, 122, 225, 0.8);
+        &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: url(../images/icon-public/dotborder.png) no-repeat;
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+.replyWrap{
+    padding: 0 40px;
+    .replyBox{
+        display: flex;
+    }
+    .textareaWrap{
+        flex: 1;
+        display: flex;
+        border: 1px solid #D8DDE6;
+        position: relative;
+        margin-right: 20px;
+    }
+    .replyBox__textarea{
+        padding: 20px;
+        font-size: 16px;
+        flex:1;
+        height: 88px;
+        resize:none;
+    }
+    .textareaWrap__tips{
+        position: absolute;
+        font-size: 16px;
+        color:#c5c9d0;
+        bottom: 10px;
+        right: 10px;
+    }
+    .replyStataWrap{
+        flex: 0 0 130px;
+        height:130px;
+        .replyStata{
+            text-align: center;
+            overflow: hidden;
+            width: 130px;
+            height:130px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            &:before{
+                content: "";
+                display:block;
+                background-repeat: no-repeat;
+                margin-bottom: 20px;
+            }
+        }
+        .replyStata--praise{
+            background: #528AFC;
+            color:#fff;
+            position: relative;
+            &:before{
+                width: 40px;
+                height:40px;
+                background: url(../images/icon-public/zan.png);
+            }
+        }
+        .replyStata--step{
+            background: #f5465b;
+            color:#fff;
+            position: relative;
+            &:before{
+                width: 40px;
+                height:40px;
+                background: url(../images/icon-public/cai.png);
+            }
+        }
+        .replyStata--waiting{
+            background: #2E2E35;
+            color:#fff;
+            position: relative;
+            &:before{
+                width:41px;
+                height:38px;
+                background: url(../images/icon-public/dengdai.png);
+            }
+        }
+    }
+}
+
+.btn {
+    display: inline-block;
+    font-size: 24px;
+    color: #fff;
+    background: #508aff;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    padding: 0 30px;
+    border: 1px solid transparent;
+}
+
+.btn--line {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    color: #2E2E35;
+}
+
+
+/****** 标记点 E  *******/
