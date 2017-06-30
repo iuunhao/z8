@@ -1,5 +1,5 @@
 include common/common.pug
-+head({title: '2主页面-方案管理-二级-查看', bgClass:"bgF7"})
++head({title: '2主页面-方案管理-二级-查看', bgClass:"bgF7", scripts: ['mangerTwoStepLook.js']})
     .wrap.wrap--bg
         .top 欢迎，设计师
             em.top__user-name 轩亦辰
@@ -8,17 +8,17 @@ include common/common.pug
         +headBar
         .content.dotWrap
             h3.dot__title 客厅 / 20平方米 / 美式简约 / 淡蓝色
-            .imgWrap
+            .imgWrap#imgWrap
                 img(src="../images/temp/dotimg.jpg").imgWrap__img
-                a(href="javascript:;", style="left:30%; top: 30%").dot
-                a(href="javascript:;", style="left:50%; top: 50%").dot.dot--active
-                a(href="javascript:;", style="left:30%; top: 80%").dot.dot--unread
-            .replyWrap
+                //- a(href="javascript:;", style="left:30%; top: 30%").dot
+                //- a(href="javascript:;", style="left:50%; top: 50%").dot.dot--active
+                //- a(href="javascript:;", style="left:30%; top: 80%").dot.dot--unread
+            .replyWrap.none#replyWrap
                 .replyBox
                     .textareaWrap
                         textarea.replyBox__textarea(placeholder="请输入当前锚点表达信息", maxlength="50")
                         .textareaWrap__tips 最多50个字
-                    .replyStataWrap
+                    .replyStataWrap#replyStataWrap(data-active="0")
                         .replyStata.replyStata--praise
                             | 客户已赞
                         .replyStata.replyStata--step
@@ -26,6 +26,6 @@ include common/common.pug
                         .replyStata.replyStata--waiting
                             | 等待回复
                 .btnWrap
-                    a(href="javascript:;").btn 提交
-                    a(href="javascript:;").btn.btn--line 删除锚点
+                    a(href="javascript:;").btn#btnSubmit 提交
+                    a(href="javascript:;").btn.btn--line#btnDelete 删除锚点
 

@@ -22,24 +22,25 @@
       </div>
       <div class="content dotWrap">
         <h3 class="dot__title">客厅 / 20平方米 / 美式简约 / 淡蓝色</h3>
-        <div class="imgWrap"><img class="imgWrap__img" src="../images/temp/dotimg.jpg"/><a class="dot" href="javascript:;" style="left:30%; top: 30%;"></a><a class="dot dot--active" href="javascript:;" style="left:50%; top: 50%;"></a><a class="dot dot--unread" href="javascript:;" style="left:30%; top: 80%;"></a></div>
-        <div class="replyWrap">
+        <div class="imgWrap" id="imgWrap"><img class="imgWrap__img" src="../images/temp/dotimg.jpg"/></div>
+        <div class="replyWrap none" id="replyWrap">
           <div class="replyBox">
             <div class="textareaWrap">
               <textarea class="replyBox__textarea" placeholder="请输入当前锚点表达信息" maxlength="50"></textarea>
               <div class="textareaWrap__tips">最多50个字</div>
             </div>
-            <div class="replyStataWrap">
+            <div class="replyStataWrap" id="replyStataWrap" data-active="0">
               <div class="replyStata replyStata--praise">客户已赞</div>
               <div class="replyStata replyStata--step">客户已踩</div>
               <div class="replyStata replyStata--waiting">等待回复</div>
             </div>
           </div>
-          <div class="btnWrap"><a class="btn" href="javascript:;">提交</a><a class="btn btn--line" href="javascript:;">删除锚点</a></div>
+          <div class="btnWrap"><a class="btn" href="javascript:;" id="btnSubmit">提交</a><a class="btn btn--line" href="javascript:;" id="btnDelete">删除锚点</a></div>
         </div>
       </div>
     </div>
     <script src="../js/jquery/1.8.3/jquery.js"></script>
     <script src="../js/common.js"></script>
+    <script src="../js/mangerTwoStepLook.js"></script>
   </body>
 </html>
