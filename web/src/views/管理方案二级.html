@@ -934,12 +934,52 @@
         <video class="pubPop__video" src="../images/login/bg.mp4" autoplay="autoplay" loop="loop"></video>
       </div>
     </div>
-    <div class="pubPopLayout">
+    <div class="pubPopLayout none">
       <div class="pubPopMain">
         <div class="pubPopContent"><a class="pubPopClose" href="javascript:;">✕</a>
           <div class="pubPopHead">
-            <h3 class="pubPopHead__tit">编辑户型信息</h3>
+            <h3 class="pubPopHead__tit">添加方案</h3>
           </div>
+          <ul class="eidtFamilyInfo" style="width: 458px;">
+            <li class="eidtFamilyInfo__item">
+              <label class="eidtFamilyInfo__label">户型小区：</label>
+              <div class="eidtBox">
+                <input class="eidtInput eidtInput--noborder" value="紫金新干线10号楼201" disabled="disabled"/>
+              </div>
+            </li>
+            <li class="eidtFamilyInfo__item">
+              <label class="eidtFamilyInfo__label">方案名称：</label>
+              <div class="eidtBox">
+                <input class="eidtInput" value="紫金新干线10号楼201"/>
+              </div>
+            </li>
+            <li class="eidtFamilyInfo__item">
+              <label class="eidtFamilyInfo__label">方案风格：</label>
+              <div class="eidtBox">
+                <div class="stylesTags"><a class="stylesTag" href="javascript:;">欧美风</a><a class="stylesTag" href="javascript:;">北欧风</a><a class="stylesTag stylesTag--active" href="javascript:;">中国风</a><a class="stylesTag" href="javascript:;">地中海风</a><a class="stylesTag" href="javascript:;">复古风</a><a class="stylesTag" href="javascript:;">现代风</a><a class="stylesTag" href="javascript:;">简约风</a></div>
+              </div>
+            </li>
+            <li class="eidtFamilyInfo__item">
+              <label class="eidtFamilyInfo__label">客户姓名：</label>
+              <div class="eidtBox">
+                <input class="eidtInput" value=""/>
+                <p class="error">客户姓名填写后即不可更改请慎重填写</p>
+              </div>
+            </li>
+            <li class="eidtFamilyInfo__item">
+              <label class="eidtFamilyInfo__label">客户电话：</label>
+              <div class="eidtBox">
+                <input class="eidtInput" value=""/>
+                <p class="error">客户电话填写后即不可更改，且该电话为客户的手机端账号，请重填写。</p>
+              </div>
+            </li>
+          </ul>
+          <div class="price">
+            <p class="price__tips">当前添加价格(钢镚)</p>
+            <h3 class="price__num">1600</h3>
+          </div>
+          <p class="curprice">当前余额：2457钢镚</p><a class="btn determineBtn" href="javascript:;">确  定</a>
+          <p class="error">电话格式错误</p>
         </div>
       </div>
     </div>

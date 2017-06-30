@@ -7,6 +7,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /*公共*/
 
 .txtColor--orange {
@@ -21,8 +22,9 @@ $VAR_C_HEISE_01: #2e3136;
     margin-left: 30px;
 }
 
-
-
+.hidden{
+    overflow: hidden;
+}
 
 /****** 登录 S  *******/
 
@@ -197,6 +199,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 
@@ -400,6 +403,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 前台公共 E  *******/
 
 
@@ -490,6 +494,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 
@@ -678,6 +683,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 注册 E  *******/
 
 .manage {
@@ -814,6 +820,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 
@@ -1172,6 +1179,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /******  设计方案二级 E  *******/
 
 .pubPop {
@@ -1225,6 +1233,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 返回顶部 S  *******/
 
 .gotoTop {
@@ -1249,6 +1258,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 返回顶部 E  *******/
 
 
@@ -1256,7 +1266,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 .dotWrap {
     margin-top: 40px;
-    padding-top: 40px;
+    padding: 40px 0;
     background: #fff;
     .dot__title {
         font-size: 16px;
@@ -1348,7 +1358,7 @@ $VAR_C_HEISE_01: #2e3136;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            display:none;
+            display: none;
             &:before {
                 content: "";
                 display: block;
@@ -1387,14 +1397,14 @@ $VAR_C_HEISE_01: #2e3136;
             }
         }
     }
-    .replyStataWrap[data-active="0"] .replyStata--waiting{
-        display:flex;
+    .replyStataWrap[data-active="0"] .replyStata--waiting {
+        display: flex;
     }
-    .replyStataWrap[data-active="1"] .replyStata--praise{
-        display:flex;
+    .replyStataWrap[data-active="1"] .replyStata--praise {
+        display: flex;
     }
-    .replyStataWrap[data-active="-1"] .replyStata--step{
-        display:flex;
+    .replyStataWrap[data-active="-1"] .replyStata--step {
+        display: flex;
     }
 }
 
@@ -1414,6 +1424,10 @@ $VAR_C_HEISE_01: #2e3136;
     background: #fff;
     border: 1px solid #e1e1e1;
     color: #2E2E35;
+}
+
+.btn--gray{
+    background: #999;
 }
 
 
@@ -1449,6 +1463,9 @@ $VAR_C_HEISE_01: #2e3136;
         justify-content: center;
         align-items: center;
     }
+    .pubPopMain--ov{
+        align-items: baseline;
+    }
     .pubPopContent {
         position: relative;
         background: #fff;
@@ -1475,6 +1492,16 @@ $VAR_C_HEISE_01: #2e3136;
     }
     .eidtBox {
         display: flex;
+        position: relative;
+        .error{
+            position: absolute;
+            left:0;
+            right:-120px;
+            top: 50px;
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: left;
+        }
     }
     .eidtFamilyInfo__label {
         flex: 0 0 100px;
@@ -1560,14 +1587,75 @@ $VAR_C_HEISE_01: #2e3136;
         text-align: center;
         padding: 0;
     }
+    .eidtInput--noborder {
+        border: none;
+        height: 40px;
+        line-height: 40px;
+    }
+    .stylesTags {
+        width: 350px;
+    }
+    .stylesTag {
+        display: inline-block;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: $VAR_C_HUISE_02;
+        min-width: 70px;
+        height: 22px;
+        line-height: 22px;
+        background: #F2F2F2;
+        margin-right: 10px;
+        text-align: center;
+        &:hover{
+            background: #528AFC;
+            color: #fff;
+        }
+    }
+    .stylesTag--active {
+        background: #528AFC;
+        color: #fff;
+    }
 }
-
+.price{
+    margin-top: 30px;
+    position: absolute;
+    left: -30px;
+    background: url(../images/public/zhifubg.png) no-repeat;
+    right: -30px;
+    height:171px;
+    color:#fff;
+    text-align: center;
+    .price__tips{
+        padding-top: 30px;
+        margin-bottom: 10px;
+    }
+    .price__num{
+        font-size: 80px;
+        font-weight: bold;
+    }
+}
+.curprice{
+    text-align: center;
+    color:$VAR_C_HUISE_02;
+    font-size: 16px;
+    padding-top: 200px;
+}
+.determineBtn{
+    display:block;
+    margin: 50px 15%;
+}
+.error{
+    text-align: center;
+    color: #ff1c2c;
+    font-size: 16px;
+}
 .eidtBtn {
     display: block;
     margin: 0 auto;
     margin: 50px 30%;
     margin-top: 100px;
 }
+
 
 
 /****** 公共弹窗 E  *******/
