@@ -7,6 +7,25 @@ include common/common.pug
             a(href="javascript:;").top__btn.top__btn--blue 退出
         +headBar
         .content.scheme
+            .screening
+                .screening__item
+                    label.screening__label 时间：
+                    select.screening__select
+                        option 全部
+                        option 2017
+                        option 2016
+                .screening__item
+                    label.screening__label 城市：
+                    select.screening__select
+                        option 全部
+                        option 北京-朝阳
+                        option 河南-郑州-新乡
+                .screening__item
+                    label.screening__label 小区：
+                    select.screening__select
+                        option 全部
+                        option 北京-朝阳
+                        option 河南-郑州-新乡
             ul.schemeList#schemeList
                 - for (var x = 0; x < 6; x++)
                     li.schemeList__item()
@@ -30,42 +49,113 @@ include common/common.pug
                         .infoDetail
                             - for (var a = 0; a < 3; a++)
                                 .infoDetail__item
-                                .infoDetail__head
-                                    h4.infoDetail__tit 方案#{a + 1}：简约第一版
-                                        span.infoDetail__style 风格：简约
-                                    a(href="javascript:;").infoDetail__btn 编辑方案
-                                .infoDetail__main
-                                    .detailBlock.detailBlock--photo
-                                        .detailBlock__head
-                                            h5.detailBlock__tit 效果图
-                                            a(href="javascript:;").detailBlock__all 查看全部
-                                        ul.detailList
-                                            - for (var y = 0; y < 3; y++)
-                                                li.detailList__item
-                                                    a(href="javascript:;", class= y ==2 ? 'img_default': "").detailList__link
+                                    .infoDetail__head
+                                        .infoDetail__left
+                                            h4.infoDetail__tit 方案#{a + 1}：简约第一版 (简约)
+                                                a(href="管理方案.html").infoDetail__style 编辑
+                                            .userInof
+                                                span.userInof__item 客户：轩亦辰
+                                                span.userInof__item 电话：18610996127
+                                                span.userInof__item 最后修改:2017-06-22
+
+                                        a(href="管理方案.html").infoDetail__btn 编辑方案
+                                    .infoDetail__main
+                                        .detailBlock.detailBlock--photo
+                                            .detailBlock__head
+                                                h5.detailBlock__tit 效果图
+                                                a(href="管理方案.html").detailBlock__all.detailBlock__all--unread 查看全部
+                                            ul.detailList
+                                                - for (var y = 0; y < 3; y++)
+                                                    li.detailList__item
+                                                        a(href="2主页面-方案管理-二级-查看.html", class= y ==2 ? 'img_default': "").detailList__link
+                                                            -if(y == 2) {
+                                                                img(src="../images/public/img_default.png", alt="").detailList__img
+                                                            -} else {
+                                                                img(src="../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
+                                                            -}
+                                                        p.detailList__txt 暂无图片
+                                        .detailBlock.detailBlock--vedio
+                                            .detailBlock__head
+                                                h5.detailBlock__tit 视频
+                                                a(href="管理方案.html").detailBlock__all 查看全部
+                                            ul.detailList
+                                                - for (var y = 0; y < 3; y++)
+                                                    li.detailList__item
                                                         -if(y == 2) {
-                                                            img(src="../images/public/img_default.png", alt="").detailList__img
+                                                            a(href="javascript:;", class='detailList__link--default vedio_default').detailList__link.vedioIcon
+                                                            img(src="../images/public/vedio_default.png", alt="").detailList__img
+                                                            p.detailList__txt 暂无视频
                                                         -} else {
-                                                            img(src="../images/temp/glfa.png", alt="", data-original="../images/public/img_default.png").detailList__img
+                                                            a(href="javascript:;", src="/images/login/bg.mp4").detailList__link.vedioIcon
+                                                                img(src= "../images/temp/glfa.png", alt="").detailList__img
+                                                            p.detailList__txt 暂无视频
                                                         -}
-                                                    p.detailList__txt 暂无图片
-                                    .detailBlock.detailBlock--vedio
-                                        .detailBlock__head
-                                            h5.detailBlock__tit 视频
-                                            a(href="javascript:;").detailBlock__all 查看全部
-                                        ul.detailList
-                                            - for (var y = 0; y < 3; y++)
-                                                li.detailList__item
-                                                    -if(y == 2) {
-                                                        a(href="javascript:;", class='detailList__link--default vedio_default').detailList__link.vedioIcon
-                                                        img(src="../images/public/vedio_default.png", alt="").detailList__img
-                                                        p.detailList__txt 暂无视频
-                                                    -} else {
-                                                        a(href="javascript:;", src="/images/login/bg.mp4").detailList__link.vedioIcon
-                                                            img(src= "../images/temp/glfa.png", alt="").detailList__img
-                                                        p.detailList__txt 暂无视频
-                                                    -}
             a(href="javascript:;").loadMore#loadMore  点击加载更多
             a(href="#").gotoTop 返回顶部
     input(type="hidden", id="loadMoreURI", value="/")
     +pubPop
+    +pubPopLayout()
+        .pubPopHead
+            h3.pubPopHead__tit 编辑户型信息
+
+
+
+
+    +pubPopLayout('none')
+        .pubPopHead
+            h3.pubPopHead__tit 编辑户型信息
+        ul.eidtFamilyInfo
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 户型名称：
+                .eidtBox
+                    input.eidtInput(value="新湖家园3号楼201")
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 所在城市：
+                .eidtBox
+                    .lenovo.lenovo--active1
+                        input(type="text", disabled, value="河南省").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 河南省
+                            li.lenovoList__item 河南省
+                            li.lenovoList__item 河南省
+                            li.lenovoList__item 河南省
+                    .lenovo
+                        input(type="text", disabled, value="郑州市").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 郑州市
+                            li.lenovoList__item 郑州市
+                            li.lenovoList__item 郑州市
+                    .lenovo
+                        input(type="text", disabled, value="新郑市").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 新郑市
+                            li.lenovoList__item 新郑市
+                            li.lenovoList__item 新郑市
+                            li.lenovoList__item 新郑市
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 选择小区：
+                .eidtBox
+                    .lenovo.W300.lenovo--active1
+                        input(type="text").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 和平小区
+                            li.lenovoList__item 和平小区
+                            li.lenovoList__item 和平小区
+                    span.eidt__tips （选择或输入小区）
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 选择格局：
+                .eidtBox
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 室
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 厅
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 卫
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 厨
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 平方数：
+                .eidtBox
+                    input.eidtInput(value="150",type="number")
+                    span.eidt__tips ㎡
+        a(href="javascript:;").btn.btn-blue.eidtBtn 确定
