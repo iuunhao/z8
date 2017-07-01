@@ -67,6 +67,6 @@ mixin pubPop()
 mixin pubPopLayout(opts)
     .pubPopLayout(class= opts.isNone ? 'none' : '', id = opts.id ? opts.id : '')
         .pubPopMain
-            .pubPopContent(class = opts.ov ? '.pubPopMain--ov'  :'')
+            .pubPopContent(class = opts.ov ? 'pubPopMain--ov'  :'')
                 a(href="javascript:;", close="true").pubPopClose ✕
                 block

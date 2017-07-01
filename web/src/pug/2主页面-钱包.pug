@@ -1,0 +1,59 @@
+include common/common.pug
++head({title: '2主页面-钱包', bgClass:'bgF7'})
+    .wrap.wrap--bg
+        .top 欢迎，设计师
+            em.top__user-name 轩亦辰
+            | |
+            a(href="").top__btn.top__btn--blue 退出登录
+        +headBar
+        .masterUserInof
+            img(src="../images/public/default_male.png").masterUserInof__img.none
+            img(src="../images/public/default_female.png").masterUserInof__img
+            p.masterUserInof__txt 晚上好，轩亦辰
+            p.masterUserInof__txt.masterUserInof__txt--xs 手机号：18610996127
+        .content.master.balanceWrap
+            .balance
+                .balanceNumWrap 钢镚：
+                    span.balanceNumber 1444
+                a(href="javascript:;").topUpBtn 充值
+            table.masterList.masterList--topUp
+                thead
+                    tr
+                        th 交易时间
+                        th 类型
+                        th 名称
+                        th 钢镚
+                        th 现金消耗
+                tbody
+                    -for(var x = 0; x< 2; x++)
+                        tr
+                            td 2017-05-23
+                            td.red 支出
+                            td.W300 制作效果图消费（BJ201705210001)
+                            td.red -1500
+                            td
+                        tr
+                            td 2017-05-23
+                            td.green 收入
+                            td.W300 充值
+                            td.green +1500
+                            td.red -5000¥
+            .masterPage
+                a(href="javascript:;").masterPage__btn.masterPage__previous.masterPage__btn--disable  上一页
+                a(href="javascript:;").masterPage__btn.masterPage__btn--page.masterPage__btn--active 1
+                a(href="javascript:;").masterPage__btn.masterPage__btn--page 2
+                a(href="javascript:;").masterPage__btn.masterPage__btn--page 3
+                a(href="javascript:;").masterPage__btn.masterPage__next 下一页
+            +pubPopLayout({isNone: false})
+                .pubPopHead
+                    h3.pubPopHead__tit 充值
+                    ul.eidtFamilyInfo
+                        li.eidtFamilyInfo__item
+                            label.eidtFamilyInfo__label 购买钢镚：
+                            .eidtBox
+                                input.eidtInput(placeholder="钢镚数量", type="number").eidtInput--max
+                                span.eidt__tips 枚
+                    .topUp
+                        p.topUp__tit 应付金额(¥)
+                        p.topUp__number 1500
+                    a(href="javascript:;").btn.recommendedBtn 提交订单

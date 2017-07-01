@@ -1,0 +1,46 @@
+include common/common.pug
++head({title: '2主页面-方案客户-推荐工长', bgClass:'bgF7'})
+    .wrap.wrap--bg
+        .top 欢迎，设计师
+            em.top__user-name 轩亦辰
+            | |
+            a(href="").top__btn.top__btn--blue 退出登录
+        +headBar
+        .content.master
+            table.masterList
+                thead
+                    tr
+                        th 客户姓名
+                        th 手机号
+                        th 小区
+                        th 方案数
+                        th 工长
+                tbody
+                    -for(var x = 0; x< 2; x++)
+                        tr
+                            td 张三
+                            td 13810886071
+                            td 龙湖锦艺城
+                            td 7
+                            td
+                               a(href="javascript:;").recommended 推荐
+
+            .masterPage
+                a(href="javascript:;").masterPage__btn.masterPage__previous.masterPage__btn--disable  上一页
+                a(href="javascript:;").masterPage__btn.masterPage__btn--page.masterPage__btn--active 1
+                a(href="javascript:;").masterPage__btn.masterPage__btn--page 2
+                a(href="javascript:;").masterPage__btn.masterPage__btn--page 3
+                a(href="javascript:;").masterPage__btn.masterPage__next 下一页
+            +pubPopLayout({isNone: false})
+                .pubPopHead
+                    h3.pubPopHead__tit 推荐工长
+                    ul.eidtFamilyInfo
+                        li.eidtFamilyInfo__item
+                            label.eidtFamilyInfo__label 工长姓名：
+                            .eidtBox
+                                input.eidtInput(placeholder="工长姓名", type="text").eidtInput--max
+                        li.eidtFamilyInfo__item
+                            label.eidtFamilyInfo__label 工长电话：
+                            .eidtBox
+                                input.eidtInput(placeholder="工长电话", type="tel").eidtInput--max
+                    a(href="javascript:;").btn.recommendedBtn 确 定

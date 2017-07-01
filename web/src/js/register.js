@@ -388,4 +388,3 @@ Register.init();
 
 /******/ });
 });
-//# sourceMappingURL=register.js.map

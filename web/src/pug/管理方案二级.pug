@@ -4,7 +4,7 @@ include common/common.pug
         .top 欢迎，设计师
             em.top__user-name 轩亦辰
             | |
-            a(href="javascript:;").top__btn.top__btn--blue 退出
+            a(href="javascript:;").top__btn.top__btn--blue 退出登录
         +headBar
         .content.scheme
             .screening
@@ -26,14 +26,17 @@ include common/common.pug
                         option 全部
                         option 北京-朝阳
                         option 河南-郑州-新乡
+            .noData
+                img(src="../images/public/nodata.jpg").noData__img
+                p.noData__txt 暂无数据
             ul.schemeList#schemeList
-                - for (var x = 0; x < 6; x++)
+                - for (var x = 0; x < 1; x++)
                     li.schemeList__item()
                         .infoSimple
                             img(src="../images/temp/glfa.png", alt="").infoSimple__img
                             .infoSimple__txtBox
                                 .pbox
-                                    p.infoSimple__txt.infoSimple__txt--tit 
+                                    p.infoSimple__txt.infoSimple__txt--tit
                                         span 紫金新干线10号楼3单元20#{x}
                                         a(href="javascript:;").editDoorModel 编辑户型信息
                                 .pbox
@@ -97,10 +100,10 @@ include common/common.pug
             a(href="#").gotoTop 返回顶部
     input(type="hidden", id="loadMoreURI", value="/")
     +pubPop
-    +pubPopLayout({isNone: true, ov: true, id:"editPlan"})
+    +pubPopLayout({isNone: false, ov: true, id:"editPlan"})
         .pubPopHead
             h3.pubPopHead__tit 添加方案
-        ul.eidtFamilyInfo(style="width: 458px")
+        ul.eidtFamilyInfo(style="")
             li.eidtFamilyInfo__item
                 label.eidtFamilyInfo__label 户型小区：
                 .eidtBox
@@ -123,12 +126,12 @@ include common/common.pug
             li.eidtFamilyInfo__item
                 label.eidtFamilyInfo__label 客户姓名：
                 .eidtBox
-                    input.eidtInput(value="")
+                    input.eidtInput(value="", type="text").eidtInput--300
                     p.error 客户姓名填写后即不可更改请慎重填写
             li.eidtFamilyInfo__item
                 label.eidtFamilyInfo__label 客户电话：
                 .eidtBox
-                    input.eidtInput(value="")
+                    input.eidtInput(value="", type="text").eidtInput--300
                     p.error 客户电话填写后即不可更改，且该电话为客户的手机端账号，请重填写。
 
         .price
@@ -181,6 +184,74 @@ include common/common.pug
                             li.lenovoList__item 和平小区
                             li.lenovoList__item 和平小区
                     span.eidt__tips （选择或输入小区）
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 选择格局：
+                .eidtBox
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 室
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 厅
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 卫
+                    input.eidtInput.eidtInput--xs(type="tel")
+                    span.eidt__tips 厨
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 平方数：
+                .eidtBox
+                    input.eidtInput(value="150",type="number")
+                    span.eidt__tips ㎡
+        a(href="javascript:;", confirm="true").btn.btn-blue.eidtBtn 确定
+
+    +pubPopLayout({isNone: true, ov: true, id: ""})
+        .pubPopHead
+            h3.pubPopHead__tit 开始新设计-创建户型
+        ul.eidtFamilyInfo
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 户型名称：
+                .eidtBox
+                    input.eidtInput(value="新湖家园3号楼201")
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 所在城市：
+                .eidtBox
+                    .lenovo.lenovo--active1
+                        input(type="text", disabled, value="河南省").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 河南省
+                            li.lenovoList__item 河南省
+                            li.lenovoList__item 河南省
+                            li.lenovoList__item 河南省
+                    .lenovo
+                        input(type="text", disabled, value="郑州市").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 郑州市
+                            li.lenovoList__item 郑州市
+                            li.lenovoList__item 郑州市
+                    .lenovo
+                        input(type="text", disabled, value="新郑市").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 新郑市
+                            li.lenovoList__item 新郑市
+                            li.lenovoList__item 新郑市
+                            li.lenovoList__item 新郑市
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 选择小区：
+                .eidtBox
+                    .lenovo.W300.lenovo--active1
+                        input(type="text").lenovo__inp
+                        ul.lenovoList
+                            li.lenovoList__item 和平小区
+                            li.lenovoList__item 和平小区
+                            li.lenovoList__item 和平小区
+                    span.eidt__tips （选择或输入小区）
+            li.eidtFamilyInfo__item
+                label.eidtFamilyInfo__label 选择户型：
+                .chooseFamily
+                    p.chooseFamily__txt （输入城市小区看看有没有匹配户型）
+                    p.chooseFamily__txt.chooseFamily__txt--red 未搜索到当前小区户型
+                    -for(var u = 0; u < 6; u++)
+                        a(href="javascript:;", class=(u === 0) ? 'chooseFamily__link--active' : '').chooseFamily__link
+                            img(src="../images/temp/huxing.png").chooseFamily__img
+                            p.chooseFamily__name 北北京 富贵新苑 2016京 富贵新苑 2016
             li.eidtFamilyInfo__item
                 label.eidtFamilyInfo__label 选择格局：
                 .eidtBox

@@ -6,16 +6,27 @@ include common/common.pug
             | |
             a(href="").top__btn.top__btn--blue 退出
         +headBar
+        .manageUserInof
+            .manageUserInof__item 客户：轩亦辰
+            .manageUserInof__item 电话：18610996127
+            .manageUserInof__item 最后修改:2017-06-22
         .content.manage#manage
             .manageHead
-                h3.manageHead__title 紫金新干线10号楼3单元201（方案1：简约第一版）
+                h3.manageHead__title.manageHead__title--edit1 方案名称：
+                    span.manageHead__titleValue 紫金新干线10号楼3单元201
+                    input(type="hidden", value="", name='manageHead__titleValue')
+                .manageHead__tags
+                    span.manageHead__tagsLabel 风格：
+                    .manageHead__tagsBox.manageHead__tagsBox--edit1
+                        -for(var a = 0; a < 8 ; a++)
+                            span.manageHead__tag.manageHead__tag--active1 中国风
                 a(hrfef="javascript:;").manageHead__btn.none#btnConfirm  确定
                 a(hrfef="javascript:;").manageHead__btn#btnEdit  编辑
             .manageMod
                 h4.manageMod__tit 效果图
                 ul.manageList
                     - for (var x = 0; x < 6; x++)
-                        li.manageList__item(pro_id='i_'+x)
+                        li.manageList__item(pro_id='i_'+x).manageList__item--unread
                             a(href="javascript:;").manageList__close ✕
                             a(href="javascript:;").manageList__link
                                 img(src="../images/temp/glfa.png", data-original="../images/temp/glfa.png").manageList__img

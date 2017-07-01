@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>2主页面-方案客户-推荐工长</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+  </head>
+  <body class="bgF7">
+    <div class="wrap wrap--bg">
+      <div class="top">欢迎，设计师<em class="top__user-name">轩亦辰</em>|<a class="top__btn top__btn--blue" href="">退出登录</a></div>
+      <div class="head"><img class="head__logo" src="../images/icon-home/logo.png" alt=""/>
+        <ul class="head__nav">
+          <li class="head__nav-glfa head__nav--active"><a class="head__nav-item" href="">管理方案</a></li>
+          <li class="head__nav-glkh"><a class="head__nav-item" href="">管理客户</a></li>
+          <li class="head__nav-qb"><a class="head__nav-item" href="">钱包</a></li>
+          <li class="head__nav-add"><a class="head__nav-item" href="">添加设计方案</a></li>
+        </ul>
+      </div>
+      <div class="content master">
+        <table class="masterList">
+          <thead>
+            <tr>
+              <th>客户姓名</th>
+              <th>手机号</th>
+              <th>小区</th>
+              <th>方案数</th>
+              <th>工长</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>张三</td>
+              <td>13810886071</td>
+              <td>龙湖锦艺城</td>
+              <td>7</td>
+              <td><a class="recommended" href="javascript:;">推荐</a></td>
+            </tr>
+            <tr>
+              <td>张三</td>
+              <td>13810886071</td>
+              <td>龙湖锦艺城</td>
+              <td>7</td>
+              <td><a class="recommended" href="javascript:;">推荐</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="masterPage"><a class="masterPage__btn masterPage__previous masterPage__btn--disable" href="javascript:;"> 上一页</a><a class="masterPage__btn masterPage__btn--page masterPage__btn--active" href="javascript:;">1</a><a class="masterPage__btn masterPage__btn--page" href="javascript:;">2</a><a class="masterPage__btn masterPage__btn--page" href="javascript:;">3</a><a class="masterPage__btn masterPage__next" href="javascript:;">下一页</a></div>
+        <div class="pubPopLayout" id="">
+          <div class="pubPopMain">
+            <div class="pubPopContent"><a class="pubPopClose" href="javascript:;" close="true">✕</a>
+              <div class="pubPopHead">
+                <h3 class="pubPopHead__tit">推荐工长</h3>
+                <ul class="eidtFamilyInfo">
+                  <li class="eidtFamilyInfo__item">
+                    <label class="eidtFamilyInfo__label">工长姓名：</label>
+                    <div class="eidtBox">
+                      <input class="eidtInput eidtInput--max" placeholder="工长姓名" type="text"/>
+                    </div>
+                  </li>
+                  <li class="eidtFamilyInfo__item">
+                    <label class="eidtFamilyInfo__label">工长电话：</label>
+                    <div class="eidtBox">
+                      <input class="eidtInput eidtInput--max" placeholder="工长电话" type="tel"/>
+                    </div>
+                  </li>
+                </ul><a class="btn recommendedBtn" href="javascript:;">确 定</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/jquery/1.8.3/jquery.js"></script>
+    <script src="../js/common.js"></script>
+  </body>
+</html>
