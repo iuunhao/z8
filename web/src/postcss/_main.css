@@ -1811,6 +1811,10 @@ $VAR_C_HEISE_01: #2e3136;
         padding: 20px;
         border-top: 1px solid #d8dde6;
         margin-top: -1px;
+        cursor: pointer;
+        &:hover{
+            background: #e6efff;
+        }
     }
     .lenovo--active {
         z-index: 20;
@@ -2231,7 +2235,14 @@ $VAR_C_HEISE_01: #2e3136;
     }
 }
 
-
+.btnWrap{
+    padding: 50px 30px;
+    display: flex;
+    .btn{
+        margin: 0 15px;
+        flex:1;
+    }
+}
 
 
 

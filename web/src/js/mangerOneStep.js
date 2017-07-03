@@ -287,3 +287,4 @@ showPlayVideo.init();
 /***/ })
 /******/ ]);
 });
+//# sourceMappingURL=mangerOneStep.js.map
