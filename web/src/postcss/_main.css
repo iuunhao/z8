@@ -795,15 +795,21 @@ $VAR_C_HEISE_01: #2e3136;
     padding-bottom: 30px;
     margin-bottom: 40px;
     .manageHead__title {
-        font-size: 18px;
+        /*font-size: 16px;*/
         color: $VAR_C_HUISE_02;
         border: 1px solid transparent;
         span {
             padding: 10px;
         }
     }
+    .manageHead__titleValue{
+        font-size: 18px;
+        width: 260px;
+        padding: 10px;
+        border: 1px solid transparent;
+    }
     .manageHead__title--edit {
-        span {
+        .manageHead__titleValue{
             border: 1px solid #D8DDE6;
         }
     }
@@ -811,6 +817,7 @@ $VAR_C_HEISE_01: #2e3136;
         background: #fff;
         color: $VAR_C_HUISE_02;
         border: 1px solid $VAR_C_HUISE_02;
+        white-space: nowrap;
         height: 38px;
         line-height: 38px;
         cursor: pointer;
@@ -1861,6 +1868,10 @@ $VAR_C_HEISE_01: #2e3136;
     .stylesTag--active {
         background: #528AFC;
         color: #fff;
+    }
+    .eidt__tips--link{
+        color: #528AFC;
+        text-decoration: underline;
     }
 }
 
