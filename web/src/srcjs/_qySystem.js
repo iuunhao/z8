@@ -200,8 +200,13 @@ define(function(require, exports, module) {
                 if (!this.hasObject(this.DOM.confirm)) return false;
                 this.DOM.confirm.html(this.confirm || this.DOM.confirm.html() || '确定');
                 this.wrap.on('click', '[confirm], [confirm=true]', function() {
-                    that.confirmCallback.call(that);
-                    that.hide();
+                    var res = that.confirmCallback.call(that, function() {
+                        that.hide();
+                    });
+
+                    if (res === false) {
+                        return false;
+                    }
                 })
             },
             addCancelBtn: function() {
@@ -211,8 +216,13 @@ define(function(require, exports, module) {
                 if (!this.hasObject(this.DOM.cancel)) return false;
                 this.DOM.cancel.html(this.cancel || this.DOM.cancel.html() || '取消');
                 this.wrap.on('click', '[cancel], [cancel=true]', function() {
-                    that.cancelCallback.call(that);
-                    that.hide();
+                    var res = that.cancelCallback.call(that, function() {
+                        that.hide();
+                    });
+
+                    if (res === false) {
+                        return false;
+                    }
                 })
             },
             init: function() {

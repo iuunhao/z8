@@ -29,75 +29,92 @@
             <div class="manageUserInof__item">最后修改:2017-06-22</div>
         </div>
         <div class="content manage" id="manage">
-            <div class="manageHead">
-                <h3 class="manageHead__title manageHead__title--edit">方案名称：
-                    <input class="manageHead__titleValue" type="text" value="" name="manageHead__titleValue" />
+            <form id="cForm" action="">
+                <div class="manageHead">
+                    <h3 class="manageHead__title">方案名称：
+                    <input class="manageHead__titleValue" id="planName" disabled="disabled" type="text" value="方案名称" />
+                    <input type="hidden" value="" name="planName" />
                 </h3>
-                <div class="manageHead__tags"><span class="manageHead__tagsLabel">风格：</span>
-                    <div class="manageHead__tagsBox manageHead__tagsBox--edit"><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span>
-                    </div>
-                    <div class="manageHead__tagsBox"><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span><span class="manageHead__tag manageHead__tag--active1">中国风</span>
-                    </div>
-                </div><a class="manageHead__btn none" hrfef="javascript:;" id="btnConfirm"> 确定</a><a class="manageHead__btn" hrfef="javascript:;" id="btnEdit"> 编辑</a>
-            </div>
-            <div class="manageMod">
-                <h4 class="manageMod__tit">效果图</h4>
-                <ul class="manageList">
-                    <li class="manageList__item manageList__item--unread" pro_id="i_0"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_0" />
-                    </li>
-                    <li class="manageList__item manageList__item--unread" pro_id="i_1"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_1" />
-                    </li>
-                    <li class="manageList__item manageList__item--unread" pro_id="i_2"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_2" />
-                    </li>
-                    <li class="manageList__item manageList__item--unread" pro_id="i_3"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_3" />
-                    </li>
-                    <li class="manageList__item manageList__item--unread" pro_id="i_4"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_4" />
-                    </li>
-                    <li class="manageList__item manageList__item--unread" pro_id="i_5"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_5" />
-                    </li>
-                </ul>
-            </div>
-            <div class="manageMod manageMod--vedio">
-                <h4 class="manageMod__tit">视频</h4>
-                <ul class="manageList">
-                    <li class="manageList__item" pro_id="v_0"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_0" />
-                    </li>
-                    <li class="manageList__item" pro_id="v_1"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_1" />
-                    </li>
-                    <li class="manageList__item" pro_id="v_2"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_2" />
-                    </li>
-                    <li class="manageList__item" pro_id="v_3"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_3" />
-                    </li>
-                    <li class="manageList__item" pro_id="v_4"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_4" />
-                    </li>
-                    <li class="manageList__item" pro_id="v_5"><a class="manageList__close" href="javascript:;">✕</a><a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png"/></a>
-                        <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
-                        <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_5" />
-                    </li>
-                </ul>
-            </div>
+                    <div class="manageHead__tags"><span class="manageHead__tagsLabel">风格：</span>
+                        <div id="ctags" class="manageHead__tagsBox manageHead__tagsBox--edit none"><span class="manageHead__tag ">中国风1</span><span class="manageHead__tag ">中国风2</span><span class="manageHead__tag ">中国风3</span><span class="manageHead__tag ">中国风4</span><span class="manageHead__tag ">中国风5</span><span class="manageHead__tag ">中国风6</span><span class="manageHead__tag ">中国风7</span><span class="manageHead__tag manageHead__tag--active">中国风8</span>
+                        </div>
+                        <div id="ctag" class="manageHead__tagsBox">
+                            <span>中国风1</span>
+                            <input name="planType" type="hidden" value="中国风">
+                        </div>
+                    </div><a class="manageHead__btn none" hrfef="javascript:;" id="btnConfirm"> 确定</a><a class="manageHead__btn" hrfef="javascript:;" id="btnEdit"> 编辑</a>
+                </div>
+                <div class="manageMod">
+                    <h4 class="manageMod__tit">效果图</h4>
+                    <ul class="manageList">
+                        <li class="manageList__item manageList__item--unread" pro_id="i_0"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_0" />
+                        </li>
+                        <li class="manageList__item manageList__item--unread" pro_id="i_1"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_1" />
+                        </li>
+                        <li class="manageList__item manageList__item--unread" pro_id="i_2"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_2" />
+                        </li>
+                        <li class="manageList__item manageList__item--unread" pro_id="i_3"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_3" />
+                        </li>
+                        <li class="manageList__item manageList__item--unread" pro_id="i_4"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_4" />
+                        </li>
+                        <li class="manageList__item manageList__item--unread" pro_id="i_5"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_5" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="manageMod manageMod--vedio">
+                    <h4 class="manageMod__tit">视频</h4>
+                    <ul class="manageList">
+                        <li class="manageList__item" pro_id="v_0"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_0" />
+                        </li>
+                        <li class="manageList__item" pro_id="v_1"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_1" />
+                        </li>
+                        <li class="manageList__item" pro_id="v_2"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_2" />
+                        </li>
+                        <li class="manageList__item" pro_id="v_3"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_3" />
+                        </li>
+                        <li class="manageList__item" pro_id="v_4"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_4" />
+                        </li>
+                        <li class="manageList__item" pro_id="v_5"><a class="manageList__close" href="javascript:;">✕</a>
+                            <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
+                            <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
+                            <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="v_5" />
+                        </li>
+                    </ul>
+                </div>
+            </form>
         </div>
     </div>
     <input type="hidden" id="removeURI" value="/" />

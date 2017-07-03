@@ -809,7 +809,7 @@ $VAR_C_HEISE_01: #2e3136;
         border: 1px solid transparent;
     }
     .manageHead__title--edit {
-        .manageHead__titleValue{
+        span{
             border: 1px solid #D8DDE6;
         }
     }

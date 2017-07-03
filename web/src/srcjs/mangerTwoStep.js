@@ -2,8 +2,15 @@
  * [showDetail 查看详情]
  * @type {Object}
  */
+import './_addNewPlan.js'
 import SYS from './_qySystem.js'
 import * as u from '../srcjs/_unit.js'
+import Mustache from '../libs/js/mustache.js'
+
+
+
+
+
 
 
 const showDetail = {
@@ -154,19 +161,45 @@ const editHousrType = {
         var that = this;
         this.wrap = $('#schemeList');
         this.alert = $('#editHouseType');
+        this.cEditHouseType = $('#cEditHouseType');
+        /**
+         * [houseTypeTmp 户型图模板]
+         * @type {[type]}
+         */
+        this.houseTypeTmp = $('#houseTypeTmp').html();
+        /**
+         * [editHouseTemp 户型模板]
+         * @type {[type]}
+         */
+        this.editHouseTemp = $('#editHouseTemp').html();
         this.pop = null;
 
         this.wrap.on('click', '.editDoorModel', function() {
-            that.setEditHousrType($(this));
+            var $this = $(this);
+            that.setEditHousrType($this);
             if (that.pop) {
                 that.pop = null;
             }
-
-            that.pop = new SYS.Alert(that.alert, {
-                confirmCallback() {
-
+            var data = {
+                info: {
+                    title: '编辑户型信息',
+                    name: '新湖家园3号楼201',
+                    room: 3,
+                    hall: 3,
+                    toilet: 3,
+                    kitchen: 3,
+                    size: 150
                 }
-            })
+            };
+            var $parent = $this.parents('.infoSimple__txtBox')
+            that.cEditHouseType.html(Mustache.to_html(that.editHouseTemp, data));
+            that.pop = new SYS.Alert(that.alert, {
+                confirmCallback: function(next) {
+                    next();
+                    $parent.html(Mustache.to_html(that.houseTypeTmp, data));
+                    return false;
+                }
+            });
         })
     }
 };
@@ -177,29 +210,29 @@ editHousrType.init();
  * [editPlan 编辑方案]
  * @type {Object}
  */
-const editPlan = {
-    setEditHousrType($btn) {
-        this.params.title = $btn.siblings('span').text();
-    },
-    init() {
-        var that = this;
-        this.wrap = $('#schemeList');
-        this.alert = $('#editPlan');
-        this.pop = null;
-        this.params = {};
+// const editPlan = {
+//     setEditHousrType($btn) {
+//         this.params.title = $btn.siblings('span').text();
+//     },
+//     init() {
+//         var that = this;
+//         this.wrap = $('#schemeList');
+//         this.alert = $('#editPlan');
+//         this.pop = null;
+//         this.params = {};
 
-        this.wrap.on('click', '.addPlan', function() {
-            that.setEditHousrType($(this));
-            if (that.pop) {
-                that.pop = null;
-            }
+//         this.wrap.on('click', '.addPlan', function() {
+//             that.setEditHousrType($(this));
+//             if (that.pop) {
+//                 that.pop = null;
+//             }
 
-            that.pop = new SYS.Alert(that.alert, {
-                confirmCallback() {
+//             that.pop = new SYS.Alert(that.alert, {
+//                 confirmCallback() {
 
-                }
-            })
-        })
-    }
-};
-editPlan.init();
+//                 }
+//             })
+//         })
+//     }
+// };
+// editPlan.init();

@@ -73,11 +73,12 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92,10 +93,8 @@ function showTips(str) {
 }
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -122,6 +121,22 @@ var Edit = {
         this.btnConfirm.addClass(this.cname);
         this.wrapper.removeClass(this.editName);
         this.contenteditable = false;
+        this.planName.attr('disabled', 'disabled');
+        this.planName.siblings('input[type=hidden]').val(this.planName.val());
+        this.tags.addClass('none');
+        this.tag.removeClass('none');
+
+        $.ajax({
+            url: '/',
+            type: 'POST',
+            dataType: 'json',
+            data: this.form.serialize(),
+            success: function success(response) {
+                if (response.res == 1) {} else {
+                    u.showTips(response.msg);
+                }
+            }
+        });
     },
     /**
      * [showConfirm 显示确定按钮内容可编辑]
@@ -131,6 +146,32 @@ var Edit = {
         this.btnConfirm.removeClass(this.cname);
         this.btnEdit.addClass(this.cname);
         this.wrapper.addClass(this.editName);
+        this.planName.removeAttr('disabled');
+        this.tags.removeClass('none');
+        this.tag.addClass('none');
+        this.showStyle();
+    },
+    /**
+     * [setStyleClass 设置类型的class]
+     * @param {[Object]} $type [选择的风格]
+     */
+    setStyleClass: function setStyleClass($type) {
+        $type.siblings('.manageHead__tag').removeClass('manageHead__tag--active');
+        $type.addClass('manageHead__tag--active');
+    },
+    /**
+     * [showStyle 显示风格]
+     */
+    showStyle: function showStyle() {
+        var $val = this.tag.find('span').text().trim(),
+            that = this;
+        this.tags.find('.manageHead__tag').each(function () {
+            var $this = $(this),
+                $span = $this.text().trim();
+            if ($span == $val) {
+                that.setStyleClass($this);
+            }
+        });
     },
     /**
      * [confirmHandler 提交修改]
@@ -201,6 +242,10 @@ var Edit = {
      */
     init: function init() {
         var that = this;
+        this.planName = $('#planName');
+        this.tags = $('#ctags');
+        this.tag = $('#ctag');
+        this.form = $('#cForm');
         this.contenteditable = false;
         this.btnEdit.on('click', this.editHandler.bind(this));
         this.btnConfirm.on('click', this.confirmHandler.bind(this));
@@ -214,6 +259,13 @@ var Edit = {
 
         $('.manageList__desc').on('blur', function () {
             that.updatedName($(this));
+        });
+
+        this.tags.on('click', '.manageHead__tag', function () {
+            var $this = $(this);
+            that.setStyleClass($this);
+            that.tag.find('span').text($this.text());
+            that.tag.find('input').val($this.text());
         });
     }
 }; /**
@@ -285,6 +337,7 @@ var showPlayVideo = {
 showPlayVideo.init();
 
 /***/ })
-/******/ ]);
+
+/******/ });
 });
 //# sourceMappingURL=mangerOneStep.js.map
