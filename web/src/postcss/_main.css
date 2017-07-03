@@ -803,7 +803,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
     .manageHead__titleValue{
-        font-size: 18px;
+        font-size: 16px;
         width: 260px;
         padding: 10px;
         border: 1px solid transparent;
@@ -831,6 +831,7 @@ $VAR_C_HEISE_01: #2e3136;
     }
     .manageHead__tags {
         display: flex;
+        align-items: baseline;
     }
     .manageHead__tagsLabel {
         display: inline-block;
