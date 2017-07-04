@@ -3,6 +3,7 @@ $VAR_C_HUIANG_01: #af8b3c;
 $VAR_LINE_01: #F2F3F7;
 $VAR_LINE_02: #D5DBE7;
 $VAR_C_HUISE_01: #8290a6;
+$VAR_C_BLUE_01: #508aff;
 
 
 
@@ -79,8 +80,7 @@ body {
 }
 
 .btn--yellow {
-    background-image: linear-gradient( 0, rgb(207, 172, 88) 0%, rgb(233, 203, 141) 100%);
-    box-shadow: 0 5rm 10rm 0 #eae0c8;
+    background: $VAR_C_BLUE_01;
 }
 
 .m--b50 {
@@ -182,7 +182,7 @@ a {
         flex: 0 0 100rm;
         flex: 1;
         padding: 0 30rm;
-        color: $VAR_C_HUIANG_01;
+        color: $VAR_C_BLUE_01;
         white-space: nowrap;
         min-width: 100rm;
     }
@@ -216,14 +216,14 @@ a {
         }
     }
     .topBarColor--yellow {
-        color: $VAR_C_HUIANG_01;
+        color: $VAR_C_BLUE_01;
         &.topBar__return--icon {
             &:before {
-                border-color: $VAR_C_HUIANG_01;
+                border-color: $VAR_C_BLUE_01;
             }
         }
         &.topBar__title {
-            color: $VAR_C_HUIANG_01;
+            color: $VAR_C_BLUE_01;
         }
     }
     .topBar__hidden {
@@ -399,21 +399,20 @@ a {
     }
     .getCode {
         position: absolute;
-        top: 50%;
         right: 0;
-        transform: translateY(-50%);
         width: 180rm;
-        height: 60rm;
+        top:0;
+        bottom:0;
         font-size: 24pm;
-        background: #cfac58;
-        border-radius: 8rm;
+        border-left: 1rm solid $VAR_LINE_01;
         text-align: center;
-        line-height: 60rm;
-        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content:center;
     }
-    .getCode--gray1 {
-        background: #c5c5c5;
-        color: #fff;
+    .getCode--gray {
+        background: #e8e8e8;
+        color: #8a8a8a;
     }
 }
 
@@ -842,9 +841,9 @@ a {
         }
     }
     .designNav__item--active {
-        color: #cfac58;
+        color: $VAR_C_BLUE_01;
         &:after {
-            background: #cfac58;
+            background: $VAR_C_BLUE_01;
         }
     }
 }
@@ -989,14 +988,14 @@ a {
     }
     .topBarNav__item--active {
         .topBarNav__link {
-            color: #ceac5E;
+            color: $VAR_C_BLUE_01;
             overflow: hidden;
             &:after {
                 content: "";
                 position: absolute;
                 width: 50rm;
                 height: 6rm;
-                background: #ceac5e;
+                background: $VAR_C_BLUE_01;
                 left: 50%;
                 bottom: 0;
                 transform: translateX(-50%);
@@ -1062,6 +1061,8 @@ a {
     }
     .headBanner__link--quanwu {
         &:after {
+            width: 190rm;
+            height:80rm;
             background: url(../images/icon-public/stata_max_quanwu.png) no-repeat;
         }
     }
@@ -1159,12 +1160,10 @@ a {
         margin: 0 2rm;
     }
     .renderingList__tag--shipin {
-        background: #e6f7ff;
-        color: #50aafd;
+        background: #F13F54;
     }
     .renderingList__tag--3d {
-        background: #fde7b9;
-        color: #e1ac6d;
+        background: $VAR_C_BLUE_01;
     }
     .renderingList__tag--quanwu {
         background: #e6f8f2;
@@ -1302,17 +1301,20 @@ a {
     height: 98rm;
     line-height: 98rm;
     color: #fff;
-    background-image: linear-gradient(to bottom, #eac17b 0%, #dcb676 100%);
+    background: $VAR_C_BLUE_01;
     z-index: 20;
-    &:after {
+    text-align: center;
+    font-size: 30pm;
+    padding-left: 40rm;
+    &:before {
         content: "";
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background: url(../images/icon-public/callphone.png) no-repeat;
-        width: 188rm;
-        height: 33rm;
+        top:50%;
+        margin-left: -40rm;
+        transform: translateY(-50%);
+        background: url(../images/icon-public/call.png) no-repeat;
+        width: 30rm;
+        height:30rm;
     }
 }
 
@@ -1455,6 +1457,9 @@ a {
             border: 10rm solid #fff;
             background: #F7F8FA
         }
+    }
+    .directory__item--gary{
+        color: #8290a6;
     }
     .directory__close {
         position: fixed;

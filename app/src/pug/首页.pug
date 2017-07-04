@@ -10,7 +10,7 @@ include common/common.pug
                     | 北北欧-大连海湾城户型3室2厅北欧-大连海湾城户型3室2厅欧-3室2厅
                 p.headBanner__txt
                     | 北京 | 芳华名苑小区
-        ul.renderingList.none
+        ul.renderingList
             -for(var x = 0; x<4; x++)
                 li.renderingList__item.divider
                     .dotImg.dotImg--are
@@ -40,4 +40,4 @@ include common/common.pug
                                .morePlanMain__date
                                    | 2015.05.26
                                    em.morePlanMain__tiem 17:30
-        a(href="tel: 1000000").phoneCall
+        a(href="tel: 1000000").phoneCall 联系设计师
