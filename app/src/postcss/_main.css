@@ -76,7 +76,6 @@ body {
 
 .btn--gary {
     background-color: #d0d0d0;
-    box-shadow: 0 5rm 10rm 0 #eaeaea;
 }
 
 .btn--yellow {
@@ -405,6 +404,7 @@ a {
         bottom:0;
         font-size: 24pm;
         border-left: 1rm solid $VAR_LINE_01;
+        color: $VAR_C_BLUE_01;
         text-align: center;
         display: flex;
         align-items: center;
@@ -448,26 +448,22 @@ a {
 
 .userInfo {
     margin: 0 auto 40rm;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     .userInfo__img {
         display: block;
         width: 78rm;
         height: 78rm;
         border-radius: 100%;
-        margin-right: 20rm;
+        margin: 0 auto 20rm;
     }
     .userInfo__nameWrap {
-        display: flex;
         margin-bottom: 20rm;
     }
     .userInfo__name {
-        flex: 0 0 100rm;
         white-space: nowrap;
         font-size: 28rm;
         color: $VAR_C_HUISE_01;
         font-weight: bold;
+        text-align: center;
     }
     .userInfo__tags {
         margin-left: 10rm;
@@ -550,6 +546,25 @@ a {
     }
 }
 
+.btn{
+    display: block;
+    height:88rm;
+    line-height: 88rm;
+    text-align: center;
+    color:#fff;
+    font-size: 30pm;
+    border-radius:4rm;
+    background: $VAR_C_BLUE_01;
+}
+.btn--gary{
+    background: #D0D0D0;
+}
+.btnWrap{
+    padding: 50rm 0;
+    .btn{
+        margin-bottom: 20rm;
+    }
+}
 
 
 
@@ -957,7 +972,7 @@ a {
     background: #fff;
     height: 90rm;
     line-height: 90rm;
-    box-shadow: 0 5rm 20rm 0 #ebebeb;
+    /*box-shadow: 0 5rm 20rm 0 #ebebeb;*/
     display: flex;
     .topBarNav__return {
         height: 90rm;
@@ -1479,3 +1494,144 @@ a {
 
 
 /****** 装修日记 E  *******/
+
+/****** 3d内页 S  *******/
+.transHead{
+    position: fixed;
+    height:90rm;
+    line-height: 90rm;
+    /*color:#fff;*/
+    font-size: 36pm;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+    .transHead__return{
+        position: absolute;
+        width: 100rm;
+        height:90rm;
+        left: 0;
+        top:0;
+        &:before{
+            content:"";
+            position: absolute;
+            left: 30rm;
+            top:50%;
+            transform: translateY(-50%) rotate(-45deg);
+            width: 20rm;
+            height: 20rm;
+            border-top: 2rm solid #fff;
+            border-left: 2rm solid #fff;
+        }
+    }
+   .transHead__share{
+       position: absolute;
+       top:0;
+       right: 0;
+       width: 100rm;
+       height:90rm;
+       &:after{
+            content:"";
+            position: absolute;
+            top:50%;
+            right: 30rm;
+            transform: translateY(-50%);
+            background: url(../images/icon-public/share.png) no-repeat;
+            width:36rm;
+            height:38rm;
+       }
+   }
+   .transHead__title{
+       white-space: nowrap;
+       padding: 0 100rm;
+       text-align: center;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       white-space: nowrap;
+       height:90rm;
+       line-height: 90rm;
+    }
+}
+html,body{
+    height:100%;
+}
+.dWrap{
+    padding-top: 90rm;
+    height:100%;
+}
+.roam{
+    position: fixed;
+    left:0;
+    top:90rm;
+    bottom:0;
+    right:0;
+    overflow: hidden;
+    align-items: stretch;
+    justify-content: space-between;
+    &:before{
+        content:"";
+        position: absolute;
+        left:0;
+        top:0;
+        right:0;
+        height:100px;
+        background-image: linear-gradient( 0, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+        z-index: 0;
+        display:none;
+    }
+    &>*{
+        width: 100%;
+        height:100%;
+    }
+    /*img{*/
+        /*display: block;*/
+        /*width: 100%;*/
+    /*}*/
+}
+.contact{
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20rm 40rm;
+    z-index: 1;
+    background: rgba(0,0,0,.7);
+    align-items: center;
+    .contact__user--link{
+        display:flex;
+        align-items: center;
+        flex:1;
+        .contact__userImg{
+            display:block;
+            width:90rm;
+            height:90rm;
+        }
+        .userNmae{
+            color:#fff;
+            font-size: 32pm;
+            font-weight: bold;
+            margin-left: 30rm;
+            white-space:nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 250rm;
+        }
+    }
+    .contact__user--call{
+        display:block;
+        text-align: center;
+        color:#fff;
+        background: $VAR_C_BLUE_01;
+        height: 70rm;
+        line-height: 70rm;
+        font-size: 26pm;
+        border-radius: 4rm;
+        padding: 0 40rm;
+    }
+}
+/****** 3d内页 E  *******/
+
