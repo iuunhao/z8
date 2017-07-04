@@ -45,7 +45,7 @@ mixin head(opts)
 //-     menu: '完成'
 //- })
 mixin topBar(opts)
-    .topBar
+    .topBar(class= opts.isBlack ? 'topBar--black' : '')
         if(opts)
             if(opts.return)
                 if(opts.return.type === 'icon')

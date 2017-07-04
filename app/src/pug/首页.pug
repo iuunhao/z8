@@ -2,6 +2,9 @@ include common/common.pug
 +head({title: '首页', bgClass:"f5f7fa"})
     +topBar2({shadow: false})
     .wrap.p--b100
+        .noData
+            img(src="../images/pubilc/nodata.jpg").noData__img
+            p.noData__txt 暂无数据
         .headBanner
             a(href="javascript:;").headBanner__link.headBanner__link--quanwu
                 img(src="../images/temp/temp2.jpg").headBanner__img
