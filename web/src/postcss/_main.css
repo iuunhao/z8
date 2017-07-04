@@ -1290,6 +1290,16 @@ $VAR_C_HEISE_01: #2e3136;
         white-space: nowrap;
         margin-right: 30px;
     }
+    .infoDetail__btnWrap{
+        display: flex;
+        .infoDetail__btn{
+            margin-left: 10px;
+        }
+        .infoDetail__btn--black{
+            color: #fff;
+            background: #4d4d53;
+        }
+    }
     .infoDetail__btn {
         height: 40px;
         line-height: 40px;
