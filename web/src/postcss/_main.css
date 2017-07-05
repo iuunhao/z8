@@ -812,7 +812,10 @@ $VAR_C_HEISE_01: #2e3136;
         font-size: 16px;
         width: 260px;
         padding: 10px;
-        border: 1px solid transparent;
+        border: 1px solid #D8DDE6;
+    }
+    .manageHead__titleValue:disabled {
+        border-color: transparent;
     }
     .manageHead__title--edit {
         span {
@@ -908,7 +911,8 @@ $VAR_C_HEISE_01: #2e3136;
         }
         .manageList__img {
             display: block;
-            width: 100%;
+            width: 260px;
+            height:260px;
         }
         .manageList__close {
             position: absolute;
@@ -1788,6 +1792,7 @@ $VAR_C_HEISE_01: #2e3136;
         padding: 0 20px;
     }
     .select--max {
+        width: 190px;
         height: 38px;
         margin-right: 10px;
         line-height: 38px;
