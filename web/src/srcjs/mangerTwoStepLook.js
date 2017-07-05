@@ -1,3 +1,4 @@
+import './_addNewPlan.js'
 import * as u from '../srcjs/_unit.js'
 
 const Mark = {
@@ -97,21 +98,15 @@ const Mark = {
             return false;
         }
 
-        $.ajax({
-            url: '/Plan/doaddanchor',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                anchor_id: anchor_id
-            },
-            success(response) {
-                if (response.res == 1) {
-                    delMark();
-                } else {
-                    u.showTips(data.msg);
-                }
+        $.post('/UserHouse/doaddanchor', {
+            anchor_id: anchor_id
+        }, (response) => {
+            if (response.res == 1) {
+                delMark();
+            } else {
+                u.showTips(response.msg);
             }
-        })
+        }, 'json');
     },
     /**
      * [checkTextArea 检测输入框是为空]
@@ -178,21 +173,15 @@ const Mark = {
         // this.subReady = true;
         // return false;
 
-        $.ajax({
-            url: '/Plan/doaddanchor',
-            type: 'POST',
-            dataType: 'json',
-            data: this.params,
-            success(response) {
-                that.subReady = true;
+        $.post('/UserHouse/doaddanchor', this.params, (response) => {
+            that.subReady = true;
                 if (response.res == 1) {
-                    that.setCurrentMark(response.data.anchor_id);
+                    that.setCurrentMark(response.info.anchor_id);
                     that.editend();
                 } else {
                     u.showTips(response.msg);
                 }
-            }
-        })
+        }, 'json');
     },
     /**
      * [scrollToEdit 滚动到编辑]
@@ -254,7 +243,7 @@ const Mark = {
             x: 0,
             y: 0,
             intro: '', // 描述
-            plan_file_id: '' // 效果图id
+            plan_file_id: $('#plan_file_id').val() || '' // 效果图id
         };
 
         /**
@@ -306,6 +295,19 @@ const Mark = {
                 intro: $this.attr('intro'), // 锚点描述
                 replay: $this.attr('replay') // 锚点回复
             })
+        })
+
+        /**
+         * [删除锚点]
+         */
+        this.wrap.on('click', '.dot--unread', function() {
+            var $this = $(this);
+            $this.removeClass('dot--unread');
+            $.post('/UserHouse/doreadanchor', {
+                anchor_id: $this.data('anchor_id')
+            }, (response) => {
+
+            }, 'json');
         })
 
     }

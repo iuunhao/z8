@@ -1055,6 +1055,7 @@ var LoadMore = {
      * @type {[String]}
      */
     url: $('#loadMoreURI').val(),
+    page: 1,
     button: $('#loadMore'),
     wrapper: $('#schemeList'),
     loadMoreData: function loadMoreData() {
@@ -1070,9 +1071,12 @@ var LoadMore = {
             url: this.url,
             type: 'POST',
             dataType: 'json',
+            data: {
+                page: this.page++
+            },
             success: function success(data) {
                 if (data.res == 1) {
-                    that.wrapper.append(data.data);
+                    that.wrapper.append(data.html);
                 } else {
                     u.showTips(res.msg);
                 }

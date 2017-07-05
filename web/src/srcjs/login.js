@@ -49,8 +49,8 @@ const Login = {
             type: 'POST',
             dataType: 'json',
             data: {
-                username: this.user.val(),
-                password: this.pass.val()
+                username: this.user.val().trim(),
+                password: this.pass.val().trim()
             },
             success: function(data) {
                 if (data.res == 1) {

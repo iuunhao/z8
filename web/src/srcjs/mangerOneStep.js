@@ -3,13 +3,17 @@
  * @type {Object}
  */
 // .manage--edit
+import './_addNewPlan.js'
 import * as u from './_unit.js';
 
+/**
+ * [Edit 编辑页面]
+ * @type {Object}
+ */
 const Edit = {
     btnEdit: $('#btnEdit'),
     btnConfirm: $('#btnConfirm'),
     wrapper: $('#manage'),
-    removeUrl: $('#removeURI').val(),
     cname: 'none',
     editName: 'manage--edit',
     /**
@@ -25,8 +29,26 @@ const Edit = {
         this.tags.addClass('none');
         this.tag.removeClass('none');
 
+        var picstr = [];
+        this.pic_list_ul.find('li').each(function() {
+            var id = $(this).attr('pro_id'),
+                name = $(this).find('input[type=hidden]').val();
+            picstr.push(`${id}^^^${name}`);
+        });
+
+        var videostr = [];
+        this.video_list_ul.find('li').each(function() {
+            var id = $(this).attr('pro_id'),
+                name = $(this).find('input[type=hidden]').val();
+            videostr.push(`${id}^^^${name}`);
+        });
+
+        this.video_list.val(videostr.join('||'));
+        this.pic_list.val(picstr.join('||'));
+
+
         $.ajax({
-            url: '/',
+            url: '/UserHouse/doeditplan',
             type: 'POST',
             dataType: 'json',
             data: this.form.serialize(),
@@ -94,14 +116,14 @@ const Edit = {
     /**
      * [removeHandler 删除内容]
      */
-    removeHandler: function() {
+    removeHandler: function($button) {
         if (!this.contenteditable) return false;
-        var $parents = $(this).parents('li');
+        var $parents = $button.parents('li');
         $.ajax({
-            url: this.removeUrl,
+            url: '/UserHouse/dodelfile',
             type: 'POST',
             dataType: 'json',
-            data: { proId: $parents.attr('pro_id') },
+            data: { pro_id: $parents.attr('pro_id') },
             success: function(data) {
                 if (data.res == 1) {
                     $parents.animate({ opacity: 0 }, function() {
@@ -148,6 +170,10 @@ const Edit = {
         this.tags = $('#ctags');
         this.tag = $('#ctag');
         this.form = $('#cForm');
+        this.pic_list = $('#pic_list');
+        this.pic_list_ul = $('#pic_list_ul');
+        this.video_list = $('#video_list');
+        this.video_list_ul = $('#video_list_ul');
         this.contenteditable = false;
         this.btnEdit.on('click', this.editHandler.bind(this))
         this.btnConfirm.on('click', this.confirmHandler.bind(this))
@@ -167,21 +193,20 @@ const Edit = {
             var $this = $(this);
             that.setStyleClass($this);
             that.tag.find('span').text($this.text());
-            that.tag.find('input').val($this.text());
+            that.tag.find('input[type=hidden]').val($this.attr('value'));
         })
     }
 };
 
 Edit.init();
 
-
-/**
- * [图片预览]
- */
-$('img[data-original]').viewer({
-    navbar: false,
-    toolbar: false
-});
+// /**
+//  * [图片预览]
+//  */
+// $('img[data-original]').viewer({
+//     navbar: false,
+//     toolbar: false
+// });
 
 /**
  * [showPlayVideo 播放视频]
