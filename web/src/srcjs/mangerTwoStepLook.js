@@ -5,14 +5,22 @@ const Mark = {
     /**
      * [editing 注释添加中]
      */
-    editing() {
+    editing(status) {
+        if (status == 'SEE') { // 查看
+            this.textarea.attr('disabled', true);
+            this.btnSubmit.addClass('none')
+        } else {
+            this.textarea.removeAttr('disabled');
+            this.btnSubmit.removeClass('none')
+        }
+
         var $mark = this.currentMark(),
-            $text = $mark.data('intro'),
+            $text = $mark.data('intro') || '',
             $replay = $mark.data('replay') || 0;
 
         this.dotEditing = true;
         this.replayShow = true;
-        this.textarea.val($text ? $text : '');
+        this.textarea.val($text);
         this.replyWrap.removeClass('none');
         this.replyStataWrap.attr('data-active', $replay);
     },
@@ -93,19 +101,14 @@ const Mark = {
                 this.editend();
             }.bind(this);
 
-        if (!anchor_id) {
-            delMark();
-            return false;
-        }
+        delMark();
 
-        $.post('/UserHouse/doaddanchor', {
+        if (!anchor_id) return false;
+
+        $.post('/UserHouse/dodelanchor', {
             anchor_id: anchor_id
         }, (response) => {
-            if (response.res == 1) {
-                delMark();
-            } else {
-                u.showTips(response.msg);
-            }
+            // if (response.res == 1) {} else {}
         }, 'json');
     },
     /**
@@ -147,9 +150,8 @@ const Mark = {
 
         $dot.siblings('.dot').removeClass('dot--active').data('ready', false);
         if ($dot.data('ready')) return false;
-        $dot.removeClass('dot--unread').addClass('dot--active').data('ready', true);
-
-        this.editing();
+        $dot.addClass('dot--active').data('ready', true);
+        this.editing('SEE');
     },
     /**
      * [submitHandler 提交锚点信息]
@@ -175,12 +177,12 @@ const Mark = {
 
         $.post('/UserHouse/doaddanchor', this.params, (response) => {
             that.subReady = true;
-                if (response.res == 1) {
-                    that.setCurrentMark(response.info.anchor_id);
-                    that.editend();
-                } else {
-                    u.showTips(response.msg);
-                }
+            if (response.res == 1) {
+                that.setCurrentMark(response.info.anchor_id);
+                that.editend();
+            } else {
+                u.showTips(response.msg);
+            }
         }, 'json');
     },
     /**

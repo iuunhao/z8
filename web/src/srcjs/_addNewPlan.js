@@ -163,7 +163,15 @@ const addNewPlan = {
                     render = Mustache.to_html(that.editHouseInnerTemp, response);
                 $ul.html(render);
                 that.setPopPosition();
+            },
+            /**
+             * [clearSelectHouse 清空选择户型]
+             */
+            clearSelectHouse = function() {
+                that.alertId.find('.chooseFamily').html('');
+                that.alertId.find('.selHouseType').val('');
             };
+
         /**
          * [选择地区]
          * @param  {[Object]} e           [Event]
@@ -204,27 +212,33 @@ const addNewPlan = {
                         arr.push(`<option value="${item.id}">${item.name}</option>`);
                     })
                     $child.append(arr.join(''));
-                    (SELECT == 'COUNTY') && that.hideHandEnter();
-                } else {
-                    (SELECT == 'COUNTY') && that.showHandEnter();
+                    that.setHouseParams();
+                }
+
+                if (SELECT == 'COUNTY') {
+                    clearSelectHouse();
+                    that.setHouseParams();
+                    response.res == 1 ? that.hideHandEnter() : that.showHandEnter();
                 }
             });
             return false;
         })
 
         this.alertId.on('change', '.village', function() {
-            if(that.status == 'EDIT') return false;
+            if (that.status == 'EDIT') return false;
             var $val = $(this).val();
             if ($val == '') {
-                renderHouseType({ info: [] });
+                clearSelectHouse();
                 return false;
             }
+
             $.post('/UserHouse/gethousebyestate', {
                 estate_id: $val
             }, (response) => {
                 if (response.res == 1) {
                     renderHouseType(response);
                 } else {
+                    renderHouseType({ info: [] });
                     u.showTips(response.msg);
                 }
             });
@@ -272,18 +286,40 @@ const addNewPlan = {
             return false;
         }
 
-        if (isNaN(newRoom) || isNaN(newToilet) || isNaN(newKitchen) || isNaN(newKitchen)) {
+        if (
+            (newRoom == '' || isNaN(newRoom)) ||
+            newHall == '' || isNaN(newHall) ||
+            newKitchen == '' || isNaN(newKitchen) ||
+            newKitchen == '' || isNaN(newKitchen)
+        ) {
             u.showTips('请填写格局！');
             return false;
         }
 
-        if (isNaN(newRoomSize)) {
+        if (newRoomSize == '' || isNaN(newRoomSize)) {
             u.showTips('请填写平方数！');
             return false;
         }
 
         return true;
 
+    },
+    /**
+     * [setHouseParams 设置选择户型参数]
+     * @param {[Object]} $link [jquery对象]
+     */
+    setHouseParams($link) {
+        var Q = ($link && $link instanceof $),
+            room = Q ? $link.attr('room') : '',
+            hall = Q ? $link.attr('hall') : '',
+            toilet = Q ? $link.attr('toilet') : '',
+            kitchen = Q ? $link.attr('kitchen') : '',
+            sumarea = Q ? $link.attr('sumarea') : '';
+        this.alertId.find('.newRoom').val(room);
+        this.alertId.find('.newHall').val(hall);
+        this.alertId.find('.newToilet').val(toilet);
+        this.alertId.find('.newKitchen').val(kitchen);
+        this.alertId.find('.newRoomSize').val(sumarea);
     },
     init() {
         var that = this;
@@ -357,7 +393,8 @@ const addNewPlan = {
                 type_id = $this.attr('type_id');
             $this.addClass('chooseFamily__link--active');
             $this.siblings('a').removeClass('chooseFamily__link--active');
-            $this.siblings('input[type=hidden]').val(type_id);
+            that.alertId.find('.selHouseType').val(type_id);
+            that.setHouseParams($this);
         })
 
         /**

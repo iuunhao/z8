@@ -162,33 +162,123 @@ const Edit = {
         }
     },
     /**
+     * [propellingFunc 推送]
+     * @param  {[Object]} $button [推送按钮]
+     */
+    propellingFunc: function($button) {
+        var $parents = $button.parents('li');
+        $button.removeClass('imgPush').addClass('imgPush--gary').text('已推送');
+        $.post('/UserHouse/dopushfile', {
+            pro_id: $parents.attr('pro_id')
+        }, (response) => {
+            if (response.res == 1) {
+
+            } else {
+                $button.removeClass('imgPush--gary').addClass('imgPush').text('推送');
+            }
+        }, 'json');
+    },
+    /**
      * [init 初始化]
      */
     init: function() {
         var that = this;
+
+        /**
+         * [planName 方案名称]
+         * @type {[Object]}
+         */
         this.planName = $('#planName');
+
+        /**
+         * [tags 风格选项外框]
+         * @type {[Object]}
+         */
         this.tags = $('#ctags');
+
+        /**
+         * [tag 风格]
+         * @type {[Object]}
+         */
         this.tag = $('#ctag');
+
+        /**
+         * [form 表单]
+         * @type {[Object]}
+         */
         this.form = $('#cForm');
+
+        /**
+         * [pic_list pic name 集合]
+         * @type {[Object]}
+         */
         this.pic_list = $('#pic_list');
+
+        /**
+         * [pic_list_ul pic 外框]
+         * @type {[Object]}
+         */
         this.pic_list_ul = $('#pic_list_ul');
+
+        /**
+         * [video_list video name 集合]
+         * @type {[Object]}
+         */
         this.video_list = $('#video_list');
+
+        /**
+         * [video_list_ul vidoe 外框]
+         * @type {[Object]}
+         */
         this.video_list_ul = $('#video_list_ul');
+
+        /**
+         * [contenteditable 是否可编辑]
+         * @type {Boolean}
+         */
         this.contenteditable = false;
+
+        /**
+         * 编辑
+         */
         this.btnEdit.on('click', this.editHandler.bind(this))
+
+        /**
+         * 提交修改
+         */
         this.btnConfirm.on('click', this.confirmHandler.bind(this))
+
+        /**
+         * [删除选项]
+         */
         this.wrapper.on('click', '.manageList__close', function() {
             that.removeHandler($(this));
         })
 
+        /**
+         * [推送]
+         */
+        this.wrapper.on('click', '.imgPush', function() {
+            that.propellingFunc($(this));
+        })
+
+        /**
+         * [更新图片名字]
+         */
         this.wrapper.on('click', '.manageList__desc', function() {
             that.updataNameHandler($(this));
         })
 
+        /**
+         * [修改名字失焦校验]
+         */
         $('.manageList__desc').on('blur', function() {
             that.updatedName($(this));
         });
 
+        /**
+         * [选择风格]
+         */
         this.tags.on('click', '.manageHead__tag', function() {
             var $this = $(this);
             that.setStyleClass($this);
