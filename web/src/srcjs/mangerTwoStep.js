@@ -8,11 +8,6 @@ import * as u from '../srcjs/_unit.js'
 import Mustache from '../libs/js/mustache.js'
 
 
-
-
-
-
-
 const showDetail = {
     wrap: $('#schemeList'),
     /**
@@ -61,6 +56,7 @@ const LoadMore = {
      * @type {[String]}
      */
     url: $('#loadMoreURI').val(),
+    page: 1,
     button: $('#loadMore'),
     wrapper: $('#schemeList'),
     loadMoreData: function() {
@@ -73,19 +69,24 @@ const LoadMore = {
         // this.wrapper.append(this.wrapper.find('li').eq(0))
 
         $.ajax({
-            url: this.url,
+            url: '/Index/gethouselist',
             type: 'POST',
             dataType: 'json',
-            success: function(data) {
-                if (data.res == 1) {
-                    that.wrapper.append(data.data);
+            data: {
+                page: ++this.page
+            },
+            success: function(response) {
+                if (response.res == 1) {
+                    if (that.page >= response.pages) {
+                        that.button.remove();
+                    }
+                    that.wrapper.append(response.html);
                 } else {
-                    u.showTips(res.msg);
+                    u.showTips(response.msg);
                 }
                 that.ready = true;
             }
         })
-
     },
     init: function() {
         this.ready = true;
@@ -94,6 +95,8 @@ const LoadMore = {
 };
 
 LoadMore.init();
+
+
 
 
 
@@ -159,9 +162,16 @@ const editHousrType = {
     },
     init() {
         var that = this;
+        /**
+         * [获取mustache模板]
+         * @param  {[String]} template [html模板]
+         */
+        $.get('/Public/design/js/templates/houselist.mst', (template) => {
+            this.template = template;
+        });
+
         this.wrap = $('#schemeList');
         this.alert = $('#editHouseType');
-        this.cEditHouseType = $('#cEditHouseType');
         /**
          * [houseTypeTmp 户型图模板]
          * @type {[type]}
@@ -173,6 +183,7 @@ const editHousrType = {
          */
         this.editHouseTemp = $('#editHouseTemp').html();
         this.pop = null;
+
 
         this.wrap.on('click', '.editDoorModel', function() {
             var $this = $(this);
@@ -191,8 +202,8 @@ const editHousrType = {
                     size: 150
                 }
             };
+            that.alert.html(Mustache.render(that.template, data));
             var $parent = $this.parents('.infoSimple__txtBox')
-            that.cEditHouseType.html(Mustache.to_html(that.editHouseTemp, data));
             that.pop = new SYS.Alert(that.alert, {
                 confirmCallback: function(next) {
                     next();
@@ -203,7 +214,7 @@ const editHousrType = {
         })
     }
 };
-editHousrType.init();
+// editHousrType.init();
 
 
 /**
@@ -236,3 +247,23 @@ editHousrType.init();
 //     }
 // };
 // editPlan.init();
+// 
+
+const selectHouse = {
+    gethouselist() {
+        var time = this.time.val(),
+            city = this.city.val(),
+            village = this.village.val();
+        window.location.href = `/Index.html?reg_year=${time}&city_id=${city}&estate_id=${village}`;
+    },
+    init() {
+        this.time = $('#reg_year');
+        this.city = $('#city_id');
+        this.village = $('#estate_id');
+        this.time.on('change', this.gethouselist.bind(this));
+        this.city.on('change', this.gethouselist.bind(this));
+        this.village.on('change', this.gethouselist.bind(this));
+    }
+};
+
+selectHouse.init();

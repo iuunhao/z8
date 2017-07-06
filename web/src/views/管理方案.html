@@ -30,6 +30,7 @@
         </div>
         <div class="content manage" id="manage">
             <form id="cForm" action="">
+
                 <div class="manageHead">
                     <h3 class="manageHead__title">方案名称：
                     <input class="manageHead__titleValue" id="planName" disabled="disabled" type="text" value="方案名称" />
@@ -46,11 +47,16 @@
                 </div>
                 <div class="manageMod">
                     <h4 class="manageMod__tit">效果图</h4>
+<<<<<<< HEAD
                     <ul class="manageList">
                         <li class="manageList__item manageList__item--unread" pro_id="i_0">
                         	<a class="manageList__close" href="javascript:;">✕</a>
                         	<a class="imgPush" href="javascript:;">推送</a>
                         	<span class=" imgPush--gary">已推送</span>
+=======
+                    <ul class="manageList" id="pic_list_ul">
+                        <li class="manageList__item manageList__item--unread" pro_id="i_0"><a class="manageList__close" href="javascript:;">✕</a>
+>>>>>>> 1aa755f2b6b65a9b02e7db2bc20f9959037a8c9f
                             <a class="manageList__link" href="javascript:;"><img class="manageList__img" src="../images/temp/glfa.png" data-original="../images/temp/glfa.png" /></a>
                             <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
                             <input type="hidden" value="客厅 / 20平方米 / 美式简 约 / 淡蓝色" name="i_0" />
@@ -84,7 +90,7 @@
                 </div>
                 <div class="manageMod manageMod--vedio">
                     <h4 class="manageMod__tit">视频</h4>
-                    <ul class="manageList">
+                    <ul class="manageList" id="video_list_ul">
                         <li class="manageList__item" pro_id="v_0"><a class="manageList__close" href="javascript:;">✕</a>
                             <a class="manageList__link vedioIcon" href="javascript:;" src="/images/login/bg.mp4"><img class="manageList__img" src="../images/temp/glfa.png" /></a>
                             <div class="manageList__desc">| 客厅 / 20平方米 / 美式简 约 / 淡蓝色</div>
@@ -117,9 +123,13 @@
                         </li>
                     </ul>
                 </div>
+                <input type="hidden" name="pic_list" id="pic_list" value="" />
+                <input type="hidden" name="video_list" id="video_list" value="" />
             </form>
         </div>
     </div>
+
+    
     <input type="hidden" id="removeURI" value="/" />
     <div class="pubPop none" id="pubPop"><a class="pubPop__close" href="javascript:;"> ✕</a>
         <div class="pubPop__main">

@@ -1,125 +1,102 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title>2主页面-开始新设计-3D装修-智能装</title>
-    <link rel="stylesheet" href="../css/style.css"/>
-  </head>
-  <body class="bgF7">
-    <div class="choose">
-      <div class="chooseHead"><a class="chooseHead__btn chooseHead__btn--my" href="javascript:;">自己装</a><a class="chooseHead__btn chooseHead__btn--smart chooseHead__btn--active" href="javascript:;">智能装</a></div>
-      <div class="chooseMain">
-        <div class="chooseMain__box chooseMain__box--my chooseMain__box--active none">
-          <div class="pubPopHead">
-            <h3 class="pubPopHead__tit">自己装</h3>
-          </div>
-          <ul class="eidtFamilyInfo">
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">户型小区：</label>
-              <div class="eidtBox">
-                <input class="eidtInput eidtInput--noborder" value="紫金新干线10号楼201" disabled="disabled"/>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">方案名称：</label>
-              <div class="eidtBox">
-                <input class="eidtInput" value="紫金新干线10号楼201"/>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">方案标签：</label>
-              <div class="eidtBox">
-                <div class="stylesTags"><a class="stylesTag" href="javascript:;">欧美风</a><a class="stylesTag" href="javascript:;">北欧风</a><a class="stylesTag stylesTag--active" href="javascript:;">中国风</a><a class="stylesTag" href="javascript:;">地中海风</a><a class="stylesTag" href="javascript:;">复古风</a><a class="stylesTag" href="javascript:;">现代风</a><a class="stylesTag" href="javascript:;">简约风</a></div>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">客户姓名：</label>
-              <div class="eidtBox">
-                <input class="eidtInput eidtInput--300" value="" type="text"/>
-                <p class="error">客户姓名填写后即不可更改请慎重填写</p>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">客户电话：</label>
-              <div class="eidtBox">
-                <input class="eidtInput eidtInput--300" value="" type="text"/>
-                <p class="error">客户电话填写后即不可更改，且该电话为客户的手机端账号，请重填写。</p>
-              </div>
-            </li>
-          </ul>
-          <div class="price">
-            <p class="price__tips">当前添加价格(钢镚)</p>
-            <h3 class="price__num">1600</h3>
-          </div>
-          <p class="curprice">当前余额：2457钢镚</p>
-          <div class="btnWrap">
-            <a class="btn determineBtn" href="javascript:;" confirm="true">确  定</a>
-            <a class="btn determineBtn btn--line" href="javascript:;" confirm="true">取  消</a>
-          </div>
-          <p class="error">电话格式错误</p>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body class="bgF7">
+    <form class="cForm">
+        <div id="choose" class="choose">
+            <input type="hidden" class="jsPlanType" name="planType" value="" >
+            <div class="chooseHead">
+                <a type="1" class="chooseHead__btn chooseHead__btn--my chooseHead__btn--active" href="javascript:;">自己装</a>
+                <a type="2" class="chooseHead__btn chooseHead__btn--smart" href="javascript:;">智能装</a></div>
+            <div class="chooseMain">
+                <div class="chooseMain__box chooseMain__box--my chooseMain__box--active">
+                    <div class="pubPopHead">
+                        <h3 class="pubPopHead__tit">自己装</h3>
+                    </div>
+                    <ul class="eidtFamilyInfo">
+                        <li class="eidtFamilyInfo__item">
+                            <label class="eidtFamilyInfo__label">户型小区：</label>
+                            <div class="eidtBox">
+                                <input class="eidtInput eidtInput--noborder" value="紫金新干线10号楼201" disabled="disabled" />
+                            </div>
+                        </li>
+                        <li class="eidtFamilyInfo__item">
+                            <label class="eidtFamilyInfo__label">方案名称：</label>
+                            <div class="eidtBox">
+                                <input class="eidtInput jsPlanName" name="planName" value="" placeholder="请输入方案名称" />
+                            </div>
+                        </li>
+                        <li class="eidtFamilyInfo__item">
+                            <label class="eidtFamilyInfo__label jsPlanLab">方案标签：</label>
+                            <div class="eidtBox">
+                                <div class="stylesTags">
+                                    <a value="1" class="stylesTag" href="javascript:;">欧美风</a>
+                                    <a value="2" class="stylesTag" href="javascript:;">北欧风</a>
+                                    <a value="3" class="stylesTag" href="javascript:;">中国风</a>
+                                    <a value="4" class="stylesTag" href="javascript:;">地中海风</a>
+                                    <a value="5" class="stylesTag" href="javascript:;">复古风</a>
+                                    <a value="6" class="stylesTag" href="javascript:;">现代风</a>
+                                    <a value="7" class="stylesTag" href="javascript:;">简约风</a>
+                                    <input type="hidden" class="jsPlanValue" name="planLabel">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="eidtFamilyInfo__item jsHue none">
+                            <label class="eidtFamilyInfo__label">主色调：</label>
+                            <div class="eidtBox">
+                                <div class="colors">
+                                    <a value="1" class="color__item color--01" href="javascript:;"></a>
+                                    <a value="2" class="color__item color--02" href="javascript:;"></a>
+                                    <a value="3" class="color__item color--03" href="javascript:;"></a>
+                                    <a value="4" class="color__item color--04" href="javascript:;"></a>
+                                    <a value="5" class="color__item color--05" href="javascript:;"></a>
+                                    <input type="hidden" class="jsMainHue" name="mainHue">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="eidtFamilyInfo__item">
+                            <label class="eidtFamilyInfo__label">客户姓名：</label>
+                            <div class="eidtBox">
+                                <input class="eidtInput eidtInput--300 jsCustomName" name="customName" value="" type="text" />
+                                <p class="error">客户姓名填写后即不可更改请慎重填写</p>
+                            </div>
+                        </li>
+                        <li class="eidtFamilyInfo__item">
+                            <label class="eidtFamilyInfo__label">客户电话：</label>
+                            <div class="eidtBox">
+                                <input class="eidtInput eidtInput--300 jsCustomPhone" name="customPhone" value="" type="text" />
+                                <p class="error">客户电话填写后即不可更改，且该电话为客户的手机端账号，请重填写。</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="price">
+                        <p class="price__tips">当前添加价格(钢镚)</p>
+                        <h3 class="price__num">1600</h3>
+                    </div>
+                    <p class="curprice">当前余额：2457钢镚</p>
+                    <div class="btnWrap">
+                        <a class="btn determineBtn" id="submitBtn" href="javascript:;">确  定</a>
+                        <a class="btn determineBtn btn--line" href="javascript:;">取  消</a>
+                    </div>
+                    <p id="errorTips" class="error none">电话格式错误</p>
+                </div>
+            </div>
         </div>
-        <div class="chooseMain__box chooseMain__box--smart chooseMain__box--active">
-          <div class="pubPopHead">
-            <h3 class="pubPopHead__tit">智能装</h3>
-          </div>
-          <ul class="eidtFamilyInfo">
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">户型小区：</label>
-              <div class="eidtBox">
-                <input class="eidtInput eidtInput--noborder" value="紫金新干线10号楼201" disabled="disabled"/>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">方案名称：</label>
-              <div class="eidtBox">
-                <input class="eidtInput" value="紫金新干线10号楼201"/>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">选择风格：</label>
-              <div class="eidtBox">
-                <div class="stylesTags"><a class="stylesTag" href="javascript:;">欧美风</a><a class="stylesTag" href="javascript:;">北欧风</a><a class="stylesTag stylesTag--active" href="javascript:;">中国风</a><a class="stylesTag" href="javascript:;">地中海风</a><a class="stylesTag" href="javascript:;">复古风</a><a class="stylesTag" href="javascript:;">现代风</a><a class="stylesTag" href="javascript:;">简约风</a></div>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">主色调：</label>
-              <div class="eidtBox">
-                <div class="colors"><a class="color__item color--01 color--active" href="javascript:;"></a><a class="color__item color--02" href="javascript:;"></a><a class="color__item color--03" href="javascript:;"></a><a class="color__item color--04" href="javascript:;"></a><a class="color__item color--05" href="javascript:;"></a></div>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">客户姓名：</label>
-              <div class="eidtBox">
-                <input class="eidtInput eidtInput--300" value="" type="text"/>
-                <p class="error">客户姓名填写后即不可更改请慎重填写</p>
-              </div>
-            </li>
-            <li class="eidtFamilyInfo__item">
-              <label class="eidtFamilyInfo__label">客户电话：</label>
-              <div class="eidtBox">
-                <input class="eidtInput eidtInput--300" value="" type="text"/>
-                <p class="error">客户电话填写后即不可更改，且该电话为客户的手机端账号，请重填写。</p>
-              </div>
-            </li>
-          </ul>
-          <div class="price">
-            <p class="price__tips">当前添加价格(钢镚)</p>
-            <h3 class="price__num">1600</h3>
-          </div>
-          <p class="curprice">当前余额：2457钢镚</p>
-          <div class="btnWrap">
-            <a class="btn determineBtn" href="javascript:;" confirm="true">确  定</a>
-            <a class="btn determineBtn btn--line" href="javascript:;" confirm="true">取  消</a>
-          </div>
-          <p class="error">电话格式错误</p>
-        </div>
-      </div>
-    </div>
+    </form>
+    <input type="hidden" name="" id="canBuy" value="0">
     <script src="../js/jquery/1.8.3/jquery.js"></script>
     <script src="../js/common.js"></script>
-  </body>
+    <script src="../js/addPlan.js"></script>
+</body>
+
 </html>

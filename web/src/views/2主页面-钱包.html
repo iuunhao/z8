@@ -26,7 +26,7 @@
       </div>
       <div class="content master balanceWrap">
         <div class="balance">
-          <div class="balanceNumWrap">钢镚：<span class="balanceNumber">1444</span></div><a class="topUpBtn" href="javascript:;">充值</a>
+          <div class="balanceNumWrap">钢镚：<span class="balanceNumber">1444</span></div><a class="topUpBtn" id="rechargeBtn" href="javascript:;">充值</a>
         </div>
         <table class="masterList masterList--topUp">
           <thead>
@@ -70,7 +70,7 @@
           </tbody>
         </table>
         <div class="masterPage"><a class="masterPage__btn masterPage__previous masterPage__btn--disable" href="javascript:;"> 上一页</a><a class="masterPage__btn masterPage__btn--page masterPage__btn--active" href="javascript:;">1</a><a class="masterPage__btn masterPage__btn--page" href="javascript:;">2</a><a class="masterPage__btn masterPage__btn--page" href="javascript:;">3</a><a class="masterPage__btn masterPage__next" href="javascript:;">下一页</a></div>
-        <div class="pubPopLayout" id="">
+        <div class="pubPopLayout none" id="rechargePop">
           <div class="pubPopMain">
             <div class="pubPopContent"><a class="pubPopClose" href="javascript:;" close="true">✕</a>
               <div class="pubPopHead">
@@ -79,14 +79,14 @@
                   <li class="eidtFamilyInfo__item">
                     <label class="eidtFamilyInfo__label">购买钢镚：</label>
                     <div class="eidtBox">
-                      <input class="eidtInput eidtInput--max" placeholder="钢镚数量" type="number"/><span class="eidt__tips">枚</span>
+                      <input class="eidtInput eidtInput--max" id="totalBuy" placeholder="钢镚数量" type="number"/><span class="eidt__tips">枚</span>
                     </div>
                   </li>
                 </ul>
                 <div class="topUp">
                   <p class="topUp__tit">应付金额(¥)</p>
                   <p class="topUp__number">1500</p>
-                </div><a class="btn recommendedBtn" href="javascript:;">提交订单</a>
+                </div><a class="btn recommendedBtn" confirm="true" href="javascript:;">提交订单</a>
               </div>
             </div>
           </div>
@@ -95,5 +95,6 @@
     </div>
     <script src="../js/jquery/1.8.3/jquery.js"></script>
     <script src="../js/common.js"></script>
+    <script src="../js/recharge.js"></script>
   </body>
 </html>
