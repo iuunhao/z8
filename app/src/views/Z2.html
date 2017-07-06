@@ -1,55 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-  <head>
-    <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <meta name="keywords" content=""/>
-    <meta name="description" content=""/>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
     <title>Z2</title>
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/px2rem.min.js"></script>
-  </head>
-  <body>
+    
+</head>
+
+<body>
     <div class="topBar"><a class="topBarColor--yellow topBar__return" href="javascript:;">取消</a>
-      <h1 class="topBar__title topBar__hidden"></h1><a class="topBar__menu topBar__hidden" href="javascript:;"></a>
+        <h1 class="topBar__title topBar__hidden"></h1>
+        <a class="topBar__menu topBar__hidden" href="javascript:;"></a>
     </div>
     <div class="wrap">
-      <div class="z2">
-        <div class="z2__title">通过短信验证码登录</div>
-        <div class="z2Form">
-          <div class="z2Form__item">
-            <div class="z2Form__address"> 国家/地区</div>
-            <select class="select select--icon">
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-              <option>中国</option>
-            </select>
-          </div>
-          <div class="z2Form__item">
-            <div class="z2Form__inpBox z2Form__inpBox--small z2Form__inpBox--border">
-              <input class="z2Form__inp" type="text" value="+86"/>
+        <form id="cForm">
+            <div class="z2">
+                <div class="z2__title">通过短信验证码登录</div>
+                <div class="z2Form">
+                    <div class="z2Form__item">
+                        <div class="z2Form__address"> 国家/地区</div>
+                        <select class="select select--icon">
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                            <option>中国</option>
+                        </select>
+                    </div>
+                    <div class="z2Form__item">
+                        <div class="z2Form__inpBox z2Form__inpBox--small z2Form__inpBox--border">
+                            <input class="z2Form__inp" type="text" value="+86" />
+                        </div>
+                        <div class="z2Form__inpBox">
+                            <input class="z2Form__inp" type="tel" id="cPhone" placeholder="请输入您的手机号" />
+                        </div>
+                    </div>
+                    <div class="z2Form__item">
+                        <div class="z2Form__inpBox z2Form__inpBox--small z2Form__inpBox--border">
+                            <div class="z2Form__address">验证码</div>
+                        </div>
+                        <div class="z2Form__inpBox">
+                            <input id="cKeyCode" class="z2Form__inp" type="tel" placeholder="请输入您的验证码" />
+                            <a id="cBtnCode" class="getCode" href="javascript:;">获取验证码</a>
+                        </div>
+                    </div><a id="cBtn" class="btn btn--yellow m--t50" href="javascript:;">登录</a>
+                </div>
             </div>
-            <div class="z2Form__inpBox">
-              <input class="z2Form__inp" type="tel" placeholder="139 1182 6671"/>
-            </div>
-          </div>
-          <div class="z2Form__item">
-            <div class="z2Form__inpBox z2Form__inpBox--small z2Form__inpBox--border">
-              <div class="z2Form__address">验证码</div>
-            </div>
-            <div class="z2Form__inpBox">
-              <input class="z2Form__inp" type="tel" placeholder="32756"/><a class="getCode getCode--gray" href="javascript:;">获取验证码</a>
-            </div>
-          </div><a class="btn btn--yellow m--t50" href="javascript:;">登录</a>
-        </div>
-      </div>
+        </form>
     </div>
-  </body>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/login.js"></script>
+</body>
+
 </html>

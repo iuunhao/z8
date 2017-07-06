@@ -13,17 +13,27 @@
     <div class="topBar topBar--black"><a class="topBar__return topBar__return--icon" href="javascript:;"></a>
       <h1 class="topBar__title">卧室/简约/大方</h1><a class="topBar__menu topBar__hidden" href="javascript:;"></a>
     </div>
-    <div class="markDot">
+    <div class="markDot" id="markDot">
       <div class="markDotBox"><img class="markDot__img" src="../images/temp/temp.jpg"/>
         <div class="dots">
-          <div class="dotBox" style="left: 90%; top:50%;"><a class="dot" href=""></a>
-            <div class="dotMask dotMask--right">
+          <div class="dotBox" style="left: 90%; top:50%;">
+            <a class="dot" anchor_id="1" href="javascript:;"></a>
+            <div class="dotMask dotMask--right none">
               <p class="dotTxt">大处着眼，既是设计师在家装设计时应考虑到的几个基本观点，也就是家装客户最迫切和最真实的一些家装要求和基本装修原则。</p>
-              <div class="praises"><a class="praises__link praises__link--good praises__link--active" href="javascript:;"></a><a class="praises__link praises__link--bad" href="javascript:;"></a></div>
+              <div class="praises">
+                <a type="1" class="praises__link praises__link--good" href="javascript:;"></a>
+                <a type="-1" class="praises__link praises__link--bad" href="javascript:;"></a></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/showMark.js"></script>
   </body>
 </html>
