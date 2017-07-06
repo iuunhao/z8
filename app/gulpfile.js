@@ -35,12 +35,6 @@ var imagemin = require("gulp-imagemin");
 //pug
 var pug = require("gulp-pug");
 
-// js打包编译
-var webpack = require("webpack");
-var devWebpackConfig = require("./webpack.config.dev.js");
-var prodWebpackConfig = require("./webpack.config.prod.js");
-var gutil = require("gutil");
-
 // 基本路径
 var PATHS = {
     CSS: "./src/css",
@@ -233,12 +227,7 @@ gulp.task("MOBILE_CSS", function() {
 // 监听
 gulp.task("TASK_WATCH", function() {
     gulp
-        .watch([path.join(PATHS.PUG + "/**/*.pug")], ["TASK_PUG"])
-    gulp
         .watch([path.join(PATHS.HTML + "/**/*.html")])
-        .on("change", reload);
-    gulp
-        .watch([path.join(PATHS.SRCJS + "/**/*.js")], ["DEV_WEBPACK"])
         .on("change", reload);
     gulp
         .watch([path.join(PATHS.POSTCSS + "/**/*.css")], [USER_CONFIG.MOD])
@@ -250,38 +239,7 @@ gulp.task("TASK_WATCH", function() {
         });
 });
 
-//pug编译
-gulp.task("TASK_PUG", function buildHTML() {
-    return gulp
-        .src(path.join(PATHS.PUG, "/**/*.pug"))
-        .pipe(
-            plumber({
-                errorHandler: notify.onError("错误信息: <%= error.message %>")
-            })
-        )
-        .pipe(pug({pretty: true}))
-        .pipe(gulp.dest(PATHS.HTML))
-});
 
-// 开发js
-gulp.task("DEV_WEBPACK", function(callback) {
-    var myConfig = Object.create(devWebpackConfig);
-    webpack(myConfig, function(err, stats) {
-        if (err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({}));
-        callback();
-    });
-});
-
-// 生产js
-gulp.task("PROD_WEBPACK", function(callback) {
-    var myConfig = Object.create(prodWebpackConfig);
-    webpack(myConfig, function(err, stats) {
-        if (err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({}));
-        callback();
-    });
-});
 
 // 监听文件
 gulp.task("TASK_SERVER", function() {
@@ -413,12 +371,12 @@ gulp.task("src_zip", function() {
 });
 
 // 默认
-gulp.task("default", [USER_CONFIG.MOD, "TASK_PUG", "DEV_WEBPACK", "TASK_COPY_LIBS_CSS", "TASK_COPY_LIBS_JS"], function() {
+gulp.task("default", [USER_CONFIG.MOD, "TASK_COPY_LIBS_CSS", "TASK_COPY_LIBS_JS"], function() {
      gulp.start(["TASK_SERVER", "TASK_CLEAN_CSS"]);
 });
 
 // 编译
-gulp.task( "build", ["TASK_CLEAN", USER_CONFIG.MOD, "TASK_IMG_MIN", "TASK_PUG", "PROD_WEBPACK"], function() {
-        gulp.start("PROD_WEBPACK", "TASK_COPY");
+gulp.task( "build", ["TASK_CLEAN", USER_CONFIG.MOD, "TASK_IMG_MIN"], function() {
+        gulp.start("TASK_COPY");
     }
 );
