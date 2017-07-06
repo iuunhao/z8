@@ -152,6 +152,7 @@ var Z = {
         this.wrap.find('.jsMainHue').val('');
         this.wrap.find('.stylesTag--active').removeClass('stylesTag--active');
         this.wrap.find('.color--active').removeClass('color--active');
+        this.wrap.find('.jsPlanType').val(this.plan);
     },
     changePlan: function changePlan(e) {
         var $button = $(e.target);
@@ -226,11 +227,6 @@ var Z = {
             }
         }
 
-        if (this.canBuy == 0) {
-            this.showError('额度不足请充值');
-            return false;
-        }
-
         return true;
     },
 
@@ -254,8 +250,6 @@ var Z = {
     init: function init() {
         this.form = $('#cForm');
         this.wrap = $('#choose');
-
-        this.canBuy = $('#canBuy').val();
 
         /**
          * [$error 错误提示]

@@ -47,6 +47,7 @@ const Z = {
         this.wrap.find('.jsMainHue').val('')
         this.wrap.find('.stylesTag--active').removeClass('stylesTag--active');
         this.wrap.find('.color--active').removeClass('color--active');
+        this.wrap.find('.jsPlanType').val(this.plan);
 
     },
     changePlan(e) {
@@ -120,11 +121,6 @@ const Z = {
                 return false;
             }
         }
-
-        if(this.canBuy == 0) {
-            this.showError('额度不足请充值');
-            return false;
-        }
         
         return true;
     },
@@ -148,9 +144,6 @@ const Z = {
     init() {
         this.form = $('#cForm');
         this.wrap = $('#choose');
-
-        
-        this.canBuy = $('#canBuy').val();
 
         /**
          * [$error 错误提示]

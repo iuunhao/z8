@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -834,7 +834,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AM
 /* 4 */,
 /* 5 */,
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -846,351 +849,132 @@ var _unit = __webpack_require__(0);
 
 var u = _interopRequireWildcard(_unit);
 
+var _qySystem = __webpack_require__(1);
+
+var _qySystem2 = _interopRequireDefault(_qySystem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-/**
- * [Edit 编辑页面]
- * @type {Object}
- */
-/**
- * [showDetail 查看详情]
- * @type {Object}
- */
-// .manage--edit
-var Edit = {
-    btnEdit: $('#btnEdit'),
-    btnConfirm: $('#btnConfirm'),
-    wrapper: $('#manage'),
-    cname: 'none',
-    editName: 'manage--edit',
+var RecForeman = {
     /**
-     * [showEdit 显示编辑按钮内容可编辑]
+     * [checkForms 校验表单]
+     * @return {[Object]} [结果]
      */
-    showEdit: function showEdit() {
-        this.btnEdit.removeClass(this.cname);
-        this.btnConfirm.addClass(this.cname);
-        this.wrapper.removeClass(this.editName);
-        this.contenteditable = false;
-        this.planName.attr('disabled', 'disabled');
-        this.planName.siblings('input[type=hidden]').val(this.planName.val());
-        this.tags.addClass('none');
-        this.tag.removeClass('none');
+    checkForms: function checkForms() {
+        var foremanName = this.foremanName.val().trim(),
+            foremanMobile = this.foremanMobile.val().trim();
 
-        var picstr = [];
-        this.pic_list_ul.find('li').each(function () {
-            var id = $(this).attr('pro_id'),
-                name = $(this).find('input[type=hidden]').val();
-            picstr.push(id + '^^^' + name);
-        });
-
-        var videostr = [];
-        this.video_list_ul.find('li').each(function () {
-            var id = $(this).attr('pro_id'),
-                name = $(this).find('input[type=hidden]').val();
-            videostr.push(id + '^^^' + name);
-        });
-
-        this.video_list.val(videostr.join('||'));
-        this.pic_list.val(picstr.join('||'));
-
-        $.ajax({
-            url: '/UserHouse/doeditplan',
-            type: 'POST',
-            dataType: 'json',
-            data: this.form.serialize(),
-            success: function success(response) {
-                if (response.res == 1) {} else {
-                    u.showTips(response.msg);
-                }
-            }
-        });
-    },
-    /**
-     * [showConfirm 显示确定按钮内容可编辑]
-     */
-    showConfirm: function showConfirm() {
-        this.contenteditable = true;
-        this.btnConfirm.removeClass(this.cname);
-        this.btnEdit.addClass(this.cname);
-        this.wrapper.addClass(this.editName);
-        this.planName.removeAttr('disabled');
-        this.tags.removeClass('none');
-        this.tag.addClass('none');
-        this.showStyle();
-    },
-    /**
-     * [setStyleClass 设置类型的class]
-     * @param {[Object]} $type [选择的风格]
-     */
-    setStyleClass: function setStyleClass($type) {
-        $type.siblings('.manageHead__tag').removeClass('manageHead__tag--active');
-        $type.addClass('manageHead__tag--active');
-    },
-    /**
-     * [showStyle 显示风格]
-     */
-    showStyle: function showStyle() {
-        var $val = this.tag.find('span').text().trim(),
-            that = this;
-        this.tags.find('.manageHead__tag').each(function () {
-            var $this = $(this),
-                $span = $this.text().trim();
-            if ($span == $val) {
-                that.setStyleClass($this);
-            }
-        });
-    },
-    /**
-     * [confirmHandler 提交修改]
-     * @return {[Boolean]} [阻止默认事件]
-     */
-    confirmHandler: function confirmHandler() {
-        this.showEdit();
-        return false;
-    },
-    /**
-     * [editHandler 编辑]
-     * @return {[Boolean]} [阻止默认事件]
-     */
-    editHandler: function editHandler() {
-        this.showConfirm();
-        return false;
-    },
-    /**
-     * [removeHandler 删除内容]
-     */
-    removeHandler: function removeHandler($button) {
-        if (!this.contenteditable) return false;
-        var $parents = $button.parents('li');
-        $.ajax({
-            url: '/UserHouse/dodelfile',
-            type: 'POST',
-            dataType: 'json',
-            data: { pro_id: $parents.attr('pro_id') },
-            success: function success(data) {
-                if (data.res == 1) {
-                    $parents.animate({ opacity: 0 }, function () {
-                        $(this).remove();
-                    });
-                } else {
-                    u.showTips(data.msg);
-                }
-            }
-        });
-    },
-    /**
-     * [updataNameHandler 修改名称]
-     * @param  {[Object]} $name [要修改的对象]
-     */
-    updataNameHandler: function updataNameHandler($name) {
-        if (!this.contenteditable) return false;
-        $name.attr('contenteditable', true);
-        $name.focus();
-    },
-    /**
-     * [updatedName 修改名称完成]
-     * @param  {[Object]} $name [要修改的对象]
-     */
-    updatedName: function updatedName($name) {
-        if ($name.text() == '') {
-            var text = $name.siblings('input[type=hidden]').val();
-            u.showTips('名字不能为空！');
-            $name.text(text.trim());
+        if (foremanName == '') {
+            u.showTips('请您输入工长姓名');
             return false;
-        } else {
-            var text = $name.text().trim();
-            $name.text(text);
-            $name.siblings('input[type=hidden]').val(text);
-            $name.removeAttr('contenteditable');
         }
+
+        if (foremanMobile == '') {
+            u.showTips('请您输入工长电话号码');
+            return false;
+        }
+
+        if (!/^\d{11}$/.test(foremanMobile)) {
+            u.showTips('请您输入正确的电话号码');
+            return false;
+        }
+
+        return true;
     },
+
     /**
-     * [propellingFunc 推送]
-     * @param  {[Object]} $button [推送按钮]
+     * [recommendedFunc 推荐工长]
+     * @param  {[Object]} e [$event]
      */
-    propellingFunc: function propellingFunc($button) {
-        var $parents = $button.parents('li');
-        $button.removeClass('imgPush').addClass('imgPush--gary').text('已推送');
-        $.post('/UserHouse/dopushfile', {
-            pro_id: $parents.attr('pro_id')
-        }, function (response) {
-            if (response.res == 1) {} else {
-                $button.removeClass('imgPush--gary').addClass('imgPush').text('推送');
-            }
-        }, 'json');
+    recommendedFunc: function recommendedFunc(e) {
+        var $button = $(e.target),
+            $userId = $button.attr('user_id');
+
+        if (this.pop) this.pop = null;
+
+        this.resetParams();
+        this.userId.val($userId);
+
+        this.pop = new _qySystem2.default.Alert(this.alert, {
+            confirmCallback: function () {
+                if (!this.checkForms()) return false;
+
+                /**
+                 * 防止多次点击
+                 */
+                if (!this.ready) return false;
+                this.ready = false;
+
+                $.post('/', this.form.serializeArray(), function (response) {
+                    if (response.res == 1) {
+                        next();
+                    }
+                    u.showTips(response.msg);
+                }, 'json');
+                return false;
+            }.bind(this)
+        });
     },
+
+    /**
+     * [resetParams 重置参数]
+     */
+    resetParams: function resetParams() {
+        this.userId.val('');
+        this.foremanName.val('');
+        this.foremanMobile.val('');
+    },
+
+
     /**
      * [init 初始化]
      */
     init: function init() {
-        var that = this;
-
+        this.pop = null;
         /**
-         * [planName 方案名称]
-         * @type {[Object]}
+         * [alert 弹窗]
          */
-        this.planName = $('#planName');
-
+        this.alert = $('#recommendedPop');
         /**
-         * [tags 风格选项外框]
-         * @type {[Object]}
+         * [wrap 列表外框]
          */
-        this.tags = $('#ctags');
-
-        /**
-         * [tag 风格]
-         * @type {[Object]}
-         */
-        this.tag = $('#ctag');
-
+        this.wrap = $('#cList');
         /**
          * [form 表单]
-         * @type {[Object]}
          */
         this.form = $('#cForm');
 
         /**
-         * [pic_list pic name 集合]
-         * @type {[Object]}
+         * [userId 客户id]
          */
-        this.pic_list = $('#pic_list');
+        this.userId = $('#userId');
 
         /**
-         * [pic_list_ul pic 外框]
-         * @type {[Object]}
+         * [foremanName 工长名称]
          */
-        this.pic_list_ul = $('#pic_list_ul');
+        this.foremanName = $('#foremanName');
 
         /**
-         * [video_list video name 集合]
-         * @type {[Object]}
+         * [foremanMobile 工长电话]
          */
-        this.video_list = $('#video_list');
+        this.foremanMobile = $('#foremanMobile');
 
         /**
-         * [video_list_ul vidoe 外框]
-         * @type {[Object]}
+         * [ready 防止连击]
          */
-        this.video_list_ul = $('#video_list_ul');
+        this.ready = true;
 
         /**
-         * [contenteditable 是否可编辑]
-         * @type {Boolean}
+         * 推荐工长
          */
-        this.contenteditable = false;
-
-        /**
-         * 编辑
-         */
-        this.btnEdit.on('click', this.editHandler.bind(this));
-
-        /**
-         * 提交修改
-         */
-        this.btnConfirm.on('click', this.confirmHandler.bind(this));
-
-        /**
-         * [删除选项]
-         */
-        this.wrapper.on('click', '.manageList__close', function () {
-            that.removeHandler($(this));
-        });
-
-        /**
-         * [推送]
-         */
-        this.wrapper.on('click', '.imgPush', function () {
-            that.propellingFunc($(this));
-        });
-
-        /**
-         * [更新图片名字]
-         */
-        this.wrapper.on('click', '.manageList__desc', function () {
-            that.updataNameHandler($(this));
-        });
-
-        /**
-         * [修改名字失焦校验]
-         */
-        $('.manageList__desc').on('blur', function () {
-            that.updatedName($(this));
-        });
-
-        /**
-         * [选择风格]
-         */
-        this.tags.on('click', '.manageHead__tag', function () {
-            var $this = $(this);
-            that.setStyleClass($this);
-            that.tag.find('span').text($this.text());
-            that.tag.find('input[type=hidden]').val($this.attr('value'));
-        });
+        this.wrap.on('click', '.recommended', this.recommendedFunc.bind(this));
     }
 };
-
-Edit.init();
-
-// /**
-//  * [图片预览]
-//  */
-// $('img[data-original]').viewer({
-//     navbar: false,
-//     toolbar: false
-// });
-
-/**
- * [showPlayVideo 播放视频]
- * @type {Object}
- */
-var showPlayVideo = {
-    /**
-     * [showPop 显示视频弹窗]
-     */
-    showPop: function showPop() {
-        this.pop.removeClass('none');
-    },
-    /**
-     * [hidePop 关闭视频弹窗]
-     */
-    hidePop: function hidePop() {
-        this.pop.addClass('none');
-    },
-    /**
-     * [closePopHandler 关闭视频]
-     */
-    closePopHandler: function closePopHandler() {
-        this.hidePop();
-        var $video = this.pop.find('video');
-        $video.attr('src', '');
-    },
-    /**
-     * [showVideoHandler 显示视频]
-     * @param  {[Object]} $video [要播放的视频]
-     */
-    showVideoHandler: function showVideoHandler($video) {
-        var $src = $video.attr('src');
-        if (!$src) return false;
-        this.pop.find('video').attr('src', $src);
-        this.showPop();
-    },
-    /**
-     * [init 初始化]
-     * @return {[type]} [description]
-     */
-    init: function init() {
-        var that = this;
-        this.pop = $('#pubPop');
-        this.close = this.pop.find('.pubPop__close');
-        $(document).on('click', '.vedioIcon', function () {
-            that.showVideoHandler($(this));
-        });
-        this.close.on('click', this.closePopHandler.bind(this));
-    }
-};
-showPlayVideo.init();
+RecForeman.init();
 
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=mangerOneStep.js.map
+//# sourceMappingURL=recForeman.js.map

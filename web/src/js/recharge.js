@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -493,7 +493,7 @@ var addNewPlan = {
         if (this.pop) this.pop = null;
         var render = _mustache2.default.to_html(this.editHouseTemp, response);
         this.alertId.html(render);
-        this.alertId.find('input[name=house_id]').val(this.house_id);
+        this.alertId.find('input[name=id]').val(response.info.id || '');
         this.pop = new _qySystem2.default.Alert(this.alertId, {
             closeCallback: function () {
                 this.showBodyScrollBar();
@@ -504,14 +504,15 @@ var addNewPlan = {
                 }
                 var datas = this.alertId.find('form').serializeArray();
                 $.post('/UserHouse/doHouseEditor', datas, function (response) {
+                    u.showTips(response.msg);
                     if (response.res == 1) {
+                        next();
                         var url = response.info.url;
                         if (url) {
                             window.location.href = url;
                         }
                     }
                 });
-                next();
             }.bind(this)
         });
         this.setPopPosition();
@@ -836,7 +837,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AM
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

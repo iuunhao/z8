@@ -162,7 +162,7 @@ var Login = {
                 if (data.res == 1) {
                     u.showTips(data.msg);
                     if (data.data.url) {
-                        window.location.href = data.url;
+                        window.location.href = data.data.url;
                     }
                 } else {
                     u.showTips(data.msg);
