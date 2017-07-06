@@ -34,7 +34,7 @@ const RecForeman = {
      */
     recommendedFunc(e) {
         var $button = $(e.target),
-            $userId = $button.attr('user_id');
+            $userId = $button.attr('user_hourse_customer_id');
 
         if (this.pop) this.pop = null;
 
@@ -51,7 +51,7 @@ const RecForeman = {
                 if (!this.ready) return false;
                 this.ready = false;
 
-                $.post('/', this.form.serializeArray(), (response) => {
+                $.post('/Customer/bindmanger', this.form.serializeArray(), (response) => {
                     if (response.res == 1) {
                         next();
                     }

@@ -32,6 +32,7 @@ const Z = {
         if (this.plan == 1) {
             this.planHue.addClass('none');
             this.planLabel.text('方案标签：');
+            this.title.text('自己装');
         }
 
         /**
@@ -40,6 +41,7 @@ const Z = {
         if (this.plan == 2) {
             this.planHue.removeClass('none');
             this.planLabel.text('选择风格：');
+            this.title.text('智能装');
         }
 
 
@@ -132,7 +134,8 @@ const Z = {
 
         if (!this.submitReady) return false;
         this.submitReady = false;
-        $.post('/', this.form.serializeArray(), (response) => {
+        console.log(this.form.serializeArray())
+        $.post('/UserHouse/doaddplan', this.form.serializeArray(), (response) => {
             this.submitReady = true;
             if (response.res == 1) {
 
@@ -144,6 +147,11 @@ const Z = {
     init() {
         this.form = $('#cForm');
         this.wrap = $('#choose');
+
+        /**
+         * [title 标题]
+         */
+        this.title = this.wrap.find('.pubPopHead__tit');
 
         /**
          * [$error 错误提示]
