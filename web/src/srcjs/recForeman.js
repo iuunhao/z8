@@ -42,7 +42,7 @@ const RecForeman = {
         this.userId.val($userId);
 
         this.pop = new SYS.Alert(this.alert, {
-            confirmCallback: function () {
+            confirmCallback: function (next) {
                 if (!this.checkForms()) return false;
 
                 /**

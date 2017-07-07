@@ -37,6 +37,34 @@ const showDetail = {
 showDetail.init();
 
 
+/**
+ * [editPlanLog 记录编辑日志]
+ */
+const editPlanLog = {
+    /**
+     * [sendAjax 发送日志请求]
+     * @param  {[Object]} e [event]
+     */
+    sendAjax: function(e) {
+        var $button = $(e.target),
+            plan_id = $button.attr('plan_id');
+
+        $.post('/UserHouse/addlog', {
+            plan_id: plan_id,
+            type: 1
+        }, function(response) {
+
+        }.bind(this), 'json');
+    },
+    init: function() {
+        this.wrap = $('#schemeList');
+        this.wrap.on('click', '.jsEditPlan', this.sendAjax.bind(this));
+    }
+};
+
+editPlanLog.init();
+
+
 
 // /**
 //  * [图片预览]
