@@ -79,7 +79,7 @@ require(['zepto', 'showTips'], function($, showTips) {
                             $button.removeClass('getCode--gray');
                             $button.html('重新获取');
                             this.readyCode = true;
-                        }
+                        }.bind(this)
                     });
                     return false;
                 } else {
