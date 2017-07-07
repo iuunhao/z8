@@ -55,6 +55,11 @@ const Login = {
             success: function(data) {
                 if (data.res == 1) {
                     u.showTips(data.msg);
+                    if (data.data.token != '') {
+                        googleBrower.ShowMsgTips('', data.data.token);
+                        return false;
+                    }
+
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }

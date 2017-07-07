@@ -185,7 +185,7 @@ const Register = {
         }
         this.readyCode = false;
         $.ajax({
-            url: '/Api/Fund/fundmanager',
+            url: '/Sendsms/reg',
             type: 'POST',
             dataType: 'json',
             data: {
@@ -201,7 +201,7 @@ const Register = {
                         end: function() {
                             that.codeBtn.removeClass('register__btn--line');
                             that.codeBtn.html('重新获取');
-                            that.smsReady = true;
+                            that.readyCode = true;
                         }
                     });
                     return false;
@@ -232,22 +232,23 @@ const Register = {
             type: 'POST',
             dataType: 'json',
             data: {
-                user_name: this.user.val(),
+                real_name: this.user.val(),
                 sex: this.getSexy().val(),
                 birthday: this.birthday.val(),
                 phone: this.phone.val(),
                 passport: this.passport.val(),
+                password: this.pass.val(),
                 code: this.code.val(),
                 introduction: this.introduction.val()
             },
             success: function(data) {
                 if (data.res == 1) {
-                    u.showTips(res.msg);
+                    u.showTips(data.msg);
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }
                 } else {
-                    u.showTips(res.msg);
+                    u.showTips(data.msg);
                 }
                 that.ready = true;
             }
