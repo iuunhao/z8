@@ -908,7 +908,8 @@ $VAR_C_HEISE_01: #2e3136;
         }
         .manageList__img {
             display: block;
-            width: 100%;
+            width: 260px;
+            height: 260px;
         }
         .manageList__close {
             position: absolute;
@@ -942,7 +943,7 @@ $VAR_C_HEISE_01: #2e3136;
             background: #528afc;
             &:hover{
                 background: #6696f7;
-            }            
+            }
         }
         .imgPush--gary{
             background: #555;
