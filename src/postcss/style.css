@@ -321,7 +321,19 @@ body {
         background: url(../images/temp/page4_1.png) no-repeat;
         background-size: cover;
         margin: 0 40rm;
-        padding: 74rm 44rm;
+        padding: 0 44rm;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: inherit;
+        justify-content: center;
+        flex:1;
+        height:460rm;
+    }
+    .error{
+        color: #fd1a40;
+        font-size: 14px;
+        margin-top: 10px;
     }
     .form__item {
         display: flex;
@@ -345,11 +357,11 @@ body {
         font-size: 20rm;
         margin: 0 20rm;
         padding: 0 1em;
+        font-size: 28rm;
     }
     .form__radio {
         flex: 1;
-        margin: 0 20rm;
-        padding: 20rm;
+        padding:0 20rm;
         display: flex;
     }
     .radioBox {
@@ -420,4 +432,7 @@ body {
 .page5 {
     background: url(../images/temp/page5.jpg) no-repeat;
     background-size: cover;
+}
+.none{
+    display: none!important;
 }
