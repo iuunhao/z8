@@ -53,7 +53,11 @@ const editPlanLog = {
             plan_id: plan_id,
             type: 1
         }, function(response) {
-
+            if (response.res == 1) {
+                u.callue4();
+            } else {
+                u.showTips(response.msg);
+            }
         }.bind(this), 'json');
     },
     init: function() {

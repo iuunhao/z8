@@ -138,7 +138,8 @@ const Z = {
         $.post('/UserHouse/doaddplan', this.form.serializeArray(), (response) => {
             this.submitReady = true;
             if (response.res == 1) {
-
+                u.callue4();
+                window.location.href = '/';
             } else {
                 this.showError(response.msg);
             }
