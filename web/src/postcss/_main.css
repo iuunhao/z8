@@ -952,10 +952,9 @@ $VAR_C_HEISE_01: #2e3136;
             font-size: 16px;
             color: $VAR_C_HUISE_02;
             border: 1px solid transparent;
-            margin-top: 5px;
             line-height: 1.4;
             padding: 10px;
-            text-align: center;
+            text-align: left;
         }
     }
 }
@@ -2606,4 +2605,35 @@ $VAR_C_HEISE_01: #2e3136;
 .dropdown ol::-webkit-scrollbar-thumb {
     border-radius: 0;
     background-color: #508aff;
+}
+
+
+
+.select {
+    height: 28px;
+    line-height: 28px;
+    width: 155px;
+    padding-right: 40px;
+    margin: 0;
+    font-size: 16px;
+    color: #2e3136;
+    border: 1px solid #d8dde6;
+    padding-left: 1em;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    outline: 0;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url(../images/public/select.png) 100% no-repeat #fff;
+}
+.categoryLabel{
+    .select:disabled{
+       border: none; 
+       background: none;
+    }
+}
+.categoryLabel{
+    padding: 10px;
+    padding-bottom: 0;
 }
