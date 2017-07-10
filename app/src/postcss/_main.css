@@ -4,20 +4,13 @@ $VAR_LINE_01: #F2F3F7;
 $VAR_LINE_02: #D5DBE7;
 $VAR_C_HUISE_01: #8290a6;
 $VAR_C_BLUE_01: #508aff;
-
-
-
-
-
 body {
     font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, STHeiti, WenQuanYi Micro Hei, Helvetica, Arial, sans-serif;
 }
-body.hidden{
+
+body.hidden {
     overflow: hidden;
 }
-
-
-
 
 
 /****** 公共类 S  *******/
@@ -96,7 +89,6 @@ body.hidden{
     margin-top: 50rm;
 }
 
-
 .clear {
     position: absolute;
     font-size: 20pm;
@@ -133,16 +125,6 @@ body.hidden{
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /****** 公共类 E  *******/
 
 input,
@@ -157,16 +139,6 @@ a {
     text-decoration: none;
     color: $VAR_C_SHENSE_01;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 公共头部 S  *******/
@@ -254,31 +226,11 @@ a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /****** 公共头部 E  *******/
 
 .wrap {
     padding-top: 90rm;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 设置密码 S  *******/
@@ -350,16 +302,6 @@ a {
         right: 0;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 设置密码 E  *******/
@@ -449,16 +391,6 @@ a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /****** Z2 E  *******/
 
 
@@ -522,16 +454,6 @@ a {
         width: 100%;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /*评论星*/
@@ -605,15 +527,6 @@ a {
         margin-bottom: 20rm;
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 /******  添加评论 E  *******/
@@ -694,16 +607,6 @@ a {
         transform: translateY(-50%) rotate(45deg);
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 账户管理 E  *******/
@@ -827,7 +730,6 @@ a {
             transform: translateY(-50%);
         }
     }
-
     .focusFoot__item--view {
         &:before {
             width: 30rm;
@@ -843,16 +745,6 @@ a {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 我关注的设计师 E  *******/
@@ -874,13 +766,11 @@ a {
         height: 0;
         background-color: none;
     }
-
     &::-webkit-scrollbar-track {
         box-shadow: none;
         border-radius: 0;
         background-color: none;
     }
-
     &::-webkit-scrollbar-thumb {
         border-radius: 0;
         box-shadow: none;
@@ -928,13 +818,11 @@ a {
         margin-bottom: 20rm;
         border-radius: 8rm;
         position: relative;
-        overflow: hidden;
     }
     .designList__link {
         padding: 0 8rm;
         display: block;
         position: relative;
-        overflow: hidden;
         background: none;
         border-radius: 8rm;
         z-index: 10;
@@ -944,14 +832,43 @@ a {
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+            z-index: 20;
         }
     }
-    .designList__img {
+    .designList__item--dot {
+        position: relative;
+        .designList__link {
+            &:after {
+                content: "";
+                position: absolute;
+                width: 16rm;
+                height: 16rm;
+                background: red;
+                border: 1px solid #fff;
+                top: 4rm;
+                right: 10rm;
+                z-index: 30;
+                border-radius: 100%;
+            }
+        }
+    }
+    .designList__imgHidden{
+        visibility: hidden;
         display: block;
         width: 100%;
-        box-shadow: 0 5rm 20rm 0 #ebebeb;
     }
-
+    .designList__img {
+        position: absolute;
+        left:5rm;
+        top:0;
+        right:5rm;
+        bottom:0;
+        box-shadow: 0 5rm 20rm 0 #ebebeb;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        border-radius: 4rm;
+    }
     .designList__item--state01,
     .designList__item--state02,
     .designList__item--state03 {
@@ -999,16 +916,6 @@ a {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 设计图 E  *******/
@@ -1078,16 +985,6 @@ a {
         font-size: 28pm;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /****** 头部切换风格 E  *******/
@@ -1174,14 +1071,31 @@ a {
     }
 }
 
-
-
-
-
-
-
-
-
+.indexBtns {
+    padding: 10rm;
+    background: #fff;
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    .btn {
+        height: 98rm;
+        line-height: 98rm;
+        color: #fff;
+        background: $VAR_C_BLUE_01;
+        z-index: 20;
+        text-align: center;
+        font-size: 30pm;
+        flex: 1;
+        margin: 10rm;
+        border-radius: 4rm;
+    }
+    .btn--gary {
+        background: #ababab;
+    }
+}
 
 
 /****** 首页效果图列表 S  *******/
@@ -1259,7 +1173,6 @@ a {
     }
 }
 
-
 .dotImg {
     .dotImg__img {
         display: block;
@@ -1291,13 +1204,6 @@ a {
         border-top: 1rm solid #f2f3f7;
     }
 }
-
-
-
-
-
-
-
 
 
 /****** 首页效果图列表 E  *******/
@@ -1364,43 +1270,7 @@ a {
 }
 
 
-
-
-
-
-
-
-
 /****** 更多效果图 E  *******/
-
-.phoneCall {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 98rm;
-    line-height: 98rm;
-    color: #fff;
-    background: $VAR_C_BLUE_01;
-    z-index: 20;
-    text-align: center;
-    font-size: 30pm;
-    padding-left: 40rm;
-    &:before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        margin-left: -40rm;
-        transform: translateY(-50%);
-        background: url(../images/icon-public/call.png) no-repeat;
-        width: 30rm;
-        height: 30rm;
-    }
-}
-
-
-
-
 
 
 /****** 首页 E  *******/
@@ -1561,9 +1431,6 @@ a {
 }
 
 
-
-
-
 /****** 装修日记 E  *******/
 
 
@@ -1713,8 +1580,6 @@ body {
 }
 
 
-
-
 /****** 3d内页 E  *******/
 
 .noData {
@@ -1737,8 +1602,6 @@ body {
         color: #999;
     }
 }
-
-
 
 
 /****** 标点 S  *******/
@@ -1808,7 +1671,6 @@ body {
             border-bottom: 10rm solid transparent;
         }
     }
-
     .dotMask--right {
         right: 20rm;
         &:after {
@@ -1841,7 +1703,6 @@ body {
             height: 34rm;
         }
     }
-
     .praises__link--good {
         &:after {
             background: url(../images/icon-public/good.png) no-repeat;
@@ -1856,7 +1717,6 @@ body {
         background: $VAR_C_BLUE_01;
     }
 }
-
 
 
 /****** 标点 E  *******/
