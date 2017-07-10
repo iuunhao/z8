@@ -65,15 +65,6 @@ const editPlanLog = {
 editPlanLog.init();
 
 
-
-// /**
-//  * [图片预览]
-//  */
-// $('img[data-original]').viewer({
-//     navbar: false,
-//     toolbar: false
-// });
-
 /**
  * [LoadMore 加载更多]
  * @type {Object}
@@ -123,10 +114,6 @@ const LoadMore = {
 };
 
 LoadMore.init();
-
-
-
-
 
 /**
  * [showPlayVideo 播放视频]
@@ -179,103 +166,6 @@ const showPlayVideo = {
 };
 showPlayVideo.init();
 
-
-/**
- * [editHousrType 编辑户型图]
- * @type {Object}
- */
-const editHousrType = {
-    setEditHousrType($btn) {
-
-    },
-    init() {
-        var that = this;
-        /**
-         * [获取mustache模板]
-         * @param  {[String]} template [html模板]
-         */
-        $.get('/Public/design/js/templates/houselist.mst', (template) => {
-            this.template = template;
-        });
-
-        this.wrap = $('#schemeList');
-        this.alert = $('#editHouseType');
-        /**
-         * [houseTypeTmp 户型图模板]
-         * @type {[type]}
-         */
-        this.houseTypeTmp = $('#houseTypeTmp').html();
-        /**
-         * [editHouseTemp 户型模板]
-         * @type {[type]}
-         */
-        this.editHouseTemp = $('#editHouseTemp').html();
-        this.pop = null;
-
-
-        this.wrap.on('click', '.editDoorModel', function() {
-            var $this = $(this);
-            that.setEditHousrType($this);
-            if (that.pop) {
-                that.pop = null;
-            }
-            var data = {
-                info: {
-                    title: '编辑户型信息',
-                    name: '新湖家园3号楼201',
-                    room: 3,
-                    hall: 3,
-                    toilet: 3,
-                    kitchen: 3,
-                    size: 150
-                }
-            };
-            that.alert.html(Mustache.render(that.template, data));
-            var $parent = $this.parents('.infoSimple__txtBox')
-            that.pop = new SYS.Alert(that.alert, {
-                confirmCallback: function(next) {
-                    next();
-                    $parent.html(Mustache.to_html(that.houseTypeTmp, data));
-                    return false;
-                }
-            });
-        })
-    }
-};
-// editHousrType.init();
-
-
-/**
- * [editPlan 编辑方案]
- * @type {Object}
- */
-// const editPlan = {
-//     setEditHousrType($btn) {
-//         this.params.title = $btn.siblings('span').text();
-//     },
-//     init() {
-//         var that = this;
-//         this.wrap = $('#schemeList');
-//         this.alert = $('#editPlan');
-//         this.pop = null;
-//         this.params = {};
-
-//         this.wrap.on('click', '.addPlan', function() {
-//             that.setEditHousrType($(this));
-//             if (that.pop) {
-//                 that.pop = null;
-//             }
-
-//             that.pop = new SYS.Alert(that.alert, {
-//                 confirmCallback() {
-
-//                 }
-//             })
-//         })
-//     }
-// };
-// editPlan.init();
-// 
 
 const selectHouse = {
     gethouselist() {
