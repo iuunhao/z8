@@ -35,7 +35,7 @@ const Edit = {
             var id = $(this).attr('pro_id'),
                 name = $(this).find('input[type=hidden]').val(),
                 category = $(this).find('select').val();
-            picstr.push(`${id}^^^${name}###${category}`);
+            picstr.push(`${id}^^^${name}^^^${category}`);
         });
 
         var videostr = [];
@@ -43,7 +43,7 @@ const Edit = {
             var id = $(this).attr('pro_id'),
                 name = $(this).find('input[type=hidden]').val(),
                 category = $(this).find('select').val();
-            videostr.push(`${id}^^^${name}###${category}`);
+            videostr.push(`${id}^^^${name}^^^${category}`);
         });
 
         this.video_list.val(videostr.join('||'));
