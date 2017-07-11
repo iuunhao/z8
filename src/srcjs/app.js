@@ -13,19 +13,19 @@
 ;
 ~(function(log) {
     var register = ({
-        els: function() {
+        elsFun:function(){
             this.root = $('#form');
-            this.name = this.root.find('.form__input--name');
-            this.tel = this.root.find('.form__input--tel');
-            this.typePer = this.root.find('.radio--personal');
-            this.typeInc = this.root.find('.radio--inc');
-            this.inc = this.root.find('.form__input--inc');
-            this.incWrap = this.root.find('.inc');
-            this.submitBtn = this.root.find('.btn__page4');
-            this.submitBtn = this.root.find('.btn__page4');
+            this.els = {};
+            this.els.name = this.root.find('.form__input--name');
+            this.els.tel= this.root.find('.form__input--tel');
+            this.els.typePer= this.root.find('.radio--personal');
+            this.els.typeInc = this.root.find('.radio--inc');
+            this.els.inc = this.root.find('.form__input--inc');
+            this.els.incWrap = this.root.find('.inc');
+            this.els.submitBtn = this.root.find('.btn__page4');
         },
         init: function() {
-            this.els();
+            this.elsFun();
             this.data = {};
             this.setRadio();
             this.getRadioVal();
@@ -34,12 +34,12 @@
         setRadio: function() {
             $('.radio').on('change', function() {
                 this.getRadioVal();
-                this.incWrap.toggleClass('none');
+                this.els.incWrap.toggleClass('none');
             }.bind(this));
         },
         getRadioVal: function() {
-            this.radios = this.root.find("input:checked").val();
-            switch (this.radios) {
+            this.els.radios = this.root.find(".radio:checked").val();
+            switch (this.els.radios) {
                 case 'inc':
                     this.data.type = 'inc';
                     break;
@@ -109,14 +109,14 @@
         nameFun: function() {
             if (this.validator({
                     type: 'name',
-                    val: this.name.val(),
+                    val: this.els.name.val(),
                     err: {
                         type: 'alert',
                         msg: '请输入姓名',
                         callback: function() {}
                     }
                 })) {
-                this.data.name = this.name.val();
+                this.data.name = this.els.name.val();
                 return true;
             }
             return false;
@@ -124,14 +124,14 @@
         telFun: function() {
             if (this.validator({
                     type: 'tel',
-                    val: this.tel.val(),
+                    val: this.els.tel.val(),
                     err: {
                         type: 'alert',
                         msg: '请输入正确的电话号码',
                         callback: function() {}
                     }
                 })) {
-                this.data.tel = this.tel.val();
+                this.data.tel = this.els.tel.val();
                 return true;
             }
             return false;
@@ -139,20 +139,20 @@
         incFun: function() {
             if (this.validator({
                     type: 'inc',
-                    val: this.inc.val(),
+                    val: this.els.inc.val(),
                     err: {
                         type: 'alert',
                         msg: '检查公司名称',
                         callback: function() {}
                     }
                 })) {
-                this.data.inc = this.inc.val();
+                this.data.inc = this.els.inc.val();
                 return true;
             }
             return false;
         },
         submitFun: function() {
-            this.submitBtn.on('click', function() {
+            this.els.submitBtn.on('click', function() {
                 if (this.data.type === 'inc') {
                     if (this.nameFun() && this.telFun() && this.incFun()) this.ajaxFun();
                 } else {
