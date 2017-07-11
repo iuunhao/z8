@@ -28,62 +28,93 @@
             this.els();
             this.data = {};
             this.setRadio();
+            this.getRadioVal();
             this.submitFun();
         },
         setRadio: function() {
-            var _this = this;
-            this.getRadioVal();
-            this.data.type = 'personal';
             $('.radio').on('change', function() {
-                _this.getRadioVal();
-                if (_this.radio === 'inc') {
-                    _this.incWrap.toggleClass('none');
-                    _this.data.type = 'inc';
-                } else {
-                    _this.incWrap.toggleClass('none');
-                    _this.data.type = 'personal';
-                }
-            });
+                this.getRadioVal();
+                this.incWrap.toggleClass('none');
+            }.bind(this));
         },
         getRadioVal: function() {
-            this.radio = this.root.find("input[type='radio']:checked").val();
+            this.radios = this.root.find("input:checked").val();
+            switch (this.radios) {
+                case 'inc':
+                    this.data.type = 'inc';
+                    break;
+                case 'personal':
+                    this.data.type = 'personal';
+                    break;
+            }
         },
         validator: function(opts) {
             switch (opts.type) {
                 case 'name':
                     var reg = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z0-9])*$/;
                     if (!reg.test(opts.val) || opts.val === '') {
-                        alert('请输入姓名');
+                        this.errorFun({
+                            type: opts.err.type,
+                            msg: opts.err.msg,
+                            callback: opts.err.callback
+                        });
                         return false;
                     }
                     return true;
                 case 'tel':
                     var reg = /(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}/;
                     if (!reg.test(opts.val) || opts.val === '') {
-                        alert('请输入正确的电话号码');
+                        this.errorFun({
+                            type: opts.err.type,
+                            msg: opts.err.msg,
+                            callback: opts.err.callback
+                        });
                         return false;
                     }
                     return true;
                 case 'inc':
                     var reg = /^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[a-zA-Z0-9])*$/;
                     if (!reg.test(opts.val) || opts.val === '') {
-                        alert('检查公司名称');
+                        this.errorFun({
+                            type: opts.err.type,
+                            msg: opts.err.msg,
+                            callback: opts.err.callback
+                        });
                         return false;
                     }
                     return true;
                 default:
                     if (opts.val === '') {
-                        alert('内容不能为空');
+                        this.errorFun({
+                            type: opts.err.type,
+                            msg: opts.err.msg,
+                            callback: opts.err.callback
+                        });
                         return false;
                     }
                     return true;
                     break;
             }
         },
+        errorFun: function(set) {
+            switch (set.type) {
+                case 'alert':
+                    alert(set.msg)
+                    break;
+                default:
+                    set.callback.call(this);
+                    break;
+            }
+        },
         nameFun: function() {
             if (this.validator({
                     type: 'name',
-                    val: this.name.val()
+                    val: this.name.val(),
+                    err: {
+                        type: 'alert',
+                        msg: '请输入姓名',
+                        callback: function() {}
+                    }
                 })) {
                 this.data.name = this.name.val();
                 return true;
@@ -93,7 +124,12 @@
         telFun: function() {
             if (this.validator({
                     type: 'tel',
-                    val: this.tel.val()
+                    val: this.tel.val(),
+                    err: {
+                        type: 'alert',
+                        msg: '请输入正确的电话号码',
+                        callback: function() {}
+                    }
                 })) {
                 this.data.tel = this.tel.val();
                 return true;
@@ -103,7 +139,12 @@
         incFun: function() {
             if (this.validator({
                     type: 'inc',
-                    val: this.inc.val()
+                    val: this.inc.val(),
+                    err: {
+                        type: 'alert',
+                        msg: '检查公司名称',
+                        callback: function() {}
+                    }
                 })) {
                 this.data.inc = this.inc.val();
                 return true;
@@ -111,14 +152,13 @@
             return false;
         },
         submitFun: function() {
-            var _this = this;
             this.submitBtn.on('click', function() {
-                if (_this.data.type === 'inc') {
-                    if (_this.nameFun() && _this.telFun() && _this.incFun()) _this.ajaxFun();
+                if (this.data.type === 'inc') {
+                    if (this.nameFun() && this.telFun() && this.incFun()) this.ajaxFun();
                 } else {
-                    if (_this.nameFun() && _this.telFun()) _this.ajaxFun();
+                    if (this.nameFun() && this.telFun()) this.ajaxFun();
                 }
-            })
+            }.bind(this))
         },
         ajaxFun: function() {
             var _this = this;
