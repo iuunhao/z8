@@ -87,11 +87,11 @@ return /******/ (function(modules) { // webpackBootstrap
 ~function () {
     $(document).ready(function () {
         $('#z8').fullpage({
-            continuousVertical: true,
-            afterLoad: function afterLoad() {
-                //console.log($(this).addClass('active'));
-            }
+            continuousVertical: true
         });
+    });
+    $('.btn__page3').on('click', function () {
+        $.fn.fullpage.moveTo(4);
     });
 }();
 
@@ -107,7 +107,7 @@ return /******/ (function(modules) { // webpackBootstrap
             this.inc = this.root.find('.form__input--inc');
             this.incWrap = this.root.find('.inc');
             this.submitBtn = this.root.find('.btn__page4');
-            this.err = this.root.find('.error');
+            this.submitBtn = this.root.find('.btn__page4');
         },
         init: function init() {
             this.els();
@@ -211,7 +211,9 @@ return /******/ (function(modules) { // webpackBootstrap
                 type: 'GET',
                 url: window.location.href,
                 data: _this.data,
-                success: function success(data) {}
+                success: function success(data) {
+                    $.fn.fullpage.moveTo(5);
+                }
             });
         }
     }.init();

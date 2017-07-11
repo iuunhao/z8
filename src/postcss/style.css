@@ -251,16 +251,16 @@ body {
 
 .page2.active {
     .text__01 {
-        animation: scaleAnima .4s .4s ease-in-out both;
+        animation: scaleAnima .3s .3s ease-in-out both;
     }
     .text__02 {
-        animation: scaleAnima .4s .8s ease-in-out both;
+        animation: scaleAnima .3s .6s ease-in-out both;
     }
     .text__03 {
-        animation: scaleAnima .4s 1.2s ease-in-out both;
+        animation: scaleAnima .3s .9s ease-in-out both;
     }
     .text__04 {
-        animation: scaleAnima .4s 1.5s ease-in-out both;
+        animation: scaleAnima .3s 1.2s ease-in-out both;
     }
 }
 

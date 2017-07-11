@@ -2,12 +2,12 @@
 ~(function() {
     $(document).ready(function() {
         $('#z8').fullpage({
-            continuousVertical: true,
-            afterLoad: function() {
-                //console.log($(this).addClass('active'));
-            }
+            continuousVertical: true
         });
     });
+    $('.btn__page3').on('click', function() {
+        $.fn.fullpage.moveTo(4);
+    })
 }());
 
 ;
@@ -22,7 +22,7 @@
             this.inc = this.root.find('.form__input--inc');
             this.incWrap = this.root.find('.inc');
             this.submitBtn = this.root.find('.btn__page4');
-            this.err = this.root.find('.error');
+            this.submitBtn = this.root.find('.btn__page4');
         },
         init: function() {
             this.els();
@@ -127,7 +127,7 @@
                 url: window.location.href,
                 data: _this.data,
                 success: function(data) {
-
+                    $.fn.fullpage.moveTo(5);
                 }
             });
         }
