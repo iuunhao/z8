@@ -85,11 +85,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.showTips = showTips;
+exports.callue4 = callue4;
 function showTips(str) {
-    alert(str);
+  alert(str);
+}
+
+function callue4() {
+  CallUE4();
 }
 
 /***/ }),
@@ -161,6 +166,11 @@ var Login = {
             success: function success(data) {
                 if (data.res == 1) {
                     u.showTips(data.msg);
+                    if (data.data.token != '') {
+                        googleBrower.ShowMsgTips('', data.data.token);
+                        return false;
+                    }
+
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }

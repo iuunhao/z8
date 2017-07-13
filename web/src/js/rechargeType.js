@@ -84,11 +84,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.showTips = showTips;
+exports.callue4 = callue4;
 function showTips(str) {
-    alert(str);
+  alert(str);
+}
+
+function callue4() {
+  CallUE4();
 }
 
 /***/ }),
@@ -408,7 +413,6 @@ var addNewPlan = {
     setPopPosition: function setPopPosition() {
         var $height = $(window).height(),
             $heightAlert = this.alertId.find('.pubPopContent').outerHeight();
-        console.log($height, $heightAlert);
         if ($height < $heightAlert) {
             this.body.addClass('hidden');
             this.alertId.find('.pubPopMain').addClass('pubPopMain--ov');
@@ -579,8 +583,10 @@ var addNewPlan = {
          * [clearSelectHouse 清空选择户型]
          */
         clearSelectHouse = function clearSelectHouse() {
+            if (that.status != 'ADD') return false;
             that.alertId.find('.chooseFamily').html('');
             that.alertId.find('.selHouseType').val('');
+            that.setHouseParams();
         };
 
         /**
@@ -595,9 +601,10 @@ var addNewPlan = {
                 params = {},
                 SELECT = getSelect($select);
 
+            resetOptions($child);
+            $child.trigger('change');
+
             if ($val == '') {
-                resetOptions($child);
-                $child.trigger('change');
                 return false;
             }
 
@@ -623,12 +630,9 @@ var addNewPlan = {
                         arr.push('<option value="' + item.id + '">' + item.name + '</option>');
                     });
                     $child.append(arr.join(''));
-                    that.setHouseParams();
                 }
-
+                clearSelectHouse();
                 if (SELECT == 'COUNTY') {
-                    clearSelectHouse();
-                    that.setHouseParams();
                     response.res == 1 ? that.hideHandEnter() : that.showHandEnter();
                 }
             });
@@ -638,8 +642,8 @@ var addNewPlan = {
         this.alertId.on('change', '.village', function () {
             if (that.status == 'EDIT') return false;
             var $val = $(this).val();
+            clearSelectHouse();
             if ($val == '') {
-                clearSelectHouse();
                 return false;
             }
 
@@ -692,7 +696,7 @@ var addNewPlan = {
             u.showTips('请选择所在城市！');
             return false;
         }
-        console.log(village);
+
         if (village == '' && houseType == '') {
             u.showTips('请选择所在小区！');
             return false;
@@ -716,6 +720,7 @@ var addNewPlan = {
      * @param {[Object]} $link [jquery对象]
      */
     setHouseParams: function setHouseParams($link) {
+        if (this.status != 'ADD') return false;
         var Q = $link && $link instanceof $,
             room = Q ? $link.attr('room') : '',
             hall = Q ? $link.attr('hall') : '',

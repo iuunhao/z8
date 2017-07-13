@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -841,7 +841,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AM
 /* 6 */,
 /* 7 */,
 /* 8 */,
-/* 9 */
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -853,334 +858,257 @@ var _unit = __webpack_require__(0);
 
 var u = _interopRequireWildcard(_unit);
 
+var _qySystem = __webpack_require__(1);
+
+var _qySystem2 = _interopRequireDefault(_qySystem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var Mark = {
+/**
+ * [Edit 编辑页面]
+ * @type {Object}
+ */
+var Edit = {
+    btnEdit: $('#btnEdit'),
+    btnConfirm: $('#btnConfirm'),
+    wrapper: $('#manage'),
+    cname: 'none',
+    editName: 'coverMain--edit',
     /**
-     * [editing 注释添加中]
+     * [showEdit 显示编辑按钮内容可编辑]
      */
-    editing: function editing(status) {
-        if (status == 'SEE') {
-            // 查看
-            this.textarea.attr('disabled', true);
-            this.btnSubmit.addClass('none');
+    showEdit: function showEdit() {
+        this.btnEdit.removeClass(this.cname);
+        this.btnConfirm.addClass(this.cname);
+        this.wrapper.find('.coverMain').removeClass(this.editName);
+        this.wrapper.find('select').attr('disabled', 'disabled');
+        this.contenteditable = false;
+
+        var picstr = [];
+        this.pic_list_ul.find('li').each(function () {
+            var id = $(this).attr('pro_id'),
+                name = $(this).find('input[type=hidden]').val(),
+                category = $(this).find('select').val();
+            picstr.push(id + '^^^' + name + '^^^' + category);
+        });
+
+        var videostr = [];
+        this.video_list_ul.find('li').each(function () {
+            var id = $(this).attr('pro_id'),
+                name = $(this).find('input[type=hidden]').val(),
+                category = $(this).find('select').val();
+            videostr.push(id + '^^^' + name + '^^^' + category);
+        });
+
+        this.video_list.val(videostr.join('||'));
+        this.pic_list.val(picstr.join('||'));
+
+        $.ajax({
+            url: '/UserHouse/doeditplan',
+            type: 'POST',
+            dataType: 'json',
+            data: this.form.serialize(),
+            success: function success(response) {
+                if (response.res == 1) {} else {
+                    u.showTips(response.msg);
+                }
+            }
+        });
+    },
+    /**
+     * [showConfirm 显示确定按钮内容可编辑]
+     */
+    showConfirm: function showConfirm() {
+        this.contenteditable = true;
+        this.btnConfirm.removeClass(this.cname);
+        this.btnEdit.addClass(this.cname);
+        this.wrapper.find('.coverMain').addClass(this.editName);
+        this.wrapper.find('select').removeAttr('disabled');
+    },
+    /**
+     * [confirmHandler 提交修改]
+     * @return {[Boolean]} [阻止默认事件]
+     */
+    confirmHandler: function confirmHandler() {
+        this.showEdit();
+        return false;
+    },
+    /**
+     * [editHandler 编辑]
+     * @return {[Boolean]} [阻止默认事件]
+     */
+    editHandler: function editHandler() {
+        this.showConfirm();
+        return false;
+    },
+    /**
+     * [removeHandler 删除内容]
+     */
+    removeHandler: function removeHandler($button) {
+        if (!this.contenteditable) return false;
+        var $parents = $button.parents('.coverMainList__item');
+        $.ajax({
+            url: '/UserHouse/dodelfile',
+            type: 'POST',
+            dataType: 'json',
+            data: { pro_id: $parents.attr('pro_id') },
+            success: function success(data) {
+                if (data.res == 1) {
+                    $parents.animate({ opacity: 0 }, function () {
+                        $(this).remove();
+                    });
+                } else {
+                    u.showTips(data.msg);
+                }
+            }
+        });
+    },
+    /**
+     * [updataNameHandler 修改名称]
+     * @param  {[Object]} $name [要修改的对象]
+     */
+    updataNameHandler: function updataNameHandler($name) {
+        if (!this.contenteditable) return false;
+        $name.attr('contenteditable', true);
+        $name.focus();
+    },
+    /**
+     * [updatedName 修改名称完成]
+     * @param  {[Object]} $name [要修改的对象]
+     */
+    updatedName: function updatedName($name) {
+        if ($name.text() == '') {
+            var text = $name.siblings('input[type=hidden]').val();
+            u.showTips('名字不能为空！');
+            $name.text(text.trim());
+            return false;
         } else {
-            this.textarea.removeAttr('disabled');
-            this.btnSubmit.removeClass('none');
+            var text = $name.text().trim();
+            $name.text(text);
+            $name.siblings('input[type=hidden]').val(text);
+            $name.removeAttr('contenteditable');
         }
-
-        var $mark = this.currentMark(),
-            $text = $mark.data('intro') || '',
-            $replay = $mark.data('replay') || 0;
-
-        this.dotEditing = true;
-        this.replayShow = true;
-        this.textarea.val($text);
-        this.replyWrap.removeClass('none');
-        this.replyStataWrap.attr('data-active', $replay);
     },
-
     /**
-     * [editend 完成注释添加]
+     * [updatePicture 替换封面]
      */
-    editend: function editend() {
-        this.dotEditing = false;
-        this.replayShow = false;
-        this.textarea.val('');
-        this.replyWrap.addClass('none');
-    },
+    updatePicture: function updatePicture(e) {
+        var $button = $(e.target);
+        if (this.updateAlertPop) this.updateAlertPop = null;
 
-    /**
-     * [createMark 创建mark]
-     * @param  {[Object]} options [设置]
-     * @return {[Object]}         [mark]
-     */
-    createMark: function createMark(options) {
-        options = options || {};
-        var $mark = $('<a href="javascript:;" class="dot dot--active"></a>');
-        $mark.css({
-            left: options.x + '%',
-            top: options.y + '%'
-        });
-        return $mark;
-    },
-
-    /**
-     * [addMark 添加mark]
-     * @param {[Object]} e    [event]
-     * @param {[Object]} $img [点击的图片]
-     */
-    addMark: function addMark(e, $img) {
-        if (!this.checkCurrentMark()) {
-            return false;
-        }
-        this.wrap.find('.dot').removeClass('dot--active');
-        this.editing();
-        var x = e.offsetX / $img.width() * 100,
-            y = e.offsetY / $img.height() * 100,
-            $mark = this.createMark({
-            x: x,
-            y: y
-        });
-        this.params.x = x.toFixed(4);
-        this.params.y = y.toFixed(4);
-        this.wrap.append($mark);
-        this.scrollToEdit();
-    },
-
-    /**
-     * [currentMark 当前编辑的mark]
-     * @return {[Object]} [当前编辑的mark]
-     */
-    currentMark: function currentMark() {
-        return this.wrap.find('.dot--active');
-    },
-
-    /**
-     * [setCurrentMark 提交信息成功后回调添加mark信息]
-     * @param {[string]} anchor_id [锚点id]
-     */
-    setCurrentMark: function setCurrentMark(anchor_id) {
-        var $mark = this.currentMark();
-        $mark.removeClass('dot--active');
-        $mark.data({
-            ready: false,
-            anchor_id: anchor_id,
-            intro: this.params.intro,
-            replay: 0
-        });
-    },
-
-    /**
-     * [deleteMark 删除mark]
-     */
-    deleteMark: function deleteMark() {
-        var $mark = this.currentMark(),
-            anchor_id = $mark.data('anchor_id'),
-            delMark = function () {
-            $mark.remove();
-            this.editend();
-        }.bind(this);
-
-        delMark();
-
-        if (!anchor_id) return false;
-
-        $.post('/UserHouse/dodelanchor', {
-            anchor_id: anchor_id
-        }, function (response) {
-            // if (response.res == 1) {} else {}
-        }, 'json');
-    },
-
-    /**
-     * [checkTextArea 检测输入框是为空]
-     * @return {[Boolean]} [检测结果]
-     */
-    checkTextArea: function checkTextArea() {
-        var $val = this.textarea.val(),
-            $val = $val.trim();
-        if ($val == '') {
-            u.showTips('请输入当前锚点表达信息');
-            return false;
-        }
-        return true;
-    },
-
-    /**
-     * [checkCurrentMark 提交的时候检测当前锚点]
-     * @return {[Boolean]} [是否要以编辑其他锚点]
-     */
-    checkCurrentMark: function checkCurrentMark() {
-        var $mark = this.currentMark(),
-            $val = this.textarea.val().trim();
-
-        if ($mark.length > 0) {
-            // 有当前编辑的mark
-            // 如果已提交过，比较当前编辑mark内容是否变动 
-            if ($mark.data('intro') != $val) {
-                u.showTips('当前锚点处于编辑状态，请提交或者删除此锚点！');
+        this.updateAlertPop = new _qySystem2.default.Alert(this.updateAlert, {
+            confirmCallback: function (next) {
+                $.post('/', {
+                    id: this.updateAlert.find('input[type=radio]:checked').val()
+                }, function (response) {
+                    if (response.res == 1) {
+                        next();
+                    } else {
+                        u.showTips(response.msg);
+                    }
+                });
                 return false;
-            }
-        }
-        return true;
+            }.bind(this)
+        });
+        return false;
     },
 
     /**
-     * [showMarkInfo 展示锚点信息]
-     * @param  {[Object]} $dot [锚点]
+     * [init 初始化]
      */
-    showMarkInfo: function showMarkInfo($dot) {
-        if (!this.checkCurrentMark()) return false;
-
-        $dot.siblings('.dot').removeClass('dot--active').data('ready', false);
-        if ($dot.data('ready')) return false;
-        $dot.addClass('dot--active').data('ready', true);
-        this.editing('SEE');
-    },
-
-    /**
-     * [submitHandler 提交锚点信息]
-     */
-    submitHandler: function submitHandler() {
-        var that = this;
-        if (!this.checkTextArea()) {
-            return false;
-        }
-
-        if (!this.subReady) {
-            return false;
-        }
-
-        this.subReady = false;
-
-        this.params.intro = this.textarea.val();
-
-        // this.setCurrentMark(Math.random());
-        // this.editend();
-        // this.subReady = true;
-        // return false;
-
-        $.post('/UserHouse/doaddanchor', this.params, function (response) {
-            that.subReady = true;
-            if (response.res == 1) {
-                that.setCurrentMark(response.info.anchor_id);
-                that.editend();
-            } else {
-                u.showTips(response.msg);
-            }
-        }, 'json');
-    },
-
-    /**
-     * [scrollToEdit 滚动到编辑]
-     */
-    scrollToEdit: function scrollToEdit() {
-        $(window).scrollTop(this.replyStataWrap.offset().top);
-    },
     init: function init() {
         var that = this;
 
         /**
-         * [replyWrap 注释框]
-         * @type {[Object]}
+         * [updateAlert 更新封面]
          */
-        this.replyWrap = $('#replyWrap');
-        this.replyStataWrap = $('#replyStataWrap');
+        this.updateAlert = $('#updateAlert');
+        this.updateAlertPop = null;
 
         /**
-         * [btnSubmit 提交mark点]
+         * [form 表单]
          * @type {[Object]}
          */
-        this.btnSubmit = $('#btnSubmit');
+        this.form = $('#coverForm');
 
         /**
-         * [btnDelete 删除mark点]
+         * [pic_list pic name 集合]
          * @type {[Object]}
          */
-        this.btnDelete = $('#btnDelete');
+        this.pic_list = $('#pic_list');
 
         /**
-         * [textarea 输入框]
+         * [pic_list_ul pic 外框]
          * @type {[Object]}
          */
-        this.textarea = this.replyWrap.find('textarea');
+        this.pic_list_ul = $('#pic_list_ul');
 
         /**
-         * [wrap 图片外框]
+         * [video_list video name 集合]
          * @type {[Object]}
          */
-        this.wrap = $('#imgWrap');
+        this.video_list = $('#video_list');
 
         /**
-         * [img 需要标点的图片]
+         * [video_list_ul vidoe 外框]
          * @type {[Object]}
          */
-        this.img = this.wrap.find('img');
+        this.video_list_ul = $('#video_list_ul');
 
         /**
-         * [dotEditing 正在编辑中]
+         * [contenteditable 是否可编辑]
          * @type {Boolean}
          */
-        this.dotEditing = false;
+        this.contenteditable = false;
 
         /**
-         * [params 提交的参数]
-         * @type {Object}
+         * 编辑
          */
-        this.params = {
-            x: 0,
-            y: 0,
-            intro: '', // 描述
-            plan_file_id: $('#plan_file_id').val() || '' // 效果图id
-        };
+        this.btnEdit.on('click', this.editHandler.bind(this));
 
         /**
-         * [replayIsShow 是否显示输入框]
-         * @type {[type]}
+         * 提交修改
          */
-        this.replayShow = !this.replyWrap.hasClass('none');
+        this.btnConfirm.on('click', this.confirmHandler.bind(this));
 
         /**
-         * [subReady 是否可以提交]
-         * @type {Boolean}
+         * [删除选项]
          */
-        this.subReady = true;
-
-        /**
-         * [点击图片添加mark]
-         */
-        this.img.on('mousedown', function (e) {
-            that.addMark(e, $(this));
+        this.wrapper.on('click', '.coverMainListHead__close', function () {
+            that.removeHandler($(this));
         });
 
         /**
-         * [删除mark]
+         * [更新图片名字]
          */
-        this.btnDelete.on('click', this.deleteMark.bind(this));
-
-        /**
-         * [提交加点信息]
-         */
-        this.btnSubmit.on('click', this.submitHandler.bind(this));
-
-        /**
-         * [点击显示点的信息]
-         */
-        this.wrap.on('click', '.dot', function () {
-            var $this = $(this);
-            that.showMarkInfo($this);
-            that.scrollToEdit();
+        this.wrapper.on('click', '.coverItem__name', function () {
+            that.updataNameHandler($(this));
         });
 
         /**
-         * [初始化所有点]
+         * [修改名字失焦校验]
          */
-        this.wrap.find('.dot').each(function (item) {
-            var $this = $(this);
-            $this.data({
-                ready: false,
-                anchor_id: $this.attr('anchor_id'), // 锚点id
-                intro: $this.attr('intro'), // 锚点描述
-                replay: $this.attr('replay') // 锚点回复
-            });
+        $('.coverItem__name').on('blur', function () {
+            that.updatedName($(this));
         });
 
         /**
-         * [删除锚点]
+         * 替换封面
          */
-        this.wrap.on('click', '.dot--unread', function () {
-            var $this = $(this);
-            $this.removeClass('dot--unread');
-            $.post('/UserHouse/doreadanchor', {
-                anchor_id: $this.data('anchor_id')
-            }, function (response) {}, 'json');
-        });
+        this.wrapper.on('click', '.coverHead__btn', this.updatePicture.bind(this));
     }
-};
-Mark.init();
+}; /**
+    * [showDetail 查看详情]
+    * @type {Object}
+    */
+// .manage--edit
+
+
+Edit.init();
 
 /***/ })
 /******/ ]);
 });
-//# sourceMappingURL=mangerTwoStepLook.js.map
+//# sourceMappingURL=replacePic.js.map

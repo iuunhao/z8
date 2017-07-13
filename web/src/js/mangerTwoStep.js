@@ -84,11 +84,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.showTips = showTips;
+exports.callue4 = callue4;
 function showTips(str) {
-    alert(str);
+  alert(str);
+}
+
+function callue4() {
+  CallUE4();
 }
 
 /***/ }),
@@ -408,7 +413,6 @@ var addNewPlan = {
     setPopPosition: function setPopPosition() {
         var $height = $(window).height(),
             $heightAlert = this.alertId.find('.pubPopContent').outerHeight();
-        console.log($height, $heightAlert);
         if ($height < $heightAlert) {
             this.body.addClass('hidden');
             this.alertId.find('.pubPopMain').addClass('pubPopMain--ov');
@@ -579,8 +583,10 @@ var addNewPlan = {
          * [clearSelectHouse 清空选择户型]
          */
         clearSelectHouse = function clearSelectHouse() {
+            if (that.status != 'ADD') return false;
             that.alertId.find('.chooseFamily').html('');
             that.alertId.find('.selHouseType').val('');
+            that.setHouseParams();
         };
 
         /**
@@ -595,9 +601,10 @@ var addNewPlan = {
                 params = {},
                 SELECT = getSelect($select);
 
+            resetOptions($child);
+            $child.trigger('change');
+
             if ($val == '') {
-                resetOptions($child);
-                $child.trigger('change');
                 return false;
             }
 
@@ -623,12 +630,9 @@ var addNewPlan = {
                         arr.push('<option value="' + item.id + '">' + item.name + '</option>');
                     });
                     $child.append(arr.join(''));
-                    that.setHouseParams();
                 }
-
+                clearSelectHouse();
                 if (SELECT == 'COUNTY') {
-                    clearSelectHouse();
-                    that.setHouseParams();
                     response.res == 1 ? that.hideHandEnter() : that.showHandEnter();
                 }
             });
@@ -638,8 +642,8 @@ var addNewPlan = {
         this.alertId.on('change', '.village', function () {
             if (that.status == 'EDIT') return false;
             var $val = $(this).val();
+            clearSelectHouse();
             if ($val == '') {
-                clearSelectHouse();
                 return false;
             }
 
@@ -692,7 +696,7 @@ var addNewPlan = {
             u.showTips('请选择所在城市！');
             return false;
         }
-        console.log(village);
+
         if (village == '' && houseType == '') {
             u.showTips('请选择所在小区！');
             return false;
@@ -716,6 +720,7 @@ var addNewPlan = {
      * @param {[Object]} $link [jquery对象]
      */
     setHouseParams: function setHouseParams($link) {
+        if (this.status != 'ADD') return false;
         var Q = $link && $link instanceof $,
             room = Q ? $link.attr('room') : '',
             hall = Q ? $link.attr('hall') : '',
@@ -891,13 +896,36 @@ var showDetail = {
 };
 showDetail.init();
 
-// /**
-//  * [图片预览]
-//  */
-// $('img[data-original]').viewer({
-//     navbar: false,
-//     toolbar: false
-// });
+/**
+ * [editPlanLog 记录编辑日志]
+ */
+var editPlanLog = {
+    /**
+     * [sendAjax 发送日志请求]
+     * @param  {[Object]} e [event]
+     */
+    sendAjax: function sendAjax(e) {
+        var $button = $(e.target),
+            plan_id = $button.attr('plan_id');
+
+        $.post('/UserHouse/addlog', {
+            plan_id: plan_id,
+            type: 1
+        }, function (response) {
+            if (response.res == 1) {
+                u.callue4();
+            } else {
+                u.showTips(response.msg);
+            }
+        }.bind(this), 'json');
+    },
+    init: function init() {
+        this.wrap = $('#schemeList');
+        this.wrap.on('click', '.jsEditPlan', this.sendAjax.bind(this));
+    }
+};
+
+editPlanLog.init();
 
 /**
  * [LoadMore 加载更多]
@@ -999,102 +1027,6 @@ var showPlayVideo = {
     }
 };
 showPlayVideo.init();
-
-/**
- * [editHousrType 编辑户型图]
- * @type {Object}
- */
-var editHousrType = {
-    setEditHousrType: function setEditHousrType($btn) {},
-    init: function init() {
-        var _this = this;
-
-        var that = this;
-        /**
-         * [获取mustache模板]
-         * @param  {[String]} template [html模板]
-         */
-        $.get('/Public/design/js/templates/houselist.mst', function (template) {
-            _this.template = template;
-        });
-
-        this.wrap = $('#schemeList');
-        this.alert = $('#editHouseType');
-        /**
-         * [houseTypeTmp 户型图模板]
-         * @type {[type]}
-         */
-        this.houseTypeTmp = $('#houseTypeTmp').html();
-        /**
-         * [editHouseTemp 户型模板]
-         * @type {[type]}
-         */
-        this.editHouseTemp = $('#editHouseTemp').html();
-        this.pop = null;
-
-        this.wrap.on('click', '.editDoorModel', function () {
-            var $this = $(this);
-            that.setEditHousrType($this);
-            if (that.pop) {
-                that.pop = null;
-            }
-            var data = {
-                info: {
-                    title: '编辑户型信息',
-                    name: '新湖家园3号楼201',
-                    room: 3,
-                    hall: 3,
-                    toilet: 3,
-                    kitchen: 3,
-                    size: 150
-                }
-            };
-            that.alert.html(_mustache2.default.render(that.template, data));
-            var $parent = $this.parents('.infoSimple__txtBox');
-            that.pop = new _qySystem2.default.Alert(that.alert, {
-                confirmCallback: function confirmCallback(next) {
-                    next();
-                    $parent.html(_mustache2.default.to_html(that.houseTypeTmp, data));
-                    return false;
-                }
-            });
-        });
-    }
-};
-// editHousrType.init();
-
-
-/**
- * [editPlan 编辑方案]
- * @type {Object}
- */
-// const editPlan = {
-//     setEditHousrType($btn) {
-//         this.params.title = $btn.siblings('span').text();
-//     },
-//     init() {
-//         var that = this;
-//         this.wrap = $('#schemeList');
-//         this.alert = $('#editPlan');
-//         this.pop = null;
-//         this.params = {};
-
-//         this.wrap.on('click', '.addPlan', function() {
-//             that.setEditHousrType($(this));
-//             if (that.pop) {
-//                 that.pop = null;
-//             }
-
-//             that.pop = new SYS.Alert(that.alert, {
-//                 confirmCallback() {
-
-//                 }
-//             })
-//         })
-//     }
-// };
-// editPlan.init();
-// 
 
 var selectHouse = {
     gethouselist: function gethouselist() {

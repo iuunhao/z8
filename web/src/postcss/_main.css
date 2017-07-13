@@ -2630,7 +2630,7 @@ $VAR_C_HEISE_01: #2e3136;
 }
 .categoryLabel{
     .select:disabled{
-       border: none; 
+       border: none;
        background: none;
     }
 }
@@ -2638,3 +2638,170 @@ $VAR_C_HEISE_01: #2e3136;
     padding: 10px;
     padding-bottom: 0;
 }
+
+/****** 封面 S  *******/
+.cover{
+    max-width: 1120px;
+    background: #fff;
+    padding: 40px;
+    margin: 40px auto;
+}
+.coverHead{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 40px;
+    padding-bottom:40px;
+    &:after{
+        content:"";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height:1px;
+        border-bottom: 1px solid #EBEEF3;
+    }
+}
+.coverHead__img{
+    display:block;
+    width:120px;
+    height:120px;
+}
+.coverMainListHead__close{
+    position: absolute;
+    background: #ff5454;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    top: -5px;
+    right: -5px;
+    border-radius: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 200;
+    z-index: 2;
+    color:#fff;
+    font-size: 12px;
+    display:none;
+}
+.coverHead__left,
+.coverHead__right{
+    display:flex;
+    align-items: center;
+}
+.coverHead__info{
+    margin-left: 40px;
+}
+.coverHead__tit{
+    color:$VAR_C_HEISE_01;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.coverHead__btn{
+    color: $VAR_C_LANSE_01;
+    font-size: 16px;
+    text-decoration: underline;
+}
+.button{
+    display:block;
+    font-size: 16px;
+    height:38px;
+    line-height:38px;
+    border: 1px solid transparent;
+    padding: 0 30px;
+    background: $VAR_C_LANSE_01;
+    color:#fff;
+}
+.button--gary{
+    background: #999;
+    color:#fff;
+}
+.button--line{
+    background: none;
+    border: 1px solid #4d4d53;
+    color: #4d4d53;
+}
+.coverMainHead{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.coverMainHead__right{
+    display: flex;
+    .button{
+        margin-left: 20px;
+    }
+}
+.coverMainList{
+    display:flex;
+    flex-wrap: wrap;
+    margin-left: -45px;
+}
+.coverMainList__item{
+    width: 150px;
+    margin-left: 44px;
+    margin-bottom: 40px;
+}
+.coverMainListHead{
+    position: relative;
+}
+.checkboxBox{
+    position: absolute;
+    left:0;
+    top:0;
+}
+.checkboxBox__inp{
+    display:block;
+    width: 150px;
+    height:150px;
+    position: absolute;
+    z-index:1;
+    opacity: 0;
+}
+.checkboxBox__label{
+    position: absolute;
+    width: 26px;
+    height:26px;
+    left:0;
+    top:0;
+    background: url(../images/icon-public/checkbox_2.png) no-repeat;
+}
+.checkboxBox__inp:checked+ .checkboxBox__label{
+    background: url(../images/icon-public/checkbox_1.png) no-repeat;
+}
+.coverMainList__img{
+    display:block;
+    width: 150px;
+    height:150px;
+}
+.coverItem{
+    font-size: 14px;
+    line-height: 1.4;
+    color: $VAR_C_HEISE_01;
+    border-top:0;
+    padding: 10px 5px;
+}
+.coverMain--edit{
+   .checkboxBox{
+        display: none;
+   }
+   .coverMainListHead__close{
+        display: block;
+   }
+   .coverItem{
+        border: 1px solid #D8DDE6;
+   }
+}
+.coverMainList--pop{
+    width: 972px;
+    padding: 0 40px;
+}
+.determineBtn--xs{
+    margin: 0 30%;
+    margin-top: 40px;
+}
+/****** 封面 E  *******/
+
+
+

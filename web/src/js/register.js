@@ -85,11 +85,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.showTips = showTips;
+exports.callue4 = callue4;
 function showTips(str) {
-    alert(str);
+  alert(str);
+}
+
+function callue4() {
+  CallUE4();
 }
 
 /***/ }),
@@ -291,7 +296,7 @@ var Register = {
         }
         this.readyCode = false;
         $.ajax({
-            url: '/Api/Fund/fundmanager',
+            url: '/Sendsms/reg',
             type: 'POST',
             dataType: 'json',
             data: {
@@ -307,7 +312,7 @@ var Register = {
                         end: function end() {
                             that.codeBtn.removeClass('register__btn--line');
                             that.codeBtn.html('重新获取');
-                            that.smsReady = true;
+                            that.readyCode = true;
                         }
                     });
                     return false;
@@ -337,22 +342,23 @@ var Register = {
             type: 'POST',
             dataType: 'json',
             data: {
-                user_name: this.user.val(),
+                real_name: this.user.val(),
                 sex: this.getSexy().val(),
                 birthday: this.birthday.val(),
                 phone: this.phone.val(),
                 passport: this.passport.val(),
+                password: this.pass.val(),
                 code: this.code.val(),
                 introduction: this.introduction.val()
             },
             success: function success(data) {
                 if (data.res == 1) {
-                    u.showTips(res.msg);
+                    u.showTips(data.msg);
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }
                 } else {
-                    u.showTips(res.msg);
+                    u.showTips(data.msg);
                 }
                 that.ready = true;
             }

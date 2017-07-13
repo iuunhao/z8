@@ -84,11 +84,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.showTips = showTips;
+exports.callue4 = callue4;
 function showTips(str) {
-    alert(str);
+  alert(str);
+}
+
+function callue4() {
+  CallUE4();
 }
 
 /***/ }),
@@ -138,6 +143,7 @@ var Z = {
         if (this.plan == 1) {
             this.planHue.addClass('none');
             this.planLabel.text('方案标签：');
+            this.title.text('自己装');
         }
 
         /**
@@ -146,6 +152,7 @@ var Z = {
         if (this.plan == 2) {
             this.planHue.removeClass('none');
             this.planLabel.text('选择风格：');
+            this.title.text('智能装');
         }
 
         this.wrap.find('.jsPlanValue').val('');
@@ -240,9 +247,13 @@ var Z = {
 
         if (!this.submitReady) return false;
         this.submitReady = false;
-        $.post('/', this.form.serializeArray(), function (response) {
+        console.log(this.form.serializeArray());
+        $.post('/UserHouse/doaddplan', this.form.serializeArray(), function (response) {
             _this.submitReady = true;
-            if (response.res == 1) {} else {
+            if (response.res == 1) {
+                _unit2.default.callue4();
+                window.location.href = '/';
+            } else {
                 _this.showError(response.msg);
             }
         }, 'json');
@@ -250,6 +261,11 @@ var Z = {
     init: function init() {
         this.form = $('#cForm');
         this.wrap = $('#choose');
+
+        /**
+         * [title 标题]
+         */
+        this.title = this.wrap.find('.pubPopHead__tit');
 
         /**
          * [$error 错误提示]

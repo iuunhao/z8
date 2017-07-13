@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>替换封面</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/viewer.min.css" />
+</head>
+
+<body class="bgF7">
+    <div class="wrap wrap--bg">
+        <div class="top">欢迎，设计师<em class="top__user-name">轩亦辰</em>|<a class="top__btn top__btn--blue" href="javascript:;">退出</a></div>
+        <div class="head"><img class="head__logo" src="../images/icon-home/logo.png" alt="" />
+            <ul class="head__nav">
+                <li class="head__nav-glfa head__nav--active"><a class="head__nav-item" href="javascript:;">管理方案</a></li>
+                <li class="head__nav-glkh"><a class="head__nav-item" href="javascript:;">管理客户</a></li>
+                <li class="head__nav-qb"><a class="head__nav-item" href="javascript:;">钱包</a></li>
+                <li class="head__nav-add"><a class="head__nav-item" href="javascript:;">添加设计方案</a></li>
+            </ul>
+        </div>
+        <div class="content manage" id="manage">
+            <form id="coverForm" action="">
+                <div class="coverHead">
+                    <div class="coverHead__left">
+                        <img class="coverHead__img" src="../images/temp/cover_default.jpg" alt="">
+                        <div class="coverHead__info">
+                            <h3 class="coverHead__tit">紫金新干线10号楼3单元201（201第一版）</h3>
+                            <a href="javascript:;" class="coverHead__btn">替换720封面</a>
+                        </div>
+                    </div>
+                    <div class="coverHead__right">
+                        <a href="javascript:;" class="button">720漫游</a>
+                    </div>
+                </div>
+                <div class="coverMain">
+                    <div class="coverMainHead">
+                        <div class="coverMainHead__left">勾选图片生成720</div>
+                        <div class="coverMainHead__right">
+                            <a href="javascript:;" class="button button--line" id="btnEdit">批量管理</a>
+                            <a href="javascript:;" class="button none" id="btnConfirm">确认</a>
+                            <a href="javascript:;" class="button ">生成720</a>
+                        </div>
+                    </div>
+                    <div class="coverMainList">
+                        <div class="coverMainList__item" pro_id="1">
+                            <div class="coverMainListHead">
+                                <div class="checkboxBox">
+                                    <input type="checkbox" class="checkboxBox__inp" checked name="selimg" value="1">
+                                    <span class="checkboxBox__label"></span>
+                                </div>
+                                <img class="coverMainList__img" src="../images/temp/cover_default.jpg" alt="">
+                                <a href="javascript:;" class="coverMainListHead__close">✕</a>
+                            </div>
+                            <div class="coverItem">
+                                <div class="coverItem__name">客厅20平方米美式简约 / 淡蓝色</div>
+                                <input type="hidden" name="v-1" value="客厅20平方米美式简约 / 淡蓝色">
+                            </div>
+                        </div>
+                        <div class="coverMainList__item" pro_id="2">
+                            <div class="coverMainListHead">
+                                <div class="checkboxBox">
+                                    <input type="checkbox" class="checkboxBox__inp" checked name="selimg" value="2">
+                                    <span class="checkboxBox__label"></span>
+                                </div>
+                                <img class="coverMainList__img" src="../images/temp/cover_default.jpg" alt="">
+                                <a href="javascript:;" class="coverMainListHead__close">✕</a>
+                            </div>
+                            <div class="coverItem">
+                                <div class="coverItem__name">客厅20平方米美式简约 / 淡蓝色</div>
+                                <input type="hidden" name="v-2" value="客厅20平方米美式简约 / 淡蓝色">
+                            </div>
+                        </div>
+                        <div class="coverMainList__item" pro_id="3">
+                            <div class="coverMainListHead">
+                                <div class="checkboxBox">
+                                    <input type="checkbox" class="checkboxBox__inp" checked name="selimg" value="3">
+                                    <span class="checkboxBox__label"></span>
+                                </div>
+                                <img class="coverMainList__img" src="../images/temp/cover_default.jpg" alt="">
+                                <a href="javascript:;" class="coverMainListHead__close">✕</a>
+                            </div>
+                            <div class="coverItem">
+                                <div class="coverItem__name">客厅20平方米美式简约 / 淡蓝色</div>
+                                <input type="hidden" name="v-3" value="客厅20平方米美式简约 / 淡蓝色">
+                            </div>
+                        </div>
+                        <div class="coverMainList__item" pro_id="4">
+                            <div class="coverMainListHead">
+                                <div class="checkboxBox">
+                                    <input type="checkbox" class="checkboxBox__inp" checked name="selimg" value="4">
+                                    <span class="checkboxBox__label"></span>
+                                </div>
+                                <img class="coverMainList__img" src="../images/temp/cover_default.jpg" alt="">
+                                <a href="javascript:;" class="coverMainListHead__close">✕</a>
+                            </div>
+                            <div class="coverItem">
+                                <div class="coverItem__name">客厅20平方米美式简约 / 淡蓝色</div>
+                                <input type="hidden" name="v-4" value="客厅20平方米美式简约 / 淡蓝色">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pubPopLayout none" id="updateAlert">
+        <div class="pubPopMain">
+            <div class="pubPopContent pubPopMain--ov"><a class="pubPopClose" href="javascript:;" close="true">✕</a>
+                <div class="pubPopHead">
+                    <h3 class="pubPopHead__tit">替换720封面</h3>
+                </div>
+                <div class="coverMainList coverMainList--pop">
+                    <div class="coverMainList__item">
+                        <div class="coverMainListHead">
+                            <div class="checkboxBox">
+                                <input type="radio" class="checkboxBox__inp" checked name="selimg1" value="1">
+                                <span class="checkboxBox__label"></span>
+                            </div>
+                            <img class="coverMainList__img" src="../images/temp/cover_default.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="coverMainList__item">
+                        <div class="coverMainListHead">
+                            <div class="checkboxBox">
+                                <input type="radio" class="checkboxBox__inp" name="selimg1" value="2">
+                                <span class="checkboxBox__label"></span>
+                            </div>
+                            <img class="coverMainList__img" src="../images/temp/cover_default.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <a class="btn determineBtn determineBtn--xs" href="javascript:;" confirm="true">确  定</a>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="removeURI" value="/" />
+    <div class="pubPop none" id="pubPop"><a class="pubPop__close" href="javascript:;"> ✕</a>
+        <div class="pubPop__main">
+            <video class="pubPop__video" src="../images/login/bg.mp4" autoplay="autoplay" loop="loop"></video>
+        </div>
+    </div>
+    <script src="../js/jquery/1.8.3/jquery.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/replacePic.js"></script>
+</body>
+
+</html>
