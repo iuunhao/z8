@@ -1191,7 +1191,12 @@ $VAR_C_HEISE_01: #2e3136;
         margin: 0 40px;
     }
 }
-
+ .infoDetail__btnWrap{
+    display: flex;
+    .infoDetail__btn{
+        margin-left: 20px;
+    }
+}
 .screening {
     display: flex;
     padding: 40px;
