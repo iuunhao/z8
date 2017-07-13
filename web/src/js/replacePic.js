@@ -883,27 +883,15 @@ var Edit = {
         this.btnEdit.removeClass(this.cname);
         this.btnConfirm.addClass(this.cname);
         this.wrapper.find('.coverMain').removeClass(this.editName);
-        this.wrapper.find('select').attr('disabled', 'disabled');
         this.contenteditable = false;
 
         var picstr = [];
-        this.pic_list_ul.find('li').each(function () {
+        this.picList.find('.coverMainList__item').each(function () {
             var id = $(this).attr('pro_id'),
-                name = $(this).find('input[type=hidden]').val(),
-                category = $(this).find('select').val();
-            picstr.push(id + '^^^' + name + '^^^' + category);
+                name = $(this).find('input[type=hidden]').val();
+            picstr.push(id + '^^^' + name);
         });
-
-        var videostr = [];
-        this.video_list_ul.find('li').each(function () {
-            var id = $(this).attr('pro_id'),
-                name = $(this).find('input[type=hidden]').val(),
-                category = $(this).find('select').val();
-            videostr.push(id + '^^^' + name + '^^^' + category);
-        });
-
-        this.video_list.val(videostr.join('||'));
-        this.pic_list.val(picstr.join('||'));
+        this.pic_list_input.val(picstr.join('||'));
 
         $.ajax({
             url: '/UserHouse/doeditplan',
@@ -925,7 +913,6 @@ var Edit = {
         this.btnConfirm.removeClass(this.cname);
         this.btnEdit.addClass(this.cname);
         this.wrapper.find('.coverMain').addClass(this.editName);
-        this.wrapper.find('select').removeAttr('disabled');
     },
     /**
      * [confirmHandler 提交修改]
@@ -1015,6 +1002,40 @@ var Edit = {
         return false;
     },
 
+    create720: function create720(e) {
+        var $checked = this.picList.find('input[type=checkbox]:checked'),
+            that = this;
+        if ($checked.length == 0) {
+            u.showTips('请选择要生成720的图片');
+            return false;
+        }
+
+        if (this.timer) {
+            u.showTips('生成中，请稍等');
+            return false;
+        }
+
+        var checkList = [];
+        $checked.each(function (item) {
+            checkList.push($(this).val());
+        });
+
+        function nextFrame() {
+            $.post('/', {
+                data: checkList.join(',')
+            }, function (response) {
+                if (response.res == 1) {
+                    that.manYou.removeClass('.button--gary');
+                    that.manYou.attr('href', response.data.url);
+                    u.showTips(response.msg);
+                    clearInterval(that.timer);
+                    that.timer = null;
+                }
+            });
+        }
+        nextFrame();
+        this.timer = setInterval(nextFrame, 2000);
+    },
     /**
      * [init 初始化]
      */
@@ -1027,6 +1048,8 @@ var Edit = {
         this.updateAlert = $('#updateAlert');
         this.updateAlertPop = null;
 
+        this.timer = null;
+
         /**
          * [form 表单]
          * @type {[Object]}
@@ -1037,25 +1060,13 @@ var Edit = {
          * [pic_list pic name 集合]
          * @type {[Object]}
          */
-        this.pic_list = $('#pic_list');
+        this.pic_list_input = $('#pic_list');
 
         /**
-         * [pic_list_ul pic 外框]
+         * [picList pic 外框]
          * @type {[Object]}
          */
-        this.pic_list_ul = $('#pic_list_ul');
-
-        /**
-         * [video_list video name 集合]
-         * @type {[Object]}
-         */
-        this.video_list = $('#video_list');
-
-        /**
-         * [video_list_ul vidoe 外框]
-         * @type {[Object]}
-         */
-        this.video_list_ul = $('#video_list_ul');
+        this.picList = this.wrapper.find('.coverMainList');
 
         /**
          * [contenteditable 是否可编辑]
@@ -1095,9 +1106,31 @@ var Edit = {
         });
 
         /**
+         * [createButton 生成720按钮]
+         */
+        this.createButton = $('#createButton');
+
+        /**
+         * [manYou 720漫游按钮]
+         */
+        this.manYou = $('#manYou');
+
+        /**
+         * [description 如果按钮为黑色阻止跳转]
+         */
+        this.manYou.on('click', function () {
+            if ($(this).hasClass('button--gary')) return false;
+        });
+
+        /**
          * 替换封面
          */
         this.wrapper.on('click', '.coverHead__btn', this.updatePicture.bind(this));
+
+        /**
+         * 生成720
+         */
+        this.createButton.on('click', this.create720.bind(this));
     }
 }; /**
     * [showDetail 查看详情]
