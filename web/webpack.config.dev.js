@@ -9,8 +9,8 @@ const webpackOptions = {
     entry: {},
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'src/js'),
-        // path: 'G:\\test\\jz\\Public\\design\\js',
+        // path: path.resolve(__dirname, 'src/js'),
+        path: 'G:\\test\\jz\\Public\\design\\js',
         libraryTarget: 'umd'
     },
     module: {

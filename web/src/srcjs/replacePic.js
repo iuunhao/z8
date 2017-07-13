@@ -35,10 +35,13 @@ const Edit = {
         this.pic_list_input.val(picstr.join('||'));
 
         $.ajax({
-            url: '/UserHouse/doeditplan',
+            url: '/UserHouse/doeditroampic',
             type: 'POST',
             dataType: 'json',
-            data: this.form.serialize(),
+            data: {
+                pic_list: $('#pic_list').val(),
+                plan_id: this.wrapper.find('.coverHead__btn').attr('plan_id')
+            },
             success: function(response) {
                 if (response.res == 1) {
 
@@ -126,15 +129,32 @@ const Edit = {
      * [updatePicture 替换封面]
      */
     updatePicture(e) {
-        var $button = $(e.target);
+        var $button = $(e.target),
+            that = this;
         if (this.updateAlertPop) this.updateAlertPop = null;
+
 
         this.updateAlertPop = new SYS.Alert(this.updateAlert, {
             confirmCallback: function(next) {
-                $.post('/', {
-                    id: this.updateAlert.find('input[type=radio]:checked').val()
+                var $checked = this.updateAlert.find('input[type=radio]:checked');
+                var $src = $checked.parents('.checkboxBox').siblings('img').attr('src');
+
+                if ($checked.length == 0) {
+                    u.showTips('请选择替换的封面');
+                    return false;
+                }
+
+                if(!that.updateReady) return false;
+                that.updateReady = false;
+
+                $.post('/UserHouse/setroamdiscover', {
+                    plan_id: $button.attr('plan_id'),
+                    plan_file_id: $checked.val()
                 }, (response) => {
+                    that.updateReady = true;
+
                     if (response.res == 1) {
+                        that.wrapper.find('.coverHead__img').attr('src', $src);
                         next();
                     } else {
                         u.showTips(response.msg);
@@ -164,7 +184,7 @@ const Edit = {
         })
 
         function nextFrame() {
-            $.post('/', {
+            $.post('/UserHouse/doeditroampic', {
                 data: checkList.join(',')
             }, (response) => {
                 if (response.res == 1) {
@@ -192,6 +212,7 @@ const Edit = {
          */
         this.updateAlert = $('#updateAlert');
         this.updateAlertPop = null;
+        this.updateReady = true;
 
         this.timer = null;
 
