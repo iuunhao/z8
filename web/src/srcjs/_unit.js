@@ -1,7 +1,3 @@
-export function showTips(str) {
-    alert(str);
-}
-
-export function callue4() {
-	googleBrower.CallUE4()
-}
+export const showTips = function(str) {
+    alert(str)
+};

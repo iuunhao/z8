@@ -54,7 +54,7 @@ const editPlanLog = {
             type: 1
         }, function(response) {
             if (response.res == 1) {
-                u.callue4();
+                googleBrower.CallUE4();
             } else {
                 u.showTips(response.msg);
             }
