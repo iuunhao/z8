@@ -60,6 +60,10 @@ const Login = {
                         return false;
                     }
 
+                    if (data.data.client_token != '') {
+                        googleBrower.SaveUserInfo(data.data.client_token);
+                    }
+
                     if (data.data.url) {
                         window.location.href = data.data.url;
                     }

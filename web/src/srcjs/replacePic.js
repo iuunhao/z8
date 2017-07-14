@@ -40,11 +40,11 @@ const Edit = {
             dataType: 'json',
             data: {
                 pic_list: $('#pic_list').val(),
-                plan_id: this.wrapper.find('.coverHead__btn').attr('plan_id')
+                plan_id: this.plan_id
             },
             success: function(response) {
                 if (response.res == 1) {
-
+                    u.showTips(response.msg);
                 } else {
                     u.showTips(response.msg);
                 }
@@ -144,11 +144,11 @@ const Edit = {
                     return false;
                 }
 
-                if(!that.updateReady) return false;
+                if (!that.updateReady) return false;
                 that.updateReady = false;
 
                 $.post('/UserHouse/setroamdiscover', {
-                    plan_id: $button.attr('plan_id'),
+                    plan_id: that.plan_id,
                     plan_file_id: $checked.val()
                 }, (response) => {
                     that.updateReady = true;
@@ -179,13 +179,39 @@ const Edit = {
         }
 
         var checkList = [];
+        var index = 0;
+        var id = '';
+        var i = null;
+        
         $checked.each(function(item) {
             checkList.push($(this).val());
         })
 
+        $.post('/UserHouse/domakeroam', {
+            plan_id: that.plan_id,
+            plan_file_id: checkList.join(',')
+        }, (response) => {
+            if (response.res == 1) {
+                id = response.info.id;
+                nextFrame();
+                this.timer = setInterval(nextFrame, 5000);
+            } else {
+                u.showTips(response.msg);
+            }
+        });
+
+
         function nextFrame() {
-            $.post('/UserHouse/doeditroampic', {
-                data: checkList.join(',')
+            index++;
+
+            if (index >= 20) {
+                clearInterval(that.timer);
+                that.timer = null;
+                return false;
+            }
+
+            $.post('/UserHouse/getroamstatus', {
+                id: id
             }, (response) => {
                 if (response.res == 1) {
                     that.manYou.removeClass('.button--gary');
@@ -196,9 +222,6 @@ const Edit = {
                 }
             });
         }
-        nextFrame();
-        this.timer = setInterval(nextFrame, 2000);
-
 
     },
     /**
@@ -215,6 +238,8 @@ const Edit = {
         this.updateReady = true;
 
         this.timer = null;
+
+        this.plan_id = this.wrapper.find('.coverHead__btn').attr('plan_id');
 
 
         /**

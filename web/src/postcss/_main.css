@@ -1776,6 +1776,7 @@ $VAR_C_HEISE_01: #2e3136;
     .eidtFamilyInfo__item {
         display: flex;
         margin-bottom: 40px;
+        position: relative;
         /*width: 730px;*/
     }
     .eidtBox {
@@ -1967,6 +1968,7 @@ $VAR_C_HEISE_01: #2e3136;
     display: flex;
     flex-wrap: wrap;
     max-width: 810px;
+    padding-top: 60px;
     .chooseFamily__link {
         display: block;
         position: relative;
@@ -2810,3 +2812,13 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
+.blockLink{
+    position: absolute;
+    left: 80px;
+    top: 10px;
+    font-size: 16px;
+    color: #508aff;
+    text-decoration:underline;
+    text-indent:1em;
+}

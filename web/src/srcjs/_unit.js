@@ -3,5 +3,5 @@ export function showTips(str) {
 }
 
 export function callue4() {
-	CallUE4();
+	googleBrower.CallUE4()
 }

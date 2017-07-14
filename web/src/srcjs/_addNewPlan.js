@@ -49,6 +49,9 @@ const addNewPlan = {
         }, (response) => {
             if (response.res == 1) {
                 var info = response.info;
+
+                this.uid = info.uid;
+                this.callback_url = info.callback_url;
                 /**
                  * [if 返回有id为编辑户型无id为添加户型]
                  * @param  {[String]} info.id [唯一id]
@@ -217,9 +220,10 @@ const addNewPlan = {
                     $child.append(arr.join(''));
                 }
                 clearSelectHouse();
-                if (SELECT == 'COUNTY') {
-                    response.res == 1 ? that.hideHandEnter() : that.showHandEnter();
-                }
+                that.showHandEnter()
+                // if (SELECT == 'COUNTY') {
+                //     response.res == 1 ? that.hideHandEnter() : that.showHandEnter();
+                // }
             });
             return false;
         })
@@ -304,6 +308,40 @@ const addNewPlan = {
         return true;
 
     },
+    checkParams() {
+        var $a = this.alertId,
+            houseName = $a.find('.houseName').val(),
+            houseType = $a.find('.houseType').val(),
+            provincial = $a.find('.provincial').val(),
+            city = $a.find('.city').val(),
+            county = $a.find('.county').val(),
+            village = $a.find('.village').val(),
+            newHall = $a.find('.newHall').val(),
+            newRoom = $a.find('.newRoom').val(),
+            newToilet = $a.find('.newToilet').val(),
+            newKitchen = $a.find('.newKitchen').val(),
+            newRoomSize = $a.find('.newRoomSize').val();
+
+        if (houseName.trim() == '') {
+            u.showTips('请输入户型名称！');
+            return false;
+        }
+
+        if (provincial == '' || city == '' || county == '') {
+            u.showTips('请选择所在城市！');
+            return false;
+        }
+
+        if (village == '' && houseType == '') {
+            u.showTips('请选择所在小区！');
+            return false;
+        }
+
+        // window.location.href = ''
+        window.location.href = `/define/?uid=${this.uid}&callback_url=${this.callback_url}&` + this.alertId.find('form').serialize()
+
+        return true;
+    },
     /**
      * [setHouseParams 设置选择户型参数]
      * @param {[Object]} $link [jquery对象]
@@ -324,6 +362,9 @@ const addNewPlan = {
     },
     init() {
         var that = this;
+
+        this.uid = '';
+        this.callback_url = '';
 
         /**
          * [获取mustache模板]
@@ -352,6 +393,7 @@ const addNewPlan = {
          */
         this.alertId = $('<div class="pubPopLayout none" id="addNewPlanPop"></div>');
         $('body').append(this.alertId);
+
         /**
          * [body body]
          * @type {[Object]}
@@ -403,6 +445,8 @@ const addNewPlan = {
          */
         $(document).on('click', '.editDoorModel', this.addNewPlanFunc.bind(this));
 
+
+        $(document).on('click', '.blockLink', this.checkParams.bind(this));
         /**
          * 四级联动
          */
