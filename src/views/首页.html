@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/px2rem.min.js"></script>
+</head>
+
+<body class="">
+    <div class="topBarNav topBarNav--shadow">
+        <ul class="topBarNav__list">
+            <li class="topBarNav__item topBarNav__item--active"><a class="topBarNav__link" href="javascript:;">我的方案</a></li>
+        </ul>
+    </div>
+    <div class="wrap p--b100">
+        <div class="noData">
+            <img class="noData__img none" src="../images/pubilc/nodata.jpg" />
+            <p class="noData__txt">暂无数据</p>
+        </div>
+        <ul class="renderingList">
+            <li class="renderingList__item divider">
+                <div class="dotImg dotImg--are">
+                    <img class="dotImg__img" src="../images/temp/temp.jpg" />
+                </div>
+                <div class="renderingList__box">
+                    <div class="renderingList__headBox">
+                        <div class="renderingList__haed gzInfo">
+                            <div class="gzInfo__box">
+                                <div class="gzInfo__item">
+                                    侯小军
+                                </div>
+                                <div class="gzInfo__item">
+                                    紫金新干线
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gzFa">
+                        欧式简约方案一
+                    </div>
+                    <div class="gzStatus">
+                        <span class="gzStatus__item">已接单</span> <span class="gzStatus__item">2015.05.26  17:30</span>
+                    </div>
+                </div>
+            </li>
+            <li class="renderingList__item divider">
+                <div class="dotImg dotImg--are"><img class="dotImg__img" src="../images/temp/temp.jpg" /></div>
+                <div class="renderingList__box">
+                    <div class="renderingList__headBox">
+                        <div class="renderingList__haed gzInfo">
+                            <div class="gzInfo__box">
+                                <div class="gzInfo__item">
+                                    侯小军
+                                </div>
+                                <div class="gzInfo__item">
+                                    紫金新干线
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gzStatus">
+                        <span class="gzStatus__item">等待接单</span> <span class="gzStatus__item">2015.05.26  17:30</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="../js/require.js"></script>
+    <script>
+        require.config({　　　　
+            baseUrl: "../js"　　
+        });
+    </script>
+    <script src="../js/home.js"></script>
+</body>
+
+</html>

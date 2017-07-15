@@ -14,25 +14,30 @@
 
 <body class="bodyBg--f5f7fa">
     <div class="topBarNav">
-        <a class="topBarNav__return" href="javascript:;"></a>
         <ul class="topBarNav__list">
-            <li class="topBarNav__item topBarNav__item--active"><a class="topBarNav__link" href="javascript:;">我的方案</a></li>
-            <li class="topBarNav__item"><a class="topBarNav__link" href="javascript:;">装修日记</a></li>
-            <li class="topBarNav__item"><a class="topBarNav__link" href="javascript:;">评价打分</a></li>
+            <li class="topBarNav__item topBarNav__item--active"><a class="topBarNav__link" href="javascript:;">装修日记</a></li>
         </ul>
     </div>
     <div class="wrap">
         <div class="headBanner">
             <a class="headBanner__link" href="javascript:;"><img class="headBanner__img" src="../images/temp/temp2.jpg" /></a>
-            <div class="headBanner__desc headBanner__desc--photo"><img class="headBanner__userImg" src="../images/temp/user_img.jpg" />
+            <div class="headBanner__desc headBanner__desc--photo">
                 <div class="headBanner__descBox">
                     <h3 class="headBanner__title">北北欧-大连海湾城户型3室2厅北欧</h3>
-                    <p class="headBanner__txt">北京 | 芳华名苑小区</p>
+                    <div class="gzStatus">
+                        <span class="gzStatus__item">保定</span>
+                        <span class="gzStatus__item">芳华名苑</span>
+                        <span class="gzStatus__item">简约</span>
+                        <span class="gzStatus__item">120m2</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="diary">
-            <a id="cMenuBtn" class="openMenu" href="javascript:;"></a>
+            <div class="centerBtn">
+                <a id="cMenuBtn" class="openMenu" href="javascript:;"></a>
+                <a class="addBtn" href=""></a>
+            </div>
             <ul class="diaryList">
                 <li class="diaryList__item">
                     <h3 class="diaryList__title">装修准备</h3>
@@ -108,16 +113,30 @@
                 </li>
             </ul>
             <div id="cMenu" class="directory none">
-                <div class="directory__links"><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a><a class="directory__item" href="javascript:;">装修</a>
-                </div><a class="directory__close" href="javascript:;">✕</a>
+                <div class="directory__links">
+                    <a class="directory__item directory__01 directory__ed" href="javascript:;"><i class="i"></i>装修准备</a>
+                    <a class="directory__item directory__02" href="javascript:;"><i class="i"></i>合同签约</a>
+                    <a class="directory__item directory__03" href="javascript:;"><i class="i"></i>拆除改造</a>
+                    <a class="directory__item directory__04" href="javascript:;"><i class="i"></i>水电布线</a>
+                    <a class="directory__item directory__05 directory__ed" href="javascript:;"><i class="i"></i>泥木工艺</a>
+                    <a class="directory__item directory__06" href="javascript:;"><i class="i"></i>油漆工程</a>
+                    <a class="directory__item directory__07" href="javascript:;"><i class="i"></i>验收完工</a>
+                    <a class="directory__item directory__08" href="javascript:;"><i class="i"></i>软装购置 </a>
+                    <a class="directory__item directory__09" href="javascript:;"><i class="i"></i>环保入住</a>
+                </div>
+                <a class="directory__close" href="javascript:;">✕</a>
             </div>
+        </div>
+        <div class="gzFoot">
+            <a href="" class="gzFoot__item gzFoot__kh">联系客户</a>
+            <a href="" class="gzFoot__item gzFoot__sjs">联系设计师</a>
         </div>
     </div>
     <script src="../js/require.js"></script>
     <script>
-    require.config({　　　　
-        baseUrl: "../js"　　
-    });
+        require.config({　　　　
+            baseUrl: "../js"　　
+        });
     </script>
     <script src="../js/myDecorateDaily.js"></script>
 </body>
