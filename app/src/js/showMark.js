@@ -13,14 +13,12 @@ require(['zepto', 'showTips'], function($, showTips) {
             var $button = $(e.target);
             this.anchor_id = $button.attr('anchor_id');
             $button.siblings('.dotMask').toggleClass('none');
-            return false;
         },
         /**
          * [hideAllMarks 隐藏所有点]
          */
         hideAllMarks: function() {
             this.wrap.find('.dotMask').addClass('none');
-            return false;
         },
         /**
          * [replayFunc 踩点功能]
