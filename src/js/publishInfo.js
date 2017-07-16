@@ -41,8 +41,7 @@ require(['zepto', 'showTips'], function($, showTips) {
          * [checkForms 验证表单]
          */
         checkForms: function() {
-            var $textareaVal = this.textarea.val().trim(),
-                $lis = this.imgLists.find('li');
+            var $textareaVal = this.textarea.val().trim();
 
             if(this.process.val() == 0) {
                 this.showTips('请选择装修进度');
@@ -51,11 +50,6 @@ require(['zepto', 'showTips'], function($, showTips) {
 
             if($textareaVal == ''){
                 this.showTips('请编辑文章内容');
-                return false;
-            }
-
-            if($lis.length == 1) {
-                this.showTips('请上传图片');
                 return false;
             }
 
