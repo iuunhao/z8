@@ -955,7 +955,6 @@ a {
     }
     .topBarNav__list {
         flex: 1;
-        margin-right: 100rm;
         display: flex;
     }
     .topBarNav__item {
@@ -1122,6 +1121,7 @@ a {
         margin-bottom: 15rm;
         align-items: center;
         justify-content: space-between;
+        flex:1;
     }
     .renderingList__haed {
         display: flex;
@@ -1161,6 +1161,12 @@ a {
         color: #c6d2e5;
         font-size: 20pm;
     }
+    .renderingList__box{
+        flex:1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .renderingList__desc {
         color: #aab7c9;
         line-height: 1.5;
@@ -1170,6 +1176,7 @@ a {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        display: none;
     }
 }
 
