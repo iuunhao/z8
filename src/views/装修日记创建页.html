@@ -19,7 +19,7 @@
     <div class="wrap">
         <div class="management">
             <div class="management__item management--link management--portrait ">
-                <input class="management__input" type="text" name="" value="" id="" placeholder="日记名称">
+                <input id="diaryName" class="management__input" type="text" name="" value="" id="" placeholder="日记名称">
             </div>
             <div class="management__item management--link" href="">
                 <div class="labelName">户型面积</div>
@@ -50,8 +50,15 @@
                 <div class="textBox">15812312323</div>
             </div>
         </div>
-        <a class="btn managementBtn" href="">创 建</a>
+        <a class="btn managementBtn" id="btnCreate" href="">创 建</a>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+        require.config({　　　　
+            baseUrl: "../js"　　
+        });
+    </script>
+    <script src="../js/createDiary.js"></script>
 </body>
 
 </html>

@@ -18,18 +18,19 @@
         <ul class="topBarNav__list">
             <li class="topBarNav__item topBarNav__item--active"><a class="topBarNav__link" href="javascript:;">发布信息</a></li>
         </ul>
-        <a href="" class="topBarNav__menu">发布</a>
+        <a href="javascript:;" id="btnPublish" class="topBarNav__menu">发布</a>
     </div>
     <div class="wrap">
-        <div class="management">
+        <form id="cForm" action="">
+            <div class="management">
             <div class="management__item management--link management--arrow" href="">
                 <div class="labelName">装修进度</div>
-                <div class="textBox">装修准备</div>
-                <select name="" id="" class="management__input management__input--poa">
-                     <option value="option">option</option>
-                     <option value="option">option</option>
-                     <option value="option">option</option>
-                     <option value="option">option</option>
+                <div class="textBox">请选择</div>
+                <select name="" id="cSelect" class="management__input management__input--poa">
+                     <option value="0">请选择</option>
+                     <option value="1">进度1</option>
+                     <option value="2">进度2</option>
+                     <option value="3">进度3</option>
                  </select>
             </div>
             <div class="management__item management--link management--arrow" href="">
@@ -44,7 +45,7 @@
                 <div class="upfile">
                     <h3>上传图片</h3>
                     <ul class="imgList">
-                        <li class="imgList__item ">
+                        <!-- <li class="imgList__item ">
                             <img class="imgList__img" src="../images/temp/bg1.png" alt="">
                         </li>
                         <li class="imgList__item ">
@@ -52,17 +53,25 @@
                         </li>
                         <li class="imgList__item ">
                             <img class="imgList__img" src="../images/temp/bg1.png" alt="">
-                        </li>
+                        </li> -->
                         <li class="imgList__item">
                             <a href="javascript:;" class="fileBtn">
-                                <input type="file" class="fileBtn__input" name="fileUpload" />
+                                <input id="upLoadImg" type="file" class="fileBtn__input" name="fileUpload" value="" />
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
+            </div>
+        </form>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+        require.config({　　　　
+            baseUrl: "../js"　　
+        });
+    </script>
+    <script src="../js/publishInfo.js"></script>
 </body>
 
 </html>
