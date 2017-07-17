@@ -50,6 +50,7 @@ const addNewPlan = {
             if (response.res == 1) {
                 var info = response.info;
 
+                this.draw_img_url = info.draw_img_url;
                 this.uid = info.uid;
                 this.callback_url = info.callback_url;
                 /**
@@ -338,7 +339,7 @@ const addNewPlan = {
         }
 
         // window.location.href = ''
-        window.location.href = `/define/?uid=${this.uid}&callback_url=${this.callback_url}&` + this.alertId.find('form').serialize()
+        window.location.href = `${this.draw_img_url}?uid=${this.uid}&callback_url=${this.callback_url}&` + this.alertId.find('form').serialize()
 
         return true;
     },
@@ -363,8 +364,18 @@ const addNewPlan = {
     init() {
         var that = this;
 
+        /**
+         * [uid description]
+         */
         this.uid = '';
+        /**
+         * [callback_url description]
+         */
         this.callback_url = '';
+        /**
+         * [draw_img_url 画户型图接口]
+         */
+        this.draw_img_url = '';
 
         /**
          * [获取mustache模板]
