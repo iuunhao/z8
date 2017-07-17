@@ -646,11 +646,12 @@ a {
 .imgList{
     margin-top: 30rm;
     display:flex;
+    flex-wrap: wrap;
 }
 .imgList__item{
    flex: 0 0 25%;
    /*padding: 10rm;*/
-   margin-bottom: 10rm;
+   margin-bottom: 15rm;
 }
 .imgList__img{
     display: block;
