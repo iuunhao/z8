@@ -54,11 +54,12 @@ const Login = {
             },
             success: function(data) {
                 if (data.res == 1) {
-                    u.showTips(data.msg);
                     if (data.data.token != '') {
-                        googleBrower.ShowMsgTips('', data.data.token);
+                    	googleBrower.ShowMsgTips(data.data.token);
                         return false;
                     }
+                    
+                    u.showTips(data.msg);
 
                     if (data.data.client_token != '') {
                         googleBrower.SaveUserInfo(data.data.client_token);
