@@ -12,16 +12,6 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*公共*/
 
 .txtColor--orange {
@@ -2242,6 +2232,7 @@ $VAR_C_HEISE_01: #2e3136;
     display: flex;
     max-width: 300px;
     padding-top: 8px;
+    flex-wrap: wrap;
     .color__item {
         width: 23px;
         height: 23px;
