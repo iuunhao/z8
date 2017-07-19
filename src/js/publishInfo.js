@@ -123,7 +123,7 @@ require(['zepto', 'showTips'], function($, showTips) {
          * [removeImage 删除图片]
          */
         removeImage: function(e) {
-            // return false;
+            return false;
             var $button = $(e.target),
                 that = this,
                 $parent = $button.parents('li');
@@ -216,7 +216,7 @@ require(['zepto', 'showTips'], function($, showTips) {
             /**
              * 删除图片
              */
-            this.imgLists.on('click', 'img', this.removeImage.bind(this));
+            this.imgLists.on('click', '.close', this.removeImage.bind(this));
         }
     };
     publishInfo.init();
