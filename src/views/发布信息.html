@@ -36,11 +36,14 @@
             <div class="management__item management--link management--arrow" href="">
                 <div class="labelName">时间</div>
                 <div class="textBox">2018-12-12</div>
-                <input class="management__input management__input--poa" type="date" name="" value="" id="" placeholder="时间">
+                <input id="cDate" class="management__input management__input--poa" type="date" name="" value="" id="" placeholder="时间">
             </div>
             <div class="management__item management--link " href="">
                 <textarea name="" class="management__textarea" placeholder="请编辑文章内容"></textarea>
             </div>
+            <input type="hidden" name="file_ids" value="">
+        </form>
+
             <div class="management__item management--link " href="">
                 <div class="upfile">
                     <h3>上传图片</h3>
@@ -55,15 +58,16 @@
                             <img class="imgList__img" src="../images/temp/bg1.png" alt="">
                         </li> -->
                         <li class="imgList__item">
+                            <form action="" id="cForm2">
                             <a href="javascript:;" class="fileBtn">
                                 <input id="upLoadImg" type="file" class="fileBtn__input" name="fileUpload" value="" />
                             </a>
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
             </div>
-        </form>
     </div>
     <script src="../js/require.js"></script>
     <script>

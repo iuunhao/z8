@@ -604,6 +604,7 @@ a {
     width: 100%;
     flex:1;
     opacity: 0;
+    padding:0;
 }
 
 .management--portrait {

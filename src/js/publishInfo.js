@@ -17,25 +17,89 @@ require(['zepto', 'showTips'], function($, showTips) {
             $select.siblings('.textBox').text($text);
         },
         /**
+         * [enterDate 输入日期]
+         */
+        enterDate: function(e) {
+            var $input = $(e.target),
+                $val = $input.val().trim();
+            $input.siblings('.textBox').text($val);
+        },
+        /**
          * [upLoadImgHandler 上传图片]
          * @return {[type]} [description]
          */
         upLoadImgHandler: function(e) {
-            var $input = $(e.target),
+            var that = this,
+                $input = $(e.target),
                 $parent = $input.parents('li'),
                 $ul = $parent.parents('ul'),
                 $len = $ul.find('li').length,
                 files = e.target.files,
-                reader = new FileReader();
+                reader = new FileReader(),
+                $prev = $('<li class="imgList__item "><img class="imgList__img" src="" alt=""></li>');
 
             if($input.val()=='') return false;
 
             reader.onload = function() {
-                var $li = $('<li class="imgList__item "><img class="imgList__img" src="'+this.result+'" alt=""><input type="file" class="none" value="'+$input.val()+'" name="img_'+$len+'" /></li>');
-                $parent.before($li);
-                $input.val('');
+                $prev.find('img').attr('src', this.result);
+                $parent.before($prev);
             }
             reader.readAsDataURL(files.item(0));
+
+            this.showLoading();
+
+            /**
+             * [上传图片]
+             */
+            $.post('/', this.form2.serializeArray(), function(response) {
+                that.hideLoading();
+                if(response.res == 1) {
+                    var data = response.data;
+                    $parent.prev().attr('_id', data.id);
+                    that.addImageInput(data.id);
+                } else {
+                    that.showTips(response.msg);
+                }
+            }, 'json');
+        },
+        /**
+         * [addImageInput 添加图片id到form下的file_ids]
+         */
+        addImageInput: function(id) {
+            var file_ids = this.getFileIds();
+            file_ids.push(id);
+            this.input_file_ids.val(file_ids.join(','));
+        },
+        /**
+         * [removeImageInput 删除图片id]
+         */
+        removeImageInput: function(id) {
+            var file_ids = this.getFileIds();
+            file_ids.forEach(function(item, index) {
+                if(id == item) {
+                    file_ids.splice(index, 1);
+                }
+            })
+            this.input_file_ids.val(file_ids.join(','));
+        },
+        /**
+         * [getFileIds 获取图片id]
+         */
+        getFileIds: function() {
+            var $val = this.input_file_ids.val().trim();
+            return $val == '' ? [] : $val.split(',');
+        },
+        /**
+         * [showLoading 显示loading]
+         */
+        showLoading: function() {
+            this.loading.removeClass('none');
+        },
+        /**
+         * [hideLoading 隐藏loading]
+         */
+        hideLoading: function() {
+            this.loading.addClass('none');
         },
         /**
          * [checkForms 验证表单]
@@ -55,12 +119,19 @@ require(['zepto', 'showTips'], function($, showTips) {
 
             return true;
         },
+        /**
+         * [removeImage 删除图片]
+         */
         removeImage: function(e) {
+            // return false;
             var $button = $(e.target),
+                that = this,
                 $parent = $button.parents('li');
+                $id = $parent.attr('_id');
 
             $parent.animate({opacity: 0}, function(){
                 $(this).remove();
+                that.removeImageInput($id);
             })
         },
         /**
@@ -75,6 +146,7 @@ require(['zepto', 'showTips'], function($, showTips) {
              */
             if(!this.ready) return false;
             this.ready = false;
+
 
             $.post('/', this.form.serializeArray(), function(response) {
                 if(response.res == 1) {
@@ -91,6 +163,16 @@ require(['zepto', 'showTips'], function($, showTips) {
              * [form 表单]
              */
             this.form = $('#cForm');
+            this.form2 = $('#cForm2');
+            /**
+             * [input_file_ids 保存图片id]
+             */
+            this.input_file_ids = this.form.find('input[name=file_ids]');
+
+            /**
+             * [loading 加载中]
+             */
+            this.loading = $('#loading');
 
             /**
              * [ready 防止连击]
@@ -107,6 +189,13 @@ require(['zepto', 'showTips'], function($, showTips) {
              */
             this.btnPublish = $('#btnPublish');
             this.btnPublish.on('click', this.publishInfoHandler.bind(this));
+
+            /**
+             * [date 输入日期]
+             */
+            this.date = $('#cDate');
+            this.date.on('change', this.enterDate.bind(this));
+
             /**
              * [process 装修进度]
              */
@@ -127,7 +216,7 @@ require(['zepto', 'showTips'], function($, showTips) {
             /**
              * 删除图片
              */
-            this.imgLists.on('click', '.close', this.removeImage.bind(this));
+            this.imgLists.on('click', 'img', this.removeImage.bind(this));
         }
     };
     publishInfo.init();
