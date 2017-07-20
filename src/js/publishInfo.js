@@ -1,4 +1,5 @@
-require(['zepto', 'showTips'], function($, showTips) {
+require(['showTips'], function(showTips) {
+
     var publishInfo = {
         /**
          * [showTips alert]
@@ -48,19 +49,42 @@ require(['zepto', 'showTips'], function($, showTips) {
 
             this.showLoading();
 
+            $.ajaxFileUpload({
+                url: '/upload.aspx', //用于文件上传的服务器端请求地址
+                secureuri: false, //是否需要安全协议，一般设置为false
+                fileElementId: 'upLoadImg', //文件上传域的ID
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (response)  //服务器成功响应处理函数
+                {
+                    that.hideLoading();
+                    if(response.res == 1) {
+                        var data = response.data;
+                        $parent.prev().attr('_id', data.id);
+                        that.addImageInput(data.id);
+                    } else {
+                        that.showTips(response.msg);
+                    }
+                },
+                 error: function (data, status, e)//服务器响应失败处理函数
+                    {
+                        alert(e);
+                    }
+            })
+            return false;
+
             /**
              * [上传图片]
              */
-            $.post('/', this.form2.serializeArray(), function(response) {
-                that.hideLoading();
-                if(response.res == 1) {
-                    var data = response.data;
-                    $parent.prev().attr('_id', data.id);
-                    that.addImageInput(data.id);
-                } else {
-                    that.showTips(response.msg);
-                }
-            }, 'json');
+            // $.post('/', this.form2.serializeArray(), function(response) {
+            //     that.hideLoading();
+            //     if(response.res == 1) {
+            //         var data = response.data;
+            //         $parent.prev().attr('_id', data.id);
+            //         that.addImageInput(data.id);
+            //     } else {
+            //         that.showTips(response.msg);
+            //     }
+            // }, 'json');
         },
         /**
          * [addImageInput 添加图片id到form下的file_ids]
@@ -206,7 +230,7 @@ require(['zepto', 'showTips'], function($, showTips) {
              * [upLoadImg 上传图片]
              */
             this.upLoadImg = $('#upLoadImg');
-            this.upLoadImg.on('change', this.upLoadImgHandler.bind(this));
+            $(document).on('change', '.fileBtn__input', this.upLoadImgHandler.bind(this));
 
             /**
              * [imgLists 上传图片]
