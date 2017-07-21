@@ -10,6 +10,32 @@
     <title>发布信息</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/px2rem.min.js"></script>
+    <style>
+        .loading{
+            position: fixed; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 100;
+            -webkit-user-select:none
+            -moz-user-select:none
+            -o-user-select:none
+            -ms-user-select:none
+            user-select:none
+            pointer-events: none;
+        }
+        .loading span{
+            font-size: .373333rem;
+            position: absolute;
+            top: 49%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body class="">
@@ -68,6 +94,9 @@
                 </div>
             </div>
             </div>
+    </div>
+    <div id="loading" class="loading none">
+        <span>图片上传中，请稍等……</span>
     </div>
     <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
     <script src="../js/ajaxfileupload.js"></script>
