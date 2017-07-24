@@ -141,7 +141,7 @@ const Z = {
             this.submitReady = true;
             if (response.res == 1) {
                 googleBrower.CallUE4();
-                window.location.reload();
+                window.location.href = '/';
             } else {
                 this.showError(response.msg);
             }
@@ -182,8 +182,6 @@ const Z = {
         this.zijizhuang = this.wrap.find('.stylesTag[_plan=1]');
         this.zhinengzhuang = this.wrap.find('.stylesTag[_plan=2]');
 
-
-        console.log(this.zijizhuang.length)
 
         /**
          * [curTabName 切换的类型]

@@ -106,10 +106,7 @@ const addNewPlan = {
                     u.showTips(response.msg);
                     if (response.res == 1) {
                         next();
-                        var url = response.info.url;
-                        if (url) {
-                            window.location.href = url;
-                        }
+                        window.location.reload();
                     }
                 });
             }.bind(this)
