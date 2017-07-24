@@ -33,6 +33,8 @@ const Z = {
             this.planHue.addClass('none');
             this.planLabel.text('方案标签：');
             this.title.text('自己装');
+            this.zijizhuang.removeClass('none');
+            this.zhinengzhuang.addClass('none');
         }
 
         /**
@@ -42,6 +44,8 @@ const Z = {
             this.planHue.removeClass('none');
             this.planLabel.text('选择风格：');
             this.title.text('智能装');
+            this.zijizhuang.addClass('none');
+            this.zhinengzhuang.removeClass('none');
         }
 
 
@@ -56,8 +60,6 @@ const Z = {
         var $button = $(e.target);
         $button.addClass(this.curTabName).siblings('a').removeClass(this.curTabName);
         this.selectPlan();
-
-
     },
     /**
      * [selectTagFunc 选择方案标签]
@@ -134,12 +136,12 @@ const Z = {
 
         if (!this.submitReady) return false;
         this.submitReady = false;
-        console.log(this.form.serializeArray())
+
         $.post('/UserHouse/doaddplan', this.form.serializeArray(), (response) => {
             this.submitReady = true;
             if (response.res == 1) {
                 googleBrower.CallUE4();
-                window.location.href = '/';
+                window.location.reload();
             } else {
                 this.showError(response.msg);
             }
@@ -173,6 +175,15 @@ const Z = {
          * [planLabel 方案标签]
          */
         this.planLabel = this.wrap.find('.jsPlanLab');
+
+        /**
+         * [zijizhuang 自己装风格]
+         */
+        this.zijizhuang = this.wrap.find('.stylesTag[_plan=1]');
+        this.zhinengzhuang = this.wrap.find('.stylesTag[_plan=2]');
+
+
+        console.log(this.zijizhuang.length)
 
         /**
          * [curTabName 切换的类型]

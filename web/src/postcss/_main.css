@@ -2230,16 +2230,23 @@ $VAR_C_HEISE_01: #2e3136;
 
 .colors {
     display: flex;
-    max-width: 300px;
+    max-width: 360px;
     padding-top: 8px;
     flex-wrap: wrap;
     .color__item {
         width: 23px;
         height: 23px;
-        border: 1px solid transparent;
-        outline: 1px solid transparent;
         margin-right: 10px;
         margin-bottom: 10px;
+        position: relative;
+        &:after{
+        	content:"";
+        	position: absolute;
+        	left:6px;
+        	top:6px;
+        	right:6px;
+        	bottom:6px;
+        }
     }
     .color--01 {
         background: #528AFC;
@@ -2269,7 +2276,9 @@ $VAR_C_HEISE_01: #2e3136;
 
     .color__item:hover,
     .color__item.color--active {
-        border-color: #fff;
+        &:after{
+        	background: #fff;
+        }
     }
 }
 
