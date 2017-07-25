@@ -17,6 +17,12 @@ const Edit = {
     wrapper: $('#manage'),
     cname: 'none',
     editName: 'coverMain--edit',
+    showLoading: function() {
+        this.loading.removeClass('none').show();
+    },
+    hideLoading: function() {
+        this.loading.addClass('none').hide();
+    },
     /**
      * [showEdit 显示编辑按钮内容可编辑]
      */
@@ -186,7 +192,7 @@ const Edit = {
         $checked.each(function(item) {
             checkList.push($(this).val());
         })
-
+        this.showLoading();
         $.post('/UserHouse/domakeroam', {
             plan_id: that.plan_id,
             plan_file_id: checkList.join(',')
@@ -207,6 +213,7 @@ const Edit = {
             if (index >= 20) {
                 clearInterval(that.timer);
                 that.timer = null;
+                that.hideLoading();
                 return false;
             }
 
@@ -214,7 +221,8 @@ const Edit = {
                 id: id
             }, (response) => {
                 if (response.res == 1) {
-                    that.manYou.removeClass('.button--gary');
+                    that.hideLoading();
+                    that.manYou.removeClass('button--gary');
                     that.manYou.attr('href', response.data.url);
                     u.showTips(response.msg);
                     clearInterval(that.timer);
@@ -229,6 +237,11 @@ const Edit = {
      */
     init: function() {
         var that = this;
+
+        /**
+         * [loading 加载中]
+         */
+        this.loading = $('#loading');
 
         /**
          * [updateAlert 更新封面]
@@ -299,11 +312,6 @@ const Edit = {
         });
 
         /**
-         * [createButton 生成720按钮]
-         */
-        this.createButton = $('#createButton');
-
-        /**
          * [manYou 720漫游按钮]
          */
         this.manYou = $('#manYou');
@@ -321,6 +329,11 @@ const Edit = {
          */
         this.wrapper.on('click', '.coverHead__btn', this.updatePicture.bind(this));
 
+
+        /**
+         * [createButton 生成720按钮]
+         */
+        this.createButton = $('#createButton');
         /**
          * 生成720
          */

@@ -189,3 +189,12 @@ const selectHouse = {
 };
 
 selectHouse.init();
+
+
+/**
+ * [图片预览]
+ */
+$('img[data-original]').viewer({
+    navbar: false,
+    toolbar: false
+});
