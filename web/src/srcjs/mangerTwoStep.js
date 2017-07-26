@@ -195,6 +195,7 @@ selectHouse.init();
  * [图片预览]
  */
 $('img[data-original]').viewer({
+    url: 'data-original',
     navbar: false,
     toolbar: false
 });
