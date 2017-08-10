@@ -1,0 +1,26 @@
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+* {
+    maring: 0;
+    padding: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    marign: 0;
+    padding: 0;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+body {
+    line-height: 1;
+}
