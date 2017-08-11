@@ -24,6 +24,10 @@ body {
     visibility: hidden;
 }
 
+.red {
+    color: #ff1d3d;
+}
+
 
 $text: #2f2f3b;
 
@@ -101,7 +105,6 @@ $text: #2f2f3b;
             transform: translateY(-50%);
             width: 50rm;
             height: 50rm;
-            background: #aaa;
         }
     }
     &__return {
@@ -127,6 +130,20 @@ $text: #2f2f3b;
 .hasHead {
     margin-top: 50rm;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,6 +216,21 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -326,6 +358,21 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 主体 */
 
 .wrap {
@@ -334,6 +381,21 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -402,6 +464,21 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -448,6 +525,21 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -723,6 +815,21 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 清库特价 */
 
 .clearLibr {
@@ -748,10 +855,9 @@ $text: #2f2f3b;
         line-height: 1.5;
         font-weight: bold;
     }
-    .special {
-        font-size: 20pm;
-        color: #fff;
-        background: #FD2A45;
+
+    .special,
+    .hot {
         display: inline-block;
         margin-left: 10rm;
         vertical-align: middle;
@@ -759,6 +865,15 @@ $text: #2f2f3b;
         height: 28rm;
         line-height: 29rm;
         text-align: center;
+        font-size: 20pm;
+    }
+    .special {
+        color: #fff;
+        background: #FD2A45;
+    }
+    .hot {
+        background: #FEE14A;
+        color: #000;
     }
     &__infos {
         display: flex;
@@ -821,3 +936,463 @@ $text: #2f2f3b;
         width: 100%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 发布求购 */
+
+.head__send {
+    font-size: 32pm;
+    color: #3598fe;
+    text-indent: 0;
+    text-align: right;
+    &:after {
+        display: none;
+    }
+}
+
+.release {
+    margin-top: 120rm;
+}
+
+.tips {
+    background: #3997FB;
+    padding: 20rm 30rm 20rm 90rm;
+    color: #fff;
+    padding-left: 90rm;
+    position: relative;
+    line-height: 1.3;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 37rm;
+        top: 20rm;
+        width: 32rm;
+        height: 28rm;
+        background: url(../images/icon-public/lba.png);
+    }
+}
+
+.formGroup {
+    display: flex;
+    border-bottom: 1rm solid #E5E7EB;
+    padding: 30rm 0;
+    &:last-child {
+        border-bottom: none;
+    }
+    .controlLabel {
+        width: 140rm;
+        white-space: nowrap;
+        font-size: 28pm;
+        color: #000;
+        line-height: 1.3;
+    }
+    .inputGroup {
+        flex: 1;
+        display: flex;
+        position: relative;
+    }
+    .inputGroup__control {
+        flex: 1;
+        font-size: 28pm;
+        color: #000;
+        line-height: 1.3;
+    }
+    .inputGroup__textarea {
+        height: 200rm;
+        resize: none;
+        margin-bottom: 50rm;
+    }
+    .textLenTips {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: 20pm;
+        color: #959699;
+    }
+    .inputGroup--arrow {
+        position: relative;
+        &:after {
+            content: "";
+            position: absolute;
+            width: 20rm;
+            height: 20rm;
+            top: 50%;
+            right: 0;
+            border-top: 1px solid #171717;
+            border-right: 1px solid #171717;
+            transform: translateY(-50%) rotate(45deg);
+        }
+    }
+    .inputGroup__select {
+        appearance: none;
+        border: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-size: 28pm;
+    }
+}
+
+.imgFiles {
+    display: flex;
+    padding-bottom: 30rm;
+    .imgItem {
+        width: 110rm;
+        height: 110rm;
+        margin-right: 20rm;
+    }
+    .imgItem__img {
+        display: block;
+        width: 100%;
+    }
+    .default {
+        background: #F0F0F0;
+        position: relative;
+        &:after {
+            content: "";
+            position: absolute;
+            left: 20rm;
+            right: 20rm;
+            height: 2px;
+            background: #A4A4A4;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 20rm;
+            bottom: 20rm;
+            width: 2px;
+            left: 50%;
+            background: #A4A4A4;
+            transform: translateX(-50%);
+        }
+        img {
+            display: none;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+/* 分类弹层 */
+
+.classPop {
+    position: fixed;
+    left: 150rm;
+    background: #fff;
+    left: 0;
+    right: 0;
+    top: 88rm;
+    bottom: 0;
+    &__head {
+        height: 88rm;
+        line-height: 88rm;
+        border-bottom: 1px solid #E5E7EB;
+        padding: 0 30rm;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.classTabs {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    top: 90rm;
+    &__left {
+        width: 120rm;
+        background: #E5E7EB;
+        .active {
+            background: #fff;
+        }
+    }
+    &__btn {
+        display: block;
+        height: 100rm;
+        line-height: 100rm;
+        text-align: center;
+    }
+    &__right {
+        flex: 1;
+        justify-content: normal;
+        background: #fff;
+        flex-wrap: wrap;
+        display: block;
+        padding: 20rm;
+        overflow: auto;
+    }
+    .btn {
+        margin: 10rm;
+        display: inline-block;
+        white-space: nowrap;
+    }
+}
+
+
+
+.head__class {
+    background: none;
+    &:after {
+        content: "";
+        position: absolute;
+        background-color: none;
+        background: url(../images/icon-public/find.png);
+        width: 49rm;
+        height: 49rm;
+    }
+}
+
+.classPopPage {
+    .classTabs {
+        top: 0;
+    }
+}
+
+
+
+
+
+
+
+/* 产品详情 */
+
+.swiperFull {
+    margin-top: 88rm;
+    border-radius: 0;
+    box-shadow: none;
+    height: 400rm;
+    .swiper__img {
+        height: 400rm;
+    }
+    .swiper__dots {
+        bottom: 30rm;
+    }
+}
+
+.detail {
+    &__head {}
+    &__title {
+        font-size: 30pm;
+        color: #000;
+        font-weight: bold;
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        display: flex;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-bottom: 30rm;
+    }
+    &__infos {
+        display: flex;
+        margin-bottom: 30rm;
+    }
+    &__infoItem {
+        flex: 1;
+        color: #000;
+        font-size: 26pm;
+    }
+    .red {
+        font-size: 28pm;
+        color: #ff1d3d;
+        font-weight: bold;
+    }
+    .productInfo {
+        font-size: 28pm;
+        color: #000;
+        margin-bottom: 30rm;
+    }
+    .productInfo__label {
+        margin-bottom: 10rm;
+    }
+    .detailArticle {
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+.detailFoot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100rm;
+    background: #fff;
+    border-top: 1rm solid #E5E7EB;
+    display: flex;
+    text-align: center;
+    z-index: 10;
+    &__item {
+        flex: 1;
+        text-align: center;
+        color: #000;
+        font-size: 20pm;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &:before {
+            content: "";
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10rm;
+        }
+    }
+    &__link {
+        width: 350rm;
+        font-size: 32pm;
+        color: #fff;
+        background: #3997FB;
+        line-height: 100rm;
+        font-weight: bold;
+    }
+    &__1 {
+        &:before {
+            width: 30rm;
+            height: 33rm;
+            background: url(../images/icon-public/jindian.png);
+        }
+    }
+    &__2 {
+        &:before {
+            width: 30rm;
+            height: 33rm;
+            background: url(../images/icon-public/shangjia.png);
+        }
+    }
+    &__3 {
+        &:before {
+            width: 32rm;
+            height: 32rm;
+            background: url(../images/icon-public/lianxi.png);
+        }
+    }
+}
+
+.head__collection {
+    position: relative;
+    font-size: 17pm;
+    text-indent: 0;
+    text-align: right;
+    line-height: 130rm;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 18rm;
+        right: 5rm;
+        background: url(../images/icon-public/xihuan.png);
+        width: 32rm;
+        height: 28rm;
+    }
+}
+
+
+
+/* 购买 */
+
+.buy {
+    margin-top: 120rm;
+    .productTit {
+        font-size: 30pm;
+        color: #000;
+        font-weight: bold;
+        padding-bottom: 20rm;
+    }
+    .buyItem {
+        display: flex;
+        padding: 20rm 0;
+        font-size: 28pm;
+        align-items: center;
+        color: #000;
+
+        .red {
+            font-weight: bold;
+        }
+        .input {
+            background: #F7F7F7;
+            font-size: 28pm;
+            padding: 0 30rm;
+            border-radius: 4rm;
+            height: 60rm;
+        }
+    }
+    .buyItem__label {
+        width: 140rm;
+        white-space: nowrap;
+    }
+    .total {
+        border-bottom: 1rm solid #E5E7EB;
+        font-size: 28pm;
+        text-align: right;
+        padding-top: 110rm;
+        padding-bottom: 50rm;
+        margin-bottom: 50rm;
+        .red {
+            font-size: 44pm;
+            font-weight: bold;
+        }
+    }
+}
+
+.userInfo {
+    &__item {
+        font-size: 28pm;
+        color:#000;
+        margin-bottom: 10rm;
+        line-height: 2;
+        word-break:break-all;
+    }
+    .user__address{
+        display: inline-block;
+        width: 44rm;
+        height: 44rm;
+        background: url(../images/icon-public/weizhi.png);
+        margin-left: 10rm;
+        vertical-align: middle;
+    }
+    &__multiple{
+        padding-left: 5em;
+        text-indent: -5em;
+    }
+}
+.orderBtn{
+    display: block;
+    margin-top: 200rm;
+    background: #3997FB;
+    border-radius: 4rm;
+    color:#fff;
+    font-size: 32pm;
+    text-align: center;
+    height: 88rm;
+    line-height: 88rm;
+}
+
