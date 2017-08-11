@@ -152,6 +152,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 头部工具栏 */
 
 .headTool {
@@ -216,6 +218,8 @@ $text: #2f2f3b;
         }
     }
 }
+
+
 
 
 
@@ -373,6 +377,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 主体 */
 
 .wrap {
@@ -381,6 +387,8 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
 
 
 
@@ -479,6 +487,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -525,6 +535,8 @@ $text: #2f2f3b;
         }
     }
 }
+
+
 
 
 
@@ -830,6 +842,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 清库特价 */
 
 .clearLibr {
@@ -936,6 +950,8 @@ $text: #2f2f3b;
         width: 100%;
     }
 }
+
+
 
 
 
@@ -1097,6 +1113,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 分类弹层 */
 
 .classPop {
@@ -1172,6 +1190,8 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
+
 
 
 
@@ -1317,6 +1337,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 购买 */
 
 .buy {
@@ -1366,12 +1388,12 @@ $text: #2f2f3b;
 .userInfo {
     &__item {
         font-size: 28pm;
-        color:#000;
+        color: #000;
         margin-bottom: 10rm;
         line-height: 2;
-        word-break:break-all;
+        word-break: break-all;
     }
-    .user__address{
+    .user__address {
         display: inline-block;
         width: 44rm;
         height: 44rm;
@@ -1379,20 +1401,96 @@ $text: #2f2f3b;
         margin-left: 10rm;
         vertical-align: middle;
     }
-    &__multiple{
+    &__multiple {
         padding-left: 5em;
         text-indent: -5em;
     }
 }
-.orderBtn{
+
+.orderBtn {
     display: block;
     margin-top: 200rm;
     background: #3997FB;
     border-radius: 4rm;
-    color:#fff;
+    color: #fff;
     font-size: 32pm;
     text-align: center;
     height: 88rm;
     line-height: 88rm;
 }
 
+
+
+
+/* 分类查找 */
+
+.head__input {
+    flex: 1;
+    display: flex;
+    .input {
+        flex: 1;
+        background: #F7F7F7;
+        font-size: 26pm;
+        color: #000;
+        border-radius: 4rm;
+        height: 60rm;
+        text-align: center;
+    }
+}
+
+.find {
+    margin-top: 100rm;
+}
+
+.findBtns {
+    display: flex;
+    background: #F7F7F7;
+    color: #000;
+    font-size: 28pm;
+    height: 80rm;
+    margin: 0 -30rm;
+    line-height: 80rm;
+    .findHead__btn {
+        flex: 1;
+        text-align: center;
+    }
+    .text {
+        position: relative;
+        display: inline-block;
+        color:#959699;
+        &:after {
+            content: "";
+            position: absolute;
+            left: -5rm;
+            right: -5rm;
+            bottom: 0;
+            height: 2px;
+        }
+    }
+    .active .text {
+        color:#000;
+        &:after {
+            background: #000;
+        }
+    }
+}
+
+.selects {
+    display: flex;
+    margin: 30rm -20rm;
+    &__item {
+        flex: 1;
+        display: flex;
+    }
+    .select{
+        flex:1;
+        font-size: 26rm;
+        padding: 0 20rm;
+        margin: 0 20rm;
+        border: 1px solid #E5E7EB;
+        height: 50rm;
+        border-radius: 0;
+        background: url(../images/publics/arrow.png) right center no-repeat;
+        background-size: 50rm 46rm;
+    }
+}
