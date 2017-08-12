@@ -12,7 +12,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>5首页-分类查找-产品</title>
+    <title>5首页-分类查找-供应商详情</title>
     <script src="../libs/js/px2rem.min.js"></script>
     <link rel="stylesheet" href="../css/postcss.css">
 </head>
@@ -20,22 +20,38 @@
 <body>
     <div class="head">
         <a class="head__return" href="">返回</a>
-        <div class="head__input">
-            <input type="text" class="input" value="产品分类标签" name="" id="" />
-        </div>
+        <h2 class="head__title">金牛管业</h2>
+        <a class="head__menu head__focus" href="">关注</a>
     </div>
-    <div class="wrap find">
+    <div class="wrap find userDetail">
+        <div class="supplier__head">
+            <div class="supplier__headFlex">
+                <div class="supplier__info">
+                    <img class="supplier__userImg" src="../images/temp/img2.png" alt="" />
+                    <div class="supplier__infoTxts">
+                        <h3 class="supplier__title">金牛管业</h3>
+                        <p class="supplier__txt">北京金牛管业总代理</p>
+                    </div>
+                </div>
+                <div class="userMarkBox">
+                    <a class="userMark userAddr" href="" >地址</a>
+                    <a class="userMark userCard" href="" >名片</a>
+                </div>
+            </div>
+            <p class="supplier__desc">本店所有转接口类型商品8.8折大促销，欢迎选购</p>
+        </div>
         <div class="findHead">
             <div class="findBtns">
                 <a class="findHead__btn active" href=""><em class="text">产品</em></a>
-                <a class="findHead__btn" href=""><em class="text">供应商</em></a>
+                <a class="findHead__btn" href=""><em class="text">商铺动态</em></a>
+                <a class="findHead__btn" href=""><em class="text">商铺简介</em></a>
+            </div>
+            <div class="screening">
+               <a class="screening__btn active" href="javascript:;">清库特价</a>
+               <a class="screening__btn" href="javascript:;">热销产品</a>
+               <a class="screening__btn" href="javascript:;">普通商品</a>
             </div>
             <div class="selects">
-                <div class="selects__item">
-                    <select class="select">
-                        <option>全部</option>
-                    </select>
-                </div>
                 <div class="selects__item">
                     <select class="select">
                         <option>按销量排序</option>
@@ -75,9 +91,6 @@
         </div>
         <p class="tipsText">上拉刷新</p>
         <p class="tipsText">暂无数据</p>
-    </div>
-    <div class="findTips">
-        <p class="">未找到您想要的商品？试试<a class="findTips__link" href="">发布</a></p>
     </div>
 </body>
 
