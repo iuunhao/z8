@@ -12,32 +12,18 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>5首页-分类查找-供应商</title>
+    <title>8首页-我的-关注店铺</title>
     <script src="../libs/js/px2rem.min.js"></script>
     <link rel="stylesheet" href="../css/postcss.css">
 </head>
 
 <body>
-    <div class="head">
+    <div class="head line-b">
         <a class="head__return" href="">返回</a>
-        <div class="head__input">
-            <input type="text" class="input" value="产品分类标签" name="" id="" />
-        </div>
+        <h3 class="head__title">关注的店铺</h3>
+        <a class="head__menu hidden" href="javascript:;"></a>
     </div>
     <div class="wrap find">
-        <div class="findHead">
-            <div class="findBtns">
-                <a class="findHead__btn" href=""><em class="text">产品</em></a>
-                <a class="findHead__btn active" href=""><em class="text">供应商</em></a>
-            </div>
-            <div class="selects">
-                <div class="selects__item">
-                    <select class="select">
-                        <option>全部</option>
-                    </select>
-                </div>
-            </div>
-        </div>
         <div class="supplier">
             <div class="supplier__item">
                 <div class="supplier__head">
@@ -98,8 +84,8 @@
                 </ul>
             </div>
         </div>
-        <p class="tipsText">上拉刷新</p>
-        <p class="tipsText">暂无数据</p>
+        <p id="loading" class="tipsText loading">Loading...</p>
+        <p id="noMore" class="tipsText">暂无数据</p>
     </div>
     <div class="findTips">
         <p class="">未找到您想要的商品？试试<a class="findTips__link" href="">发布</a></p>

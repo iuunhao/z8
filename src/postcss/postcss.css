@@ -1,6 +1,6 @@
 @import '_base.css';
-@import '_common.css';
 
+@import '_common.css';
 
 html,
 body {
@@ -118,14 +118,17 @@ $text: #2f2f3b;
         }
     }
     &__btn {
+        font-size: 17pm;
         width: 60rm;
         height: 88rm;
+        text-align: center;
         padding-left: 40rm;
         position: relative;
         display: flex;
         line-height: 1;
         flex-direction: column;
         justify-content: center;
+        white-space: nowrap;
         .icon {
             display: block;
             margin: 0 auto;
@@ -155,6 +158,18 @@ $text: #2f2f3b;
 .hasHead {
     margin-top: 50rm;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -216,6 +231,13 @@ $text: #2f2f3b;
             margin-bottom: 6rm;
         }
     }
+    &__msg.unread {
+        &:before {
+            background: url(../images/icon-public/msg3.png);
+            width: 37rm;
+            height: 34rm;
+        }
+    }
 }
 
 .headTool--p30 {
@@ -223,12 +245,24 @@ $text: #2f2f3b;
     .headTool__msg {
         width: 90rm;
         &:before {
-            background: url(../images/icon-public/fenlei-0.png);
+            /* background: url(../images/icon-public/fenlei-0.png); */
             width: 33rm;
             height: 28rm;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -282,6 +316,7 @@ $text: #2f2f3b;
     background: #FFF;
     display: flex;
     z-index: 10;
+    border-top: 1rm solid #F7F7F7;
     &__item {
         flex: 1;
         justify-content: center;
@@ -424,6 +459,18 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 主体 */
 
 .wrap {
@@ -432,6 +479,18 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -568,6 +627,18 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -614,6 +685,18 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -910,8 +993,21 @@ $text: #2f2f3b;
     .thumbnail {
         width: 100%;
         margin-bottom: 20rm;
+        background-position: center center;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1094,6 +1190,18 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 发布求购 */
 
 .head__send {
@@ -1194,15 +1302,12 @@ $text: #2f2f3b;
     display: flex;
     padding-bottom: 50rm;
     flex: 1;
+    margin: 0 -10rm;
     .fileImgBox {
         position: relative;
-        margin-right: 20rm;
-        flex: 1;
+        flex:  0 0 33%;
         background-position: center center;
         border-radius: 4rm;
-        &:last-child {
-            margin-right: 0
-        }
     }
     .fileInput {
         position: absolute;
@@ -1214,6 +1319,7 @@ $text: #2f2f3b;
         opacity: 0;
     }
     .imgItem {
+        margin: 0 10rm;
         flex: 1;
         display: block;
         background-position: center center;
@@ -1222,7 +1328,7 @@ $text: #2f2f3b;
     .del {
         position: absolute;
         top: -10rm;
-        right: -10rm;
+        right: 0;
         background: #FD2A45;
         font-size: 20pm;
         color: #fff;
@@ -1266,6 +1372,18 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1362,14 +1480,10 @@ $text: #2f2f3b;
 
 
 .head__class {
-    background: none;
-    &:after {
-        content: "";
-        position: absolute;
-        background-color: none;
-        background: url(../images/icon-public/find.png);
-        width: 49rm;
-        height: 49rm;
+    .icon {
+        background: url(../images/icon-public/sousuo1.png);
+        width: 28rm;
+        height: 28rm;
     }
 }
 
@@ -1378,6 +1492,18 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1532,7 +1658,26 @@ $text: #2f2f3b;
         width: 32rm;
         height: 28rm;
     }
+    &.active {
+        color: #A1A2A5;
+        .icon {
+            background: url(../images/publics/duigou1.png) no-repeat;
+            background-size: 30rm 19rm;
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1655,6 +1800,18 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 分类查找 */
 
 .head__input {
@@ -1672,7 +1829,7 @@ $text: #2f2f3b;
 }
 
 .find {
-    margin-top: 100rm;
+    margin-top: 120rm;
     padding-bottom: 100rm;
 }
 
@@ -1748,7 +1905,7 @@ $text: #2f2f3b;
 }
 
 .findProductList {
-    margin-top: 60rm;
+    margin-top: 30rm;
 }
 
 .findProductItem {
@@ -1814,12 +1971,11 @@ $text: #2f2f3b;
     flex-wrap: nowrap;
     .pubSwiper__item {
         background: #F7F7F7;
+        flex:1;
     }
     .thumbnail {
-        height: 200rm;
     }
     .thumbnail__img {
-        height: 200rm;
     }
 }
 
@@ -1872,7 +2028,15 @@ $text: #2f2f3b;
         width: 25rm;
         height: 25rm;
     }
+    &.active {
+        color: #9B9C9F;
+        .icon {
+            background: url(../images/publics/duigou1.png) no-repeat center center;
+            background-size: 30rm 19rm;
+        }
+    }
 }
+
 
 
 .userDetail {
@@ -2018,6 +2182,18 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 交易 */
 
 .trading {
@@ -2138,6 +2314,18 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* 我的 */
 
 .my {
@@ -2161,11 +2349,11 @@ $text: #2f2f3b;
         font-size: 17pm;
         .icon {
             display: block;
-            width: 30rm;
-            height: 30rm;
-            background: #fff;
+            width: 24rm;
+            height: 28rm;
             margin: 0 auto;
             margin-bottom: 10rm;
+            background: url(../images/icon-public/msg1.png);
         }
     }
 }
@@ -2252,8 +2440,241 @@ $text: #2f2f3b;
     &__txt {
         line-height: 1.5;
         margin-bottom: 10rm;
+        font-size: 24pm;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* 消息 */
+
+.msgList {
+    margin: 100rm 30rm 0;
+    &__item {
+        border-bottom: 1rm solid #E5E7EB;
+        padding-bottom: 40rm;
+        margin-bottom: 40rm;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    .newMsg {
+        .msgList__title {
+            position: relative;
+            text-indent: 1em;
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 16rm;
+                transform: translateY(-50%);
+                width: 15rm;
+                height: 15rm;
+                background: #DC4157;
+                margin-right: 10rm;
+                border-radius: 100%;
+                line-height: 0;
+                vertical-align: -3px;
+            }
+        }
+    }
+    &__title {
+        color: #2f2f3b;
+        font-size: 28pm;
+        line-height: 1.5;
+    }
+    &__date {
+        font-size: 24pm;
+        color: #959699;
+        margin-top: 10rm;
+    }
+}
+
+.headInputBox {
+    position: relative;
+    flex: 1;
+    display: flex;
+    background: #F7F7F7;
+    height: 60rm;
+    border-radius: 4rm;
+    padding-left: 65rm;
+    padding-right: 98rm;
+    &__inp {
+        flex: 1;
+        color: #2f2f3b;
+        font-size: 26pm;
+    }
+    .icon {
+        position: absolute;
+        top: 50%;
+        left: 20rm;
+        transform: translateY(-50%);
+        background: url(../images/icon-public/sousuo2.png);
+        width: 28rm;
+        height: 28rm;
+    }
+    &__clear {
+        position: absolute;
+        height: 60rm;
+        line-height: 60rm;
+        font-size: 26pm;
+        color: #2f2f3b;
+        top: 0;
+        right: 0;
+        padding: 0 20rm;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 15rm;
+            bottom: 15rm;
+            width: 1rm;
+            background: #E2E3E7;
+        }
+    }
+}
+
+.seachWrap {
+    margin-top: 100rm;
+    .seachTit {
+        padding: 0 30rm;
+        border-top: 1rm solid #E5E7EB;
+        border-bottom: 1rm solid #E5E7EB;
+        font-size: 26pm;
+        color: #2f2f3b;
+        height: 84rm;
+        line-height: 84rm;
+    }
+}
+
+.seachList {
+    margin: 0 30rm;
+    &__item {
+        border-bottom: 1rm solid #E5E7EB;
+        height: 84rm;
+        line-height: 84rm;
+        font-size: 24pm;
+        color: #959699;
+        display: flex;
+        &:last-child {
+            border: none;
+        }
+    }
+    &__close {
+        width: 84rm;
+        text-align: center;
+        color: #959699;
+    }
+    &__keyword {
+        flex: 1;
+        color: #959699;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+    }
+}
+
+.clearBtn {
+    height: 70rm;
+    line-height: 70rm;
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    text-align: center;
+    justify-content: center;
+    margin: 90rm 170rm;
+    font-size: 24pm;
+    color: #000;
+    &:before {
+        content: "";
+        margin-right: 10rm;
+        width: 24rm;
+        height: 32rm;
+        background: url(../images/icon-public/lajitong.png);
+    }
+}
+
+
+
+/* 消息详情 */
+
+.articleBox {
+    margin: 0 30rm;
+    margin-top: 100rm;
+    .article__title {
+        font-size: 26pm;
+        color: #2f2f3b;
+        line-height: 1.5;
+        margin-bottom: 10rm;
+        font-weight: bold;
+    }
+    .article__date {
+        font-size: 24pm;
+        color: #959699;
+    }
+    .articleHead {
+        border-bottom: 1rm solid #E5E7EB;
+        padding-bottom: 30rm;
+        margin-bottom: 30rm;
+    }
+}
+.articleMain{
+    p{
+        line-height: 1.5;
+        margin-bottom: 30rm;
+        font-size: 26pm;
+        color:#2f2f3b;
+    }
+    img{
+        display: block;
+        width: 100%;
+        margin-bottom: 30rm;
+        border-radius: 4rm;
+    }
+}
+
+
+.head__edit{
+    .icon{
+        width: 29rm;
+        height: 28rm;
+        background: url(../images/icon-public/bianji.png);
+    }
+}
+.lookDetail{
+    margin: 120rm 30rm 0;
+}
+.lookDetailMain{
+    &__title{
+        font-size: 30pm;
+        color:#000;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-bottom: 10rm;
+    }
+    &__desc{
+        font-size: 26pm;
+        line-height: 1.5;
+        margin-bottom: 80rm;
+    }
+    &__p{
+        font-size: 28pm;
+        line-height: 1.5;
+        margin-bottom: 10rm;
+    }
+}
+
+
 
 .none {
     display: none;
@@ -2261,4 +2682,8 @@ $text: #2f2f3b;
 
 .hidden {
     visibility: hidden;
+}
+
+.line-b{
+    border-bottom: 1rm solid #E5E7EB;
 }
