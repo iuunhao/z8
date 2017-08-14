@@ -27,21 +27,23 @@
     <!--  顶部导航 E -->
     <div class="wrap">
         <!--  Swiper S -->
-        <div class="swiper">
-            <ul class="swiper__list">
-                <li class="swiper__item">
-                    <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/swiper.jpg" alt=""></a>
-                </li>
-                <li class="swiper__item">
-                    <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/swiper.jpg" alt=""></a>
-                </li>
-            </ul>
-            <div class="swiper__dots">
-                <a href="javascript:;" class="swiper__dotLink active"></a>
-                <a href="javascript:;" class="swiper__dotLink"></a>
+        <div id="slider">
+            <div class="swiper" id="scroller">
+                <ul class="swiper__list">
+                    <li class="swiper__item">
+                        <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/swiper.jpg" alt=""></a>
+                    </li>
+                    <li class="swiper__item">
+                        <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/swiper.jpg" alt=""></a>
+                    </li>
+                </ul>
+                <div class="swiper__dots" id="handler">
+                    <a href="javascript:;" class="swiper__dotLink active"></a>
+                    <a href="javascript:;" class="swiper__dotLink"></a>
+                </div>
             </div>
+            <!--  Swiper E -->
         </div>
-        <!--  Swiper E -->
         <!--  HeadMenu S -->
         <nav class="headMenu">
             <li class="headMenu__item"><a class="headMenu__link headMenu__emit" href="" title="">发布求购</a></li>
@@ -125,7 +127,7 @@
             </ul>
         </div>
         <!--  ItemSwiper E -->
- <!--  ItemSwiper S -->
+        <!--  ItemSwiper S -->
         <div class="pubSwiper">
             <header class="pubSwiper__head">
                 <h3 class="pubSwiper__title">热销产品</h3>
@@ -151,7 +153,7 @@
                 </li>
             </ul>
         </div>
-        <!--  ItemSwiper E -->        
+        <!--  ItemSwiper E -->
     </div>
     <!--  底部导航 S -->
     <nav class="footMenu">
@@ -162,6 +164,13 @@
         <li class="footMenu__item"><a class="footMenu__link footMenu__btn5 " href="javascript:;" title="">我的</a></li>
     </nav>
     <!--  底部导航 E -->
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/index.js"></script>
 </body>
 
 </html>
