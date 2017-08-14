@@ -12,6 +12,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /*公共*/
 
 .txtColor--orange {
@@ -29,6 +30,7 @@ $VAR_C_HEISE_01: #2e3136;
 .hidden {
     overflow: hidden;
 }
+
 
 
 
@@ -216,6 +218,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 
@@ -449,6 +452,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 前台公共 E  *******/
 
 
@@ -539,6 +543,7 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
 }
+
 
 
 
@@ -763,6 +768,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 注册 E  *******/
 
 .manage {
@@ -918,24 +924,24 @@ $VAR_C_HEISE_01: #2e3136;
             display: none;
         }
         .imgPush--gary,
-        .imgPush{
+        .imgPush {
             position: absolute;
-            top:230px;
-            left:0;
-            color:#fff;
+            top: 230px;
+            left: 0;
+            color: #fff;
             font-size: 14px;
             padding: 0 10px;
             height: 30px;
             line-height: 30px;
             transition: all .2s;
         }
-        .imgPush{
+        .imgPush {
             background: #528afc;
-            &:hover{
+            &:hover {
                 background: #6696f7;
             }
         }
-        .imgPush--gary{
+        .imgPush--gary {
             background: #555;
         }
         .manageList__desc {
@@ -996,10 +1002,11 @@ $VAR_C_HEISE_01: #2e3136;
         }
     }
     .imgPush,
-    .imgPush--gary{
-        display:none;
+    .imgPush--gary {
+        display: none;
     }
 }
+
 
 
 
@@ -1088,6 +1095,7 @@ $VAR_C_HEISE_01: #2e3136;
         display: block;
         flex: 0 0 120px;
         height: 120px;
+        width:120px;
         margin-right: 40px;
         background: #f6f6f6;
     }
@@ -1181,12 +1189,14 @@ $VAR_C_HEISE_01: #2e3136;
         margin: 0 40px;
     }
 }
- .infoDetail__btnWrap{
+
+.infoDetail__btnWrap {
     display: flex;
-    .infoDetail__btn{
+    .infoDetail__btn {
         margin-left: 20px;
     }
 }
+
 .screening {
     display: flex;
     padding: 40px;
@@ -1407,6 +1417,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /******  设计方案二级 E  *******/
 
 .pubPop {
@@ -1475,6 +1486,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 返回顶部 S  *******/
 
 .gotoTop {
@@ -1495,6 +1507,7 @@ $VAR_C_HEISE_01: #2e3136;
         margin: 0 auto 10px;
     }
 }
+
 
 
 
@@ -1684,6 +1697,7 @@ $VAR_C_HEISE_01: #2e3136;
 .btn--gray {
     background: #999;
 }
+
 
 
 
@@ -2018,6 +2032,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 公共弹窗 E  *******/
 
 
@@ -2144,6 +2159,7 @@ $VAR_C_HEISE_01: #2e3136;
 
 
 
+
 /****** 推荐工长 E  *******/
 
 
@@ -2239,13 +2255,13 @@ $VAR_C_HEISE_01: #2e3136;
         margin-right: 10px;
         margin-bottom: 10px;
         position: relative;
-        &:after{
-        	content:"";
-        	position: absolute;
-        	left:6px;
-        	top:6px;
-        	right:6px;
-        	bottom:6px;
+        &:after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            right: 6px;
+            bottom: 6px;
         }
     }
     .color--01 {
@@ -2276,8 +2292,8 @@ $VAR_C_HEISE_01: #2e3136;
 
     .color__item:hover,
     .color__item.color--active {
-        &:after{
-        	background: #fff;
+        &:after {
+            background: #fff;
         }
     }
 }
@@ -2302,6 +2318,7 @@ $VAR_C_HEISE_01: #2e3136;
         flex: 1;
     }
 }
+
 
 
 
@@ -2385,6 +2402,7 @@ $VAR_C_HEISE_01: #2e3136;
 .balanceWrap {
     margin-top: 30px;
 }
+
 
 
 
@@ -2505,6 +2523,7 @@ $VAR_C_HEISE_01: #2e3136;
         margin-left: 125px;
     }
 }
+
 
 
 
@@ -2635,46 +2654,53 @@ $VAR_C_HEISE_01: #2e3136;
     -webkit-appearance: none;
     background: url(../images/public/select.png) 100% no-repeat #fff;
 }
-.categoryLabel{
-    .select:disabled{
-       border: none;
-       background: none;
+
+.categoryLabel {
+    .select:disabled {
+        border: none;
+        background: none;
     }
 }
-.categoryLabel{
+
+.categoryLabel {
     padding: 10px;
     padding-bottom: 0;
 }
 
+
 /****** 封面 S  *******/
-.cover{
+
+.cover {
     max-width: 1120px;
     background: #fff;
     padding: 40px;
     margin: 40px auto;
 }
-.coverHead{
+
+.coverHead {
     display: flex;
     justify-content: space-between;
     position: relative;
     margin-bottom: 40px;
-    padding-bottom:40px;
-    &:after{
-        content:"";
+    padding-bottom: 40px;
+    &:after {
+        content: "";
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
-        height:1px;
+        height: 1px;
         border-bottom: 1px solid #EBEEF3;
     }
 }
-.coverHead__img{
-    display:block;
-    width:120px;
-    height:120px;
+
+.coverHead__img {
+    display: block;
+    width: 120px;
+    height: 120px;
 }
-.coverMainListHead__close{
+
+.coverMainListHead__close {
     position: absolute;
     background: #ff5454;
     width: 20px;
@@ -2687,138 +2713,186 @@ $VAR_C_HEISE_01: #2e3136;
     text-align: center;
     font-weight: 200;
     z-index: 2;
-    color:#fff;
+    color: #fff;
     font-size: 12px;
-    display:none;
+    display: none;
 }
+
 .coverHead__left,
-.coverHead__right{
-    display:flex;
+.coverHead__right {
+    display: flex;
     align-items: center;
 }
-.coverHead__info{
+
+.coverHead__info {
     margin-left: 40px;
 }
-.coverHead__tit{
-    color:$VAR_C_HEISE_01;
+
+.coverHead__tit {
+    color: $VAR_C_HEISE_01;
     font-size: 18px;
     margin-bottom: 20px;
 }
-.coverHead__btn{
+
+.coverHead__btn {
     color: $VAR_C_LANSE_01;
     font-size: 16px;
     text-decoration: underline;
 }
-.button{
-    display:block;
+
+.button {
+    display: block;
     font-size: 16px;
-    height:38px;
-    line-height:38px;
+    height: 38px;
+    line-height: 38px;
     border: 1px solid transparent;
     padding: 0 30px;
     background: $VAR_C_LANSE_01;
-    color:#fff;
+    color: #fff;
 }
-.button--gary{
+
+.button--gary {
     background: #999;
-    color:#fff;
+    color: #fff;
 }
-.button--line{
+
+.button--line {
     background: none;
     border: 1px solid #4d4d53;
     color: #4d4d53;
 }
-.coverMainHead{
-    display:flex;
+
+.coverMainHead {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
 }
-.coverMainHead__right{
+
+.coverMainHead__right {
     display: flex;
-    .button{
+    .button {
         margin-left: 20px;
     }
 }
-.coverMainList{
-    display:flex;
+
+.coverMainList {
+    display: flex;
     flex-wrap: wrap;
     margin-left: -45px;
 }
-.coverMainList__item{
+
+.coverMainList__item {
     width: 150px;
     margin-left: 44px;
     margin-bottom: 40px;
 }
-.coverMainListHead{
+
+.coverMainListHead {
     position: relative;
 }
-.checkboxBox{
+
+.checkboxBox {
     position: absolute;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
 }
-.checkboxBox__inp{
-    display:block;
+
+.checkboxBox__inp {
+    display: block;
     width: 150px;
-    height:150px;
+    height: 150px;
     position: absolute;
-    z-index:1;
+    z-index: 1;
     opacity: 0;
 }
-.checkboxBox__label{
+
+.checkboxBox__label {
     position: absolute;
     width: 26px;
-    height:26px;
-    left:0;
-    top:0;
+    height: 26px;
+    left: 0;
+    top: 0;
     background: url(../images/icon-public/checkbox_2.png) no-repeat;
 }
-.checkboxBox__inp:checked+ .checkboxBox__label{
+
+.checkboxBox__inp:checked+.checkboxBox__label {
     background: url(../images/icon-public/checkbox_1.png) no-repeat;
 }
-.coverMainList__img{
-    display:block;
+
+.coverMainList__img {
+    display: block;
     width: 150px;
-    height:150px;
+    height: 150px;
 }
-.coverItem{
+
+.coverItem {
     font-size: 14px;
     line-height: 1.4;
     color: $VAR_C_HEISE_01;
-    border-top:0;
+    border-top: 0;
     padding: 10px 5px;
 }
-.coverMain--edit{
-   .checkboxBox{
+
+.coverMain--edit {
+    .checkboxBox {
         display: none;
-   }
-   .coverMainListHead__close{
+    }
+    .coverMainListHead__close {
         display: block;
-   }
-   .coverItem{
+    }
+    .coverItem {
         border: 1px solid #D8DDE6;
-   }
+    }
 }
-.coverMainList--pop{
+
+.coverMainList--pop {
     width: 972px;
     padding: 0 40px;
 }
-.determineBtn--xs{
+
+.determineBtn--xs {
     margin: 0 30%;
     margin-top: 40px;
 }
+
+
 /****** 封面 E  *******/
 
-
-
-
-.blockLink{
+.blockLink {
     position: absolute;
     left: 80px;
     top: 10px;
     font-size: 16px;
     color: #508aff;
-    text-decoration:underline;
-    text-indent:1em;
+    text-decoration: underline;
+    text-indent: 1em;
 }
+
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+    font-size: 18px;;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.loading:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../images/public/loading.gif) no-repeat;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
