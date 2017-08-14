@@ -31,24 +31,27 @@ $text: #2f2f3b;
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    .btn {
-        display: block;
-        width: 160rm;
-        height: 50rm;
-        line-height: 50rm;
-        text-align: center;
-        font-size: 26pm;
-        border: 1px solid transparent;
-    }
-    .btn--blue {
-        color: #fff;
-        background: #3997FB;
-    }
-    .btn--line {
-        background: #fff;
-        border: 1px solid #000;
-        color: #000;
-    }
+}
+
+.btn {
+    display: block;
+    width: 160rm;
+    height: 50rm;
+    line-height: 50rm;
+    text-align: center;
+    font-size: 26pm;
+    border: 1px solid transparent;
+}
+
+.btn--blue {
+    color: #fff;
+    background: #3997FB;
+}
+
+.btn--line {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
 }
 
 .tipsText {
@@ -99,7 +102,7 @@ $text: #2f2f3b;
             height: 50rm;
         }
     }
-    &__btn{
+    &__btn {
         width: 60rm;
         height: 88rm;
         padding-left: 40rm;
@@ -108,7 +111,7 @@ $text: #2f2f3b;
         line-height: 1;
         flex-direction: column;
         justify-content: center;
-        .icon{
+        .icon {
             display: block;
             margin: 0 auto;
             margin-bottom: 10rm;
@@ -137,6 +140,8 @@ $text: #2f2f3b;
 .hasHead {
     margin-top: 50rm;
 }
+
+
 
 
 
@@ -204,6 +209,8 @@ $text: #2f2f3b;
         }
     }
 }
+
+
 
 
 
@@ -385,6 +392,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 主体 */
 
 .wrap {
@@ -393,6 +402,8 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
 
 
 
@@ -515,6 +526,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -561,6 +574,8 @@ $text: #2f2f3b;
         }
     }
 }
+
+
 
 
 
@@ -887,6 +902,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 清库特价 */
 
 .clearLibr {
@@ -981,7 +998,7 @@ $text: #2f2f3b;
         display: block;
     }
     &__item {
-        flex:1;
+        flex: 1;
         margin-right: 15rm;
         &:last-child {
             margin-right: 0;
@@ -992,6 +1009,8 @@ $text: #2f2f3b;
         width: 100%;
     }
 }
+
+
 
 
 
@@ -1119,39 +1138,39 @@ $text: #2f2f3b;
 .imgFiles {
     display: flex;
     padding-bottom: 50rm;
-    flex:1;
-    .fileImgBox{
+    flex: 1;
+    .fileImgBox {
         position: relative;
         margin-right: 20rm;
-        flex:1;
+        flex: 1;
         background-position: center center;
         border-radius: 4rm;
-        &:last-child{
+        &:last-child {
             margin-right: 0
         }
     }
-    .fileInput{
+    .fileInput {
         position: absolute;
-        left:0;
-        top:0;
-        bottom:0;
-        right:0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
         z-index: 2;
         opacity: 0;
     }
     .imgItem {
-        flex:1;
+        flex: 1;
         display: block;
         background-position: center center;
         border-radius: 4rm;
     }
-    .del{
+    .del {
         position: absolute;
-        top:-10rm;
-        right:-10rm;
+        top: -10rm;
+        right: -10rm;
         background: #FD2A45;
         font-size: 20pm;
-        color:#fff;
+        color: #fff;
         border-radius: 100%;
         overflow: hidden;
         line-height: 30rm;
@@ -1169,7 +1188,7 @@ $text: #2f2f3b;
     .default {
         background: #F0F0F0;
         position: relative;
-        flex:1;
+        flex: 1;
         &:after {
             content: "";
             position: absolute;
@@ -1177,7 +1196,7 @@ $text: #2f2f3b;
             height: 2px;
             background: #A4A4A4;
             top: 50%;
-            left:50%;
+            left: 50%;
             transform: translate(-50%, -50%);
         }
         &:before {
@@ -1186,12 +1205,14 @@ $text: #2f2f3b;
             width: 2px;
             height: 50rm;
             left: 50%;
-            top:50%;
+            top: 50%;
             background: #A4A4A4;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
     }
 }
+
+
 
 
 
@@ -1253,8 +1274,8 @@ $text: #2f2f3b;
         line-height: 100rm;
         text-align: center;
     }
-    .btnsWrap{
-        flex:1;
+    .btnsWrap {
+        flex: 1;
         justify-content: normal;
         background: #fff;
         flex-wrap: wrap;
@@ -1297,6 +1318,8 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
+
 
 
 
@@ -1439,12 +1462,14 @@ $text: #2f2f3b;
     position: relative;
     font-size: 17pm;
     text-align: center;
-    .icon{
+    .icon {
         background: url(../images/icon-public/xihuan.png);
         width: 32rm;
         height: 28rm;
     }
 }
+
+
 
 
 
@@ -1539,6 +1564,8 @@ $text: #2f2f3b;
     height: 88rm;
     line-height: 88rm;
 }
+
+
 
 
 
@@ -1765,7 +1792,7 @@ $text: #2f2f3b;
 .head__focus {
     font-size: 17pm;
     text-align: center;
-    .icon{
+    .icon {
         background: url(../images/icon-public/jiahao1.png);
         width: 25rm;
         height: 25rm;
@@ -1911,6 +1938,101 @@ $text: #2f2f3b;
 
 
 
+/* 交易 */
+
+.trading {
+    margin-top: 90rm;
+}
+.tradItem{
+    border-bottom: 1rm solid #E5E7EB;
+    padding-bottom: 40rm;
+    margin-bottom: 40rm;
+    &:last-child{
+        border:none;
+    }
+}
+
+
+.tradItemMain {
+    display: flex;
+    &__select {
+        width: 70rm;
+        text-align: left;
+        position: relative;
+        display: flex;
+        align-items: center;
+        input{
+            opacity: .5;
+            width: 42rm;
+            height: 42rm;
+            position: absolute;
+            left:0;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        input[type=checkbox]:checked + span{
+            border: 1px solid #FD2A45;
+            background: url(../images/publics/del.png) no-repeat;
+            background-size: 40rm 40rm;
+        }
+        .icon{
+            display: inline-block;
+            font-size: 0;
+            width: 40rm;
+            height: 40rm;
+            border: 1px solid #000;
+        }
+    }
+    &__main {
+        display: flex;
+        flex: 1;
+    }
+    &__btns {
+        width: 130rm;
+        display: flex;
+        align-items: center;
+    }
+    &__img {
+        width: 110rm;
+        height: 110rm;
+        margin-right: 20rm;
+        img{
+            display: block;
+            width:100%;
+        }
+    }
+    &__content{
+        flex:1;
+    }
+    &__title{
+        color:#000;
+        font-weight: bold;
+        line-height: 1.5;
+        font-size: 30pm;
+        margin-bottom: 5rm;
+    }
+    &__txt{
+        font-size: 24pm;
+        color:#959699;
+        margin-bottom: 10rm;
+    }
+    .red{
+        font-weight: bold;
+        margin-right: 20rm;
+    }
+    &__txt.red{
+        color:#ff1d3d;
+        font-weight: 400;
+    }
+}
+
+.tradItem__tips{
+   background: #F7F7F7;
+   height: 60rm;
+   line-height: 60rm;
+   text-align: center;
+   margin-top: 20rm;
+}
 
 
 
@@ -1924,4 +2046,3 @@ $text: #2f2f3b;
 .hidden {
     visibility: hidden;
 }
-
