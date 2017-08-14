@@ -32,18 +32,25 @@
             </div>
             <div class="selects">
                 <div class="selects__item">
-                    <select class="select">
+                    <select name="all" class="select">
                         <option>全部</option>
+                        <option>全部1</option>
+                        <option>全部2</option>
+                        <option>全部3</option>
+                        <option>全部4</option>
                     </select>
                 </div>
                 <div class="selects__item">
-                    <select class="select">
+                    <select name="sort" class="select">
                         <option>按销量排序</option>
+                        <option>按销量排序1</option>
+                        <option>按销量排序2</option>
+                        <option>按销量排序3</option>
                     </select>
                 </div>
             </div>
         </div>
-        <div class="findProductList">
+        <div id="findProductList" class="findProductList">
             <div class="findProductItem">
                 <div class="findProductItem__imgBox" style="background: url(../images/temp/img5.png); background-size: cover;">
                     <span class="corner corner--special">特</span>
@@ -73,12 +80,20 @@
                 </div>
             </div>
         </div>
-        <p class="tipsText">上拉刷新</p>
-        <p class="tipsText">暂无数据</p>
+        <p id="noData" class="tipsText none">暂无数据</p>
+        <p id="loading" class="tipsText loading none">loading...</p>
+        <p id="noMore" class="tipsText none">没有更多</p>
     </div>
     <div class="findTips">
         <p class="">未找到您想要的商品？试试<a class="findTips__link" href="">发布</a></p>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/category_pro.js"></script>
 </body>
 
 </html>

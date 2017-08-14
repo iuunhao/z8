@@ -18,6 +18,7 @@ define(['simpleLoadMore'], function() {
             params: {},
             loading: '#loading',
             noMore: '#noMore',
+            noData: '#noData',
             onscroll: function(){},
             onScrollBottom: function() {},
             onEnd: function() {},
@@ -41,6 +42,16 @@ define(['simpleLoadMore'], function() {
             if (!this.noMore.length) return null;
 
             return this;
+        },
+        /** [showNoData 显示无数据] */
+        showNoData: function() {
+            if(this.noData.length == 0) return false;
+            this.noData.removeClass('none');
+        },
+        /** [hideNoData 隐藏无数据] */
+        hideNoData: function() {
+            if(this.noData.length == 0) return false;
+            this.noData.addClass('none');
         },
         /** [showLoading 显示loading] */
         showLoading: function() {
@@ -70,26 +81,40 @@ define(['simpleLoadMore'], function() {
 
             /** 如果上个请求未结束 */
             if (!this.ready) return false;
-            this.ready = true;
+            this.ready = false;
 
-            this.page++;
             this.showLoading();
             /** [开始请求数据] */
+            this.getDatas();
+        },
+        getDatas: function() {
             $.post(this.url, this._params, function(response) {
                 this.ready = true;
                 this.hideLoading();
                 if (response.res == 1) {
                     /** [if 没有更多数据] */
                     if (!response.list || !response.list.length) {
+                        if(this.page == 1) {
+                            this.showNoData();
+                        } else {
+                            this.hideNoData();
+                            this.onEnd(response);
+                        }
                         this.end = true;
-                        this.onEnd(response);
                     } else {
                         this.onScrollBottom(response);
                     }
+                    this.page++;
                 } else {
                     this.onError(response.msg);
                 }
             }.bind(this), 'json')
+        },
+        /** [setParams 追加参数] */
+        setParams: function(params) {
+            this.page = 1;
+            this._params = $.extend({}, this._params, params || {})
+            this.getDatas();
         },
         init: function() {
             this.ready = true;
@@ -123,5 +148,5 @@ define(['simpleLoadMore'], function() {
         $.loadmore.cache = [];
     }
 
-    return $.tabs;
+    return $.loadmore;
 });
