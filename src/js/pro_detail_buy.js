@@ -3,7 +3,7 @@ require(['zepto', 'showTips', 'float_calculater'], function($, showTips, calc) {
     var Buy = {
         /** [getCount 获取数量] */
         getCount: function() {
-            return this.$count.val();
+            return parseInt(this.$count.val()) || 0;
         },
         /** [calcTotal 计算总数] */
         calcTotal: function() {
