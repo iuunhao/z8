@@ -1118,7 +1118,7 @@ $text: #2f2f3b;
 
 .imgFiles {
     display: flex;
-    padding-bottom: 30rm;
+    padding-bottom: 50rm;
     flex:1;
     .fileImgBox{
         position: relative;
@@ -1126,14 +1126,24 @@ $text: #2f2f3b;
         flex:1;
         background-position: center center;
         border-radius: 4rm;
-        margin-bottom: 20rm;
+        &:last-child{
+            margin-right: 0
+        }
+    }
+    .fileInput{
+        position: absolute;
+        left:0;
+        top:0;
+        bottom:0;
+        right:0;
+        z-index: 2;
+        opacity: 0;
     }
     .imgItem {
         flex:1;
         display: block;
         background-position: center center;
         border-radius: 4rm;
-        margin-bottom: 20rm;
     }
     .del{
         position: absolute;
@@ -1149,6 +1159,7 @@ $text: #2f2f3b;
         width: 30rm;
         height: 30rm;
         font-weight: 200;
+        z-index: 1;
     }
 
     .imgItem__img {
@@ -1158,6 +1169,7 @@ $text: #2f2f3b;
     .default {
         background: #F0F0F0;
         position: relative;
+        flex:1;
         &:after {
             content: "";
             position: absolute;
@@ -1177,9 +1189,6 @@ $text: #2f2f3b;
             top:50%;
             background: #A4A4A4;
             transform: translate(-50%,-50%);
-        }
-        img {
-            display: none;
         }
     }
 }
