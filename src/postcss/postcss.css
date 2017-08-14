@@ -16,14 +16,6 @@ body {
     background: #fff;
 }
 
-.none {
-    display: none;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
 .red {
     color: #ff1d3d;
 }
@@ -107,6 +99,21 @@ $text: #2f2f3b;
             height: 50rm;
         }
     }
+    &__btn{
+        width: 60rm;
+        height: 88rm;
+        padding-left: 40rm;
+        position: relative;
+        display: flex;
+        line-height: 1;
+        flex-direction: column;
+        justify-content: center;
+        .icon{
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10rm;
+        }
+    }
     &__return {
         width: 100rm;
         height: 88rm;
@@ -130,35 +137,6 @@ $text: #2f2f3b;
 .hasHead {
     margin-top: 50rm;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -226,6 +204,8 @@ $text: #2f2f3b;
         }
     }
 }
+
+
 
 
 
@@ -403,6 +383,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 主体 */
 
 .wrap {
@@ -411,6 +393,8 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
 
 
 
@@ -529,6 +513,8 @@ $text: #2f2f3b;
 
 
 
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -575,6 +561,8 @@ $text: #2f2f3b;
         }
     }
 }
+
+
 
 
 
@@ -702,11 +690,10 @@ $text: #2f2f3b;
 
 .thumbnail {
     display: block;
-    width: 240rm;
-    height: 200rm;
     position: relative;
     border-radius: 4rm 4rm 0 0;
     overflow: hidden;
+    background-position: center center;
     &__img {
         width: 100%;
         display: block;
@@ -838,7 +825,7 @@ $text: #2f2f3b;
     }
 
     .thumbnail {
-        height: 140rm;
+        /* height: 140rm; */
     }
 
     .commodityInfos {
@@ -862,10 +849,11 @@ $text: #2f2f3b;
 .listModelThree {
     .thumbnail {
         width: 100%;
-        height: 200rm;
         margin-bottom: 20rm;
     }
 }
+
+
 
 
 
@@ -993,8 +981,7 @@ $text: #2f2f3b;
         display: block;
     }
     &__item {
-        width: 220rm;
-        height: 220rm;
+        flex:1;
         margin-right: 15rm;
         &:last-child {
             margin-right: 0;
@@ -1005,6 +992,8 @@ $text: #2f2f3b;
         width: 100%;
     }
 }
+
+
 
 
 
@@ -1130,11 +1119,38 @@ $text: #2f2f3b;
 .imgFiles {
     display: flex;
     padding-bottom: 30rm;
-    .imgItem {
-        width: 110rm;
-        height: 110rm;
+    flex:1;
+    .fileImgBox{
+        position: relative;
         margin-right: 20rm;
+        flex:1;
+        background-position: center center;
+        border-radius: 4rm;
+        margin-bottom: 20rm;
     }
+    .imgItem {
+        flex:1;
+        display: block;
+        background-position: center center;
+        border-radius: 4rm;
+        margin-bottom: 20rm;
+    }
+    .del{
+        position: absolute;
+        top:-10rm;
+        right:-10rm;
+        background: #FD2A45;
+        font-size: 20pm;
+        color:#fff;
+        border-radius: 100%;
+        overflow: hidden;
+        line-height: 30rm;
+        text-align: center;
+        width: 30rm;
+        height: 30rm;
+        font-weight: 200;
+    }
+
     .imgItem__img {
         display: block;
         width: 100%;
@@ -1145,28 +1161,30 @@ $text: #2f2f3b;
         &:after {
             content: "";
             position: absolute;
-            left: 20rm;
-            right: 20rm;
+            width: 50rm;
             height: 2px;
             background: #A4A4A4;
             top: 50%;
-            transform: translateY(-50%);
+            left:50%;
+            transform: translate(-50%, -50%);
         }
         &:before {
             content: "";
             position: absolute;
-            top: 20rm;
-            bottom: 20rm;
             width: 2px;
+            height: 50rm;
             left: 50%;
+            top:50%;
             background: #A4A4A4;
-            transform: translateX(-50%);
+            transform: translate(-50%,-50%);
         }
         img {
             display: none;
         }
     }
 }
+
+
 
 
 
@@ -1226,6 +1244,15 @@ $text: #2f2f3b;
         line-height: 100rm;
         text-align: center;
     }
+    .btnsWrap{
+        flex:1;
+        justify-content: normal;
+        background: #fff;
+        flex-wrap: wrap;
+        display: block;
+        padding: 20rm;
+        overflow: auto;
+    }
     &__right {
         flex: 1;
         justify-content: normal;
@@ -1261,6 +1288,8 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
+
 
 
 
@@ -1400,19 +1429,15 @@ $text: #2f2f3b;
 .head__collection {
     position: relative;
     font-size: 17pm;
-    text-indent: 0;
-    text-align: right;
-    line-height: 130rm;
-    &:before {
-        content: "";
-        position: absolute;
-        top: 18rm;
-        right: 5rm;
+    text-align: center;
+    .icon{
         background: url(../images/icon-public/xihuan.png);
         width: 32rm;
         height: 28rm;
     }
 }
+
+
 
 
 
@@ -1505,6 +1530,8 @@ $text: #2f2f3b;
     height: 88rm;
     line-height: 88rm;
 }
+
+
 
 
 
@@ -1727,19 +1754,12 @@ $text: #2f2f3b;
 
 
 .head__focus {
-    position: relative;
     font-size: 17pm;
-    text-indent: 0;
-    text-align: right;
-    line-height: 130rm;
-    &:before {
-        content: "";
-        position: absolute;
+    text-align: center;
+    .icon{
         background: url(../images/icon-public/jiahao1.png);
         width: 25rm;
         height: 25rm;
-        top: 20rm;
-        right: 10rm;
     }
 }
 
@@ -1852,29 +1872,47 @@ $text: #2f2f3b;
         margin-bottom: 40rm;
         line-height: 1.5;
     }
-    &__label{
+    &__label {
         width: 150rm;
-        color:#959699;
+        color: #959699;
         font-size: 30pm;
     }
-    &__content{
-        flex:1;
+    &__content {
+        flex: 1;
         font-size: 30pm;
-        color:#000;
+        color: #000;
     }
-    &__imgs{
+    &__imgs {
         display: flex;
         margin: 0 -10rm;
     }
-    &__imgBox{
-        flex:1;
+    &__imgBox {
+        flex: 1;
         padding: 0 10rm;
         border-radius: 4rm;
         overflow: hidden;
     }
-    &__img{
+    &__img {
         display: block;
         border-radius: 4rm;
         width: 100%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+.none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
