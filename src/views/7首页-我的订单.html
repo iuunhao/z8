@@ -33,6 +33,15 @@
                 <a class="screening__btn active" href="javascript:;">进行中</a>
                 <a class="screening__btn" href="javascript:;">已完成</a>
             </div>
+            <div class="editBox">
+                <div class="none">
+                    <a href="javascript:;" class="editBtn">编辑</a>
+                </div>
+                <div class="">
+                    <a href="javascript:;" class="editBtn">删除</a>
+                    <a href="javascript:;" class="editBtn">取消</a>
+                </div>
+            </div>
         </div>
         <div class="tradingList">
             <div class="tradItem none">
@@ -151,8 +160,9 @@
                 <div class="tradItem__tips ">商家已确认完成</div>
             </div>
         </div>
-        <p class="tipsText">上拉刷新</p>
-        <p class="tipsText">暂无数据</p>
+        <p id="noMore" class="tipsText none">暂无数据</p>
+        <p id="loading" class="tipsText loading none">Loading...</p>
+
     </div>
 </body>
 

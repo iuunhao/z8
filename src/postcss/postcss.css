@@ -61,7 +61,22 @@ $text: #2f2f3b;
     padding: 50rm 0;
 }
 
-
+.loading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:before {
+        content: "";
+        display: inline-block;
+        width: 20rm;
+        height: 20rm;
+        background: url(../images/publics/loading.gif) no-repeat center center;
+        background-size: 20rm 20rm;
+        margin-right: 10rm;
+        line-height: 1;
+    }
+}
 
 .head {
     position: fixed;
@@ -145,6 +160,11 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 头部工具栏 */
 
 .headTool {
@@ -209,6 +229,11 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
 
 
 
@@ -394,6 +419,11 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 主体 */
 
 .wrap {
@@ -402,6 +432,11 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
+
+
+
 
 
 
@@ -528,6 +563,11 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -574,6 +614,11 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
 
 
 
@@ -904,6 +949,11 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 清库特价 */
 
 .clearLibr {
@@ -1009,6 +1059,11 @@ $text: #2f2f3b;
         width: 100%;
     }
 }
+
+
+
+
+
 
 
 
@@ -1234,6 +1289,11 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 分类弹层 */
 
 .classPop {
@@ -1318,6 +1378,11 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
+
+
+
+
 
 
 
@@ -1485,6 +1550,11 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 购买 */
 
 .buy {
@@ -1564,6 +1634,11 @@ $text: #2f2f3b;
     height: 88rm;
     line-height: 88rm;
 }
+
+
+
+
+
 
 
 
@@ -1938,17 +2013,23 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
 /* 交易 */
 
 .trading {
     margin-top: 90rm;
 }
-.tradItem{
+
+.tradItem {
     border-bottom: 1rm solid #E5E7EB;
     padding-bottom: 40rm;
     margin-bottom: 40rm;
-    &:last-child{
-        border:none;
+    &:last-child {
+        border: none;
     }
 }
 
@@ -1961,21 +2042,21 @@ $text: #2f2f3b;
         position: relative;
         display: flex;
         align-items: center;
-        input{
+        input {
             opacity: .5;
             width: 42rm;
             height: 42rm;
             position: absolute;
-            left:0;
-            top:50%;
+            left: 0;
+            top: 50%;
             transform: translateY(-50%);
         }
-        input[type=checkbox]:checked + span{
+        input[type=checkbox]:checked+span {
             border: 1px solid #FD2A45;
             background: url(../images/publics/del.png) no-repeat;
             background-size: 40rm 40rm;
         }
-        .icon{
+        .icon {
             display: inline-block;
             font-size: 0;
             width: 40rm;
@@ -1996,48 +2077,183 @@ $text: #2f2f3b;
         width: 110rm;
         height: 110rm;
         margin-right: 20rm;
-        img{
+        img {
             display: block;
-            width:100%;
+            width: 100%;
         }
     }
-    &__content{
-        flex:1;
+    &__content {
+        flex: 1;
     }
-    &__title{
-        color:#000;
+    &__title {
+        color: #000;
         font-weight: bold;
         line-height: 1.5;
         font-size: 30pm;
         margin-bottom: 5rm;
     }
-    &__txt{
+    &__txt {
         font-size: 24pm;
-        color:#959699;
+        color: #959699;
         margin-bottom: 10rm;
     }
-    .red{
+    .red {
         font-weight: bold;
         margin-right: 20rm;
     }
-    &__txt.red{
-        color:#ff1d3d;
+    &__txt.red {
+        color: #ff1d3d;
         font-weight: 400;
     }
 }
 
-.tradItem__tips{
-   background: #F7F7F7;
-   height: 60rm;
-   line-height: 60rm;
-   text-align: center;
-   margin-top: 20rm;
+.tradItem__tips {
+    background: #F7F7F7;
+    height: 60rm;
+    line-height: 60rm;
+    text-align: center;
+    margin-top: 20rm;
+}
+
+.editBox {
+    margin-bottom: 30rm;
+    div {
+        display: flex;
+        justify-content: space-between;
+        background: #F7F7F7;
+        height: 60rm;
+        line-height: 60rm;
+    }
+    .editBtn {
+        text-align: center;
+        display: block;
+        flex: 1;
+        font-size: 26pm;
+    }
 }
 
 
 
 
 
+
+
+/* 我的 */
+
+.my {
+    position: relative;
+}
+
+.myHead {
+    background: #212121;
+    padding: 90rm 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    .myMsg {
+        position: absolute;
+        top: 30rm;
+        right: 30rm;
+        color: #fff;
+        font-size: 17pm;
+        .icon {
+            display: block;
+            width: 30rm;
+            height: 30rm;
+            background: #fff;
+            margin: 0 auto;
+            margin-bottom: 10rm;
+        }
+    }
+}
+
+.myInfos {
+    &__userImg {
+        display: block;
+        width: 100rm;
+        height: 100rm;
+        border: 5rm solid #fff;
+        border-radius: 100%;
+        margin: 0 auto;
+        margin-bottom: 20rm;
+    }
+    &__userName {
+        font-size: 30pm;
+        font-weight: bold;
+        margin-bottom: 20rm;
+    }
+    &__userDesc {
+        font-size: 24pm;
+        font-weight: bold;
+    }
+}
+
+.myMain {
+    margin: 0 30rm;
+    .exitBtn {
+        display: block;
+        height: 88rm;
+        line-height: 88rm;
+        background: #DC4157;
+        color: #fff;
+        font-size: 32pm;
+        text-align: center;
+        border-radius: 8rm;
+        position: fixed;
+        bottom: 180rm;
+        left: 30rm;
+        right: 30rm;
+    }
+}
+
+.myFocus {
+    border-bottom: 1rm solid #E5E7EB;
+    display: flex;
+    &__btn {
+        flex: 1;
+        text-align: center;
+        font-size: 24pm;
+        color: #2f2f3b;
+        padding: 55rm 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        &:before {
+            content: "";
+            display: inline-block;
+            margin-right: 10rm;
+        }
+    }
+    &__store {
+        &:before {
+            background: url(../images/icon-public/jiahao2.png);
+            width: 36rm;
+            height: 36rm;
+        }
+    }
+    &__product {
+        &:before {
+            background: url(../images/icon-public/xin1.png);
+            width: 40rm;
+            height: 35rm;
+        }
+    }
+}
+
+.myContact {
+    padding-left: 95rm;
+    color: #2f2f3b;
+    font-size: 24pm;
+    padding-top: 50rm;
+    &__txt {
+        line-height: 1.5;
+        margin-bottom: 10rm;
+    }
+}
 
 .none {
     display: none;
