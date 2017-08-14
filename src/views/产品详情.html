@@ -17,30 +17,30 @@
     <link rel="stylesheet" href="../css/postcss.css">
 </head>
 
-
 <body>
-
     <div class="head">
         <a class="head__return" href="">返回</a>
         <h2 class="head__title">金牛PPR管</h2>
-        <a class="head__btn head__collection" href=""><i class="icon"></i>收藏</a>
+        <a id="collectionBtn" class="head__btn head__collection" href="javascript:;"><i class="icon"></i>收藏</a>
     </div>
     <!--  Swiper S -->
-    <div class="swiper swiperFull">
-        <ul class="swiper__list">
-            <li class="swiper__item">
-                <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/img7.png" alt=""></a>
-            </li>
-            <li class="swiper__item">
-                <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/swiper.jpg" alt=""></a>
-            </li>
-        </ul>
-        <div class="swiper__dots">
-            <a href="javascript:;" class="swiper__dotLink active"></a>
-            <a href="javascript:;" class="swiper__dotLink"></a>
+    <div id="slider">
+        <div class="swiper swiperFull" id="scroller">
+            <ul class="swiper__list">
+                <li class="swiper__item">
+                    <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/img7.png" alt=""></a>
+                </li>
+                <li class="swiper__item">
+                    <a href="" class="swiper__link"><img class="swiper__img" src="../images/temp/swiper.jpg" alt=""></a>
+                </li>
+            </ul>
+            <div class="swiper__dots" id="handler">
+                <a href="javascript:;" class="swiper__dotLink active"></a>
+                <a href="javascript:;" class="swiper__dotLink"></a>
+            </div>
         </div>
+        <!--  Swiper E -->
     </div>
-    <!--  Swiper E -->
     <div class="wrap detail">
         <header class="detail__head">
             <h3 class="detail__title">水管转接口1000起，超低价单价9元水管转接口1000起，超低价单价9元</h3>
@@ -59,7 +59,7 @@
             </div>
         </header>
         <div class="detailArticle">
-            <img src="../images/temp/img7.png" alt=""/>
+            <img src="../images/temp/img7.png" alt="" />
         </div>
     </div>
     <div class="detailFoot">
@@ -68,6 +68,13 @@
         <a href="" class="detailFoot__item detailFoot__3">联系商家</a>
         <a href="" class="detailFoot__link">购买</a>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/pro_detail.js"></script>
 </body>
 
 </html>

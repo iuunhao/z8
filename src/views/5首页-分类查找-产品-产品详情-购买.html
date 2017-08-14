@@ -26,26 +26,33 @@
         <h3 class="productTit">水管转接口1000起，超低价单价9元</h3>
         <div class="buyItem">
             <label class="buyItem__label">购买单价：</label>
-            <div class="buyItem__box red">
+            <div id="unitPrice" class="buyItem__box red">
                 9.2元
             </div>
         </div>
         <div class="buyItem">
             <label class="buyItem__label">购买数量：</label>
             <div class="buyItem__box red">
-                <input type="number" value=""  class="input" placeholder="不低于1000个"  name="" id=""/>
+                <input id="buyNum" type="number" value="" limit="100"  class="input" placeholder="不低于1000个"  name="" id=""/>
             </div>
         </div>
         <div class="total">
-            总计：<em class="red">12313元</em>
+            总计：<em class="red"><span id="total">12313</span>元</em>
         </div>
         <div class="userInfo">
             <p class="userInfo__item">收件人：<span>轩亦辰</span></p>
             <p class="userInfo__item">联系电话：<span>13812388123</span></p>
-            <p class="userInfo__item userInfo__multiple">收货地址：<span>北北京市朝阳区建国路北京市朝阳区建国路京市朝阳区建国路109号</span><a href="" class="user__address"></a></p>
+            <p class="userInfo__item userInfo__multiple">收货地址：<span>北北京市朝阳区建国路北京市朝阳区建国路京市朝阳区建国路109号</span><a href="" class="user__address none"></a></p>
         </div>
-        <a class="orderBtn" href="">立即下单</a>
+        <a class="orderBtn" href="javascript:;" id="orderBtn">立即下单</a>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/pro_detail_buy.js"></script>
 </body>
 
 </html>
