@@ -1,5 +1,5 @@
 require(['zepto', 'showTips', 'simpleLoadMore'], function($, showTips, LoadMore) {
-    var $wrap = $('#dynamic');
+    var $wrap = $('#cList');
     var more = new LoadMore($wrap, {
         url: '/',
         params: {

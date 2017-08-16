@@ -83,11 +83,11 @@ define(['simpleLoadMore'], function() {
             if (!this.ready) return false;
             this.ready = false;
 
-            this.showLoading();
             /** [开始请求数据] */
             this.getDatas();
         },
         getDatas: function() {
+            this.showLoading();
             $.post(this.url, this._params, function(response) {
                 this.ready = true;
                 this.hideLoading();

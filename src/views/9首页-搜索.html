@@ -22,19 +22,25 @@
         <a href="" class="head__return"></a>
         <div class="headInputBox">
             <i class="icon"></i>
-            <input type="text"  placeholder="搜索" class="headInputBox__inp" name="" value="" id="">
-            <a href="" class="headInputBox__clear">搜索</a>
+            <input type="text"  placeholder="搜索" class="headInputBox__inp" name="" value="" id="searchInput">
+            <a href="javascript:;" id="searchBtn" class="headInputBox__clear">搜索</a>
         </div>
     </div>
     <div class="seachWrap">
         <div class="seachTit">搜索历史</div>
-        <ul class="seachList">
-            <li class="seachList__item"><a href="" class="seachList__keyword">PPR水管</a><a href="" class="seachList__close">✕</a></li>
-            <li class="seachList__item"><a href="" class="seachList__keyword">PPR水管</a><a href="" class="seachList__close">✕</a></li>
+        <ul class="seachList" id="seachList">
+            <li class="seachList__item"><a href="" class="seachList__keyword">PPR水管</a><a href="" class="seachList__close" kid="1">✕</a></li>
+            <li class="seachList__item"><a href="" class="seachList__keyword">PPR水管</a><a href="" class="seachList__close" kid="2">✕</a></li>
         </ul>
-        <a href="javascript:;" class="clearBtn">清空历史搜索</a>
+        <a href="javascript:;" id="clearBtn" class="clearBtn">清空历史搜索</a>
     </div>
     <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/index_search.js"></script>
 </body>
 
 </html>

@@ -43,24 +43,26 @@
         </div>
         <div class="findHead">
             <div class="findBtns">
-                <a class="findHead__btn active" href=""><em class="text">产品</em></a>
-                <a class="findHead__btn" href=""><em class="text">商铺动态</em></a>
-                <a class="findHead__btn" href=""><em class="text">商铺简介</em></a>
+                <a class="findHead__btn active" href="javascript:;" name="a"><em class="text">产品</em></a>
+                <a class="findHead__btn" href="javascript:;" name="b"><em class="text">商铺动态</em></a>
+                <a class="findHead__btn" href="javascript:;" name="c"><em class="text">商铺简介</em></a>
             </div>
-            <div class="screening">
+            <div id="selectCate" class="screening">
                <a class="screening__btn active" href="javascript:;">清库特价</a>
                <a class="screening__btn" href="javascript:;">热销产品</a>
                <a class="screening__btn" href="javascript:;">普通商品</a>
             </div>
             <div class="selects">
                 <div class="selects__item">
-                    <select class="select">
-                        <option>按销量排序</option>
+                    <select id="sort" class="select">
+                        <option value="0">按销量排序0</option>
+                        <option value="1">按销量排序1</option>
+                        <option value="2">按销量排序2</option>
                     </select>
                 </div>
             </div>
         </div>
-        <div class="findProductList">
+        <div class="findProductList" id="findProductList">
             <div class="findProductItem">
                 <div class="findProductItem__imgBox" style="background: url(../images/temp/img5.png); background-size: cover">
                     <span class="corner corner--special">特</span>
@@ -90,9 +92,17 @@
                 </div>
             </div>
         </div>
-        <p class="tipsText">上拉刷新</p>
-        <p class="tipsText">暂无数据</p>
+        <p id="noData" class="tipsText none">暂无数据</p>
+        <p id="loading" class="tipsText loading none ">暂无数据</p>
+        <p id="noMore" class="tipsText none">暂无更多</p>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/supplier_detail.js"></script>
 </body>
 
 </html>

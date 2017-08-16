@@ -47,7 +47,7 @@
                 <a class="findHead__btn" href=""><em class="text">商铺简介</em></a>
             </div>
         </div>
-        <div class="dynamic">
+        <div class="dynamic" id="dynamic">
             <div class="dynamic__item">
                 <div class="dynamic__desc"> 水管转接口1000起，超低价单价9元水管转接口100
 0起，超低价单价9元水管转接口1000起，超低价单
@@ -66,8 +66,9 @@
                 <p class="dynamic__date">2017-03-22</p>
             </div>
         </div>
-        <p class="tipsText">上拉刷新</p>
-        <p class="tipsText">暂无数据</p>
+        <p class="tipsText none">暂无数据</p>
+        <p id="loading" class="tipsText loading none">loading...</p>
+        <p id="noMore" class="tipsText none">没有更多</p>
     </div>
     <script src="../js/require.js"></script>
     <script>

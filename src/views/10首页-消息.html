@@ -22,7 +22,7 @@
         <a class="head__return" href="">返回</a>
         <h2 class="head__title">消息</h2>
     </div>
-    <div class="msgList">
+    <div class="msgList" id="cList">
         <div class="msgList__item newMsg">
             <h3 class="msgList__title">消息名称消息名称消息名称消息名称消息名称消息名称消息名称消息名称消息名称消息名称</h3>
             <p class="msgList__date">2017.03.22</p>
@@ -35,10 +35,17 @@
             <h3 class="msgList__title">消息名称消息名称消息名称消息名称消息名称消息名称消息名称消息名称消息名称消息名称</h3>
             <p class="msgList__date">2017.03.22</p>
         </div>
-        <div id="noMore" class="tipsText">加载更多</div>
-        <div id="loading" class="tipsText loading">Loading...</div>
+        <div id="noData" class="tipsText none">暂无消息</div>
+        <div id="noMore" class="tipsText none">加载更多</div>
+        <div id="loading" class="tipsText loading none">Loading...</div>
     </div>
     <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/messages.js"></script>
 </body>
 
 </html>
