@@ -113,7 +113,8 @@ define(['simpleLoadMore'], function() {
         /** [setParams 追加参数] */
         setParams: function(params) {
             this.page = 1;
-            this._params = $.extend({}, this._params, params || {})
+            this._params = $.extend({}, this._params, params || {});
+            this.wrap.html('');
             this.getDatas();
         },
         init: function() {

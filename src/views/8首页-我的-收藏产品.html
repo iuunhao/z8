@@ -27,13 +27,16 @@
         <div class="findHead">
             <div class="selects">
                 <div class="selects__item">
-                    <select class="select">
-                        <option>全部</option>
+                    <select class="select" name="all" id="condition">
+                        <option value="0">全部0</option>
+                        <option value="1">全部1</option>
+                        <option value="2">全部2</option>
+                        <option value="3">全部3</option>
                     </select>
                 </div>
             </div>
         </div>
-        <div class="findProductList">
+        <div class="findProductList" id="findProductList">
             <div class="findProductItem">
                 <div class="findProductItem__imgBox" style="background: url(../images/temp/img5.png); background-size: cover;">
                     <span class="corner corner--special">特</span>
@@ -49,7 +52,7 @@
                 </div>
             </div>
             <div class="findProductItem">
-                <div class="findProductItem__imgBox">
+                <div class="findProductItem__imgBox" style="background: url(../images/temp/img5.png); background-size: cover;">
                     <span class="corner corner--hot">热</span>
                     <img class="findProductItem__img" src="../images/temp/img5.png" alt="" />
                 </div>
@@ -63,9 +66,17 @@
                 </div>
             </div>
         </div>
-        <p id="laoding" class="tipsText loading">Loading...</p>
-        <p id="noMore" class="tipsText">暂无数据</p>
+        <p id="noData" class="none">暂无数据</p>
+        <p id="loading" class="tipsText loading none">Loading...</p>
+        <p id="noMore" class="tipsText none">没有更多</p>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/my_collection.js"></script>
 </body>
 
 </html>
