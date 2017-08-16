@@ -122,10 +122,9 @@ $text: #2f2f3b;
     }
     &__btn {
         font-size: 17pm;
-        width: 60rm;
+        width: 3em;
         height: 88rm;
         text-align: center;
-        padding-left: 40rm;
         position: relative;
         display: flex;
         line-height: 1;
