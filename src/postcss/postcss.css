@@ -1,6 +1,9 @@
 @import '_base.css';
 
 @import '_common.css';
+*{
+    box-sizing: border-box;
+}
 
 html,
 body {
@@ -1307,15 +1310,17 @@ $text: #2f2f3b;
 }
 
 .imgFiles {
+    flex: 1;
     display: flex;
     padding-bottom: 50rm;
-    flex: 1;
     margin: 0 -10rm;
+    flex-wrap: wrap;
     .fileImgBox {
         position: relative;
         flex: 0 0 33%;
         background-position: center center;
         border-radius: 4rm;
+        margin-bottom: 20rm;
     }
     .fileInput {
         position: absolute;
@@ -1981,13 +1986,20 @@ $text: #2f2f3b;
 }
 
 .listModelFour {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     .pubSwiper__item {
-        background: #F7F7F7;
-        flex: 1;
+        flex: 0 0 33%;
+        width: 0;
+        margin-left: 0;
     }
     .thumbnail {}
     .thumbnail__img {}
+    .thumbnailLink{
+        background: #F7F7F7;
+        display: block;
+        margin-left: 30rm;
+        padding-bottom: 10rm;
+    }
 }
 
 
@@ -2481,6 +2493,9 @@ $text: #2f2f3b;
             border-bottom: none;
         }
     }
+	&__link{
+		display: block;
+	}
     .newMsg {
         .msgList__title {
             position: relative;
