@@ -3,18 +3,19 @@ require(['zepto', 'showTips', 'float_calculater'], function($, showTips, calc) {
     var Buy = {
         /** [getCount 获取数量] */
         getCount: function() {
-            return parseInt(this.$count.val()) || 0;
+            return parseInt(this.$count.val(), 10) || 0;
         },
         /** [calcTotal 计算总数] */
         calcTotal: function() {
-            this.total.text(calc.mul(this.price, this.getCount()));
+            this.total.text(calc.mul(this.price, this.getCount()).toFixed(3).replace(/\d$/, ''));
         },
         /** [enterCount 输入购买数量] */
-        enterCount: function() {
+        enterCount: function(e) {
             var $val = this.getCount();
             if ($val < 0) {
-                this.$count.val(0);
+                $val = 0;
             }
+            this.$count.val($val);
             this.calcTotal();
         },
         /** [orderHandler 下单] */
@@ -46,6 +47,9 @@ require(['zepto', 'showTips', 'float_calculater'], function($, showTips, calc) {
             }, 'json');
         },
         init: function() {
+            this.keyCodeMap = {
+                "110": true
+            };
             /** @type {[Object]} [单价] */
             this.price = parseFloat($('#unitPrice').text());
 
@@ -60,7 +64,12 @@ require(['zepto', 'showTips', 'float_calculater'], function($, showTips, calc) {
 
             this.calcTotal();
 
+
+            this.$count.on('keydown', function(e) {
+                if (this.keyCodeMap[e.keyCode]) return false;
+            }.bind(this));
             this.$count.on('input', this.enterCount.bind(this));
+
 
             /** @type {[Object]} [下单按钮] */
             this.orderBtn = $('#orderBtn');
