@@ -2710,7 +2710,7 @@ $text: #2f2f3b;
 
 
 .none {
-    display: none;
+    display: none!important;
 }
 
 .hidden {
