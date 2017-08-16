@@ -180,6 +180,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 头部工具栏 */
 
 .headTool {
@@ -251,6 +252,7 @@ $text: #2f2f3b;
         }
     }
 }
+
 
 
 
@@ -471,6 +473,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 主体 */
 
 .wrap {
@@ -479,6 +482,7 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
 
 
 
@@ -639,6 +643,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 头部导航 */
 
 .headMenu {
@@ -685,6 +690,7 @@ $text: #2f2f3b;
         }
     }
 }
+
 
 
 
@@ -1050,6 +1056,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 清库特价 */
 
 .clearLibr {
@@ -1202,6 +1209,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 发布求购 */
 
 .head__send {
@@ -1305,7 +1313,7 @@ $text: #2f2f3b;
     margin: 0 -10rm;
     .fileImgBox {
         position: relative;
-        flex:  0 0 33%;
+        flex: 0 0 33%;
         background-position: center center;
         border-radius: 4rm;
     }
@@ -1372,6 +1380,7 @@ $text: #2f2f3b;
         }
     }
 }
+
 
 
 
@@ -1492,6 +1501,7 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
 
 
 
@@ -1700,6 +1710,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 购买 */
 
 .buy {
@@ -1754,18 +1765,19 @@ $text: #2f2f3b;
         line-height: 2;
         word-break: break-all;
     }
-    .user__address {
-        display: inline-block;
-        width: 44rm;
-        height: 44rm;
-        background: url(../images/icon-public/weizhi.png);
-        margin-left: 10rm;
-        vertical-align: middle;
-    }
     &__multiple {
         padding-left: 5em;
         text-indent: -5em;
     }
+}
+
+.user__address {
+    display: inline-block;
+    width: 44rm;
+    height: 44rm;
+    background: url(../images/icon-public/weizhi.png);
+    margin-left: 10rm;
+    vertical-align: middle;
 }
 
 .orderBtn {
@@ -1779,6 +1791,7 @@ $text: #2f2f3b;
     height: 88rm;
     line-height: 88rm;
 }
+
 
 
 
@@ -1971,12 +1984,10 @@ $text: #2f2f3b;
     flex-wrap: nowrap;
     .pubSwiper__item {
         background: #F7F7F7;
-        flex:1;
+        flex: 1;
     }
-    .thumbnail {
-    }
-    .thumbnail__img {
-    }
+    .thumbnail {}
+    .thumbnail__img {}
 }
 
 
@@ -2194,6 +2205,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 交易 */
 
 .trading {
@@ -2307,6 +2319,7 @@ $text: #2f2f3b;
         font-size: 26pm;
     }
 }
+
 
 
 
@@ -2443,6 +2456,7 @@ $text: #2f2f3b;
         font-size: 24pm;
     }
 }
+
 
 
 
@@ -2606,6 +2620,7 @@ $text: #2f2f3b;
 
 
 
+
 /* 消息详情 */
 
 .articleBox {
@@ -2628,14 +2643,15 @@ $text: #2f2f3b;
         margin-bottom: 30rm;
     }
 }
-.articleMain{
-    p{
+
+.articleMain {
+    p {
         line-height: 1.5;
         margin-bottom: 30rm;
         font-size: 26pm;
-        color:#2f2f3b;
+        color: #2f2f3b;
     }
-    img{
+    img {
         display: block;
         width: 100%;
         margin-bottom: 30rm;
@@ -2644,30 +2660,32 @@ $text: #2f2f3b;
 }
 
 
-.head__edit{
-    .icon{
+.head__edit {
+    .icon {
         width: 29rm;
         height: 28rm;
         background: url(../images/icon-public/bianji.png);
     }
 }
-.lookDetail{
+
+.lookDetail {
     margin: 120rm 30rm 0;
 }
-.lookDetailMain{
-    &__title{
+
+.lookDetailMain {
+    &__title {
         font-size: 30pm;
-        color:#000;
+        color: #000;
         font-weight: bold;
         line-height: 1.5;
         margin-bottom: 10rm;
     }
-    &__desc{
+    &__desc {
         font-size: 26pm;
         line-height: 1.5;
         margin-bottom: 80rm;
     }
-    &__p{
+    &__p {
         font-size: 28pm;
         line-height: 1.5;
         margin-bottom: 10rm;
@@ -2684,6 +2702,6 @@ $text: #2f2f3b;
     visibility: hidden;
 }
 
-.line-b{
+.line-b {
     border-bottom: 1rm solid #E5E7EB;
 }
