@@ -20,11 +20,18 @@ require(['zepto', 'slider', 'showTips'], function($, Slider, showTips) {
         /** 防止连击 */
         if ($this.data('ready') == false) return false;
         $this.data('ready', false);
+        
+        $this.toggleClass('active');
+        var has = $this.hasClass('active'),
+            txt = has ? '已收藏' : '收藏',
+            type = has ? 1 : 0;
+        $this.find('span').text(txt);
 
-        $.post('/', {}, function(response) {
-            $this.data('ready', true);
+        $.post('/', {
+            type: type
+        }, function(response) {
             if (response.res == 1) {
-
+                $this.data('ready', true);
             } else {
                 showTips(response.msg);
             }

@@ -32,8 +32,11 @@
             </div>
             <div class="selects">
                 <div class="selects__item">
-                    <select class="select">
-                        <option>全部</option>
+                    <select id="select" name="sort" class="select">
+                        <option value="0">全部0</option>
+                        <option value="1">全部1</option>
+                        <option value="2">全部2</option>
+                        <option value="3">全部3</option>
                     </select>
                 </div>
             </div>
@@ -55,7 +58,7 @@
                     </div>
                     <p class="supplier__desc">本店所有转接口类型商品8.8折大促销，欢迎选购</p>
                 </div>
-                <ul class="pubSwiper__list listModelThree listModelFour">
+                <ul class="pubSwiper__list listModelThree listModelFour"  id="cList">
                     <li class="pubSwiper__item">
                         <a class="thumbnailLink" href="">
                             <div class="thumbnail" style="background: url(../images/temp/img1.jpg); background-size: cover">
@@ -98,12 +101,21 @@
                 </ul>
             </div>
         </div>
-        <p class="tipsText">上拉刷新</p>
-        <p class="tipsText">暂无数据</p>
+        <p class="tipsText none">暂无数据</p>
+        <p id="loading" class="tipsText loading none">Loading...</p>
+        <p id="noMore" class="tipsText none">暂无数据</p>
     </div>
     <div class="findTips">
         <p class="">未找到您想要的商品？试试<a class="findTips__link" href="">发布</a></p>
     </div>
+    <script src="../js/require.js"></script>
+    <script>
+        require.config({　　　　
+            baseUrl: "../js"　　
+        });
+    </script>
+    <script src="../js/gongYingShang.js"></script>
+
 </body>
 
 </html>
