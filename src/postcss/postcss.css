@@ -32,6 +32,13 @@ body {
 .txtRed {
     color: #FD2A45;
 }
+.txtBold{
+    font-weight: bold;
+}
+
+
+
+
 
 .label {
     display: inline-block;
@@ -91,6 +98,7 @@ body {
 
 
 
+
 /* 自定义checkbox */
 
 .simuSelect {
@@ -131,6 +139,7 @@ body {
         height: 132px;
     }
 }
+
 
 
 
@@ -551,6 +560,7 @@ body {
 
 
 
+
 /* 翻页 */
 
 .page {
@@ -589,6 +599,7 @@ body {
         color: #fff;
     }
 }
+
 
 
 
@@ -897,8 +908,91 @@ body {
         bottom: 50px;
         padding: 0 2em;
     }
-    &__iframe{
-        border:0;
+    &__iframe {
+        border: 0;
+    }
+}
+
+
+
+
+.pop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    &__mask {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #000;
+        opacity: 0.7;
+    }
+    &__main {
+        background: #fff;
+        padding: 10px 30px 30px;
+        position: fixed;
+        z-index: 1;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }
+    &__hd{
+        position: relative;
+        border-bottom: 1px solid #EBEEF3;
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+    &__tit{
+        font-size: 18px;
+    }
+    &__close{
+        position: absolute;
+        top:0;
+        right:-30px;
+        padding-right: 30px;
+        font-size: 18px;
+        font-weight: 200;
+        font-size: 20px;
+        height: 59px;
+        width: 50px;
+        text-align: right;
+        line-height: 59px;
+    }
+    &__txt{
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    &__btns{
+        margin: 100px 0 50px;
+    }
+    &__btn{
+        display: block;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+.orderPop{
+    width: 600px;
+    &__group{
+        margin-bottom: 50px;
+    }
+    &__inp{
+        height: 40px;
+        padding: 0 1em;
+        font-size: 14px;
+        color: #FD2A45;
+        border: 1px solid #D8DDE6;
+    }
+    &__formGroup{
+        margin-bottom: 10px;
     }
 }
 
@@ -909,3 +1003,4 @@ body {
 
 
 /* Home page */
+
