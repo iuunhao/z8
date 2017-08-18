@@ -13,9 +13,7 @@
 
 <body class="bem">
     <!-- wrap S -->
-
     <div class="wrap">
-
         <!-- sideBar S -->
         <!-- info S -->
         <div class="sidebar">
@@ -31,7 +29,6 @@
                 </div>
             </div>
             <!-- info E -->
-
             <!-- sider menu S -->
             <div class="sidebar__menu menu">
                 <div class="menu__item">
@@ -70,7 +67,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="menu__item">
                     <h3 class="menu__tit isType--4">店铺信息</h3>
                     <ul class="menu__subMenu subItem">
@@ -85,7 +81,6 @@
             </div>
             <!-- sider menu E -->
         </div>
-
         <!-- sideBar E -->
         <div class="content">
             <div class="topTool clearfix">
@@ -104,10 +99,9 @@
             </div>
             <!-- main S -->
             <div class="main">
-
                 <!-- Purchase information S -->
                 <div class="buys">
-                    <div class="buys__item buy">
+                    <div class="buys__item buy" pid="1">
                         <!-- <div class="buySel"> -->
                         <!-- 选择 -->
                         <!-- </div> -->
@@ -126,7 +120,7 @@
                                     <p class="buy__t">2017-03-22</p>
                                 </div>
                                 <div class="buy__remaDate">
-                                    剩余时间：<em class="buy__rd">1天22小时31分</em>
+                                    剩余时间：<em class="buy__rd jsCountTime" time="2017/10/01 00:00:00"><span day="true">00</span>天<span hour="true">00</span>小时<span minute="true">00</span>分</em>
                                 </div>
                             </div>
                             <div class="buy__bd">
@@ -154,10 +148,55 @@
                             </div>
                         </div>
                     </div>
-
+                     <div class="buys__item buy" pid="2">
+                        <!-- <div class="buySel"> -->
+                        <!-- 选择 -->
+                        <!-- </div> -->
+                        <div class="buyMain">
+                            <div class="buy__hd clearfix">
+                                <div class="buy__info">
+                                    <h3 class="buy__tit">【水路辅材-PPR管】求购金牛水管PPR管</h3>
+                                    <div class="buy__hdTxts">
+                                        <div class="buy__txt">
+                                            交易日期：<em class="txtRed">2017-4-20</em>
+                                        </div>
+                                        <div class="buy__txt">
+                                            求购数量：<em class="txtRed">1000</em>
+                                        </div>
+                                    </div>
+                                    <p class="buy__t">2017-03-22</p>
+                                </div>
+                                <div class="buy__remaDate">
+                                    剩余时间：<em class="buy__rd jsCountTime" time="2017/10/01 00:00:00"><span day="true">00</span>天<span hour="true">00</span>小时<span minute="true">00</span>分</em>
+                                </div>
+                            </div>
+                            <div class="buy__bd">
+                                <div class="buy__desc"> 求PPR胶管转接口，要2000个，需要当天交货的联系求PPR胶管转接口，要2000个，需要当天交货的联系求PPR胶管转接口，要2000个，需要当天交货的联系求PPR胶管转接口求PPR胶管转接口，要2000个，需要当天交货的联系求PPR胶管转接口，要2000个，需要当天交货的联系
+                                </div>
+                                <div class="pics">
+                                    <div class="pics__pic">
+                                        <img class="pics__img" src="../images/temp/img.jpg" alt="">
+                                    </div>
+                                    <div class="pics__pic">
+                                        <img class="pics__img" src="../images/temp/img.jpg" alt="">
+                                    </div>
+                                    <div class="pics__pic">
+                                        <img class="pics__img" src="../images/temp/img.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buy__ft">
+                                <div class="buy__tItem">
+                                    发布人：<em class="buy__tEm">轩亦辰（金牛管业大望路店）</em>
+                                </div>
+                                <div class="buy__tItem">
+                                    联系电话：<em class="txtRed">18737840711</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Purchase information E -->
-
                 <!-- page S -->
                 <div class="page">
                     <a href="" class="page__btn page__prev already">上一页</a>
@@ -171,14 +210,18 @@
                     <a href="" class="page__btn page__next">下一页</a>
                 </div>
                 <!-- page E -->
-
             </div>
             <!-- main E -->
-
         </div>
     </div>
     <!-- wrap E -->
-
+    <script src="../js/lib/require.js"></script>
+    <script>
+    require.config({
+        baseUrl: '../js',
+    })
+    </script>
+    <script src="../js/buy_cj.js"></script>
 </body>
 
 </html>

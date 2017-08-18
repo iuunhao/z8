@@ -8,6 +8,7 @@ require.config({
     paths: {
         jquery: './lib/jquery',
         showTips: './lib/showTips',
+        countTime: './lib/countTime',
         common: './lib/common'
     }
 })
