@@ -89,6 +89,8 @@ body {
 
 
 
+
+
 /* 自定义checkbox */
 
 .simuSelect {
@@ -129,6 +131,8 @@ body {
         height: 132px;
     }
 }
+
+
 
 
 
@@ -352,8 +356,8 @@ body {
     background: #3997FB;
     color: #fff;
     text-align: center;
-    height: 40px;
-    line-height: 40px;
+    height: 38px;
+    line-height: 38px;
     font-size: 16px;
     border: 1px solid transparent;
     padding: 0 1em;
@@ -361,15 +365,15 @@ body {
         background: #5ca5f3;
     }
     &--md {
-        height: 40px;
-        line-height: 40px;
+        height: 38px;
+        line-height: 38px;
     }
     &__line {
         background: #fff;
         border: 1px solid #000;
         color: #000;
-        height: 40px;
-        line-height: 40px;
+        height: 38px;
+        line-height: 38px;
         &:hover {
             background: #fafafa;
         }
@@ -382,6 +386,14 @@ body {
         cursor: default;
         &:hover {
             background: none;
+        }
+    }
+    &__black {
+        background: #252834;
+        color: #fff;
+        &:hover {
+            background: #252834;
+            color: #fff;
         }
     }
 }
@@ -491,7 +503,7 @@ body {
         float: left;
         margin-left: 30px;
         margin-bottom: 30px;
-        &:hover{
+        &:hover {
             outline: 5px solid #3997FB;
             /* outline: 5px solid #cae4ff; */
         }
@@ -523,6 +535,8 @@ body {
         right: 10px;
     }
 }
+
+
 
 
 
@@ -582,6 +596,8 @@ body {
 
 
 
+
+
 /* 订单 */
 
 .orders {
@@ -594,7 +610,7 @@ body {
     margin-bottom: 30px;
     display: table;
     width: 100%;
-    &:hover{
+    &:hover {
         outline: 5px solid #cae4ff;
     }
     &__pic,
@@ -670,11 +686,221 @@ body {
     }
 }
 
+.topTool {
+    padding-top: 60px;
+    &__l {
+        float: left;
+    }
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #252834;
+        height: 40px;
+        line-height: 40px;
+    }
+    &__r {
+        float: right;
+    }
+    &__sel {
+        display: inline-block;
+        margin-right: 5px;
+    }
+    &__btns {
+        display: inline-block;
+    }
+}
+
+.seachBar {
+    position: relative;
+    &__icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -10px;
+        width: 20px;
+        height: 20px;
+        background: url(../images/pulics/i-7.png) no-repeat center center;
+        background-size: 100% 100%;
+    }
+    &__inp {
+        background: #E0E1E4;
+        font-size: 14px;
+        height: 40px;
+        padding: 0 20px 0 50px;
+    }
+}
+
+.buys {
+    &__item {
+        margin-bottom: 20px;
+    }
+}
+
+.buy {
+    display: table;
+    width: 100%;
+    .buyMain {
+        background: #fff;
+        padding-bottom: 20px;
+    }
+    &__hd {
+        margin: 20px 20px 0 20px;
+    }
+    &__bd {
+        margin: 0 20px 0 20px;
+    }
+    &__ft {
+        margin: 0 20px;
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px solid #EFF0F3;
+    }
+    &__tit {
+        font-weight: bold;
+        line-height: 1.5;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    &__hdTxts {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+    &__txt {
+        display: inline-block;
+        margin-right: 30px;
+    }
+    &__t {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    &__remaDate {
+        float: right;
+    }
+    &__info {
+        float: left;
+        margin-bottom: 30px;
+    }
+    &__desc {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    &__tItem {
+        display: inline-block;
+        margin-right: 100px;
+        margin-bottom: 10px;
+    }
+}
+
+.buySel {
+    width: 50px;
+    vertical-align: middle;
+    position: relative;
+    &__label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+    &__sel {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+    }
+}
+
+.pics {
+    &__pic {
+        display: inline-block;
+        width: 122px;
+        height: 122px;
+        font-size: 0;
+        margin-right: 20px;
+        border: 1px solid #fafafa;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &__img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.buySel,
+.buyMain {
+    display: table-cell;
+}
 
 
+.cardWrap {
+    position: relative;
+    width: 350px;
+    height: 750px;
+}
 
-
-
+.card {
+    background: #fff;
+    &__banner {
+        height: 204px;
+        overflow: hidden;
+    }
+    &__img {
+        display: block;
+        width: 100%;
+    }
+    &__avatar {
+        border-radius: 100%;
+        width: 143px;
+        height: 143px;
+        border: 5px solid #fff;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+        margin-top: -71px;
+        background: #fff;
+    }
+    &__pic {
+        display: block;
+        width: 100%;
+    }
+    &__name {
+        text-align: center;
+        color: #000;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    &__infos {
+        margin: 0 30px;
+        padding-bottom: 150px;
+    }
+    &__item {
+        margin-bottom: 15px;
+        line-height: 1.5;
+        padding-left: 6em;
+        text-indent: -38px;
+        font-size: 14px;
+    }
+    &__label {
+        display: inline-block;
+    }
+    &__editBtn {
+        position: absolute;
+        left: 50%;
+        margin-left: -81px;
+        bottom: 50px;
+        padding: 0 2em;
+    }
+    &__iframe{
+        border:0;
+    }
+}
 
 
 
