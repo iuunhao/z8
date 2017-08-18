@@ -28,11 +28,11 @@ body {
 }
 
 
-
 .txtRed {
     color: #FD2A45;
 }
-.txtBold{
+
+.txtBold {
     font-weight: bold;
 }
 
@@ -81,6 +81,7 @@ body {
         margin-right: 20px;
     }
 }
+
 
 
 
@@ -169,6 +170,7 @@ body {
 
 
 
+
 /* layout */
 
 .bem {}
@@ -220,12 +222,15 @@ body {
 }
 
 .user {
+    text-align: center;
     &__info {
-        float: left;
         font-size: 12px;
+        text-align: center;
+        margin-bottom: 20px;
     }
     &__logout {
-        float: right;
+        display: inline-block;
+        margin: 0 20px;
         color: #fff;
         font-size: 12px;
         text-decoration: underline;
@@ -561,6 +566,7 @@ body {
 
 
 
+
 /* 翻页 */
 
 .page {
@@ -599,6 +605,7 @@ body {
         color: #fff;
     }
 }
+
 
 
 
@@ -937,23 +944,23 @@ body {
         padding: 10px 30px 30px;
         position: fixed;
         z-index: 1;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    &__hd{
+    &__hd {
         position: relative;
         border-bottom: 1px solid #EBEEF3;
         padding: 20px 0;
         margin-bottom: 20px;
     }
-    &__tit{
+    &__tit {
         font-size: 18px;
     }
-    &__close{
+    &__close {
         position: absolute;
-        top:0;
-        right:-30px;
+        top: 0;
+        right: -30px;
         padding-right: 30px;
         font-size: 18px;
         font-weight: 200;
@@ -963,15 +970,15 @@ body {
         text-align: right;
         line-height: 59px;
     }
-    &__txt{
+    &__txt {
         font-size: 14px;
         line-height: 1.5;
         margin-bottom: 10px;
     }
-    &__btns{
+    &__btns {
         margin: 100px 0 50px;
     }
-    &__btn{
+    &__btn {
         display: block;
         max-width: 300px;
         margin: 0 auto;
@@ -979,28 +986,179 @@ body {
 }
 
 
-.orderPop{
+.orderPop {
     width: 600px;
-    &__group{
+    &__group {
         margin-bottom: 50px;
     }
-    &__inp{
+    &__inp {
         height: 40px;
         padding: 0 1em;
         font-size: 14px;
         color: #FD2A45;
         border: 1px solid #D8DDE6;
     }
-    &__formGroup{
+    &__formGroup {
         margin-bottom: 10px;
     }
 }
 
 
+/* 发布信息 */
+
+.release {
+    background: #fff;
+    padding: 30px;
+    margin: 0 -30px;
+    padding-top: 40px;
+    min-height: 100%;
+    &__hd {
+        font-size: 18px;
+        color: #252834;
+        border-bottom: 1px solid #EBEEF3;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+}
 
 
+.form{
+    &__item{
+        margin-bottom: 20px;
+        font-size: 14px;
+        color:#000;
+    }
+    &__label{
+        display: inline-block;
+        width: 70px;
+        height: 40px;
+        line-height: 40px;
+    }
+    &__group{
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+        &.inline{
+            display: inline-block;
+            margin-right: 20px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    &__textarea{
+        border: 1px solid #D8DDE6;
+        resize: none;
+        width: 630px;
+        min-height: 130px;
+        padding: 1em;
+        padding-bottom: 50px;
+    }
+    &__tips{
+        position: absolute;
+        padding: 20px;
+        background: #fff;
+        left: 1px;
+        right: 1px;
+        bottom:3px;
+        text-align: right;
+        color:#959699;
+        font-size: 12px;
+    }
+    &__tips2{
+        font-size: 12px;
+        color:#959699;
+        margin-top: 10px;
+    }
+    &--lg{
+        width:500px;
+    }
+    &--md{
+        width: 250px;
+    }
+    .inline{
+        .form__inp{
+            width: 200px;
+        }
+    }
+    &__inp{
+        border: 1px solid #D8DDE6;
+        height: 38px;
+        font-size: 14px;
+        padding: 0 1em;
+        width: 100%;
+    }
+    &__sel{
+        height: 38px;
+        border-radius: none;
+        border: 1px solid #D8DDE6;
+        padding: 0 30px;
+        text-align: left;
+        min-width: 200px;
+        border: 1px solid #d8dde6;
+        padding-left: 1em;
+        border-radius: 0;
+        outline: none;
+        font-size: 14px;
+        background: #fff url(../images/pulics/i-8.png) no-repeat scroll right center transparent;
+        background-position: right center;
+    }
+    .submit{
+        margin: 70px 0 50px;
+       .btn{
+            padding: 0 4em;
+            margin-right: 30px;
+            height: 48px;
+            line-height: 48px;
+       }
+    }
+}
 
+.upfile{
+    &__item{
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #D8DDE6;
+        margin-right: 20px;
+    }
+    &__img{
+        display: block;
+        width: 100%;
+    }
+    &__inp{
+        position: absolute;
+        left:0;
+        right: 0;
+        bottom:0;
+        top:0;
+        background: red;
+        opacity: 0;
+    }
+    &__default{
+        cursor: pointer;
+        &:after,
+        &:before{
+            content: "";
+            position: absolute;
+            background: #D8DDE6;
+            left: 50%;
+            top:50%;
+        }
+        &:after{
+            width: 60px;
+            height: 1px;
+            margin-left: -30px;
+        }
+        &:before{
+            width: 1px;
+            height: 60px;
+            margin-top: -30px;
+        }
+    }
+}
 
 
 /* Home page */
-
