@@ -13,11 +13,9 @@
 
 <body class="bem">
     <!-- wrap S -->
-
     <div class="wrap">
-
         <!-- sideBar S -->
-            <!-- info S -->
+        <!-- info S -->
         <div class="sidebar">
             <div class="sidebar__user info">
                 <a href="" class="info__box">
@@ -31,7 +29,6 @@
                 </div>
             </div>
             <!-- info E -->
-
             <!-- sider menu S -->
             <div class="sidebar__menu menu">
                 <div class="menu__item">
@@ -70,7 +67,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="menu__item">
                     <h3 class="menu__tit isType--4">店铺信息</h3>
                     <ul class="menu__subMenu subItem">
@@ -85,7 +81,6 @@
             </div>
             <!-- sider menu E -->
         </div>
-
         <!-- sideBar E -->
         <div class="content">
             <!-- nav S -->
@@ -98,41 +93,39 @@
                 </li>
             </ul>
             <!-- nav E -->
-
             <!-- main S -->
             <div class="main">
                 <!-- Selection screening S -->
-                <div class="filter tool clearfix">
+                <div class="filter tool clearfix" id="conditions">
                     <div class="formSelect formSelect--inline">
                         <label class="formSelect__label">排序：</label>
-                        <select name="" id="" class="formSelect__sel">
-                           <option value="默认排序">默认排序</option>
-                           <option value="按产品排序">按产品排序</option>
-                           <option value="按客户排序">按客户排序</option>
+                        <select name="a" id="" class="formSelect__sel">
+                            <option value="默认排序">默认排序</option>
+                            <option value="按产品排序">按产品排序</option>
+                            <option value="按客户排序">按客户排序</option>
                         </select>
                     </div>
                     <div class="formSelect formSelect--inline">
                         <label class="formSelect__label">完成状态：</label>
-                        <select name="" id="" class="formSelect__sel">
-                           <option value="已完成">已完成</option>
-                           <option value="已取消">已取消</option>
+                        <select name="b" id="" class="formSelect__sel">
+                            <option value="已完成">已完成</option>
+                            <option value="已取消">已取消</option>
                         </select>
                     </div>
                     <div class="formSelect formSelect--inline">
                         <label class="formSelect__label">订单年份：</label>
-                        <select name="" id="" class="formSelect__sel">
-                           <option value="全部">全部</option>
-                           <option value="2017">2017</option>
+                        <select name="c" id="" class="formSelect__sel">
+                            <option value="全部">全部</option>
+                            <option value="2017">2017</option>
                         </select>
                     </div>
                 </div>
                 <!-- Selection screening E -->
-
                 <!-- orders S -->
-                <ul class="orders">
+                <ul class="orders" id="cList">
                     <li class="orders__item order clearfix order--new">
                         <div class="order__pic">
-                            <img class="order__img" src="../images/temp/img.jpg" alt=""/>
+                            <img class="order__img" src="../images/temp/img.jpg" alt="" />
                         </div>
                         <div class="order__info">
                             <h3 class="order__title">订单商品：<a href="" class="order__link">WOODS仿真木纹砖系列传</a></h3>
@@ -141,7 +134,7 @@
                                     下单时间：<em class="order__t">2017-4-20 21:33</em>
                                 </div>
                                 <div class="order__txt">
-                                     订单数量：<em class="txtRed">1000</em>
+                                    订单数量：<em class="txtRed">1000</em>
                                 </div>
                                 <div class="order__txt">
                                     订单金额：<em class="txtRed">90000</em>
@@ -160,14 +153,13 @@
                             </div>
                         </div>
                         <div class="order__btns">
-                            <a href="" class="btn btn--md order__btn">完成订单</a>
-                            <a href="" class="btn btn__line order__btn">取消订单</a>
+                            <a href="" class="btn btn--md order__btn cComplete">完成订单</a>
+                            <a href="" class="btn btn__line order__btn cCancel">取消订单</a>
                         </div>
                     </li>
-
                     <li class="orders__item order clearfix">
                         <div class="order__pic">
-                            <img class="order__img" src="../images/temp/img.jpg" alt=""/>
+                            <img class="order__img" src="../images/temp/img.jpg" alt="" />
                         </div>
                         <div class="order__info">
                             <h3 class="order__title">订单商品：<a href="" class="order__link">WOODS仿真木纹砖系列传</a></h3>
@@ -176,7 +168,7 @@
                                     下单时间：<em class="order__t">2017-4-20 21:33</em>
                                 </div>
                                 <div class="order__txt">
-                                     订单数量：<em class="txtRed">1000</em>
+                                    订单数量：<em class="txtRed">1000</em>
                                 </div>
                                 <div class="order__txt">
                                     订单金额：<em class="txtRed">90000</em>
@@ -196,12 +188,11 @@
                         </div>
                         <div class="order__btns">
                             <a href="" class="btn btn__none order__btn">已完成</a>
-                            <a href="" class="btn btn__line order__btn">删除订单</a>
+                            <a href="" class="btn btn__line order__btn cDelete">删除订单</a>
                         </div>
                     </li>
                 </ul>
                 <!-- orders E -->
-
                 <!-- page S -->
                 <div class="page">
                     <a href="" class="page__btn page__prev already">上一页</a>
@@ -215,14 +206,18 @@
                     <a href="" class="page__btn page__next">下一页</a>
                 </div>
                 <!-- page E -->
-
             </div>
             <!-- main E -->
-
         </div>
     </div>
     <!-- wrap E -->
-
+    <script src="../js/lib/require.js"></script>
+    <script>
+    require.config({
+        baseUrl: '../js',
+    })
+    </script>
+    <script src="../js/order_current.js"></script>
 </body>
 
 </html>
