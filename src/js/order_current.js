@@ -2,7 +2,9 @@ require(['common'], function($) {
     var s = $.mine, // 系统弹窗
         $list = $('#cList'),
         querys = {}, // 条件
-        $conditions = $('#conditions'); // 条件
+        $conditions = $('#conditions'), // 条件
+        $orderInfoConfirm = $('#orderInfoConfirm'),
+        $errorTips = $orderInfoConfirm.find('.errorTips');
 
 
     /** [删除订单] */
@@ -45,10 +47,94 @@ require(['common'], function($) {
         return false;
     }
 
+    /** [getPopData 获取弹窗信息] */
+    function getPopData($parent) {
+        var params = {
+            pid: $parent.attr('pid')
+        };
+        $parent.find('[pop]').each(function() {
+            var $this = $(this),
+                key = $this.attr('pop'),
+                value = $this.text();
+            params[key] = value;
+        });
+        return params;
+    }
+
+    /** [setPopData 设置弹窗信息] */
+    function setPopData(data) {
+        data = data || {};
+        $orderInfoConfirm.find('[pop]').each(function() {
+            var $this = $(this),
+                key = $this.attr('pop'),
+                value = data[key];
+            if (value) {
+                if ($this.attr('type')) {
+                    $this.val(value);
+                } else {
+                    $this.text(value);
+                }
+            }
+        })
+    }
 
     /** [orderComplete 完成订单] */
     function orderComplete() {
-        var $button = $(this);
+        var $button = $(this),
+            $parent = $button.parents('li'),
+            data = getPopData($parent);
+        setPopData(data);
+        showPop();
+        return false;
+    }
+
+    /** [showError 错误信息] */
+    function showError(str) {
+        $errorTips.text(str);
+        $errorTips.stop(true, true).delay(3000).animate({ opacity: 0 }, function() {
+            $(this).text('');
+            $(this).css({ opacity: 1 });
+        })
+    }
+
+    /** [confirmOrderComplete 确认订单完成] */
+    function confirmOrderComplete() {
+        var total = $.trim($orderInfoConfirm.find('[pop=total]').val()),
+            money = $.trim($orderInfoConfirm.find('[pop=money]').val());
+
+        if (total == '') {
+            showError('请输入订单数量');
+            return false;
+        }
+
+        if (!/^\d+$/.test(total)) {
+            showError('请输入正确的订单数量');
+            return false;
+        }
+
+        if (money == '') {
+            showError('请输入订单金额');
+            return false;
+        }
+
+        if (!/^\d+(\.\d+)?$/.test(money)) {
+            showError('请输入正确的订单金额');
+            return false;
+        }
+
+        $.post('/', {
+            money: money,
+            total: total
+        }, function(response) {
+            if (response.res == 1) {
+                hidePop();
+                var url = response.data.url;
+                if (url) window.location.href = url;
+            } else {
+                showError(response.msg);
+            }
+        }, 'json');
+
         return false;
     }
 
@@ -70,6 +156,17 @@ require(['common'], function($) {
         window.location.href = '/?' + objToQuery(querys);
     }
 
+    /** [showPop 显示弹窗] */
+    function showPop() {
+        $orderInfoConfirm.removeClass('none').show();
+    }
+
+    /** [showPop 隐藏弹窗] */
+    function hidePop() {
+        $orderInfoConfirm.addClass('none').hide();
+        return false;
+    }
+
     /** [init 初始化] */
     function initHandler() {
         /** 删除订单 */
@@ -83,6 +180,9 @@ require(['common'], function($) {
 
         /** 选择条件 */
         $conditions.on('change', 'select', selectCondition);
+
+        $orderInfoConfirm.on('click', '.pop__close', hidePop);
+        $orderInfoConfirm.on('click', '.pop__btn', confirmOrderComplete);
     }
     initHandler();
 })
