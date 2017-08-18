@@ -410,6 +410,12 @@ body {
             color: #fff;
         }
     }
+    &__disable{
+        background: #a5a9af;
+        &:hover{
+            background: #a5a9af;
+        }
+    }
 }
 
 .content {
