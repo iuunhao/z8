@@ -86,6 +86,7 @@
         </div>
         <!-- sideBar E -->
         <div class="content">
+            <form id="cForm">
             <div class="release">
                 <h3 class="release__hd">发布产品</h3>
                 <ul class="release__form form">
@@ -94,8 +95,8 @@
                             <label>
                                 <span class="form__label">产品性质：</span>
                                 <div class="form__group">
-                                    <select class="form__sel form__sel--inline">
-                                        <option value="1">清库特价</option>
+                                    <select id="pro_prop" class="form__sel form__sel--inline">
+                                        <option value="-1">清库特价</option>
                                         <option value="2">热销产品</option>
                                         <option value="3">普通产品</option>
                                     </select>
@@ -108,7 +109,7 @@
                             <label>
                                 <span class="form__label">产品标题：</span>
                                 <div class="form__group form--lg">
-                                    <input type="text" class="form__inp" value="" name="" id=""/>
+                                    <input type="text" class="form__inp" value="" name="" id="pro_title"/>
                                 </div>
                             </label>
                         </div>
@@ -118,7 +119,7 @@
                             <label>
                                 <span class="form__label">产品信息：</span>
                                 <div class="form__group">
-                                    <textarea name="" maxlength="200" class="form__textarea"></textarea>
+                                    <textarea name="" id="pro_info" maxlength="200" class="form__textarea"></textarea>
                                     <div class="form__tips">最多可输入200字</div>
                                 </div>
                             </label>
@@ -127,9 +128,9 @@
                     <li class="form__item">
                         <div class="form__group inline">
                             <label>
-                                <span class="form__label">产品单间：</span>
+                                <span class="form__label">产品单价：</span>
                                 <div class="form__group form--md">
-                                    <input type="text" class="form__inp" value="" name="" id=""/>
+                                    <input type="text" class="form__inp" value="" name="" id="pro_price"/>
                                 </div>
                             </label>
                         </div>
@@ -137,7 +138,7 @@
                             <label>
                                 <span class="form__label">起够数量：</span>
                                 <div class="form__group form--md">
-                                    <input type="text" class="form__inp" value="" name="" id=""/>
+                                    <input type="text" class="form__inp" value="" name="" id="pro_total"/>
                                 </div>
                             </label>
                         </div>
@@ -147,7 +148,7 @@
                             <label>
                                 <span class="form__label">产品类别：</span>
                                 <div class="form__group">
-                                    <select class="form__sel form__sel--inline">
+                                    <select id="pro_type" class="form__sel form__sel--inline">
                                         <option value="1">清库特价</option>
                                         <option value="2">热销产品</option>
                                         <option value="3">普通产品</option>
@@ -158,7 +159,7 @@
                         <div class="form__group inline">
                             <label>
                                 <div class="form__group">
-                                    <select class="form__sel form__sel--inline">
+                                    <select id="pro_subType" class="form__sel form__sel--inline">
                                         <option value="1">清库特价</option>
                                         <option value="2">热销产品</option>
                                         <option value="3">普通产品</option>
@@ -172,7 +173,7 @@
                             <label>
                                 <span class="form__label">产品名称：</span>
                                 <div class="form__group form--lg">
-                                    <input type="text" class="form__inp" value="" name="" id=""/>
+                                    <input type="text" class="form__inp" value="" name="" id="pro_name"/>
                                 </div>
                             </label>
                         </div>
@@ -182,7 +183,7 @@
                             <label>
                                 <span class="form__label">产品规格：</span>
                                 <div class="form__group form--lg">
-                                    <input type="text" class="form__inp" value="" name="" id=""/>
+                                    <input type="text" class="form__inp" value="" name="" id="pro_norms"/>
                                 </div>
                             </label>
                         </div>
@@ -192,7 +193,7 @@
                             <label>
                                 <span class="form__label">产品产地：</span>
                                 <div class="form__group form--lg">
-                                    <input type="text" class="form__inp" value="" name="" id=""/>
+                                    <input type="text" class="form__inp" value="" name="" id="pro_add"/>
                                 </div>
                             </label>
                         </div>
@@ -202,12 +203,12 @@
                             <label>
                                 <span class="form__label">产品图片：</span>
                                 <div class="form__group">
-                                    <div class="upfile">
+                                    <div class="upfile" id="pro_images">
                                         <div class="upfile__item">
                                             <img class="upfile__img" src="../images/temp/img.jpg" alt="">
                                         </div>
                                         <div class="upfile__item upfile__default">
-                                            <input class="upfile__inp" type="file" name="" value="" id="">
+                                            <input class="upfile__inp" type="file" name="" value="" id="pro_images_btn">
                                         </div>
                                     </div>
                                     <div class="form__tips2">您最多上传三张商品图片</div>
@@ -220,12 +221,12 @@
                             <label>
                                 <span class="form__label">产品介绍：</span>
                                 <div class="form__group">
-                                    <div class="upfile">
+                                    <div class="upfile" id="pro_info_img">
                                         <div class="upfile__item">
                                             <img class="upfile__img" src="../images/temp/img.jpg" alt="">
                                         </div>
                                         <div class="upfile__item upfile__default">
-                                            <input class="upfile__inp" type="file" name="" value="" id="">
+                                            <input class="upfile__inp" type="file" name="" value="" id="pro_info_img_btn">
                                         </div>
                                     </div>
                                     <div class="form__tips2">您只能上传一张商品介绍图片</div>
@@ -238,7 +239,7 @@
                             <label>
                                 <span class="form__label"></span>
                                 <div class="form__group">
-                                    <a href="" class="btn ">发布</a>
+                                    <a id="btnPublish" href="" class="btn ">发布</a>
                                     <a href="" class="btn btn__line">取消</a>
                                 </div>
                             </label>
@@ -246,9 +247,17 @@
                     </li>
                 </ul>
             </div>
+            </form>
         </div>
     </div>
     <!-- wrap E -->
+    <script src="../js/lib/require.js"></script>
+    <script>
+    require.config({
+        baseUrl: '../js',
+    })
+    </script>
+    <script src="../js/show_publish.js"></script>
 </body>
 
 </html>

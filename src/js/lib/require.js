@@ -9,6 +9,7 @@ require.config({
         jquery: './lib/jquery',
         showTips: './lib/showTips',
         countTime: './lib/countTime',
+        upload: './lib/ajaxFileUpload',
         common: './lib/common'
     }
 })
