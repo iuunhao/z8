@@ -106,6 +106,9 @@ body {
 
 
 
+
+
+
 /* 自定义checkbox */
 
 .simuSelect {
@@ -146,6 +149,9 @@ body {
         height: 132px;
     }
 }
+
+
+
 
 
 
@@ -581,6 +587,9 @@ body {
 
 
 
+
+
+
 /* 翻页 */
 
 .page {
@@ -619,6 +628,9 @@ body {
         color: #fff;
     }
 }
+
+
+
 
 
 
@@ -1025,6 +1037,9 @@ body {
 
 
 
+
+
+
 /* 发布信息 */
 
 .release {
@@ -1299,7 +1314,7 @@ body {
         &.inline {
             display: inline;
         }
-        &.indent{
+        &.indent {
             padding-left: 5em;
             text-indent: -70px;
             line-height: 1.6;
@@ -1316,9 +1331,9 @@ body {
         height: 24px;
         line-height: 24px;
     }
-    &__pic{
+    &__pic {
         display: inline-block;
-        width:122px;
+        width: 122px;
         height: 122px;
         border: 1px solid #fafafa;
         margin-right: 10px;
@@ -1326,47 +1341,48 @@ body {
 }
 
 
-.article{
-    img{
+.article {
+    img {
         display: block;
         max-width: 100%;
         margin: 30px 0;
     }
 }
-.detail{
-    &__hd{
+
+.detail {
+    &__hd {
         margin-bottom: 50px;
     }
-    &__l{
+    &__l {
         float: left;
     }
-    &__r{
+    &__r {
         float: right;
     }
-    &__slideshow{
+    &__slideshow {
         display: inline-block;
         margin-right: 20px;
     }
-    &__info{
+    &__info {
         display: inline-block;
         vertical-align: top;
         max-width: 500px;
     }
-    &__tit{
+    &__tit {
         font-size: 14px;
         font-weight: bold;
-        color:#000;
+        color: #000;
         margin-bottom: 30px;
         line-height: 1.5;
     }
-    &__txt{
+    &__txt {
         margin-bottom: 10px;
         font-size: 14px;
     }
-    &__txtLabel{
+    &__txtLabel {
         display: inline-block;
     }
-    &__txtEm{
+    &__txtEm {
         display: inline-block;
         font-size: 24px;
         color: #ff1d3d;
@@ -1374,38 +1390,261 @@ body {
     }
 }
 
-.slideshow{
+.slideshow {
     width: 200px;
     height: 200px;
     position: relative;
     overflow: hidden;
-    &__imgs{
+    &__imgs {
         width: 600px;
         height: 200px;
     }
-    &__img{
+    &__img {
         display: block;
         width: 200px;
         height: 200px;
     }
-    &__dots{
+    &__dots {
         position: absolute;
         bottom: 10px;
         right: 10px;
     }
-    &__link{
+    &__link {
         float: left;
     }
-    &__dot{
+    &__dot {
         display: inline-block;
         width: 6px;
         height: 6px;
         background: #ccc;
-        &.active{
+        &.active {
             background: #3997FB;
         }
     }
 }
 
+.errorTips {
+    color: red;
+    text-align: center;
+    padding: 50px 0;
+}
 
-/* Home page */
+.screening {
+    width: 700px;
+    min-height: 500px;
+    &__nav {
+        display: table;
+        width: 100%;
+        background: #E5E7EB;
+    }
+    &__link {
+        display: table-cell;
+        text-align: center;
+        color: #333;
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+        &:hover,
+        &.active {
+            background: #3598fe;
+            color: #fff;
+        }
+    }
+    &__con {
+        padding: 30px 0;
+    }
+    &__item {}
+    &__tag {
+        display: inline-block;
+        white-space: nowrap;
+        border: 1px solid #333;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 1em;
+        color: #333;
+        margin-right: 10px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        &:hover,
+        &.active {
+            background: #3598fe;
+            color: #fff;
+            border-color: #3598fe;
+        }
+    }
+}
+
+.login {
+    height: 100%;
+    background: url(../images/login/bg.jpg) no-repeat center center;
+    background-size: cover;
+    &__main {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__logo {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .logo__img {
+        display: block;
+        margin: 0 auto;
+    }
+    &__form {
+        background: #fff;
+        background: rgba(255, 255, 255, .85);
+        padding: 50px 90px 30px;
+    }
+    &__title {
+        text-align: center;
+        font-size: 28px;
+        color: #2b2d3a;
+    }
+    &__item {
+        border-bottom: 1px solid #D2D5DB;
+        position: relative;
+    }
+    &__inp {
+        height: 72px;
+        width: 305px;
+        padding-left: 45px;
+        font-size: 16px;
+    }
+    &__inp--xs {
+        width: 194px;
+    }
+    &__verif {
+        font-size: 14px;
+        color: #2b2d3a;
+        width: 111px;
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 1px;
+            background: #D2D5DB;
+            height: 30px;
+            top: 50%;
+            margin-top: -15px;
+        }
+        &.gray {
+            color: #a0a0a0;
+        }
+    }
+    &__submit {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        background: #3997FB;
+        margin-top: 50px;
+    }
+    .icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__icon1 {
+        width: 27px;
+        height: 32px;
+        background: url(../images/login/i-1.png) no-repeat center center;
+        background-size: 100% 100%;
+    }
+    &__icon2 {
+        width: 20px;
+        height: 32px;
+        background: url(../images/login/i-2.png) no-repeat center center;
+        background-size: 100% 100%;
+    }
+    &__icon3 {
+        width: 24px;
+        height: 32px;
+        background: url(../images/login/i-3.png) no-repeat center center;
+        background-size: 100% 100%;
+    }
+    &__switch {
+        height: 100px;
+        position: relative;
+    }
+    &__switchLink {
+        &:before {
+            content: "";
+            display: block;
+            background-size: 100% 100%;
+        }
+        &:hover{
+            .login__tips{
+                display: block;
+            }
+        }
+        position: absolute;
+        bottom:0;
+        right:-60px;
+    }
+    &__tips {
+        background: #fff;
+        white-space: nowrap;
+        color: #2E3136;
+        font-size: 14px;
+        position: absolute;
+        width: 100px;
+        text-align: center;
+        padding: 10px 0;
+        right: -140px;
+        top:0;
+        display: none;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            left:-4px;
+            top:50%;
+            margin-top: -5px;
+            border-top: 5px solid transparent;
+            border-right: 5px solid #fff;
+            border-bottom: 5px solid transparent;
+        }
+        &:after{
+            font-size: 14px;
+        }
+    }
+    .login__icon--pwd{
+        &:before{
+            width: 20px;
+            height: 32px;
+            background: url(../images/login/i-2.png) no-repeat;
+        }
+        .login__tips{
+            &:after{
+                content: "密码登录"
+            }
+        }
+    }
+    .login__icon--sj{
+        &:before{
+            width: 24px;
+            height: 32px;
+            background: url(../images/login/i-3.png) no-repeat;
+        }
+        .login__tips{
+            &:after{
+                content: "验证码登录"
+            }
+        }
+    }
+}
+
+
+.none {
+    display: none;
+}
