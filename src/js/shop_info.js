@@ -31,18 +31,17 @@ require(['common'], function($) {
         return values;
     }
 
-    /** [删除] */
+    /** [删除动态] */
     $cBtnDele.on('click', function() {
         var $this = $(this),
             values = getCheckedValues();
 
         if (values.length == 0) {
-            s.alert('请选择要删除的商品');
+            s.alert('请选择要删除该动态');
             return false;
         }
 
-
-        if (!s.confirm('您确认要删除此商品么')) return false;
+        if (!s.confirm('您确认要删除此动态么')) return false;
 
         $.post('/delete', {
             ids: values
@@ -59,60 +58,5 @@ require(['common'], function($) {
         return false;
 
     });
-
-
-    /** [下架] */
-    $cBtnDown.on('click', function() {
-        var $this = $(this),
-            values = getCheckedValues();
-
-        if (values.length == 0) {
-            s.alert('请选择要下架的商品');
-            return false;
-        }
-
-        if (!s.confirm('您确认要下架此商品么')) return false;
-
-        $.post('/down', {
-            ids: values
-        }, function(response) {
-            $this.data('ready', true);
-            if (response.res == 1) {
-                var url = response.data.url;
-                if (url) window.location.href = url;
-            } else {
-                s.alert(response.msg);
-            }
-        }, 'json');
-
-        return false;
-
-    })
-
-    /** [上架] */
-    $cBtnUp.on('click', function() {
-        var $this = $(this),
-            values = getCheckedValues();
-
-        if (values.length == 0) {
-            s.alert('请选择要上架的商品');
-            return false;
-        }
-
-        if (!s.confirm('您确认要上架此商品么')) return false;
-        
-        $.post('/up', {
-            ids: values
-        }, function(response) {
-            if (response.res == 1) {
-                var url = response.data.url;
-                if (url) window.location.href = url;
-            } else {
-                s.alert(response.msg);
-            }
-        }, 'json');
-
-        return false;
-    })
 
 })

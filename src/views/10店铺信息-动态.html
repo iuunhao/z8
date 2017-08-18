@@ -111,20 +111,20 @@
                     <div class="check">
                         <label>
                             <div class="check__sel simuSelect">
-                                <input class="simuSelect__inp" type="checkbox" name="x2" id="" />
+                                <input class="simuSelect__inp" type="checkbox" name="x2" id="cSelectAll" />
                                 <i class="simuSelect__ico"></i>
                             </div>
                             <span class="check__txt">全选</span>
                         </label>
                         <div class="checkBtns">
-                            <a href="javascript:;" class="checkBtns__btn">删除</a>
+                            <a href="javascript:;" id="cBtnDele" class="checkBtns__btn">删除</a>
                         </div>
                     </div>
                 </div>
                 <!-- Selection screening E -->
 
                 <!-- Purchase information S -->
-                <div class="buys">
+                <div class="buys" id="cList">
                     <div class="buys__item buy">
                         <div class="buySel">
                             <label class="buySel__label">
@@ -180,7 +180,13 @@
         </div>
     </div>
     <!-- wrap E -->
-
+    <script src="../js/lib/require.js"></script>
+    <script>
+    require.config({
+        baseUrl: '../js',
+    })
+    </script>
+    <script src="../js/shop_info.js"></script>
 </body>
 
 </html>
