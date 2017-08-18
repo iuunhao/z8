@@ -12,6 +12,7 @@ require(['common'], function($) {
     $selectAll.on('click', function() {
         var checked = $(this).prop('checked');
         $checkboxs.prop('checked', checked);
+        return false;
     });
 
     /** [单选] */
@@ -19,6 +20,7 @@ require(['common'], function($) {
         var checked = $(this).prop('checked'),
             length = $list.find('input:checked').length;
         $selectAll.prop('checked', $checkboxs_length == length);
+        return false;
     });
 
     /** [getCheckedValues 获取选中的value值] */
@@ -53,6 +55,8 @@ require(['common'], function($) {
             }
         }, 'json');
 
+        return false;
+
     });
 
 
@@ -78,6 +82,8 @@ require(['common'], function($) {
             }
         }, 'json');
 
+        return false;
+
     })
 
     /** [上架] */
@@ -101,6 +107,7 @@ require(['common'], function($) {
             }
         }, 'json');
 
+        return false;
     })
 
 })
