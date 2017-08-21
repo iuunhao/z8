@@ -1,7 +1,7 @@
 @import '_base.css';
 
 @import '_common.css';
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -183,6 +183,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 头部工具栏 */
 
 .headTool {
@@ -254,6 +262,14 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -476,6 +492,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 主体 */
 
 .wrap {
@@ -484,6 +508,14 @@ $text: #2f2f3b;
     padding-bottom: 150rm;
     min-height: 100%;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -646,6 +678,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 头部导航 */
 
 .headMenu {
@@ -692,6 +732,14 @@ $text: #2f2f3b;
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -1059,6 +1107,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 清库特价 */
 
 .clearLibr {
@@ -1164,6 +1220,14 @@ $text: #2f2f3b;
         width: 100%;
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -1425,6 +1489,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 分类弹层 */
 
 .classPop {
@@ -1505,6 +1577,14 @@ $text: #2f2f3b;
         top: 0;
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -1715,6 +1795,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 购买 */
 
 .buy {
@@ -1795,6 +1883,14 @@ $text: #2f2f3b;
     height: 88rm;
     line-height: 88rm;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -1993,7 +2089,7 @@ $text: #2f2f3b;
     }
     .thumbnail {}
     .thumbnail__img {}
-    .thumbnailLink{
+    .thumbnailLink {
         background: #F7F7F7;
         display: block;
         margin-left: 30rm;
@@ -2217,6 +2313,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 交易 */
 
 .trading {
@@ -2330,6 +2434,14 @@ $text: #2f2f3b;
         font-size: 26pm;
     }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -2480,6 +2592,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 消息 */
 
 .msgList {
@@ -2492,9 +2612,9 @@ $text: #2f2f3b;
             border-bottom: none;
         }
     }
-	&__link{
-		display: block;
-	}
+    &__link {
+        display: block;
+    }
     .newMsg {
         .msgList__title {
             position: relative;
@@ -2635,6 +2755,14 @@ $text: #2f2f3b;
 
 
 
+
+
+
+
+
+
+
+
 /* 消息详情 */
 
 .articleBox {
@@ -2707,6 +2835,199 @@ $text: #2f2f3b;
 }
 
 
+
+
+
+
+
+
+
+
+/* 注册表单  */
+
+.formRegist {
+    background: #fff;
+    padding: 10rm 30rm 0;
+    overflow: hidden;
+    &__upimg {
+        position: relative;
+        padding-left: 32rm;
+    }
+    &__pic {
+        width: 70rm;
+        height: 70rm;
+        border-radius: 100%;
+        vertical-align: middle;
+        border-radius: 100%;
+        vertical-align: middle;
+    }
+    &__file{
+        position: absolute;
+        left:0;
+        top:0;
+        bottom:0;
+        right:0;
+        height: 88rm;
+        opacity: 0;
+        width: 100%;
+    }
+    &__item {
+        display: flex;
+        border-bottom: 1rm solid #F2F3F7;
+        height: 100rm;
+        font-size: 34pm;
+        color: #1d334a;
+        position: relative;
+        &.arrow {
+            &:after {
+                content: "";
+                background: url(../images/pulics/i-6.png) no-repeat;
+                background-size: 100% 100%;
+                width: 12rm;
+                height: 24rm;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+        }
+        &.gray {
+            input,
+            div {
+                color: #8290A5;
+            }
+        }
+        &.clear {
+            .formRegist__clear {
+                display: block;
+            }
+        }
+    }
+    &__clear {
+        position: absolute;
+        width: 30rm;
+        height: 30rm;
+        background: #D5DBE7;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        color: #fff;
+        text-align: center;
+        line-height: 30rm;
+        border-radius: 100%;
+        font-size: 20rm;
+        display: none;
+    }
+    &__inpBox {
+        flex: 1;
+        margin-right: 40rm;
+    }
+    &__inp {
+        font-size: 34pm;
+        color: #1d334a;
+        width: 100%;
+        height: 88rm;
+        padding-left: 32rm;
+    }
+    &__sel {
+        font-size: 34pm;
+        flex: 1;
+        margin-left: 32rm;
+        &:disabled {
+            color: #1d334a;
+        }
+    }
+    &__label {
+        width: 180rm;
+        line-height: 100rm;
+        height: 100rm;
+        font-size: 34pm;
+        color: #1d334a;
+        &:disabled {
+            color: #1d334a;
+        }
+    }
+    &__label--line {
+        border-right: 1rm solid #F2F3F7;
+    }
+    &__box {
+        flex: 1;
+        height: 100rm;
+        line-height: 100rm;
+        display: flex;
+    }
+    &__vericode {
+        width: 235rm;
+        color: #3598fe;
+        font-size: 34pm;
+        border-left: 1rm solid #F2F3F7;
+        text-align: center;
+        cursor: pointer;
+        &.gray {
+            color: #999;
+        }
+    }
+}
+
+.formError {
+    text-align: center;
+    font-size: 26pm;
+    color: #ff0012;
+    padding: 100rm 0;
+    font-weight: bold;
+}
+
+.formBtn {
+    display: block;
+    height: 88rm;
+    line-height: 88rm;
+    text-align: center;
+    color: #fff;
+    background: #3997FB;
+    font-size: 30pm;
+    margin: 0 30rm;
+    margin-top: 150rm;
+}
+
+.formRegistTit {
+    text-align: center;
+    font-size: 42pm;
+    color: #1d324a;
+    font-weight: bold;
+    padding: 100rm 0;
+}
+
+
+.head__change {
+    text-indent: 0;
+    font-size: 32pm;
+}
+
+.changeMsg {
+    margin-top: 120rm;
+    padding: 0;
+}
+
+.noEdit {
+    .formRegist__box {
+        margin-right: 30rm;
+        justify-content: flex-end;
+    }
+    .formRegist__txt {
+        text-align: right;
+        width: 400rm;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.head__editMsg {
+    text-indent: 0;
+    font-size: 32pm;
+    color: #3997FB;
+    text-align: right;
+}
 
 .none {
     display: none!important;
