@@ -1,16 +1,21 @@
-.clearfix {
-    *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-    display: table;
-    line-height: 0;
-    content: "";
-}
-.clearfix:after {
-    clear: both;
-}
-
 ul,li{
     list-style: none;
+}
+input,
+select {
+    border: none;
+    background: none;
+}
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
 }
