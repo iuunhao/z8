@@ -194,23 +194,18 @@
                 </ul>
                 <!-- orders E -->
                 <!-- page S -->
-                <div class="page">
-                    <a href="" class="page__btn page__prev already">上一页</a>
-                    <a href="" class="page__btn page__num active">1</a>
-                    <a href="" class="page__btn page__num">2</a>
-                    <a href="" class="page__btn page__num">3</a>
-                    <span class="page__interval">...</span>
-                    <a href="" class="page__btn page__num">4</a>
-                    <a href="" class="page__btn page__num">5</a>
-                    <a href="" class="page__btn page__num">888</a>
-                    <a href="" class="page__btn page__next">下一页</a>
+                <div class="masterPage">
+                    <a class="masterPage__btn masterPage__previous masterPage__btn--disable" href="javascript:;"> 上一页</a>
+                    <a class="masterPage__btn masterPage__btn--page masterPage__btn--active" href="javascript:;">1</a>
+                    <a class="masterPage__btn masterPage__btn--page" href="javascript:;">2</a>
+                    <a class="masterPage__btn masterPage__btn--page" href="javascript:;">3</a>
+                    <a class="masterPage__btn masterPage__next" href="javascript:;">下一页</a>
                 </div>
                 <!-- page E -->
             </div>
             <!-- main E -->
         </div>
     </div>
-
     <!-- pop S -->
     <div id="orderInfoConfirm" class="pop none" style="display: none">
         <div class="pop__mask"></div>
@@ -257,13 +252,12 @@
         </div>
     </div>
     <!-- pop E -->
-
     <!-- wrap E -->
     <script src="../js/lib/require.js"></script>
     <script>
-        require.config({
-            baseUrl: '../js',
-        })
+    require.config({
+        baseUrl: '../js',
+    })
     </script>
     <script src="../js/order_current.js"></script>
 </body>

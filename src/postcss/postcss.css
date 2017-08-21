@@ -1645,6 +1645,46 @@ body {
 }
 
 
+.masterPage {
+    text-align: center;
+    padding: 100px 0;
+    .masterPage__btn {
+        display: inline-block;
+        border: 1px solid #cacaca;
+        height: 22px;
+        line-height: 22px;
+        color: #333;
+        font-size: 14px;
+        padding: 0 10px;
+        text-align: center;
+        margin: 0 5px;
+        &:hover {
+            background: #528AFC;
+            border-color: #528AFC;
+            color: #fff;
+        }
+    }
+    .masterPage__btn--active {
+        border-color: transparent;
+        cursor: default;
+        &:hover {
+            background: none;
+            border-color: transparent;
+            color: #333;
+        }
+    }
+    .masterPage__btn--disable {
+        color: #D5D5D5;
+        cursor: default;
+        &:hover {
+            background: none;
+            border: 1px solid #cacaca;
+            color: #D5D5D5;
+        }
+    }
+}
+
+
 .none {
     display: none;
 }
