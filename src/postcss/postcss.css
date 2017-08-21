@@ -1684,6 +1684,13 @@ body {
     }
 }
 
+.noDataTips{
+    text-align: center;
+    font-size: 20px;
+    padding: 100px 0;
+    color:#484848;
+}
+
 
 .none {
     display: none;
