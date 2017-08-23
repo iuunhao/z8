@@ -28,29 +28,31 @@ require(['common'], function($) {
             var value = $(this).val();
             values.push(value);
         })
-        return values;
+        return values.join(',');
     }
+
 
     /** [删除] */
     $cBtnDele.on('click', function() {
         var $this = $(this),
-            values = getCheckedValues();
+            values = getCheckedValues(),
+            $checkeds = $list.find('input:checked').parents('li');
 
         if (values.length == 0) {
             s.alert('请选择要删除的商品');
             return false;
         }
 
-
         if (!s.confirm('您确认要删除此商品么')) return false;
 
-        $.post('/delete', {
+        $.post('/Sku/dodelsku', {
             ids: values
         }, function(response) {
             $this.data('ready', true);
             if (response.res == 1) {
-                var url = response.data.url;
-                if (url) window.location.href = url;
+                $checkeds.animate({opacity: 0}, function() {
+                    $(this).remove();
+                })
             } else {
                 s.alert(response.msg);
             }
@@ -60,59 +62,53 @@ require(['common'], function($) {
 
     });
 
-
-    /** [下架] */
-    $cBtnDown.on('click', function() {
+    function goodsUpAndDown(sale_status) {
         var $this = $(this),
-            values = getCheckedValues();
+            tips = '', // 删除提示
+            errorTips = '', // 选择提示
+            ids = getCheckedValues(),
+            $checkeds = $list.find('input:checked').parents('li');
+        sale_status = sale_status || 0;
 
-        if (values.length == 0) {
-            s.alert('请选择要下架的商品');
+        switch (sale_status) {
+            case 0:
+                errorTips = '请选择要下架的商品';
+                tips = '您确认要下架此商品么';
+                break;
+            case 1:
+                errorTips = '请选择要上架的商品';
+                tips = '您确认要上架此商品么';
+                break;
+        }
+
+        if (ids.length == 0) {
+            s.alert(errorTips);
             return false;
         }
 
-        if (!s.confirm('您确认要下架此商品么')) return false;
+        if (!s.confirm(tips)) return false;
 
-        $.post('/down', {
-            ids: values
+        $.post('/Sku/changesalestatus', {
+            sale_status: sale_status, // 0下，1上
+            ids: ids
         }, function(response) {
-            $this.data('ready', true);
             if (response.res == 1) {
-                var url = response.data.url;
-                if (url) window.location.href = url;
+                $checkeds.animate({opacity: 0}, function() {
+                    $(this).remove();
+                })
             } else {
                 s.alert(response.msg);
             }
         }, 'json');
-
-        return false;
-
-    })
+    }
 
     /** [上架] */
+    $cBtnDown.on('click', function() {
+        goodsUpAndDown.call($(this), 0);
+    })
+
     $cBtnUp.on('click', function() {
-        var $this = $(this),
-            values = getCheckedValues();
-
-        if (values.length == 0) {
-            s.alert('请选择要上架的商品');
-            return false;
-        }
-
-        if (!s.confirm('您确认要上架此商品么')) return false;
-        
-        $.post('/up', {
-            ids: values
-        }, function(response) {
-            if (response.res == 1) {
-                var url = response.data.url;
-                if (url) window.location.href = url;
-            } else {
-                s.alert(response.msg);
-            }
-        }, 'json');
-
-        return false;
+        goodsUpAndDown.call($(this), 1);
     })
 
 })

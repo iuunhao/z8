@@ -94,18 +94,18 @@
                             <label>
                                 <span class="form__label">原 密 码：</span>
                                 <div class="form__group form--md">
-                                    <input type="text" class="form__inp" value="" name="" id="" />
+                                    <input type="text" class="form__inp" value="" name="" id="nowPass" />
                                 </div>
                             </label>
                         </div>
-                        <p class="form__error">原密码错误</p>
+                        <p class="form__error none">原密码错误</p>
                     </li>
                     <li class="form__item">
                         <div class="form__group">
                             <label>
                                 <span class="form__label">新 密 码：</span>
                                 <div class="form__group form--md">
-                                    <input type="text" class="form__inp" value="" name="" id="" />
+                                    <input type="text" class="form__inp" value="" name="" id="newPass" />
                                 </div>
                             </label>
                         </div>
@@ -115,19 +115,19 @@
                             <label>
                                 <span class="form__label">再次输入：</span>
                                 <div class="form__group form--md">
-                                    <input type="text" class="form__inp" value="" name="" id="" />
+                                    <input type="text" class="form__inp" value="" name="" id="rePass" />
                                 </div>
                             </label>
                         </div>
-                        <p class="form__error">两次输入的密码不一致</p>
+                        <p class="form__error none">两次输入的密码不一致</p>
                     </li>
                     <li class="form__item submit">
                         <div class="form__group">
                             <label>
                                 <span class="form__label"></span>
                                 <div class="form__group">
-                                    <a href="" class="btn ">确定</a>
-                                    <a href="" class="btn btn__line">取消</a>
+                                    <a href="javascript:;" id="btnConfirm" class="btn ">确定</a>
+                                    <a href="javascript:;" class="btn btn__line">取消</a>
                                 </div>
                             </label>
                         </div>
@@ -137,6 +137,13 @@
         </div>
     </div>
     <!-- wrap E -->
+    <script src="../js/lib/require.js"></script>
+    <script>
+        require.config({
+            baseUrl: '../js',
+        })
+    </script>
+    <script src="../js/update_password.js"></script>
 </body>
 
 </html>
