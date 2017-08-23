@@ -1274,11 +1274,19 @@ body {
     background: #fff;
     padding: 30px;
     padding-bottom: 300px;
-    &__title {
+    &__hd{
         border-bottom: 1px solid #EFF0F3;
         padding-bottom: 30px;
         margin-bottom: 30px;
+    }
+    .btn__black{
+        height: 30px;
+        line-height: 30px;
+    }
+    &__title {
         font-size: 16px;
+        height: 30px;
+        line-height: 30px;
     }
     &__item {
         margin-bottom: 30px;
@@ -1763,6 +1771,12 @@ body {
 
 
 
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
 
 .none {
     display: none;
