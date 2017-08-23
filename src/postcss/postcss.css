@@ -1086,8 +1086,11 @@ body {
             color: #FD2A45;
             position: absolute;
             left: 10px;
-            top:0;
-            font-size: 12px;
+            font-size: 14px;
+            top:50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            font-family: 'microsoft yahei';
         }
     }
     &__group {
