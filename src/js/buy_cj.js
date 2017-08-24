@@ -20,4 +20,32 @@ require(['common', 'countTime'], function($, countTime) {
             }, 'json');
         }
     })
+
+    /** 筛选 */
+    var sx = {
+        hidePop: function() {
+            this.$shaixuanpop.addClass('none');
+            return false;
+        },
+        showPop: function() {
+            this.$shaixuanpop.removeClass('none');
+            return false;
+        },
+        shaixuanHandler: function() {
+            this.showPop();
+            return false;
+        },
+        init: function() {
+            this.$shaixuan = $('#shaixuan'),
+            this.$shaixuan.on('click', this.shaixuanHandler.bind(this));
+
+
+            this.$shaixuanpop = $('#shaixuanpop');
+            this.$shaixuanpop.on('click', '.pop__close', this.hidePop.bind(this))
+        }
+    };
+    sx.init();
+
+
+
 })
