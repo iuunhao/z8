@@ -162,7 +162,7 @@ select{
         text-align: center;
         border: 1px solid #323251;
         background: #fff;
-        font-size: 24pm;
+        font-size: 26pm;
         &.active{
             background: #3997FB;
             color:#fff;
