@@ -132,15 +132,43 @@ select{
     background: #3997FB;
     font-size: 30pm;
     margin: 0 30rm;
-    margin-top: 150rm;
+    margin-top: 50rm;
+    margin-bottom: 50px;
 }
 
+.formError{
+    text-align: center;
+    font-size: 24pm;
+    color:#FD2A45;
+}
 
 /* 注册表单  */
 .formRegist{
     background: #fff;
     padding: 10rm 30rm 0;
     overflow: hidden;
+    &__tags{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30rm 0;
+    }
+    &__tagItem{
+        flex: 0 0 20%;
+        margin: 0 20rm 20rm 0;
+        width: 0;
+        color:#323251;
+        height: 40pm;
+        line-height: 40pm;
+        text-align: center;
+        border: 1px solid #323251;
+        background: #fff;
+        font-size: 24pm;
+        &.active{
+            background: #3997FB;
+            color:#fff;
+            border-color: transparent;
+        }
+    }
     &__item{
         display: flex;
         border-bottom: 1rm solid #F2F3F7;
