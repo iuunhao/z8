@@ -24,34 +24,50 @@
             <h2 class="formHeader__title">供货商注册</h2>
             <a href="" class="formHeader__menu none">发布</a>
         </header>
-        <div class="formTips">
+      <!--   <div class="formTips">
             设置密码
-        </div>
+        </div> -->
         <section class="formRegist">
-            <div class="formRegist__item gray">
-                <div class="formRegist__label formRegist__label--line" >手机号码</div>
+            <div class="formRegist__item arrow">
+                <div class="formRegist__label">国家/地区</div>
+                <div class="formRegist__box">
+                    <select id="countries" disabled class="formRegist__sel">
+                        <option value="1">中国</option>
+                    </select>
+                </div>
+            </div>
+            <div class="formRegist__item">
+                <input class="formRegist__label formRegist__label--line" type="text" disabled name="" value="+86">
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="tel" class="formRegist__inp" name="" disabled value="138012312391" placeholder="手机号" id="">
+                        <input type="tel" class="formRegist__inp" name="" value="" placeholder="手机号" id="">
                     </div>
                 </div>
             </div>
-
-            <div class="formRegist__item clear">
-                <a href="javasript:;" class="clearBtn">ㄨ</a>
-                <div class="formRegist__label formRegist__label--line" >输入密码</div>
+            <div class="formRegist__item">
+                <div class="formRegist__label formRegist__label--line" for="vericode">验证码</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="password" class="formRegist__inp" name=""  value="138012312391" placeholder="手机号" id="">
+                        <input type="tel" name="" class="formRegist__inp " value="" placeholder="验证码" id="vericode">
+                    </div>
+                    <a href="javascript:;" class="formRegist__vericode gray">获取验证码</a>
+                </div>
+            </div>
+            <div class="formRegist__item clear">
+                <a href="javasript:;" class="clearBtn">ㄨ</a>
+                <div class="formRegist__label formRegist__label--line">输入密码</div>
+                <div class="formRegist__box">
+                    <div class="formRegist__inpBox">
+                        <input type="password" class="formRegist__inp" name="" value="138012312391" placeholder="手机号" id="">
                     </div>
                 </div>
             </div>
             <div class="formRegist__item clear">
                 <a href="javasript:;" class="clearBtn">ㄨ</a>
-                <div class="formRegist__label formRegist__label--line" >再次输入</div>
+                <div class="formRegist__label formRegist__label--line">再次输入</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="password" class="formRegist__inp" name=""  value="138012312391" placeholder="手机号" id="">
+                        <input type="password" class="formRegist__inp" name="" value="138012312391" placeholder="手机号" id="">
                     </div>
                 </div>
             </div>
@@ -62,19 +78,19 @@
         <section class="formRegist">
             <div class="formRegist__item clear">
                 <a href="javasript:;" class="clearBtn">ㄨ</a>
-                <div class="formRegist__label formRegist__label--line" >商家名称</div>
+                <div class="formRegist__label formRegist__label--line">商家名称</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="password" class="formRegist__inp" name=""  value="138012312391" placeholder="手机号" id="">
+                        <input type="text" class="formRegist__inp" name="" value="" placeholder="商家名称" id="">
                     </div>
                 </div>
             </div>
             <div class="formRegist__item clear">
                 <a href="javasript:;" class="clearBtn">ㄨ</a>
-                <div class="formRegist__label formRegist__label--line" >商家性质</div>
+                <div class="formRegist__label formRegist__label--line">商家性质</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="password" class="formRegist__inp" name=""  value="138012312391" placeholder="手机号" id="">
+                        <input type="text" class="formRegist__inp" name="" value="" placeholder="商家性质" id="">
                     </div>
                 </div>
             </div>
