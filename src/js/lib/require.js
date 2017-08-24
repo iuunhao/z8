@@ -10,6 +10,7 @@ require.config({
         showTips: './lib/showTips',
         countTime: './lib/countTime',
         upload: './lib/ajaxFileUpload',
+        simpleTab: './lib/simpleTab',
         common: './lib/common'
     }
 })
