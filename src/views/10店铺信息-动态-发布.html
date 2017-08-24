@@ -124,7 +124,7 @@
                             <label>
                                 <span class="form__label"></span>
                                 <div class="form__group">
-                                    <a href="" class="btn ">发布</a>
+                                    <a href="javascript:;" id="btnPublish" class="btn ">发布</a>
                                     <a href="" class="btn btn__line">取消</a>
                                 </div>
                             </label>
@@ -135,6 +135,13 @@
         </div>
     </div>
     <!-- wrap E -->
+    <script src="../js/lib/require.js"></script>
+    <script>
+        require.config({
+            baseUrl: '../js',
+        })
+    </script>
+    <script src="../js/shop_publish_news.js"></script>
 </body>
 
 </html>
