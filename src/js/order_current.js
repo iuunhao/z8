@@ -11,11 +11,14 @@ require(['common'], function($) {
     function orderDelete() {
         var $button = $(this),
             $parent = $button.parents('li'),
+            pid = $parent.attr('pid'),
             status = s.confirm('是否确认删除此订单！');
 
         if (!status) return false;
 
-        $.post('/orderDelete', {}, function(response) {
+        $.post('/Order/delorder', {
+            id: pid
+        }, function(response) {
             if (response.res == 1) {
                 $parent.animate({ opacity: 0 }, function() {
                     $(this).remove();
@@ -32,14 +35,16 @@ require(['common'], function($) {
     function orderCancel() {
         var $button = $(this),
             $parent = $button.parents('li'),
+            pid = $parent.attr('pid'),
             status = s.confirm('是否确认取消此订单！');
 
         if (!status) return false;
 
-        $.post('/orderCancel', {}, function(response) {
+        $.post('/Order/cancelorder', {
+            id: pid,
+        }, function(response) {
             if (response.res == 1) {
-                var url = response.data.url;
-                if (url) window.location.href = url;
+                window.location.reload();                
             } else {
                 s.alert(response.msg);
             }
@@ -99,7 +104,8 @@ require(['common'], function($) {
 
     /** [confirmOrderComplete 确认订单完成] */
     function confirmOrderComplete() {
-        var total = $.trim($orderInfoConfirm.find('[pop=total]').val()),
+        var pid = $(this).parents('li').attr('pid'),
+            total = $.trim($orderInfoConfirm.find('[pop=total]').val()),
             money = $.trim($orderInfoConfirm.find('[pop=money]').val());
 
         if (total == '') {
@@ -122,14 +128,14 @@ require(['common'], function($) {
             return false;
         }
 
-        $.post('/', {
-            money: money,
-            total: total
+        $.post('/Order/confirmorder', {
+            id: pid,
+            confirm_amount: money,
+            confirm_num: total
         }, function(response) {
             if (response.res == 1) {
                 hidePop();
-                var url = response.data.url;
-                if (url) window.location.href = url;
+                window.location.reload();                
             } else {
                 showError(response.msg);
             }

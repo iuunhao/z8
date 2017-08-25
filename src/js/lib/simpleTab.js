@@ -1,5 +1,5 @@
 define(['simpleTab'], function() {
-    var $ = require('zepto');
+    var $ = require('jquery');
 
     $.tabs = function(wrap, options) {
         if (!wrap) return null;

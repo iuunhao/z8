@@ -4,7 +4,7 @@ require(['common'], function($) {
             /** [showError 显示错误] */
             showError: function($dom, str) {
                 var $error = $dom.parents('li').find('.form__error');
-                if($error.length == 0) return false;
+                if ($error.length == 0) return false;
                 $error.html(str);
                 $error.show(str);
                 $error.css('opacity', 1);
@@ -46,24 +46,29 @@ require(['common'], function($) {
                 return true;
             },
             /** [updateHandler 更新密码] */
-            updateHandler: function() {
+            updateHandler: function(e) {
+                var $button = $(e.target);
                 if (!this.checkForm()) return false;
 
-                $.post('/updatePassword', {
-                    nowPass: this.nowPass.val(),
-                    newPass: this.newPass.val(),
-                    rePass: this.rePass.val()
+                if ($button.data('ready') === undefined) $button.data('ready', true);
+                if ($button.data('ready') === false) return false;
+                $button.data('ready', false);
+
+                $.post('/Shop/changepwd', {
+                    old_pwd: this.nowPass.val(),
+                    new_pwd: this.newPass.val(),
+                    re_new_pwd: this.rePass.val()
                 }, function(response) {
-                    if(response == 1) {
-
-                    } else {
-
+                    $button.data('ready', true);
+                    s.alert(response.msg);
+                    if (response.res == 1) {
+                        window.history.go(-1);
                     }
                 }, 'json');
             },
             init: function() {
                 this.nowPass = $('#nowPass');
-                this.newPass = $('#nowPass');
+                this.newPass = $('#newPass');
                 this.rePass = $('#rePass');
 
                 this.btnConfirm = $('#btnConfirm');
