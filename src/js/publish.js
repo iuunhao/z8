@@ -79,9 +79,8 @@ require(['showTips'], function(showTips, LoadMore) {
         removeImage: function(e) {
             var $button = $(e.target),
                 that = this,
-                $parent = $button.parents('li');
+                $parent = $button.parents('.fileImgBox');
             $id = $parent.attr('_id');
-
             $parent.animate({ opacity: 0 }, function() {
                 $(this).remove();
                 that.removeImageInput($id);
@@ -158,6 +157,25 @@ require(['showTips'], function(showTips, LoadMore) {
         submitHandler: function() {
             if (!this.checkForm()) return false;
         },
+        selectProTypeHandler: function(e) {
+            var $button = $(e.target),
+                str = '',
+                that = this;
+            this.proCategory.find('option:gt(0)').remove();
+            $.post('/Sku/getchildcate', {
+                parent_id: $button.val()
+            }, function(response) {
+                if (response.res == 1) {
+                    var info = response.info;
+                    $.each(info, function(index, item) {
+                        str += '<option value="' + item.id + '">' + item.name + '</option>';
+                    });
+                    this.proCategory.append(str);
+                } else {
+                    s.alert(response.msg);
+                }
+            }, 'json');
+        },
         init: function() {
 
             this.loading = $('#loading');
@@ -170,9 +188,11 @@ require(['showTips'], function(showTips, LoadMore) {
 
             /** @type {[Object]} [产品标签] */
             this.proLabel = $('#proLabel');
+            this.proLabel.on('change', this.selectProTypeHandler.bind(this))
 
             /** @type {[Object]} [产品分类] */
             this.proCategory = $('#proCategory');
+
 
             /** @type {[Object]} [交货日期] */
             this.proDate = $('#proDate');
@@ -203,6 +223,8 @@ require(['showTips'], function(showTips, LoadMore) {
              * 删除图片
              */
             this.imgLists.on('click', '.del', this.removeImage.bind(this));
+
+
         }
     };
 

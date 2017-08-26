@@ -23,14 +23,15 @@
         <h2 class="head__title">供货商注册</h2>
     </div>
     <section class="wrap changeMsg">
+    <form action="" id="cForm">
         <section class="formRegist">
             <div class="formRegist__item">
                 <div class="formRegist__label">头像</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
                         <div class="formRegist__upimg">
-                            <input type="file" class="formRegist__file" name="">
-                            <img class="formRegist__pic" src="../images/temp/img4.jpg" alt="">
+                            <input type="file" class="formRegist__file" name="" id="uploadHead">
+                            <img class="formRegist__pic" id="imgHead" src="../images/temp/img4.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
                 <div class="formRegist__label">用户名</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="text" class="formRegist__inp" name="" value="138012312391" placeholder="手机号" id="">
+                        <input type="text" class="formRegist__inp" name="" value="138012312391" placeholder="手机号" id="relName">
                     </div>
                 </div>
             </div>
@@ -49,7 +50,7 @@
                 <div class="formRegist__label">我的店铺</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="text" class="formRegist__inp" name="" value="大望路水管店" placeholder="手机号" id="">
+                        <input type="text" class="formRegist__inp" name="" value="大望路水管店" placeholder="手机号" id="shopName">
                     </div>
                 </div>
             </div>
@@ -58,7 +59,7 @@
                 <div class="formRegist__label">电话</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="text" class="formRegist__inp" name="" value="18610996127" placeholder="手机号" id="">
+                        <input type="text" class="formRegist__inp" name="" value="18610996127" placeholder="手机号" id="mobile">
                     </div>
                 </div>
             </div>
@@ -67,13 +68,23 @@
                 <div class="formRegist__label">收件地址</div>
                 <div class="formRegist__box">
                     <div class="formRegist__inpBox">
-                        <input type="text" class="formRegist__inp" name="" value="北京市朝阳区建国路106号" placeholder="手机号" id="">
+                        <input type="text" class="formRegist__inp" name="" value="北京市朝阳区建国路106号" placeholder="手机号" id="address">
                     </div>
                 </div>
             </div>
         </section>
         <a href="" class="formBtn">修 改</a>
     </section>
+    </form>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script src="../js/ajaxfileupload.js"></script>
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/shop_card_edit.js"></script>
 </body>
 
 </html>

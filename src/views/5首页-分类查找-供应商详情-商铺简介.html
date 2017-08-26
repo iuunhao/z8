@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="userMarkBox">
-                    <a class="userMark userCard" href="">名片</a>
+                    <a id="cardBtn" class="userMark userCard" href="javascript:;">名片</a>
                 </div>
             </div>
             <p class="supplier__desc">本店所有转接口类型商品8.8折大促销，欢迎选购</p>
@@ -97,7 +97,7 @@
         </div>
     </div>
     <!-- card S -->
-    <div class="cardWrap">
+    <div id="cardPop" class="cardWrap none">
         <div class="card">
             <div class="card__banner">
                 <img class="card__img" src="../images/temp/img3.png" alt="">
@@ -127,6 +127,13 @@
         </div>
     </div>
     <!-- card E -->
+    <script src="../js/require.js"></script>
+    <script>
+    require.config({　　　　
+        baseUrl: "../js"　　
+    });
+    </script>
+    <script src="../js/shop_info.js"></script>
 </body>
 
 </html>

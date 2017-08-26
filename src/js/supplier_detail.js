@@ -1,4 +1,4 @@
-require(['zepto', 'showTips', 'simpleLoadMore'], function($, showTips, LoadMore) {
+require(['zepto', 'showTips', 'simpleLoadMore', 'showCard'], function($, showTips, LoadMore, showCard) {
     var $wrap = $('#findProductList');
     var more = new LoadMore($wrap, {
         url: '/',

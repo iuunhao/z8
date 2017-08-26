@@ -1,19 +1,4 @@
-require(['zepto', 'showTips', 'simpleLoadMore', 'showCard'], function($, showTips, LoadMore, showCard) {
-    var $wrap = $('#dynamic');
-    var more = new LoadMore($wrap, {
-        url: '/',
-        params: {
-            all: 1,
-            sort: 2
-        },
-        onScrollBottom: function(response) {
-            var $html = this.wrap.html();
-            $html += response.data.list;
-            this.wrap.html($html);
-        }
-    });
-
-
+define(['zepto'], function($) {
     var card = {
         showPop: function() {
             this.cardPop.removeClass('none')
@@ -33,4 +18,5 @@ require(['zepto', 'showTips', 'simpleLoadMore', 'showCard'], function($, showTip
         }
     };
     card.init();
+    return card;
 });

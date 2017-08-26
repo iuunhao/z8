@@ -22,7 +22,6 @@ require(['zepto', 'showTips', 'simpleLoadMore'], function($, showTips, LoadMore)
         $this.addClass('active').siblings('a').removeClass('active');
         params[name] = $this.val();
         more.setParams(params);
-
         changeTypes($this.attr('type'));
     });
 
