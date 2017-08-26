@@ -66,7 +66,7 @@ require(['zepto', 'showTips'], function($, showTips) {
             if (!this.readyCode) return false;
             this.readyCode = false;
 
-            $.post('/sendKeyCode', {
+            $.post('/register/getsmscode', {
                 phone: this.phone.val()
             }, function(response) {
                 if (response.res == 1) {
