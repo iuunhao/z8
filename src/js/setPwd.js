@@ -140,7 +140,7 @@ require(['zepto', 'showTips'], function($, showTips) {
              */
             if (!this.readySubmit) return false;
 
-            $.post('/login', this.form.serializeArray(), function(response) {
+            $.post('/register/supplier', this.form.serializeArray(), function(response) {
                 this.readySubmit = true;
                 if (response.res == 1) {
                     var url = response.data.url;
