@@ -36,6 +36,21 @@ require(['zepto', 'showTips'], function($, showTips) {
 
             return true;
         },
+        checkShop: function() {
+            var shopName = $.trim(this.shopName.val()),
+                shopType = $.trim(this.shopType.val());
+
+            if (shopName == '') {
+                this.showTips('请输入商家名称');
+                return false;
+            }
+
+            if (shopType == '') {
+                this.showTips('请输入商家性质');
+                return false;
+            }
+            return true;
+        },
         /**
          * 倒计时
          */
@@ -92,7 +107,7 @@ require(['zepto', 'showTips'], function($, showTips) {
          * [loginFunc 点击注册触发事件]
          */
         loginFunc: function(e) {
-            if (!this.checkPhone() || !this.checkKeyCode()) return false;
+            if (!this.checkPhone() || !this.checkKeyCode() || !this.checkShop()) return false;
 
             /**
              * 防止连击
@@ -109,6 +124,10 @@ require(['zepto', 'showTips'], function($, showTips) {
                 }
             }.bind(this), 'json');
         },
+        clearInputHandler: function(e) {
+            var $button = $(e.target);
+            $button.parents('.formRegist__item').find('input').val('');
+        },
         init: function() {
             /**
              * [button 注册按钮]
@@ -124,6 +143,8 @@ require(['zepto', 'showTips'], function($, showTips) {
              * [keyCode 验证码]
              */
             this.keyCode = $('#cKeyCode');
+            this.shopName = $('#shopName');
+            this.shopType = $('#shopType');
 
             /**
              * [btnCode 获取验证码按钮]
@@ -134,6 +155,7 @@ require(['zepto', 'showTips'], function($, showTips) {
              * [form 表单]
              */
             this.form = $('#cForm');
+            this.form.on('click', '.clearBtn', this.clearInputHandler.bind(this))
 
             this.readyCode = true;
             this.readySubmit = true;
