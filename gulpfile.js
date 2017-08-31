@@ -228,7 +228,7 @@ gulp.task("MOBILE_CSS", function() {
         .pipe(gulp.dest(PATHS.CSS))
         .pipe(reload({ stream: true }));
 });
-    
+
 // 监听
 gulp.task("TASK_WATCH", function() {
     gulp
