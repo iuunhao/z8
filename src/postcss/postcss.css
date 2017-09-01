@@ -1205,7 +1205,7 @@ $text: #2f2f3b;
         display: block;
     }
     &__item {
-        flex: 1;
+        flex: 0 0 33%;
         margin-right: 15rm;
         &:last-child {
             margin-right: 0;
