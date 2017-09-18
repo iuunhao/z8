@@ -618,7 +618,7 @@ $text: #2f2f3b;
         display: block;
         width: 10rm;
         height: 8rm;
-        background: #fff;
+        background: #aaa;
         margin: 0 5rm;
         &.active {
             background: #3997FB;
