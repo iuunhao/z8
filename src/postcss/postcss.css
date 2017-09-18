@@ -592,7 +592,7 @@ $text: #2f2f3b;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #000;
+        background: #fff;
         height: 300rm;
     }
     &__link {
