@@ -23,8 +23,14 @@ const Z = {
 
     },
     selectPlan() {
-        var $cur = this.wrap.find(`.chooseHead__btn.${this.curTabName}`);
+        var $cur = this.wrap.find(`.chooseHead__btn.${this.curTabName}`),
+            $val = this.wrap.find('.stylesTag.stylesTag--active').attr('value');
+
+        if($val === undefined) $val = '';
+
+        
         this.plan = $cur.attr('type');
+
 
         /**
          * [if 自己装]
@@ -49,9 +55,9 @@ const Z = {
         }
 
 
-        this.wrap.find('.jsPlanValue').val('')
+        this.wrap.find('.jsPlanValue').val($val);
         this.wrap.find('.jsMainHue').val('')
-        this.wrap.find('.stylesTag--active').removeClass('stylesTag--active');
+        // this.wrap.find('.stylesTag--active').removeClass('stylesTag--active');
         this.wrap.find('.color--active').removeClass('color--active');
         this.wrap.find('.jsPlanType').val(this.plan);
 
@@ -66,9 +72,10 @@ const Z = {
      */
     selectTagFunc(e) {
         var $button = $(e.target),
+            plan_id = $button.attr('_plan'),
             cname = 'stylesTag--active',
             $value = $button.attr('value');
-        $button.addClass(cname).siblings('a').removeClass(cname);
+        $button.addClass(cname).siblings('a[_plan=' + plan_id + ']').removeClass(cname);
         $button.siblings('input[type=hidden]').val($value);
     },
     /**
@@ -125,7 +132,7 @@ const Z = {
                 return false;
             }
         }
-        
+
         return true;
     },
     /**
@@ -142,6 +149,28 @@ const Z = {
             if (response.res == 1) {
                 googleBrower.CallUE4();
                 window.location.href = '/';
+            } else {
+                this.showError(response.msg);
+            }
+        }, 'json');
+    },
+    selectStyles(e) {
+        var $button = $(e.target),
+            $val = $button.attr('value');
+
+        if ($button.hasClass('stylesTag--active')) return false;
+
+        $.post('/UserHouse/getmaincolorbystyle', {
+            style: $val
+        }, (response) => {
+            if (response.res == 1) {
+                var info = response.info,
+                    str = '';
+                info.forEach((item) => {
+                    str += `<a value="${item.id}" class="color__item" style="background: ${item.bg_color};" href="javascript:;"></a>`;
+                });
+                str += `<input type="hidden" class="jsMainHue" name="theme_id" value="">`;
+                this.colors.html(str);
             } else {
                 this.showError(response.msg);
             }
@@ -181,6 +210,8 @@ const Z = {
          */
         this.zijizhuang = this.wrap.find('.stylesTag[_plan=1]');
         this.zhinengzhuang = this.wrap.find('.stylesTag[_plan=2]');
+        this.colors = this.wrap.find('.colors');
+        this.zhinengzhuang.on('click', this.selectStyles.bind(this));
 
 
         /**
